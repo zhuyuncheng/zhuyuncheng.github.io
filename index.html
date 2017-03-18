@@ -45,6 +45,26 @@
 
   <div class="loader"></div>
 
+  <!--[if (lt IE 9) | IE 9]>
+    <div class="ie-message-block">
+      <div class="container">
+        <div class="wrapper">
+          <div class="clearfix"><i class="fa fa-exclamation-triangle f-left"></i><b>Attention!</b> This page may   not display correctly. You are using an outdated version of Internet Explorer. For a faster, safer browsing experience.<a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6-countdown-bannercode" class="button button-type-3 button-grey-light f-right" target="-blank">Update Now!</a></div>
+        </div>
+      </div>
+    </div>
+  <![endif]-->
+
+  <!--cookie-->
+  <!-- <div class="cookie">
+          <div class="container">
+            <div class="clearfix">
+              <span>Please note this website requires cookies in order to function correctly, they do not store any specific information about you personally.</span>
+              <div class="f-right"><a href="#" class="button button-type-3 button-orange">Accept Cookies</a><a href="#" class="button button-type-3 button-grey-light">Read More</a></div>
+            </div>
+          </div>
+        </div>-->
+
   <!-- - - - - - - - - - - - - - Wrapper - - - - - - - - - - - - - - - - -->
 
   <div id="wrapper" class="wrapper-container">
@@ -55,7 +75,7 @@
 
     <!-- - - - - - - - - - - - - - Header - - - - - - - - - - - - - - - - -->
 
-    <header id="header">
+    <header id="header" class="header">
 
       <!-- top-header -->
 
@@ -77,22 +97,7 @@
 
                 <nav id="main-navigation" class="main-navigation">
                   <ul id="menu" class="clearfix">
-                    <li class="current dropdown"><a href="#">Home</a>
-                      <!--sub menu-->
-                      <div class="sub-menu-wrap">
-                        <ul>
-                          <li class="current"><a href="index.html">Home 1</a></li>
-                          <li><a href="home_2.html">Home 2</a></li>
-                          <li><a href="home_3.html">Home 3</a></li>
-                          <li><a href="home_4.html">Home 4</a></li>
-                          <li><a href="home_5.html">Home 5</a></li>
-                          <li><a href="home_6.html">Home 6</a></li>
-                          <li><a href="home_7.html">Home 7</a></li>
-                          <li><a href="home_8.html">Home 8</a></li>
-                          <li><a href="home_9.html">Home 9</a></li>
-                          <li><a href="home_10.html">Home 10</a></li>
-                        </ul>
-                      </div>
+                    <li class="current"><a href="#">Home</a>
                     </li>
                     <li class="dropdown"><a href="#">Posts types</a>
                       <!--sub menu-->
@@ -114,7 +119,7 @@
                             <!--sub menu-->
                             <div class="sub-menu-wrap sub-menu-inner">
                               <ul>
-                                <li><a href="home_2.html">Header 1</a></li>
+                                <li><a href="index.html">Header 1</a></li>
                                 <li><a href="home_5.html">Header 2</a></li>
                                 <li><a href="about.html">Header 3</a></li>
                                 <li><a href="category.html">Header 4</a></li>
@@ -125,7 +130,7 @@
                             <!--sub menu-->
                             <div class="sub-menu-wrap sub-menu-inner">
                               <ul>
-                                <li><a href="home_2.html">Footer 1</a></li>
+                                <li><a href="index.html">Footer 1</a></li>
                                 <li><a href="home_3.html">Footer 2</a></li>
                                 <li><a href="home_4.html">Footer 3</a></li>
                                 <li><a href="home_7.html">Footer 4</a></li>
@@ -206,32 +211,39 @@
 
     <!-- - - - - - - - - - - - - Owl-Carousel - - - - - - - - - - - - - - - -->
 
-    <div class="carousel-type-1">
+    <div class="carousel-type-2">
       
-      <div class="owl-carousel" data-max-items="3" data-item-margin="30">
+      <div class="owl-carousel" data-max-items="1">
                         
         <!-- Slide -->
         <div class="item-carousel">
           <!-- Carousel Item -->
-          <img src="images/620x500_img1.jpg" alt="">
+          <img src="images/1920x500_slide1.jpg" alt="">
             <div class="desc-box">
 
-              <div class="entry-meta">
-                <ul class="default-list-disk">
-                  <li>
-                    <span class="posted-on">
-                      <a href="#" rel="bookmark">
-                        <time class="entry-date" datetime="2016-01-01">April 29, 2016</time>
-                      </a>
-                    </span>
-                  </li>
-                  <li>
-                    <span class="cat-links">
-                      <a href="#">Travel</a>
-                    </span>
-                  </li>
-                </ul>
-                <h3><a href="#">Barbarian tiger caves</a></h3>
+              <div class="container">
+                
+                <div class="entry-meta">
+                  <ul class="default-list-disk">
+                    <li>
+                      <span class="posted-on">
+                        <a href="#" rel="bookmark">
+                          <time class="entry-date" datetime="2016-01-01">April 29, 2016</time>
+                        </a>
+                      </span>
+                    </li>
+                    <li>
+                      <span class="cat-links">
+                        <a href="#">Travel</a>
+                      </span>
+                    </li>
+                  </ul>
+                  <h3><a href="#">Destress & rejuvenate senses with blended coffee</a></h3>
+
+                  <div class="custom-owl-prev"></div>
+                  <div class="custom-owl-next"></div>
+                </div>
+
               </div>
 
             </div>
@@ -242,27 +254,32 @@
         <!-- Slide -->
         <div class="item-carousel">
           <!-- Carousel Item -->
-          <img src="images/620x500_img2.jpg" alt="">
+          <img src="images/1920x500_slide1.jpg" alt="">
             <div class="desc-box">
 
-              <div class="entry-meta">
-                <ul class="default-list-disk">
-                  <li>
-                    <span class="posted-on">
-                      <a href="#" rel="bookmark">
-                        <time class="entry-date" datetime="2016-01-01">April 28, 2016</time>
-                      </a>
-                    </span>
-                  </li>
-                  <li>
-                    <span class="cat-links">
-                      <a href="#">Lifestyle</a>
-                    </span>
-                  </li>
-                </ul>
-                <h3>
-                  <a href="#">Make worth relationships</a>
-                </h3>
+              <div class="container">
+                
+                <div class="entry-meta">
+                  <ul class="default-list-disk">
+                    <li>
+                      <span class="posted-on">
+                        <a href="#" rel="bookmark">
+                          <time class="entry-date" datetime="2016-01-01">April 29, 2016</time>
+                        </a>
+                      </span>
+                    </li>
+                    <li>
+                      <span class="cat-links">
+                        <a href="#">Travel</a>
+                      </span>
+                    </li>
+                  </ul>
+                  <h3><a href="#">Destress & rejuvenate senses with blended coffee</a></h3>
+
+                  <div class="custom-owl-prev"></div>
+                  <div class="custom-owl-next"></div>
+                </div>
+
               </div>
 
             </div>
@@ -273,211 +290,32 @@
         <!-- Slide -->
         <div class="item-carousel">
           <!-- Carousel Item -->
-          <img src="images/620x500_img3.jpg" alt="">
+          <img src="images/1920x500_slide1.jpg" alt="">
             <div class="desc-box">
 
-              <div class="entry-meta">
-                <ul class="default-list-disk">
-                  <li>
-                    <span class="posted-on">
-                      <a href="#" rel="bookmark">
-                        <time class="entry-date" datetime="2016-01-01">April 27, 2016</time>
-                      </a>
-                    </span>
-                  </li>
-                  <li>
-                    <span class="cat-links">
-                      <a href="#">Freelance</a>
-                    </span>
-                  </li>
-                </ul>
-                <h3>
-                  <a href="#">Making pancakes is fun</a>
-                </h3>
-              </div>
+              <div class="container">
+                
+                <div class="entry-meta">
+                  <ul class="default-list-disk">
+                    <li>
+                      <span class="posted-on">
+                        <a href="#" rel="bookmark">
+                          <time class="entry-date" datetime="2016-01-01">April 29, 2016</time>
+                        </a>
+                      </span>
+                    </li>
+                    <li>
+                      <span class="cat-links">
+                        <a href="#">Travel</a>
+                      </span>
+                    </li>
+                  </ul>
+                  <h3><a href="#">Destress & rejuvenate senses with blended coffee</a></h3>
 
-            </div>
-          <!-- /Carousel Item -->
-        </div>
-        <!-- /Slide -->
+                  <div class="custom-owl-prev"></div>
+                  <div class="custom-owl-next"></div>
+                </div>
 
-        <!-- Slide -->
-        <div class="item-carousel">
-          <!-- Carousel Item -->
-          <img src="images/620x500_img1.jpg" alt="">
-            <div class="desc-box">
-
-              <div class="entry-meta">
-                <ul class="default-list-disk">
-                  <li>
-                    <span class="posted-on">
-                      <a href="#" rel="bookmark">
-                        <time class="entry-date" datetime="2016-01-01">April 29, 2016</time>
-                      </a>
-                    </span>
-                  </li>
-                  <li>
-                    <span class="cat-links">
-                      <a href="#">Travel</a>
-                    </span>
-                  </li>
-                </ul>
-                <h3>
-                  <a href="#">Barbarian tiger caves</a>
-                </h3>
-              </div>
-
-            </div>
-          <!-- /Carousel Item -->
-        </div>
-        <!-- /Slide -->
-
-        <!-- Slide -->
-        <div class="item-carousel">
-          <!-- Carousel Item -->
-          <img src="images/620x500_img2.jpg" alt="">
-            <div class="desc-box">
-
-              <div class="entry-meta">
-                <ul class="default-list-disk">
-                  <li>
-                    <span class="posted-on">
-                      <a href="#" rel="bookmark">
-                        <time class="entry-date" datetime="2016-01-01">April 28, 2016</time>
-                      </a>
-                    </span>
-                  </li>
-                  <li>
-                    <span class="cat-links">
-                      <a href="#">Lifestyle</a>
-                    </span>
-                  </li>
-                </ul>
-                <h3>
-                  <a href="#">Make worth relationships</a>
-                </h3>
-              </div>
-
-            </div>
-          <!-- /Carousel Item -->
-        </div>
-        <!-- /Slide -->
-
-        <!-- Slide -->
-        <div class="item-carousel">
-          <!-- Carousel Item -->
-          <img src="images/620x500_img3.jpg" alt="">
-            <div class="desc-box">
-
-              <div class="entry-meta">
-                <ul class="default-list-disk">
-                  <li>
-                    <span class="posted-on">
-                      <a href="#" rel="bookmark">
-                        <time class="entry-date" datetime="2016-01-01">April 27, 2016</time>
-                      </a>
-                    </span>
-                  </li>
-                  <li>
-                    <span class="cat-links">
-                      <a href="#">Freelance</a>
-                    </span>
-                  </li>
-                </ul>
-                <h3>
-                  <a href="#">Making pancakes is fun</a>
-                </h3>
-              </div>
-
-            </div>
-          <!-- /Carousel Item -->
-        </div>
-        <!-- /Slide -->
-
-        <!-- Slide -->
-        <div class="item-carousel">
-          <!-- Carousel Item -->
-          <img src="images/620x500_img1.jpg" alt="">
-            <div class="desc-box">
-
-              <div class="entry-meta">
-                <ul class="default-list-disk">
-                  <li>
-                    <span class="posted-on">
-                      <a href="#" rel="bookmark">
-                        <time class="entry-date" datetime="2016-01-01">April 29, 2016</time>
-                      </a>
-                    </span>
-                  </li>
-                  <li>
-                    <span class="cat-links">
-                      <a href="#">Travel</a>
-                    </span>
-                  </li>
-                </ul>
-                <h3>
-                  <a href="#">Barbarian tiger caves</a>
-                </h3>
-              </div>
-
-            </div>
-          <!-- /Carousel Item -->
-        </div>
-        <!-- /Slide -->
-
-        <!-- Slide -->
-        <div class="item-carousel">
-          <!-- Carousel Item -->
-          <img src="images/620x500_img2.jpg" alt="">
-            <div class="desc-box">
-
-              <div class="entry-meta">
-                <ul class="default-list-disk">
-                  <li>
-                    <span class="posted-on">
-                      <a href="#" rel="bookmark">
-                        <time class="entry-date" datetime="2016-01-01">April 28, 2016</time>
-                      </a>
-                    </span>
-                  </li>
-                  <li>
-                    <span class="cat-links">
-                      <a href="#">Lifestyle</a>
-                    </span>
-                  </li>
-                </ul>
-                <h3>
-                  <a href="#">Make worth relationships</a>
-                </h3>
-              </div>
-
-            </div>
-          <!-- /Carousel Item -->
-        </div>
-        <!-- /Slide -->
-
-        <!-- Slide -->
-        <div class="item-carousel">
-          <!-- Carousel Item -->
-          <img src="images/620x500_img3.jpg" alt="">
-            <div class="desc-box">
-
-              <div class="entry-meta">
-                <ul class="default-list-disk">
-                  <li>
-                    <span class="posted-on">
-                      <a href="#" rel="bookmark">
-                        <time class="entry-date" datetime="2016-01-01">April 27, 2016</time>
-                      </a>
-                    </span>
-                  </li>
-                  <li>
-                    <span class="cat-links">
-                      <a href="#">Freelance</a>
-                    </span>
-                  </li>
-                </ul>
-                <h3><a href="#">Making pancakes is fun</a></h3>
               </div>
 
             </div>
@@ -500,10 +338,10 @@
           <main id="main" class="col-md-8">
             
             <!-- Post area items -->
-            <div class="post-area flex-grid-section">
+            <div class="post-area flex-list-section meta-left item-separator-right">
 
               <!-- Post item -->
-              <article class="post-item flex-columns-1">
+              <article class="post-item flex-columns-1 no-separator">
 
                 <div class="post-thumbnail">
                   <div class="caption">
@@ -511,7 +349,7 @@
                   </div>
                 </div>
 
-                <div class="entry-header">
+                <div class="entry-header meta-center">
 
                   <div class="entry-meta">
                     <ul class="default-list-disk">
@@ -566,11 +404,9 @@
 
               <!-- Post item -->
               <article class="post-item flex-columns-2">
-
+                
                 <div class="post-thumbnail">
-                  <div class="caption">
-                    <img src="images/370x275_img1.jpg" alt="">
-                  </div>
+                  <div class="caption"><img src="images/370x275_img1.jpg" alt=""></div>
                 </div>
 
                 <div class="entry-header">
@@ -874,7 +710,7 @@
             <div class="align-right"><a href="#" class="button">Older Posts</a></div>
 
           </main>
-
+          
           <!-- Sidebar -->
           <aside id="sidebar" class="col-md-4">
             
@@ -884,7 +720,6 @@
               <h6 class="widget-title">About Me</h6>
               <div class="caption"><img src="images/iphoto/IMG_0276.png" alt=""></div>
               <p>Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate...</p>
-
               <img class="sign" src="images/iphoto/isign.png" alt="">
 
             </div>
@@ -903,7 +738,6 @@
               <div class="social-icon-list with-counter">
                 
                 <ul>
-                  <li><a href="#" class="soc-icon icon-github-circled"><span>10k</span></a></li>
                   <li><a href="#" class="soc-icon icon-facebook"><span>2k</span></a></li>
                   <li><a href="#" class="soc-icon icon-twitter"><span>0.7k</span></a></li>
                   <li><a href="#" class="soc-icon icon-pinterest-circled"><span>7500</span></a></li>
@@ -1131,7 +965,7 @@
               </div>
             </div>
             <div class="flex-col-3">
-              <a href="#"><img src="images/logo_small.png" alt=""></a>
+              <a href="#"><img src="images/logo/logo_small.png" alt=""></a>
             </div>
             <div class="flex-col-3">
               <p class="copyrights">Copyrights © 2016 Roza. <span>Privacy Policy & Terms of Service.</span></p>
