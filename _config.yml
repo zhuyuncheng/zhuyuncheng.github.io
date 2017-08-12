@@ -77,19 +77,19 @@ analytics:
 
 # Site Author
 author:
-  name             : "Your Name"
-  avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "I am an amazing person."
-  location         : "Somewhere"
-  email            :
-  uri              :
+  name             : "Ivan zhu"
+  avatar           : "/assets/images/IMG_0276.png" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  bio              : "Ivan blog."
+  location         : "Beijing Chaoyang"
+  email            : "chuwanashing@gmail.com"
+  uri              : "http://zhuyuncheng.top"
   bitbucket        :
   codepen          :
   dribbble         :
   flickr           :
   facebook         :
   foursquare       :
-  github           :
+  github           : "https://github.com/zhuyuncheng/"
   gitlab           :
   google_plus      :
   keybase          :
