@@ -10,8 +10,8 @@ locale                   : "zh"
 title                    : "Ivan blog"
 title_separator          : "-"
 name                     : "Ivan Zhu"
-description              : "Ivan blog."
-url                      : "http://zhuyuncheng.top" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
+description              : "An amazing website."
+url                      : "http://zhuyuncheng.top/" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : "zhuyuncheng/zhuyuncheng.github.io" # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
@@ -77,11 +77,11 @@ analytics:
 
 # Site Author
 author:
-  name             : "Ivan zhu"
-  avatar           : "/assets/images/IMG_0276.png" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "Ivan blog."
-  location         : "Beijing Chaoyang"
-  email            : "chuwanashing@gmail.com"
+  name             : "Ivan Zhu"
+  avatar           : "/assets/image/IMG_0276.png" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
+  bio              : "I am Ivan. Welcome my website."
+  location         : "Beijing.Chaoyang"
+  email            : "chuwanshing@gmail.com"
   uri              : "http://zhuyuncheng.top"
   bitbucket        :
   codepen          :
@@ -89,7 +89,7 @@ author:
   flickr           :
   facebook         :
   foursquare       :
-  github           : "https://github.com/zhuyuncheng/"
+  github           : "https://github.com/zhuyuncheng"
   gitlab           :
   google_plus      :
   keybase          :
@@ -242,6 +242,6 @@ defaults:
       layout: single
       author_profile: true
       read_time: true
-      comments: # true
+      comments: true
       share: true
       related: true
