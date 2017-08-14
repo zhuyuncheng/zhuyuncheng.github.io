@@ -6,7 +6,7 @@
 # `jekyll serve`. If you change this file, please restart the server process.
 
 # Site Settings
-locale                   : "zh"
+locale                   : "en"
 title                    : "Ivan blog"
 title_separator          : "-"
 name                     : "Ivan Zhu"
@@ -89,7 +89,7 @@ author:
   flickr           :
   facebook         :
   foursquare       :
-  github           : "https://github.com/zhuyuncheng"
+  github           : "zhuyuncheng"
   gitlab           :
   google_plus      :
   keybase          :
