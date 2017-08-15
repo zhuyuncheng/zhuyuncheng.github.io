@@ -146,23 +146,13 @@ markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 
 
 # Conversion
-markdown: redcarpet #kramdown
+markdown: kramdown
 highlighter: rouge
 lsi: false
 excerpt_separator: "\n\n"
 incremental: false
 
-redcarpet:
-    extensions:
-      - hard_wrap
-      - no_intra_emphasis
-      - autolink
-      - strikethrough
-      - fenced_code_blocks
-      - with_toc_data
-      - tables
-      - underline
-      
+
 # Markdown Processing
 kramdown:
   input: GFM
