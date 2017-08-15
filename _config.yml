@@ -7,7 +7,7 @@
 
 # Site Settings
 locale                   : "en"
-title                    : "Ivan blog"
+title                    : "Ivan Blog"
 title_separator          : "-"
 name                     : "Ivan Zhu"
 description              : "An amazing website."
