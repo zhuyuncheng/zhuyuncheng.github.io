@@ -1,7 +1,7 @@
 ---
 title: 如何利用GitHub Pages 搭建属于自己的静态博客？
 category: blog
-tag:[blog,github pages]
+tag: [blog,github pages]
 ---
 
 ## 序言
