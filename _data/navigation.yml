@@ -5,9 +5,9 @@ main:
   - title: "About"
     url: /about/
   #  url: https://mmistakes.github.io/minimal-mistakes/about/
-  - title: "By Category"
+  - title: "Category"
     url: /categories/
-  - title: "By Tags"
+  - title: "Tag"
     url: /tags/
   - title: "Sitemap"
     url: /sitemap/
