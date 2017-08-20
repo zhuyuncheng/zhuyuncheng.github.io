@@ -1,0 +1,123 @@
+---
+title: 巧用Java枚举--我有一个大胆的想法
+category: [Java]
+tag: [Enum]
+---
+
+<!DOCTYPE html><html><head><title>1.引言</title><meta charset='utf-8'><link href='https://dn-maxiang.qbox.me/res-min/themes/marxico.css' rel='stylesheet'><style></style></head><body><div id='preview-contents' class='note-content'>
+                        
+                    
+
+<div><div class="toc"><div class="toc">
+<ul>
+<li><ul>
+<li><a href="#1引言">1.引言</a></li>
+<li><a href="#2基本使用">2.基本使用</a></li>
+<li><a href="#3带有构造方法的枚举">3.带有构造方法的枚举</a></li>
+<li><a href="#4带有抽象方法的枚举">4.带有抽象方法的枚举</a></li>
+<li><a href="#5枚举类实现单例模式">5.枚举类实现单例模式</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+<h2 id="1引言">1.引言</h2>
+
+<p><strong>Java枚举</strong> 对于开发者来说，可能并不陌生，在真正的开发中是非常常用的，它是一种基本数据类型，隶属于两种基础类型 (值类型、引用类型) 的<code>值类型</code>。它定义的是一种规范，就是要让某个类型变量的取值只能是若干个固定值中的一个，调用它就要符合它定义的规范，可以让编译器在编译时识别程序中填写的非法值，一定程度上避免了非法值类型错误。</p>
+
+<blockquote>
+  <p>举个栗子： <br>
+    要定义星期几的变量,如果用普通变量 1–7 ，分别表示星期一到星期日，但有人可能写成 <code>int weekday=0;</code>，这种错误只能到运行时才能发现，编译是没问题的。但如果用枚举代替普通变量，就可将错误在编译时识别。</p>
+</blockquote>
+
+<p><strong>枚举</strong>的本身就是一个类，它的定义与普通的类非常相似，<code>每一个枚举变量都相当于当前枚举类的一个实例对象</code>，下面我将介绍枚举类的使用。</p>
+
+
+
+<h2 id="2基本使用">2.基本使用</h2>
+
+<p><strong><em>实例：</em></strong></p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-java hljs"><span class="hljs-comment">/**<br> * Created by xiaofengzi on 2017/8/19.<br> * 定义枚举测试类<br> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">EnumDemo01</span> </span>{<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{<br><br>        <span class="hljs-comment">//得到WeekDay的实例</span><br>        WeekDay weekDay = WeekDay.FRI;<br>        <span class="hljs-comment">//使用1：toString()方法</span><br>        System.out.println(weekDay);<span class="hljs-comment">//输出：FRI</span><br>        <span class="hljs-comment">//使用2：name()方法</span><br>        System.out.println(weekDay.name());<span class="hljs-comment">//输出：FRI</span><br>        <span class="hljs-comment">//使用3：ordinal()方法</span><br>        System.out.println(weekDay.ordinal());<span class="hljs-comment">//输出：5</span><br>        <span class="hljs-comment">//使用4：枚举变量的反射</span><br>        System.out.println(weekDay.valueOf(<span class="hljs-string">"SUN"</span>));<span class="hljs-comment">//输出：SUN</span><br>        <span class="hljs-comment">//使用5：获取枚举的长度</span><br>        System.out.println(weekDay.values().length);<span class="hljs-comment">//输出：7</span><br>    }<br>}<br><br><span class="hljs-comment">/**<br> * 定义枚举类<br> */</span><br><span class="hljs-keyword">enum</span> WeekDay {<br>    SUN, MON, TUE, WED, THI, FRI, SAT;<br>}<br></code></pre>
+
+
+
+<h2 id="3带有构造方法的枚举">3.带有构造方法的枚举</h2>
+
+<p><strong><em>带有构造方法的枚举有两点要求：</em></strong></p>
+
+<ol><li rel="1">枚举变量要定义在最前面</li>
+<li rel="2">构造方法是<code>private</code> ，可以不写，Jvm编译完成之后就是<code>private</code> </li>
+</ol>
+
+<blockquote>
+  <ul><li>前面提到过，<code>每一个枚举变量都相当于当前枚举类的一个实例对象</code>，所以当使用某一个枚举变量的时候会得到该枚举类的实例对象，并且只初始化一次，其他枚举变量都将会实例化并缓存，以后使用时可以直接使用，无需再次实例化。</li>
+  <li>与普通类一样，枚举变量采用哪一个构造方法，也是根据参数的类型与个数而定。</li>
+  </ul>
+</blockquote>
+
+<p><strong><em>实例：</em></strong></p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-java hljs"><span class="hljs-comment">/**<br> * Created by xiaofengzi on 2017/8/19.<br> * 定义枚举测试类<br> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">EnumDemo02</span> </span>{<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{<br><br>        WeekDay mon = WeekDay.FRI;<br><br>        System.out.println(<span class="hljs-string">"----第一次使用某一变量，初始化完成，并且缓存所有----"</span>);<br><br>        WeekDay sun = WeekDay.SUN;<span class="hljs-comment">//本次不再实例化构造方法，而是直接从缓存中得到实例对象</span><br>    }<br>}<br><br><span class="hljs-comment">/**<br> * 定义枚举类<br> */</span><br><span class="hljs-keyword">enum</span> WeekDay {<br>    SUN(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>), MON(<span class="hljs-number">1</span>), TUE(), WED, THI, FRI, SAT;<br><br>    <span class="hljs-comment">//构造方法1：</span><br>    WeekDay() {<br>        System.out.println(<span class="hljs-string">"Construction 1 method init..."</span>);<br>    }<br><br>    <span class="hljs-comment">//构造方法2</span><br>    WeekDay(<span class="hljs-keyword">int</span> day) {<br>        System.out.println(<span class="hljs-string">"Construction 2 method init..."</span>);<br>    }<br><br>    <span class="hljs-comment">//构造方法3</span><br>    WeekDay(<span class="hljs-keyword">int</span> day, <span class="hljs-keyword">int</span> day2) {<br>        System.out.println(<span class="hljs-string">"Construction 3 method init..."</span>);<br>    }<br>}<br></code></pre>
+
+<p><strong><em>输出结果：</em></strong></p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-bash hljs">Construction 3 method init...<br>Construction 2 method init...<br>Construction 1 method init...<br>Construction 1 method init...<br>Construction 1 method init...<br>Construction 1 method init...<br>Construction 1 method init...<br>----第一次初始化，并且缓存所有----<br></code></pre>
+
+<blockquote>
+  <p>由此，我们可以得出结论：</p>
+  
+  <ul><li>枚举变量在使用的时候只初始化一次，一次即初始化所有枚举变量</li>
+  <li>再次使用枚举变量时不再实例化，而是从缓存中获取</li>
+  </ul>
+</blockquote>
+
+
+
+<h2 id="4带有抽象方法的枚举">4.带有抽象方法的枚举</h2>
+
+<p>枚举类中的逻辑方法，肯定会涉及到所有的枚举变量，要进行逻辑判断就必须要使用大量的if…else语句。而使用抽象方法就可以将if…else语句转移成一个个独立的类。</p>
+
+<blockquote>
+  <p>例如： <br>
+    下面的<strong>红绿灯</strong>枚举类中，若要计算下一个灯的颜色，普通的写法肯定要判断，如果当前“红灯”那么下一个灯为“绿灯”；如果当前为“绿灯”那么下一个灯为“黄灯”……；而如果使用抽象方法则可将一系列判断转移为一个个独立的类。</p>
+</blockquote>
+
+<p><strong><em>实例：</em></strong></p>
+
+
+
+<pre class="prettyprint hljs-dark"><code class="language-java hljs"><span class="hljs-comment">/**<br> * Created by xiaofengzi on 2017/8/20.<br> * 定义红绿灯枚举类<br> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">enum</span> TrafficLamp {<br>    <span class="hljs-comment">//"{}"表示一个匿名子类，所以就可以重写枚举的抽象方法。这里将if..else转化为了3个匿名子类</span><br>    RED(<span class="hljs-number">30</span>) {<br>        <span class="hljs-meta">@Override</span><br>        <span class="hljs-function"><span class="hljs-keyword">public</span> TrafficLamp <span class="hljs-title">nextLamp</span><span class="hljs-params">()</span> </span>{<br>            <span class="hljs-keyword">return</span> GREEN;<br>        }<br>    },<br>    GREEN(<span class="hljs-number">45</span>) {<br>        <span class="hljs-meta">@Override</span><br>        <span class="hljs-function"><span class="hljs-keyword">public</span> TrafficLamp <span class="hljs-title">nextLamp</span><span class="hljs-params">()</span> </span>{<br>            <span class="hljs-keyword">return</span> YELLOW;<br>        }<br>    },<br>    YELLOW(<span class="hljs-number">5</span>) {<br>        <span class="hljs-meta">@Override</span><br>        <span class="hljs-function"><span class="hljs-keyword">public</span> TrafficLamp <span class="hljs-title">nextLamp</span><span class="hljs-params">()</span> </span>{<br>            <span class="hljs-keyword">return</span> RED;<br>        }<br>    };<br><br>    <span class="hljs-comment">//定义交通灯的持续时间</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> time;<br>    <span class="hljs-comment">//抽象方法-计算下一个灯的颜色</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> TrafficLamp <span class="hljs-title">nextLamp</span><span class="hljs-params">()</span></span>;<br>    <span class="hljs-comment">//构造方法</span><br>    TrafficLamp(<span class="hljs-keyword">int</span> time) {<br>        <span class="hljs-keyword">this</span>.time = time;<br>    }<br>}<br></code></pre>
+
+
+
+<h2 id="5枚举类实现单例模式">5.枚举类实现单例模式</h2>
+
+<blockquote>
+  <p>好吧，前面介绍了那么多，大胆的想法终于来了，我们可以总结思考一下， <br>
+  <code>1.每一个枚举变量都相当于当前枚举类的一个实例对象</code> <br>
+  <code>2.枚举类只实例化一次，而且是在第一次使用时才会创建实例（懒汉式）</code> <br>
+  <code>3.枚举类的构造方法是私有的（private）</code></p>
+  
+  <blockquote>
+    <p>好吧，总结以上三点，假如1只定义一个枚举变量（即一个对象），那么枚举不就可以实现了一个单例模式嘛？</p>
+  </blockquote>
+</blockquote>
+
+<p><strong><em>实例：</em></strong></p>
+
+<pre class="prettyprint hljs-dark"><code class="language-java hljs"><span class="hljs-comment">/**<br> * Created by xiaofengzi on 2017/8/20.<br> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">enum</span> Singleton {<br>    INSTANCE;<span class="hljs-comment">//只创建一个枚举变量，即一个实例对象</span><br><br>    <span class="hljs-comment">//单例类的方法</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">whateverMethod</span><span class="hljs-params">()</span> </span>{<br>    }<br>}<br><br><span class="hljs-comment">/**<br> * Singleton test class<br> */</span><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SingletonDemo01</span> </span>{<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{<br>        Singleton instance01 = Singleton.INSTANCE;<br>        Singleton instance02 = Singleton.INSTANCE;<br>        System.out.println(instance01 == instance02); <span class="hljs-comment">//返回ture，明显是一个对象</span><br>    }<br>}<br></code></pre>
+
+<blockquote>
+  <p>单例模式分为懒汉式和饿汉式两种，考虑到内存资源和多线程安全的情况，衍生出了很多类型的单例模式，懒汉式直接加锁、静态内部类登记式、双检锁/双重校验锁等，在一定程度上，这些都不属于单例模式，比如双重校验锁的内存写入无序问题，再或者通过反射强行实例化私有构造方法newInstance().</p>
+  
+  <p>通过枚举这种方式可以很好的避免这些问题，它不仅能避免多线程同步问题，而且还自动支持序列化机制，防止反序列化重新创建新的对象，绝对防止多次实例化，最重要的是，代码简洁很多，这种方式是<a href="https://github.com/zhuyuncheng/books/blob/master/java/Effective%20Java%20%E4%B8%AD%E6%96%87%E7%AC%AC%E4%BA%8C%E7%89%88.pdf" target="_blank">&lt;&lt;Effective Java&gt;&gt;</a> 作者 Josh Bloch 提倡的方式。不过，由于 JDK1.5 之后才加入 enum 特性，用这种方式写不免让人感觉生疏，在实际工作中，也很少用。</p>
+</blockquote></div></body></html>

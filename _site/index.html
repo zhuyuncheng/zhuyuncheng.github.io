@@ -19,7 +19,7 @@
 
 
 
-<title>Ivan blog</title>
+<title>Ivan Blog</title>
 
 
 
@@ -32,8 +32,8 @@
 <meta name="author" content="Ivan Zhu">
 
 <meta property="og:locale" content="en">
-<meta property="og:site_name" content="Ivan blog">
-<meta property="og:title" content="Ivan blog">
+<meta property="og:site_name" content="Ivan Blog">
+<meta property="og:title" content="Ivan Blog">
 
 
   <link rel="canonical" href="http://localhost:4000/">
@@ -64,7 +64,7 @@
     {
       "@context" : "http://schema.org",
       "@type" : "Person",
-      "name" : "Ivan Zhu",
+      "name" : "Yuncheng Zhu",
       "url" : "http://localhost:4000",
       "sameAs" : null
     }
@@ -78,7 +78,7 @@
 <!-- end SEO -->
 
 
-<link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="Ivan blog Feed">
+<link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="Ivan Blog Feed">
 
 <!-- http://t.co/dKP3o1e -->
 <meta name="HandheldFriendly" content="True">
@@ -113,6 +113,7 @@
 <!-- insert favicons. use http://realfavicongenerator.net/ -->
 
 <!-- end custom head snippets -->
+
   </head>
 
   <body class="layout--home">
@@ -124,17 +125,20 @@
   <div class="masthead__inner-wrap">
     <div class="masthead__menu">
       <nav id="site-nav" class="greedy-nav">
-        <a class="site-title" href="http://localhost:4000/">Ivan blog</a>
+        <a class="site-title" href="http://localhost:4000/">Ivan Blog</a>
         <ul class="visible-links">
+          
+            
+            <li class="masthead__menu-item"><a href="http://localhost:4000/">Home</a></li>
           
             
             <li class="masthead__menu-item"><a href="http://localhost:4000/about/">About</a></li>
           
             
-            <li class="masthead__menu-item"><a href="http://localhost:4000/year-archive/">Sample Posts</a></li>
+            <li class="masthead__menu-item"><a href="http://localhost:4000/categories/">Category</a></li>
           
             
-            <li class="masthead__menu-item"><a href="http://localhost:4000/collection-archive/">Sample Collections</a></li>
+            <li class="masthead__menu-item"><a href="http://localhost:4000/tags/">Tag</a></li>
           
             
             <li class="masthead__menu-item"><a href="http://localhost:4000/sitemap/">Sitemap</a></li>
@@ -170,7 +174,7 @@
     <h3 class="author__name" itemprop="name">Ivan Zhu</h3>
     
       <p class="author__bio" itemprop="description">
-        I am Ivan. Welcome my website.
+        I am a slow walker,but I never walk backwards.
       </p>
     
   </div>
@@ -180,7 +184,7 @@
     <ul class="author__urls social-icons">
       
         <li itemprop="homeLocation" itemscope itemtype="http://schema.org/Place">
-          <i class="fa fa-fw fa-map-marker" aria-hidden="true"></i> <span itemprop="name">Beijing.Chaoyang</span>
+          <i class="fa fa-fw fa-map-marker" aria-hidden="true"></i> <span itemprop="name">Beijing,Chaoyang</span>
         </li>
       
 
@@ -284,7 +288,7 @@
     
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="http://localhost:4000/mark/" rel="permalink">Mark
+        <a href="http://localhost:4000/java/enumeration/" rel="permalink">巧用Java枚举–我有一个大胆的想法
 </a>
       
     </h2>
@@ -297,7 +301,7 @@
   1 minute read
 </p>
     
-    <p class="archive__item-excerpt" itemprop="description">欢迎使用马克飞象
+    <p class="archive__item-excerpt" itemprop="description">&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;1.引言&lt;/head&gt;&lt;body&gt;&lt;div id='preview-contents' class='note-content'&gt;
 
 </p>
   </article>
@@ -312,7 +316,35 @@
     
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="http://localhost:4000/first-category/Ivan/" rel="permalink">测试我的中文标题
+        <a href="http://localhost:4000/blog/how-to-build-a-static-blog/" rel="permalink">如何利用GitHub Pages搭建自己的静态博客
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="fa fa-clock-o" aria-hidden="true"></i> 
+
+
+
+
+  1 minute read
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;序言&lt;/head&gt;&lt;body&gt;&lt;div id='preview-contents' class='note-content'&gt;
+
+</p>
+  </article>
+</div>
+
+  
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://localhost:4000/first-category/Ivan/" rel="permalink">我的第一篇博客（测试）
 </a>
       
     </h2>
@@ -325,17 +357,14 @@
   less than 1 minute read
 </p>
     
-    <p class="archive__item-excerpt" itemprop="description">public class A{
+    <p class="archive__item-excerpt" itemprop="description">public class SeyHello{
 	public static void main(String[] args){
-		System.out.println("Hello MarkDown");
+		System.out.println("Hello Markdown");
 	}
 }
 
 
-|a|a|
-|-|-|
-|b|b|
-|-|-|
+
 </p>
   </article>
 </div>
@@ -368,12 +397,27 @@
   </ul>
 </div>
 
-<div class="page__footer-copyright">&copy; 2017 Ivan Zhu. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">&copy; 2017 Yuncheng Zhu. Powered by <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
 
       </footer>
     </div>
 
     <script src="http://localhost:4000/assets/js/main.min.js"></script>
+
+
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-104624406-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
 
 
 
