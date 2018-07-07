@@ -2,12 +2,13 @@
 main:
   - title: "Home"
     url: /
-  - title: "About"
-    url: /about/
-  #  url: https://mmistakes.github.io/minimal-mistakes/about/
-  - title: "Category"
+  - title: "Algorithm"
+    url: /algorithm-and-data-structure/
+  - title: "Springboot"
+    url: /categories/springboot
+  - title: "Categorie"
     url: /categories/
   - title: "Tag"
     url: /tags/
-  - title: "Sitemap"
-    url: /sitemap.xml
+  - title: "About"
+    url: /about/
