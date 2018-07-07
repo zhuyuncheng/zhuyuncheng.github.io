@@ -9,12 +9,13 @@ source "https://rubygems.org"
 # This will help ensure the proper Jekyll version is running.
 # Happy Jekylling!
 
-# gem "github-pages", group: :jekyll_plugins
+gem "github-pages", group: :jekyll_plugins
 
 # To upgrade, run `bundle update`.
 
-gem "jekyll", "~> 3.5"
+# gem "jekyll", "~> 3.5"
 gem "minimal-mistakes-jekyll", :git => "https://github.com/mmistakes/minimal-mistakes.git", :tag => "4.9.0"
+gem "jekyll-remote-theme"
 
 # The following plugins are automatically loaded by the theme-gem:
 #   gem "jekyll-paginate"
