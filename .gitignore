@@ -11,3 +11,4 @@ doc/*.pdb
 out/
 .sass-cache/
 .DS_Store
+_site/
