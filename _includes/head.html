@@ -1,34 +1,46 @@
 <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
-{% include seo.html %}
+{%- include snippets/get-article-title.html article=page -%}
+<title>{%- if __return -%}{{ __return }} - {{ site.title }}{%- else -%}{{ site.title }}{%- endif -%}</title>
 
-<link href="{% if site.atom_feed.path %}{{ site.atom_feed.path }}{% else %}{{ '/feed.xml' | absolute_url }}{% endif %}" type="application/atom+xml" rel="alternate" title="{{ site.title }} Feed">
+<meta name="description" content="{%- if page.excerpt -%}{{ page.excerpt | strip_html | strip_newlines | strip | truncate: 160 }}{%- else -%}{{ site.description }}{%- endif -%}">
+<link rel="canonical" href="{%- include snippets/page-url.html -%}">
 
-<!-- http://t.co/dKP3o1e -->
-<meta name="HandheldFriendly" content="True">
-<meta name="MobileOptimized" content="320">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+{%- assign _paths_rss = site.paths.rss | default: site.data.variables.default.paths.rss -%}
+{%- include snippets/get-nav-url.html path=_paths_rss -%}
+<link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ __return }}">
+<!-- begin favicon -->
+{%- include snippets/prepend-baseurl.html path='/assets/apple-touch-icon.png' -%}
+<link rel="apple-touch-icon" sizes="180x180" href="{{ __return }}">
 
-<script>
-  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
-</script>
+{%- include snippets/prepend-baseurl.html path='/assets/favicon-32x32.png' -%}
+<link rel="icon" type="image/png" sizes="32x32" href="{{ __return }}">
 
-<!-- For all browsers -->
-<link rel="stylesheet" href="{{ '/assets/css/main.css' | absolute_url }}">
+{%- include snippets/prepend-baseurl.html path='/assets/favicon-16x16.png' -%}
+<link rel="icon" type="image/png" sizes="16x16" href="{{ __return }}">
 
-<!--[if lte IE 9]>
-  <style>
-    /* old IE unsupported flexbox fixes */
-    .greedy-nav .site-title {
-      padding-right: 3em;
-    }
-    .greedy-nav button {
-      position: absolute;
-      top: 0;
-      right: 0;
-      height: 100%;
-    }
-  </style>
-<![endif]-->
+{%- include snippets/prepend-baseurl.html path='/assets/site.webmanifest' -%}
+<link rel="manifest" href="{{ __return }}">
 
-<meta http-equiv="cleartype" content="on">
+{%- include snippets/prepend-baseurl.html path='/assets/safari-pinned-tab.svg' -%}
+<link rel="mask-icon" href="{{ __return }}" color="#fc4d50">
+
+{%- include snippets/prepend-baseurl.html path='/assets/favicon.ico' -%}
+<link rel="shortcut icon" href="{{ __return }}">
+
+<meta name="msapplication-TileColor" content="#ffc40d">
+
+{%- include snippets/prepend-baseurl.html path='/assets/browserconfig.xml' -%}
+<meta name="msapplication-config" content="{{ __return }}">
+
+<meta name="theme-color" content="#ffffff">
+<!-- end favicon -->
+
+{%- include snippets/prepend-baseurl.html path='/assets/css/main.css' -%}
+<link rel="stylesheet" href="{{ __return }}">
+
+{%- include snippets/get-sources.html -%}
+{%- assign _sources = __return -%}
+<link rel="stylesheet" href="{{ _sources.font_awesome }}" >
