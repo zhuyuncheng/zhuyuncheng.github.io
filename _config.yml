@@ -106,24 +106,24 @@ sources: bootcdn # bootcdn (default), unpkg
 ## => Sharing
 ##############################
 sharing:
-  provider: false # false (default), "addtoany"
+  provider: addtoany # false (default), "addtoany"
 
 
 ## => Comments
 ##############################
 comments:
-  provider: gitalk # false (default), "disqus", "gitalk", "custom"
+  provider: "gitalk" # false (default), "disqus", "gitalk", "custom"
 
   ## Disqus
-  disqus:
-    shortname: # the Disqus shortname for the site
+  # disqus:
+  #   shortname: # the Disqus shortname for the site
 
   ## Gitalk
   # please refer to https://github.com/gitalk/gitalk for more info.
   gitalk:
     clientID    : 3626f57e8ae1f7a3a09f # GitHub Application Client ID
-    clientSecret: 376a17151f4cf8ad5d2a473bf63c6863abbbe403 # GitHub Application Client Secret
-    repository  : gitalk.zhuyuncheng.github.io # GitHub repo
+    clientSecret: f06f4ca70fb39b389844a8580554d2f33bfa4051 # GitHub Application Client Secret
+    repository  : zhuyuncheng.github.io # GitHub repo
     owner       : zhuyuncheng # GitHub repo owner
     admin: # GitHub repo owner and collaborators, only these guys can initialize GitHub issues, IT IS A LIST.
       - zhuyuncheng

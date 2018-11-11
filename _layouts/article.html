@@ -28,6 +28,7 @@ type: article
   {%- endif -%}
 
   <footer class="article__footer">
+    <div id="qrcode" align="center"></div>
     {%- if page.modify_date -%}
       {%- include snippets/locale-to-string.html locale=site.data.locale.ARTICLE_DATE_FORMAT -%}
       {%- assign _locale_date_format = __return -%}
