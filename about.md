@@ -14,6 +14,6 @@ title: About
 <div align=center>
   <img src="https://zhuyuncheng.top/assets/weChatQRCode/2.jpeg" width = "500"/>
 </div>
-- - -
 
+- - -
 >**更新时间：2018-07-07**
