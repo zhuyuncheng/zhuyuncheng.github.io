@@ -762,10 +762,21 @@ a.item__header, a.item__header:link, a.item__header:visited, .item__header > a, 
 .main { width: 100%; max-width: 950px; padding: 0 3rem; margin: 0 auto; }
 @media screen and (max-width: 1023px) { .main { padding: 0 1.5rem; } }
 @media screen and (max-width: 499px) { .main { padding: 0 1rem; } }
-
 .has-aside .main { max-width: 1170px; }
-@media screen and (max-width: 1023px) { .has-aside .main { max-width: 950px; } }
-
+@media screen and (max-width: 1023px) { .has-aside .main { max-width: 950px; }  }
+@media screen and (min-width:1000px){
+  #ad{
+    position: fixed;top:15%;max-width: 20%;min-width: 15%;z-index: 2
+  }
+  .page__content .main{
+    margin-left:22%
+  }
+}
+@media screen and (max-width:600px){
+  #ad{
+    position: static;
+  }
+}
 .full-width .main { width: 100%; max-width: 100%; }
 
 .header { background: #f2f2f2; }
