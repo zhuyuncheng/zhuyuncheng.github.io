@@ -82,37 +82,37 @@ DELETE FROM task_lock WHERE task_name = 'task_lock_01'
 
 1) **SETNX** : 将 key 的值设为 value ，当且仅当 key 不存在。若给定的 key 已经存在，则 SETNX 不做任何动作
 
-    ```bash
-    127.0.0.1:6379> setNX key value
-    ```
+```bash
+127.0.0.1:6379> setNX key value
+```
 
-    **返回值**:
-    - 1: 成功
-    - 0: 失败
+**返回值**:
+- 1: 成功
+- 0: 失败
 
 2) **getSET** : 将给定 key 的值设为 value ，并返回 key 的旧值(old value)。当 key 存在但不是字符串类型时，返回一个错误。
 
-    ```bash
-    127.0.0.1:6379> GETSET key value
-    ```
+```bash
+127.0.0.1:6379> GETSET key value
+```
 
 3) **get** : 当 key 不存在时，返回 nil ，否则，返回 key 的值。如果 key 不是字符串类型，那么返回一个错误
 
-    ```bash
-    127.0.0.1:6379> GET key
-    ```
+```bash
+127.0.0.1:6379> GET key
+```
 
 4) **del** : 删除指定的key
 
-    ```bash
-    127.0.0.1:6379> del key
-    ```
+```bash
+127.0.0.1:6379> del key
+```
 
 6) **ttl**: 获取key的超时时间: 如果未设置超时时间返回-1; 如果key不存在或因为超时已经删除返回-2; 如果key存在且已设置超时时间则返回剩余的时间，单位为second
 
-    ```bash
-    127.0.0.1:6379> ttl key
-    ```
+```bash
+127.0.0.1:6379> ttl key
+```
 
 ### 避免死锁
 
