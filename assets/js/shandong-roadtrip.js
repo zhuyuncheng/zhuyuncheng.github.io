@@ -2,12 +2,13 @@
   'use strict';
 
   const points = [
+    {id:'a-beijing',type:'attraction',name:'北京出发 / 返程',lat:39.9042,lng:116.4074,address:'城市示意点，请用实际家庭地址导航',day:['d1','d14']},
     {id:'a-weifang',type:'attraction',name:'潍坊市区',lat:36.7069,lng:119.1618,address:'潍坊老家停留与车辆整备',day:['d1','d2','d13','d14']},
     {id:'a-penglai',type:'attraction',name:'蓬莱阁景区',lat:37.8250,lng:120.7505,address:'烟台市蓬莱区北关路 1 号',day:['d5']},
     {id:'a-yantaishan',type:'attraction',name:'烟台山景区',lat:37.5455,lng:121.3980,address:'烟台市芝罘区历新路 7 号',day:['d6']},
     {id:'a-fisher',type:'attraction',name:'烟台渔人码头',lat:37.5270,lng:121.4586,address:'烟台市莱山区滨海中路',day:['d6']},
-    {id:'a-liugong',type:'attraction',name:'刘公岛客运中心',lat:37.5008,lng:122.1538,address:'威海市环翠区海滨北路 101-2 号',day:['d7']},
-    {id:'a-haiyuan',type:'attraction',name:'海源公园',lat:37.5267,lng:122.1472,address:'威海市环翠区环海路',day:['d8']},
+    {id:'a-liugong',type:'attraction',name:'刘公岛客运中心',lat:37.5008,lng:122.1538,address:'威海市环翠区海滨北路 101-2 号',day:['d8']},
+    {id:'a-haiyuan',type:'attraction',name:'海源公园',lat:37.5267,lng:122.1472,address:'威海市环翠区环海路',day:['d7']},
     {id:'a-huoju',type:'attraction',name:'火炬八街',lat:37.5284,lng:122.0583,address:'威海市环翠区火炬八街',day:['d8']},
     {id:'a-naxianghai',type:'attraction',name:'那香海钻石沙滩',lat:37.3630,lng:122.5717,address:'威海市荣成市环海路 6699 号',day:['d9']},
     {id:'a-olympic',type:'attraction',name:'青岛奥帆中心',lat:36.0605,lng:120.3976,address:'青岛市市南区燕儿岛路 1 号',day:['d10']},
@@ -47,6 +48,8 @@
 
   const symbol = { attraction:'景', hotel:'住', charge:'电', food:'食' };
   let map;
+  let routeLine;
+  let activeDay = null;
   const markerById = {};
   const layersByType = { attraction:[], hotel:[], charge:[], food:[] };
   let activeFilter = 'all';
@@ -57,13 +60,15 @@
 
   function initMap() {
     const mapEl = document.getElementById('shandong-map');
-    if (!mapEl || typeof window.L === 'undefined') return;
+    if (!mapEl) return;
+    if (typeof window.AMap !== 'undefined') return initAMap(mapEl);
+    if (typeof window.L === 'undefined') return;
     map = L.map(mapEl, {scrollWheelZoom:false, zoomControl:true}).setView([37.1,120.1],7);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
       maxZoom:18,
-      attribution:'&copy; OpenStreetMap contributors'
+      attribution:'Tiles &copy; Esri — Esri, HERE, Garmin, USGS, OpenStreetMap contributors'
     }).addTo(map);
-    L.polyline(route,{color:'#10233f',weight:4,opacity:.72,dashArray:'9 8'}).addTo(map);
+    routeLine=L.polyline(route,{color:'#10233f',weight:4,opacity:.72,dashArray:'9 8'}).addTo(map);
     points.forEach(function(point){
       const icon = L.divIcon({className:'',html:'<div class="trip-marker trip-marker--'+point.type+'"><span>'+symbol[point.type]+'</span></div>',iconSize:[30,30],iconAnchor:[15,28],popupAnchor:[0,-26]});
       const popup = '<div class="map-popup"><h3>'+point.name+'</h3><p>'+point.address+'</p>'+(point.note?'<p>'+point.note+'</p>':'')+'<a href="'+gaodeLink(point)+'" target="_blank" rel="noopener">用高德打开 ↗</a></div>';
@@ -73,21 +78,37 @@
     fitAll();
   }
 
-  function fitAll(){ if(map) map.fitBounds(L.latLngBounds(route),{padding:[28,28]}); }
+  function initAMap(mapEl) {
+    map = new AMap.Map(mapEl,{zoom:7,center:[120.1,37.1],mapStyle:'amap://styles/whitesmoke'});
+    map._amap=true;
+    routeLine=new AMap.Polyline({path:route.map(function(p){return[p[1],p[0]];}),strokeColor:'#10233f',strokeWeight:4,strokeOpacity:.72,strokeStyle:'dashed',map:map});
+    points.forEach(function(point){
+      const marker=new AMap.Marker({position:[point.lng,point.lat],title:point.name,offset:new AMap.Pixel(-15,-28),content:'<div class="trip-marker trip-marker--'+point.type+'"><span>'+symbol[point.type]+'</span></div>',map:map});
+      marker.pointType=point.type;marker.point=point;
+      marker.on('click',function(){const info=new AMap.InfoWindow({content:'<div class="map-popup"><h3>'+point.name+'</h3><p>'+point.address+'</p>'+(point.note?'<p>'+point.note+'</p>':'')+'<a href="'+gaodeLink(point)+'" target="_blank" rel="noopener">用高德打开 ↗</a></div>',offset:new AMap.Pixel(0,-24)});info.open(map,marker.getPosition());});
+      markerById[point.id]=marker;layersByType[point.type].push(marker);
+    });
+    map.setFitView();
+  }
+
+  function fitAll(){ if(map) {activeDay=null;setFilter('all');if(map._amap){routeLine.setPath(route.map(function(p){return[p[1],p[0]];}));map.setFitView();}else{routeLine.setLatLngs(route);map.fitBounds(L.latLngBounds(route),{padding:[28,28]});}} }
   function setFilter(type){
     activeFilter=type;
-    Object.keys(layersByType).forEach(function(key){ layersByType[key].forEach(function(marker){ const shouldShow=type==='all'||type===key; if(shouldShow&&!map.hasLayer(marker))marker.addTo(map); if(!shouldShow&&map.hasLayer(marker))map.removeLayer(marker); }); });
+    if(!map)return;
+    Object.keys(layersByType).forEach(function(key){ layersByType[key].forEach(function(marker){ const point=points.find(p=>markerById[p.id]===marker);const shouldShow=(type==='all'||type===key)&&(!activeDay||point.day.includes(activeDay)); if(map._amap) marker.setMap(shouldShow?map:null); else {if(shouldShow&&!map.hasLayer(marker))marker.addTo(map); if(!shouldShow&&map.hasLayer(marker))map.removeLayer(marker);} }); });
     document.querySelectorAll('.map-filter').forEach(function(btn){btn.classList.toggle('is-active',btn.dataset.filter===type);});
   }
   function focusPoint(id){
     const marker=markerById[id]; if(!map||!marker)return;
-    setFilter('all'); map.setView(marker.getLatLng(),14,{animate:true}); marker.openPopup(); document.getElementById('route-map').scrollIntoView({behavior:'smooth',block:'start'});
+    activeDay=null;setFilter('all'); if(map._amap){map.setZoomAndCenter(14,[marker.getPosition().lng,marker.getPosition().lat]);}else{map.setView(marker.getLatLng(),14,{animate:true});marker.openPopup();} document.getElementById('route-map').scrollIntoView({behavior:'smooth',block:'start'});
   }
   function focusDay(day){
     if(!map)return;
     const selected=points.filter(function(p){return p.day.indexOf(day)>-1;});
     if(!selected.length)return;
-    setFilter('all'); map.fitBounds(L.latLngBounds(selected.map(function(p){return[p.lat,p.lng];})),{padding:[45,45],maxZoom:11});
+    const dayStops={d1:['a-beijing','a-weifang'],d5:['a-weifang','a-penglai','h-yantai-b'],d6:['h-yantai-b','a-yantaishan','a-fisher'],d7:['h-yantai-b','h-weihai-b','a-haiyuan'],d8:['h-weihai-b','a-liugong'],d9:['h-weihai-b','a-naxianghai'],d10:['h-weihai-b','h-qingdao-b','a-olympic'],d11:['h-qingdao-b','a-zhanqiao','a-xiaoyushan'],d12:['h-qingdao-b','a-underwater','a-badaguan'],d13:['h-qingdao-b','a-weifang'],d14:['a-weifang','a-beijing']};
+    const stops=(dayStops[day]||[]).map(id=>points.find(p=>p.id===id)).filter(Boolean);
+    activeDay=day;setFilter('all');stops.forEach(p=>{if(map._amap)markerById[p.id].setMap(map);else markerById[p.id].addTo(map);}); if(map._amap){routeLine.setPath(stops.map(p=>[p.lng,p.lat]));map.setFitView(stops.map(p=>markerById[p.id]));}else{routeLine.setLatLngs(stops.map(p=>[p.lat,p.lng])); map.fitBounds(L.latLngBounds(selected.concat(stops).map(function(p){return[p.lat,p.lng];})),{padding:[45,45],maxZoom:11});}
     document.querySelectorAll('.day-card').forEach(function(card){card.classList.toggle('is-active',card.dataset.day===day);});
   }
 
@@ -104,5 +125,7 @@
     const reset=document.getElementById('reset-checklist');if(reset)reset.addEventListener('click',function(){checks.forEach(function(box){box.checked=false;localStorage.removeItem('roadtrip-'+box.dataset.check);});});
   }
 
+  window.addEventListener('trip:day',function(e){if(map)setTimeout(function(){map.invalidateSize();focusDay(e.detail);},100);});
+  window.addEventListener('trip:resize',function(){if(map)setTimeout(function(){map.invalidateSize();},100);});
   window.addEventListener('DOMContentLoaded',function(){initMap();initUI();});
 })();

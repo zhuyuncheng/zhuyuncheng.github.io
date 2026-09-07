@@ -22,6 +22,10 @@ title   : 穆朗
 description: > # this means to ignore newlines until "Language & timezone"
   去读他的书，去做他的事。记录工程实践、读书思考与独立旅行。
 
+# Optional 高德 Web JS API key. Fill this on a private/local config or deployment secret;
+# the travel planner automatically uses AMap when present and keeps the public fallback otherwise.
+amap_key: bbf3302edf0ee1a8042f9e4d28536c0a
+
 
 ## => Language and Timezone
 ##############################
