@@ -29,14 +29,12 @@
       {%- include snippets/locale-to-string.html locale=site.data.locale.NAV.RSS -%}
       {%- assign _locale_nav_rss = __return -%}
       <p class="menu menu--center">
-        <span>© {{ site.title }} {{ site.data.locale.COPYRIGHT_DATES }}</span>
+        <span>© 2017–{{ site.time | date: '%Y' }} {{ site.title }}</span>
         <a type="application/rss+xml" href="{{ _paths_rss }}">{{ _locale_nav_rss }}</a>
       </p>
-      <p>Powered by <a title="Jekyll is a simple, blog-aware, static site generator." href="http://jekyllrb.com/">Jekyll</a> & <a
+      <p>去读他的书，去做他的事。 · Powered by <a title="Jekyll is a simple, blog-aware, static site generator." href="https://jekyllrb.com/">Jekyll</a> & <a
         title="TeXt is a succinct theme for blogging." href="https://github.com/kitian616/jekyll-TeXt-theme">TeXt Theme</a>.
       </p>
     </footer>
   </div>
 </div>
-<script>(function(T,h,i,n,k,P,a,g,e){g=function(){P=h.createElement(i);a=h.getElementsByTagName(i)[0];P.src=k;P.charset="utf-8";P.async=1;a.parentNode.insertBefore(P,a)};T["ThinkPageWeatherWidgetObject"]=n;T[n]||(T[n]=function(){(T[n].q=T[n].q||[]).push(arguments)});T[n].l=+new Date();if(T.attachEvent){T.attachEvent("onload",g)}else{T.addEventListener("load",g,false)}}(window,document,"script","tpwidget","//widget.seniverse.com/widget/chameleon.js"))</script>
-

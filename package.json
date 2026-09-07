@@ -3,8 +3,8 @@
   "version": "2.2.2",
   "description": "A super customizable Jekyll theme for personal site, team site, blog, project, documentation, etc.",
   "scripts": {
-    "build": "bundle exec jekyll build",
-    "serve": "bundle exec jekyll serve -H 0.0.0.0",
+    "build": "RUBYOPT=-r./tools/ruby4-compat.rb BUNDLE_PATH=vendor/bundle /opt/homebrew/opt/ruby/bin/bundle exec jekyll build",
+    "serve": "RUBYOPT=-r./tools/ruby4-compat.rb BUNDLE_PATH=vendor/bundle /opt/homebrew/opt/ruby/bin/bundle exec jekyll serve -H 127.0.0.1",
     "default": "bundle exec jekyll serve -H 0.0.0.0 -t",
     "dev": "bundle exec jekyll serve -H 0.0.0.0 -t --config ./docs/_config.dev.yml",
     "demo-dev": "bundle exec jekyll serve -H 0.0.0.0 -t --config ./docs/_config.yml",

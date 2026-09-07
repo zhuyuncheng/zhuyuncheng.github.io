@@ -40,16 +40,18 @@
 
 {%- include snippets/prepend-baseurl.html path='/assets/css/main.css' -%}
 <link rel="stylesheet" href="{{ __return }}">
+{%- include snippets/prepend-baseurl.html path='/assets/css/modern.css' -%}
+<link rel="stylesheet" href="{{ __return }}">
+
+{%- if page.roadtrip -%}
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIINfQ3ynh17q9I68ZrzfjOlvI0POnfBBMY=" crossorigin="">
+{%- include snippets/prepend-baseurl.html path='/assets/css/roadtrip.css' -%}
+<link rel="stylesheet" href="{{ __return }}">
+<script defer src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+{%- include snippets/prepend-baseurl.html path='/assets/js/shandong-roadtrip.js' -%}
+<script defer src="{{ __return }}"></script>
+{%- endif -%}
 
 {%- include snippets/get-sources.html -%}
 {%- assign _sources = __return -%}
 <link rel="stylesheet" href="{{ _sources.font_awesome }}" >
-
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<script>
-  (adsbygoogle = window.adsbygoogle || []).push({
-    google_ad_client: "ca-pub-2189739546636161",
-    enable_page_level_ads: true
-  });
-</script>
-

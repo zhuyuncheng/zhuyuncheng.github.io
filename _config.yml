@@ -16,11 +16,11 @@
 ##############################
 text_skin: default # "default" (default), "dark", "forest", "ocean", "chocolate", "orange"
 highlight_theme: default # "default" (default), "tomorrow", "tomorrow-night", "tomorrow-night-eighties", "tomorrow-night-blue", "tomorrow-night-bright"
-url     : http://zhuyuncheng.top # the base hostname & protocol for your site e.g. https://www.someone.com
+url     : https://zhuyuncheng.github.io # the base hostname & protocol for your site e.g. https://www.someone.com
 baseurl : # does not include hostname
-title   : Ivan's blog
+title   : 穆朗
 description: > # this means to ignore newlines until "Language & timezone"
-  Your Site Description
+  去读他的书，去做他的事。记录工程实践、读书思考与独立旅行。
 
 
 ## => Language and Timezone
@@ -33,8 +33,8 @@ timezone: Asia/Shanghai # see https://en.wikipedia.org/wiki/List_of_tz_database_
 ##############################
 author:
   type      : person # "person" (default), "organization"
-  name      : Ivan
-  url       : http://zhuyuncheng.top
+  name      : 穆朗
+  url       : https://zhuyuncheng.github.io
   avatar    : /assets/images/IMG_0276.png # path or url of avatar image
   bio       : I am a slow walker,but I never walk backwards.
   email     : chuwanshing@gmail.com
@@ -110,7 +110,7 @@ sharing:
 ## => Comments
 ##############################
 comments:
-  provider: "gitalk" # false (default), "disqus", "gitalk", "custom"
+  provider: false # false (default), "disqus", "gitalk", "custom"
 
   ## Disqus
   # disqus:
@@ -119,12 +119,11 @@ comments:
   ## Gitalk
   # please refer to https://github.com/gitalk/gitalk for more info.
   gitalk:
-    clientID    : 3626f57e8ae1f7a3a09f # GitHub Application Client ID
-    clientSecret: f06f4ca70fb39b389844a8580554d2f33bfa4051 # GitHub Application Client Secret
+    clientID    : # GitHub Application Client ID
+    clientSecret: # GitHub Application Client Secret
     repository  : zhuyuncheng.github.io # GitHub repo
     owner       : zhuyuncheng # GitHub repo owner
-    admin: # GitHub repo owner and collaborators, only these guys can initialize GitHub issues, IT IS A LIST.
-      - zhuyuncheng
+    admin: []
 
 
 ## => Pageview

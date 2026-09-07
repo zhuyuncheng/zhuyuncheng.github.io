@@ -1,5 +1,23 @@
 header:
   - titles:
+      en:       Home
+      zh:       首页
+      zh-Hans:  首页
+      zh-Hant:  首頁
+    url:        /
+  - titles:
+      en:       Tech
+      zh:       技术
+      zh-Hans:  技术
+      zh-Hant:  技術
+    url:        /tech/
+  - titles:
+      en:       Travel
+      zh:       旅行
+      zh-Hans:  旅行
+      zh-Hant:  旅行
+    url:        /travel/
+  - titles:
       en:       Archive
       zh:       归档
       zh-Hans:  归档

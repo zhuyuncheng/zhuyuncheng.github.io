@@ -1,19 +1,34 @@
----
-permalink: /about/
-title: About
----
-### 关于我
-嗨！欢迎来到我的博客，我是**朱云铖**，英文名字**Ivan**，专注于`Java`、`Python`、`Linux`等技术的学习和研究。自认为是一个文艺程序员，热衷于开源，喜欢分享，简单、快乐、逗逼。希望通过这个博客来记录自己职业生涯踩到的坑，同时记录自己学习的过程。总之，我会的我就写，不会的我就抄!
-- - -
-### 关于博客
-本站成立于2017年08月13日，采用GitHub静态页面搭建，如果在本博客中有任何的问题，可以通过博客的联系方式随时联系我。
-本站由@Yuncheng Zhu 终身维护。
-- - -
-### 最后骗一波关注
-请关注我的个人微信订阅号, 以后我会认真写技术博客的, 再也不敢偷偷的玩手机、打游戏了.
-<div align=center>
-  <img src="https://zhuyuncheng.top/assets/weChatQRCode/2.jpeg" width = "500"/>
-</div>
+# 穆朗
 
-- - -
->**更新时间：2018-07-07**
+去读他的书，去做他的事。
+
+这是朱云铖（穆朗）的个人博客，记录工程实践、读书思考与独立旅行。网站使用 Jekyll 构建，并托管在 GitHub Pages：<https://zhuyuncheng.github.io>。
+
+## 本地预览
+
+macOS 首次运行：
+
+```bash
+brew install ruby
+BUNDLE_PATH=vendor/bundle /opt/homebrew/opt/ruby/bin/bundle install
+npm run serve
+```
+
+然后访问 <http://127.0.0.1:4000>。修改页面、文章或样式后，Jekyll 会自动重新生成。
+
+仅执行静态构建：
+
+```bash
+npm run build
+```
+
+## 内容结构
+
+- `_posts/`：已发布文章
+- `_drafts/travel-guide-template.md`：旅行攻略写作模板
+- `tech.md`：技术频道
+- `travel.md`：旅行频道
+- `assets/css/modern.css`：新版视觉样式
+- `_config.yml`：站点和作者配置
+
+旅行攻略建议在 front matter 中维护 `destination`、`duration`、`season`、`budget`、`pace` 和 `cover`，首页与旅行频道会自动读取这些信息。
