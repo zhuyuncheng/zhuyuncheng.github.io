@@ -3,7 +3,7 @@
 
   const points = [
     {id:'a-beijing',type:'attraction',name:'北京出发 / 返程',lat:39.9042,lng:116.4074,address:'城市示意点，请用实际家庭地址导航',day:['d1','d14']},
-    {id:'a-weifang',type:'attraction',name:'潍坊市区',lat:36.7069,lng:119.1618,address:'潍坊老家停留与车辆整备',day:['d1','d2','d13','d14']},
+    {id:'a-weifang',type:'attraction',name:'潍坊市区',lat:36.7069,lng:119.1618,address:'潍坊老家停留与车辆整备',day:['d1','d2','d3','d4','d13','d14']},
     {id:'a-penglai',type:'attraction',name:'蓬莱阁景区',lat:37.8250,lng:120.7505,address:'烟台市蓬莱区北关路 1 号',day:['d5']},
     {id:'a-yantaishan',type:'attraction',name:'烟台山景区',lat:37.5455,lng:121.3980,address:'烟台市芝罘区历新路 7 号',day:['d6']},
     {id:'a-fisher',type:'attraction',name:'烟台渔人码头',lat:37.5270,lng:121.4586,address:'烟台市莱山区滨海中路',day:['d6']},
@@ -32,7 +32,7 @@
 
     {id:'c-cangzhou',type:'charge',name:'沧州天成郡府闪充站',lat:38.29712,lng:116.82767,address:'沧州市运河区永安南大道',note:'进城备选，出发前在比亚迪 App 核实',day:['d1','d14']},
     {id:'c-binzhou',type:'charge',name:'滨州黄河二路新立小区闪充站',lat:37.37222,lng:117.98165,address:'滨州市滨城区黄河二路彩虹湖',note:'4 把闪充枪；长途主补能候选',day:['d1','d14']},
-    {id:'c-weifang',type:'charge',name:'潍坊恒信时代广场闪充站',lat:36.70908,lng:119.183,address:'潍坊市高新区东风东街 5058 号',note:'4 把闪充枪',day:['d2','d5','d13']},
+    {id:'c-weifang',type:'charge',name:'潍坊恒信时代广场闪充站',lat:36.70908,lng:119.183,address:'潍坊市高新区东风东街 5058 号',note:'4 把闪充枪',day:['d2','d4','d5','d13']},
     {id:'c-penglai',type:'charge',name:'烟台北关路利群广场闪充站',lat:37.81656,lng:120.76124,address:'蓬莱区北关路 700 号',note:'2 把闪充枪',day:['d5']},
     {id:'c-yantai',type:'charge',name:'烟台电视台闪充站',lat:37.46067,lng:121.45297,address:'莱山区观海路 349 号',note:'4 把闪充枪',day:['d5','d6','d7']},
     {id:'c-weihai',type:'charge',name:'威海高铁北站闪充站',lat:37.49054,lng:122.0417,address:'威海高铁北站地面停车场',note:'4 把闪充枪',day:['d7','d8','d9','d10']},
@@ -41,9 +41,14 @@
     {id:'c-qingdao',type:'charge',name:'青岛徐州路便民市场闪充站',lat:36.08459,lng:120.37884,address:'青岛市市南区徐州路 171 号',note:'4 把闪充枪',day:['d10','d11','d12','d13']},
 
     {id:'f-weifang',type:'food',name:'潍坊老城区餐饮区',lat:36.7104,lng:119.0998,address:'十笏园 / 城隍庙街周边',day:['d2']},
+    {id:'f-penglai',type:'food',name:'蓬莱阁外餐饮区',lat:37.8169,lng:120.7556,address:'蓬莱阁东门—北关路周边；选定餐厅后请二次导航',note:'蓬莱小面、鲅鱼水饺；此点为餐饮片区中心',day:['d5']},
     {id:'f-yantai',type:'food',name:'烟台山—朝阳街餐饮区',lat:37.5428,lng:121.3971,address:'芝罘区朝阳街周边',day:['d6']},
+    {id:'f-yantai-east',type:'food',name:'烟台莱山亲子餐饮区',lat:37.4638,lng:121.4475,address:'莱山区观海路商圈；选定餐厅后请二次导航',note:'停车、餐椅与宝宝餐更稳定',day:['d6','d7']},
     {id:'f-weihai',type:'food',name:'威海韩乐坊餐饮区',lat:37.4234,lng:122.1527,address:'环翠区韩乐坊',day:['d7','d8','d9']},
+    {id:'f-weihai-mall',type:'food',name:'威高广场亲子餐饮区',lat:37.5134,lng:122.1202,address:'环翠区新威路威高广场；选定餐厅后请二次导航',note:'商场停车、母婴设施与儿童餐更可控',day:['d7','d8']},
+    {id:'f-rongcheng',type:'food',name:'荣成城区海鲜家常菜区',lat:37.1636,lng:122.4158,address:'荣成市成山大道中段周边；选定餐厅后请二次导航',note:'问清海鲜计价单位与加工费',day:['d9']},
     {id:'f-qingdao',type:'food',name:'青岛老城家常菜区域',lat:36.0675,lng:120.3250,address:'市南区中山路—黄岛路周边',day:['d11']}
+    ,{id:'f-qingdao-east',type:'food',name:'青岛香港中路亲子餐饮区',lat:36.0644,lng:120.3972,address:'市南区香港中路—奥帆商圈；选定餐厅后请二次导航',note:'商场餐厅、停车和宝宝餐更稳定',day:['d10','d11','d12']}
     ,{id:'e-weihai',type:'emergency',name:'威海市立医院',lat:37.5136,lng:122.1165,address:'威海市环翠区和平路 70 号',note:'出发前请核对儿科急诊与停车入口',day:['d7','d8','d9']}
     ,{id:'e-qingdao',type:'emergency',name:'青岛市妇女儿童医院',lat:36.1074,lng:120.3821,address:'青岛市市北区辽阳西路 217 号',note:'亲子旅行应急备选',day:['d10','d11','d12']}
     ,{id:'e-yantai',type:'emergency',name:'烟台毓璜顶医院',lat:37.5351,lng:121.3895,address:'烟台市芝罘区毓璜顶东路 20 号',note:'出发前核对儿科急诊',day:['d5','d6']}
@@ -68,6 +73,12 @@
 
   function gaodeLink(point) {
     return 'https://uri.amap.com/search?keyword=' + encodeURIComponent(point.name + ' ' + point.address) + '&src=moulang-blog&callnative=1';
+  }
+  function gaodeNavigationLink(from,to){
+    return 'https://uri.amap.com/navigation?from='+from.lng+','+from.lat+','+encodeURIComponent(from.name)+'&to='+to.lng+','+to.lat+','+encodeURIComponent(to.name)+'&mode=car&policy=1&src=moulang-blog&callnative=1';
+  }
+  function routeFallback(stops){
+    return '<div class="route-fallback"><p>暂时未取到高德逐路段数据，可按已选顺序逐段导航：</p>'+stops.slice(0,-1).map(function(point,index){const next=stops[index+1];return '<a href="'+gaodeNavigationLink(point,next)+'" target="_blank" rel="noopener"><b>'+(index+1)+' · '+point.name+' → '+next.name+'</b><span>在高德打开这一段 ↗</span></a>';}).join('')+'</div>';
   }
 
   function initMap() {
@@ -123,9 +134,9 @@
     document.querySelectorAll('.day-card').forEach(function(card){card.classList.toggle('is-active',card.dataset.day===day);});
   }
 
-  function planDrivingRoute(day){
+  function planDrivingRoute(day,customIds){
     if(!map||!map._amap||!window.AMap||!AMap.Driving)return;
-    const ids=dayStops[day]; const panel=document.getElementById('driving-panel');
+    const ids=customIds&&customIds.length?customIds:dayStops[day]; const panel=document.getElementById('driving-panel');
     if(!ids||ids.length<2){if(panel)panel.innerHTML='<p>这一天以老家休整或本地慢游为主，无需单独规划长距离驾车路线。</p>';return;}
     const stops=ids.map(function(id){return points.find(function(p){return p.id===id;});}).filter(Boolean);
     if(stops.length<2)return;
@@ -138,7 +149,7 @@
     const destination=new AMap.LngLat(stops[stops.length-1].lng,stops[stops.length-1].lat);
     const waypoints=stops.slice(1,-1).map(function(p){return new AMap.LngLat(p.lng,p.lat);});
     driving.search(origin,destination,{waypoints:waypoints},function(status,result){
-      if(status!=='complete'){if(panel)panel.innerHTML='<p>暂时未取到高德路线。请检查网络、Key 白名单，或点击地图点位后在高德 App 中导航。</p>';return;}
+      if(status!=='complete'){if(panel)panel.innerHTML=routeFallback(stops);return;}
       const first=result.routes&&result.routes[0]; if(first&&panel){const km=(first.distance/1000).toFixed(1);const mins=Math.round(first.time/60);const hours=Math.floor(mins/60);const remain=mins%60;panel.insertAdjacentHTML('afterbegin','<div class="driving-summary"><b>高德推荐：约 '+km+' km · '+hours+' 小时 '+remain+' 分</b><span>实时结果仅供出发前参考；国庆当天请再次刷新。</span></div>');}
     });
   }
@@ -159,6 +170,17 @@
   }
 
   window.addEventListener('trip:day',function(e){if(map)setTimeout(function(){if(map._amap)map.resize();else map.invalidateSize();focusDay(e.detail);planDrivingRoute(e.detail);},100);});
+  window.addEventListener('trip:compose',function(e){
+    if(!map||!e.detail||!e.detail.ids)return;
+    const ids=e.detail.ids.filter(function(id,index,list){return id&&(index===0||id!==list[index-1]);});
+    const stops=ids.map(function(id){return points.find(function(point){return point.id===id;});}).filter(Boolean);
+    if(stops.length<2)return;
+    activeDay=e.detail.day;setFilter('all');
+    stops.forEach(function(point){if(map._amap)markerById[point.id].setMap(map);else markerById[point.id].addTo(map);});
+    if(map._amap){routeLine.setPath(stops.map(function(point){return[point.lng,point.lat];}));map.setFitView(stops.map(function(point){return markerById[point.id];}));}
+    else{routeLine.setLatLngs(stops.map(function(point){return[point.lat,point.lng];}));map.fitBounds(L.latLngBounds(stops.map(function(point){return[point.lat,point.lng];})),{padding:[38,38],maxZoom:12});}
+    planDrivingRoute(e.detail.day,ids);
+  });
   window.addEventListener('trip:point',function(e){focusPoint(e.detail);});
   window.addEventListener('trip:resize',function(){if(map)setTimeout(function(){if(map._amap)map.resize();else map.invalidateSize();},100);});
   window.addEventListener('DOMContentLoaded',function(){initMap();initUI();});

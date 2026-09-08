@@ -4,8 +4,8 @@
     ['09.23','北京 → 潍坊','d1','潍坊老家','520–580 km · 预计全天 8–10 小时',[
       ['06:30','出发 / 满电','早餐后出发，导航目的地设为老家实际地址。90–100% 电量；北京城区位置不同会影响总里程。'],['08:30','第一次服务区休息','行驶约 90–120 分钟就休息 20 分钟，换尿裤、喝水、走动；不等充电才停车。'],['10:30','沧州补能 + 午饭','优先顺路高速快充；免费闪充候选为沧州天成郡府，属于城区站，须检查绕行。建议补至 85–90%，保守按 400 km 续航核算。'],['12:00','继续前往潍坊','宝宝午睡期间继续行驶，中途按驾驶员状态休息。到下一站预计电量不足 20% 时，在滨州再补一次。'],['16:00','到家 / 不加景点','这是含休息的计划到达时刻，遇堵车可延后；当天只团聚吃饭。']], '午饭选服务区热食或沧州停车方便的商场；两成人预算 100–160 元，宝宝带熟悉的主食。','长途日不要为了免费桩增加大量绕行；滨州城区闪充为第二备选。','雨天降速并增加 1–2 小时缓冲，无法舒适完成时在途中住宿。'],
     ['09.24','潍坊 · 陪家人','d2','潍坊老家','市内短途', [['09:00','睡醒再出门','前一天长途后恢复，上午附近公园活动 45–60 分钟。'],['11:30','家中午饭','保持平时饭点；午后 12:30–14:30 留给午睡。'],['15:30','可选风筝文化体验','风筝博物馆只作短访候选，开放时间与预约另行核对；也可完全留在家里。']], '尝肉火烧、和乐，宝宝以软面、蒸蛋为主。','家中停车，整理车内儿童活动用品。','下雨就留在家里，不补打卡。'],
-    ['09.25','中秋 · 团圆日','d2','潍坊老家','不安排跨城', [['09:30','陪长辈 / 采购','选择一个轻松活动，避免上午塞满。'],['12:00','团圆午饭','保留饭后午睡；晚上不安排长距离开车。'],['17:00','散步赏月','根据天气在住处附近走走，宝宝按平时作息休息。']], '团圆餐为主；海鲜熟透，整粒坚果与整颗葡萄不直接给宝宝。','确认车上儿童座椅固定、胎压和补胎工具。','室内团圆活动。'],
-    ['09.26','潍坊 · 整备出发','d2','潍坊老家','半天活动 + 整备', [['09:00','十笏园周边可选','停留约 60–90 分钟，园内台阶较多，推车和背带组合。'],['12:30','午睡 / 收行李','分出当天随手包和酒店大行李，避免路上翻箱。'],['16:30','补能至 90%','恒信时代广场闪充站候选，先在 App 查开放与权益。'],['19:00','确认明日路线','检查蓬莱阁预约、烟台酒店最晚入住及停车入口。']], '老潍县家常菜，晚饭清淡。','潍坊补能是明日跨城前的重要一步。','取消短游，只做补能和行李整理。'],
+    ['09.25','中秋 · 团圆日','d3','潍坊老家','不安排跨城', [['09:30','陪长辈 / 采购','选择一个轻松活动，避免上午塞满。'],['12:00','团圆午饭','保留饭后午睡；晚上不安排长距离开车。'],['17:00','散步赏月','根据天气在住处附近走走，宝宝按平时作息休息。']], '团圆餐为主；海鲜熟透，整粒坚果与整颗葡萄不直接给宝宝。','确认车上儿童座椅固定、胎压和补胎工具。','室内团圆活动。'],
+    ['09.26','潍坊 · 整备出发','d4','潍坊老家','半天活动 + 整备', [['09:00','十笏园周边可选','停留约 60–90 分钟，园内台阶较多，推车和背带组合。'],['12:30','午睡 / 收行李','分出当天随手包和酒店大行李，避免路上翻箱。'],['16:30','补能至 90%','恒信时代广场闪充站候选，先在 App 查开放与权益。'],['19:00','确认明日路线','检查蓬莱阁预约、烟台酒店最晚入住及停车入口。']], '老潍县家常菜，晚饭清淡。','潍坊补能是明日跨城前的重要一步。','取消短游，只做补能和行李整理。'],
     ['09.27','蓬莱 → 烟台','d5','烟台 · 第 1 晚','约 330 km · 换城日', [['07:00','潍坊出发','途中安排一次 20 分钟休息。'],['10:30','蓬莱阁主景区','成人参考 100 元；只走主阁与水城，不叠加索道、三仙山和海洋馆。推车不适合全部台阶路段。'],['12:00','蓬莱午饭','小面或鲅鱼水饺；景区外找可停车餐厅。'],['13:00','前往烟台 / 午睡','约 80–90 km，车上睡眠不足时入住后继续休息。'],['16:30','酒店附近海边','只走 30–45 分钟，18:00 左右吃晚饭。']], '午饭蓬莱小面 + 水饺，晚饭烟台家常菜；两成人全天 250–350 元。','蓬莱北关路利群广场闪充为候选，电量充足可跳过；停车入口当天导航核准。','取消蓬莱阁，直接到烟台酒店休息，节省一次露天活动。'],
     ['09.28','烟台 · 慢看山海','d6','烟台 · 第 2 晚','市内约 20–40 km', [['09:00','烟台山—朝阳街','步行 60–90 分钟，灯塔与额外项目另查票价；不把登高作为必选。'],['11:30','朝阳街附近午饭','避开正午排队，选有儿童椅的室内餐厅。'],['12:30','回酒店午睡','完整留到 14:30，不夹购物。'],['16:00','渔人码头散步','拍照约 45 分钟，风大就提前结束。'],['18:00','晚饭 / 明日补能','烟台电视台闪充在莱山方向，仅顺路时去；不要为充电来回穿城。']], '鲅鱼水饺、焖子作为本地尝鲜；宝宝清汤面和蒸蛋。','两处景点均用周边公共停车场；白天优先打车，减少挪车。','烟台市博物馆为室内候选，先核对预约与闭馆日；否则酒店休息。'],
     ['09.29','烟台 → 威海 · 安顿','d7','威海 · 第 1 晚','约 85–100 km', [['09:00','早餐后退房','当天不赶船班，避免跨城加登岛挤压午睡。'],['10:30','到威海 / 寄存行李','酒店未到入住时间先寄存，提前问能否早入住。'],['11:30','酒店附近午饭','饭后办理入住。'],['12:30','午睡到 14:30','优先保证宝宝作息。'],['16:00','海源公园','散步与看渔船 45–60 分钟，不攀爬礁石。']], '酒店附近家常菜或海菜包子，全天餐费规划 250–350 元。','有需求可选择威海北站闪充，属城区站；先看与酒店的距离再决定。','公园取消，入住与附近商场午饭即可。'],
@@ -31,6 +31,94 @@
     d13:[['住宿','h-qingdao-b','青岛退房点','检查证件和充电线。'],['闪充','c-weifang','潍坊返京前补能','回家后补至 90–100%。']],
     d14:[['闪充','c-binzhou','滨州返京主补能','以车机 SOC 决定。'],['闪充','c-cangzhou','沧州弹性补能','不明显绕行才使用。']]
   };
+  const candidateGroups={
+    'charge-north':{title:'长途补能',type:'充电',options:[
+      {id:'c-cangzhou',name:'A · 沧州天成郡府闪充',meta:'免费闪充优先',pro:'可把午饭、休息、补能合并',con:'需要下高速进城，拥堵时绕行成本高'},
+      {id:'c-binzhou',name:'B · 滨州黄河二路闪充',meta:'更靠近潍坊',pro:'适合前半程耗电偏高时兜底',con:'同为城区站，不能替代顺路高速桩'}]},
+    'charge-weifang-ready':{title:'出发前补能',type:'充电',options:[
+      {id:'c-weifang',name:'A · 恒信时代广场闪充',meta:'补至 90–100%',pro:'次日跨城无需临时找桩',con:'需提前确认权益和空闲枪位'},
+      {id:null,name:'B · 家附近补能',meta:'路线最省事',pro:'不专程绕路，收行李更从容',con:'不一定能用免费闪充权益'}]},
+    'charge-return':{title:'返京补能',type:'充电',options:[
+      {id:'c-binzhou',name:'A · 滨州主补能',meta:'更早建立余量',pro:'保守、安全，后程仍可在沧州追加',con:'若出发满电可能充电偏早'},
+      {id:'c-cangzhou',name:'B · 沧州主补能',meta:'减少一次停车',pro:'更接近北京，单次补能利用率高',con:'堵车或低温时前段余量更紧'}]},
+    'attraction-penglai':{title:'当天主景点',type:'景点',options:[
+      {id:'a-penglai',name:'A · 蓬莱阁与水城',meta:'经典人文 · 2–3 小时',pro:'山东代表性强，路线成熟',con:'台阶多、节假日人流大'},
+      {id:'a-yantaishan',name:'B · 直接去烟台山',meta:'轻松慢游 · 1–1.5 小时',pro:'少一次停车，离烟台酒店近',con:'会放弃蓬莱这一站'}]},
+    'hotel-yantai':{title:'烟台连住酒店',type:'酒店',options:[
+      {id:'h-yantai-a',name:'A · 百纳瑞汀酒店',meta:'老城便利型',pro:'靠近烟台山、朝阳街，步行更方便',con:'节日周边车流和停车压力较大'},
+      {id:'h-yantai-b',name:'B · 世茂希尔顿酒店',meta:'亲子舒适型',pro:'早餐与服务更稳定，午睡回房方便',con:'价格通常更高'}]},
+    'food-penglai':{title:'午餐落点',type:'美食',options:[
+      {id:'f-penglai',name:'A · 蓬莱阁外小面 / 水饺',meta:'人均约 40–70 元',pro:'游完直接吃，不增加跨城饥饿等待',con:'景区周边热门店可能排队'},
+      {id:'f-yantai',name:'B · 到烟台老城再吃',meta:'人均约 60–100 元',pro:'餐厅选择更多，环境与餐椅更稳',con:'宝宝饭点可能被 80 km 车程推迟'}]},
+    'charge-penglai':{title:'蓬莱补能',type:'充电',options:[
+      {id:null,name:'A · 电量够就跳过',meta:'推荐默认',pro:'不为免费电打断午睡和换城节奏',con:'需保证到烟台后仍有 20% 以上'},
+      {id:'c-penglai',name:'B · 利群广场闪充',meta:'2 把闪充枪',pro:'免费权益可用，吃饭时补能',con:'枪少，排队会侵占游玩时间'}]},
+    'attraction-yantai':{title:'烟台半日玩法',type:'景点',options:[
+      {id:'a-yantaishan',name:'A · 烟台山—朝阳街',meta:'城市人文 · 推车友好',pro:'离酒店近，随时可回房午睡',con:'假日老城停车紧张'},
+      {id:'a-yangma',name:'B · 养马岛环岛',meta:'海岸自驾 · 2–3 小时',pro:'山海照片更出片，自驾体验好',con:'风大、堵车时体验明显下降'},
+      {id:'a-fisher',name:'C · 渔人码头短停',meta:'轻量打卡 · 45–60 分钟',pro:'对两岁宝宝最轻松，进退自由',con:'内容较少，不适合作为全天主景点'}]},
+    'food-yantai':{title:'烟台正餐',type:'美食',options:[
+      {id:'f-yantai',name:'A · 朝阳街 / 所城里周边',meta:'焖子 · 鲅鱼水饺',pro:'景点、吃饭、散步一次完成',con:'网红店多，需避开长队'},
+      {id:'f-yantai-east',name:'B · 莱山商圈亲子餐',meta:'商场餐厅 · 有餐椅',pro:'停车、洗手间、宝宝餐更稳定',con:'本地烟火气弱一些'}]},
+    'hotel-weihai':{title:'威海三晚酒店',type:'酒店',options:[
+      {id:'h-weihai-a',name:'A · 抱海大酒店',meta:'自驾效率型',pro:'去刘公岛和荣成方向更顺，停车稳',con:'装修与亲子配套相对传统'},
+      {id:'h-weihai-b',name:'B · 蓝海御华大饭店',meta:'连住舒适型',pro:'房间与早餐更适合连续住三晚',con:'前往火炬八街距离更远'}]},
+    'charge-weihai':{title:'换城补能',type:'充电',options:[
+      {id:'c-yantai',name:'A · 烟台电视台闪充',meta:'离烟台酒店较近',pro:'退房前补好，到威海后不再找桩',con:'若走北线可能需要绕路'},
+      {id:'c-weihai',name:'B · 威海北站闪充',meta:'到达后补能',pro:'抵达威海再按实际 SOC 决定',con:'与海滨酒店并不完全顺路'},
+      {id:null,name:'C · 暂不补能',meta:'SOC 充足时',pro:'85–100 km 换城无需强行充电',con:'次日活动前需重新评估'}]},
+    'food-weihai':{title:'威海晚餐',type:'美食',options:[
+      {id:'f-weihai',name:'A · 韩乐坊餐饮区',meta:'韩餐 · 海鲜 · 选择多',pro:'下雨也好逛，家庭选择面广',con:'热门时段停车和排队较难'},
+      {id:'f-weihai-mall',name:'B · 威高广场亲子餐',meta:'稳定省心型',pro:'餐椅、卫生间和宝宝餐更可靠',con:'地方特色不如街区明显'}]},
+    'attraction-weihai':{title:'登岛日主任务',type:'景点',options:[
+      {id:'a-liugong',name:'A · 刘公岛',meta:'半日 · 船班制约',pro:'历史与海岛体验完整，值得记录',con:'排队、风浪和船班对带娃要求高'},
+      {id:'a-haiyuan',name:'B · 海源公园 + 半月湾',meta:'免费 · 自由节奏',pro:'不坐船，宝宝状态不好可随时撤',con:'人文内容弱，仪式感不如登岛'}]},
+    'attraction-rongcheng':{title:'荣成主景点',type:'景点',options:[
+      {id:'a-naxianghai',name:'A · 那香海钻石沙滩',meta:'玩沙亲子型',pro:'两岁宝宝参与感强，免费区域灵活',con:'国庆人多，单独看景丰富度一般'},
+      {id:'a-chengshan',name:'B · 成山头',meta:'地标山海型',pro:'景观最有目的地感，照片值得留存',con:'路更远、风更大、台阶更多'},
+      {id:'a-jinshi',name:'C · 金石湾艺术园区',meta:'拍照慢游型',pro:'家庭合照场景丰富，节奏松弛',con:'内容偏审美打卡，宝宝游乐性弱'}]},
+    'charge-rongcheng':{title:'荣成补能',type:'充电',options:[
+      {id:null,name:'A · 威海满电往返',meta:'推荐默认',pro:'不深入荣成城区，路线最短',con:'出发时建议至少 80–85%'},
+      {id:'c-rongcheng',name:'B · 荣成兴飞闪充',meta:'返程兜底',pro:'深度游成山头时更安心',con:'离那香海并不近，可能明显绕行'}]},
+    'food-rongcheng':{title:'荣成午餐',type:'美食',options:[
+      {id:'f-rongcheng',name:'A · 荣成城区海鲜家常菜',meta:'人均约 70–120 元',pro:'热菜选择多，适合深度游后休息',con:'从那香海过去会增加里程'},
+      {id:'f-weihai',name:'B · 返回威海再吃',meta:'熟悉稳妥型',pro:'餐厅选择多，直接回酒店午睡',con:'需要自带宝宝垫餐，饭点偏晚'}]},
+    'charge-qingdao':{title:'威海去青岛补能',type:'充电',options:[
+      {id:'c-laixi',name:'A · 莱西南京北路闪充',meta:'跨城途中候选',pro:'可把午饭与补能合并',con:'属于城区站，须比较高速桩绕行'},
+      {id:'c-qingdao',name:'B · 到青岛市区再充',meta:'抵达后安排',pro:'按真实到达 SOC 决策，不提前绕路',con:'晚高峰找桩可能更耗时'},
+      {id:null,name:'C · 顺路高速快充',meta:'效率优先',pro:'不用下高速，通常总耗时更短',con:'不一定享受免费闪充权益'}]},
+    'hotel-qingdao':{title:'青岛三晚酒店',type:'酒店',options:[
+      {id:'h-qingdao-a',name:'A · 栈桥海景亚朵',meta:'老城步行型',pro:'栈桥、大学路、海底世界都更近',con:'停车位紧张，去崂山方向较慢'},
+      {id:'h-qingdao-b',name:'B · 海景花园大酒店',meta:'亲子自驾型',pro:'停车与服务更稳，靠近东部海岸',con:'游老城需要打车，往返午睡成本高'}]},
+    'attraction-qingdao-east':{title:'抵达后散步',type:'景点',options:[
+      {id:'a-olympic',name:'A · 奥帆中心',meta:'夜景城市型',pro:'路面平缓、吃饭方便、夜景稳定',con:'商业感较强，假日人多'},
+      {id:'a-xiaomai',name:'B · 小麦岛日落',meta:'草地海岸型',pro:'照片更自然，宝宝可短时放电',con:'停车和海风不确定'}]},
+    'attraction-qingdao-old':{title:'老城主打卡',type:'景点',options:[
+      {id:'a-zhanqiao',name:'A · 栈桥—中山路',meta:'经典地标 · 平缓',pro:'第一次到青岛辨识度最高',con:'国庆人流密集'},
+      {id:'a-xiaoyushan',name:'B · 大学路—小鱼山',meta:'城市俯瞰 · 文艺街区',pro:'照片层次丰富，老城气质更强',con:'有坡度，推车体验一般'},
+      {id:'a-badaguan',name:'C · 八大关慢走',meta:'建筑海岸 · 1.5 小时',pro:'树荫多，路线可长可短',con:'景点分散，打卡感不如栈桥集中'}]},
+    'attraction-qingdao-family':{title:'亲子主景点',type:'景点',options:[
+      {id:'a-underwater',name:'A · 青岛海底世界',meta:'室内 · 约 2–3 小时',pro:'宝宝参与感最强，雨天也能玩',con:'门票高、节假日拥挤'},
+      {id:'a-badaguan',name:'B · 八大关 + 第二海水浴场',meta:'免费慢游型',pro:'节奏自由，午睡不受预约约束',con:'天气依赖强，互动性较弱'},
+      {id:'a-xiaomai',name:'C · 小麦岛公园',meta:'免费日落型',pro:'空间开阔，适合家庭影像记录',con:'大风时不适合久留'}]},
+    'food-qingdao':{title:'青岛正餐',type:'美食',options:[
+      {id:'f-qingdao',name:'A · 老城家常菜',meta:'锅贴 · 排骨米饭',pro:'本地味更浓，和老城路线自然衔接',con:'停车困难，热门店排队长'},
+      {id:'f-qingdao-east',name:'B · 香港中路 / 奥帆商圈',meta:'亲子环境型',pro:'停车、餐椅、宝宝餐更稳',con:'价格偏高，旅行烟火气稍弱'}]}
+  };
+  const choicePlans={
+    d1:{groups:['charge-north'],sequence:['a-beijing','@charge-north','a-weifang']},
+    d4:{groups:['charge-weifang-ready'],sequence:['a-weifang','@charge-weifang-ready','a-weifang']},
+    d5:{groups:['attraction-penglai','food-penglai','charge-penglai','hotel-yantai'],sequence:['a-weifang','@attraction-penglai','@food-penglai','@charge-penglai','@hotel-yantai']},
+    d6:{groups:['attraction-yantai','food-yantai','hotel-yantai'],sequence:['@hotel-yantai','@attraction-yantai','@food-yantai','@hotel-yantai']},
+    d7:{groups:['charge-weihai','food-weihai','hotel-weihai'],sequence:['@hotel-yantai','@charge-weihai','@food-weihai','@hotel-weihai']},
+    d8:{groups:['attraction-weihai','food-weihai','hotel-weihai'],sequence:['@hotel-weihai','@attraction-weihai','@food-weihai','@hotel-weihai']},
+    d9:{groups:['attraction-rongcheng','food-rongcheng','charge-rongcheng','hotel-weihai'],sequence:['@hotel-weihai','@attraction-rongcheng','@food-rongcheng','@charge-rongcheng','@hotel-weihai']},
+    d10:{groups:['charge-qingdao','hotel-qingdao','attraction-qingdao-east','food-qingdao'],sequence:['@hotel-weihai','@charge-qingdao','@hotel-qingdao','@attraction-qingdao-east','@food-qingdao','@hotel-qingdao']},
+    d11:{groups:['attraction-qingdao-old','food-qingdao','hotel-qingdao'],sequence:['@hotel-qingdao','@attraction-qingdao-old','@food-qingdao','@hotel-qingdao']},
+    d12:{groups:['attraction-qingdao-family','food-qingdao','hotel-qingdao'],sequence:['@hotel-qingdao','@attraction-qingdao-family','@food-qingdao','@hotel-qingdao']},
+    d13:{groups:['hotel-qingdao','charge-weifang-ready'],sequence:['@hotel-qingdao','a-weifang','@charge-weifang-ready']},
+    d14:{groups:['charge-return'],sequence:['a-weifang','@charge-return','a-beijing']}
+  };
   document.addEventListener('DOMContentLoaded',function(){
     const root=document.querySelector('.roadtrip'); if(!root)return;
     root.classList.add('planner-app');
@@ -50,18 +138,50 @@
     root.querySelector('#day-by-day').hidden=true;
     const detail=workspace.querySelector('.planner-detail');
     const dayNav=workspace.querySelector('.planner-days');
+    const pointLabels={'a-beijing':'北京出发','a-weifang':'潍坊老家'};
+    function selectedOption(groupId){
+      const group=candidateGroups[groupId]; let saved=null;
+      try{saved=localStorage.getItem('trip-choice-'+groupId);}catch(e){}
+      return (saved===null?null:group.options.find(function(option){return String(option.id||'')===saved;}))||group.options[0];
+    }
+    function compiledRoute(plan){
+      return plan.sequence.map(function(token){return token.charAt(0)==='@'?selectedOption(token.slice(1)):({id:token,name:pointLabels[token]||token});}).filter(function(option){return option&&option.id;});
+    }
+    function renderComposer(day){
+      const plan=choicePlans[day]; if(!plan)return;
+      const groupsHtml=plan.groups.map(function(groupId){
+        const group=candidateGroups[groupId], selected=selectedOption(groupId);
+        return '<section class="choice-group"><header><span>'+group.type+'</span><h4>'+group.title+'</h4></header><div>'+group.options.map(function(option){
+          const active=option===selected;
+          return '<button type="button" class="choice-option'+(active?' is-selected':'')+'" data-choice-group="'+groupId+'" data-choice-id="'+(option.id||'')+'" aria-pressed="'+active+'"><b>'+option.name+'</b><small>'+option.meta+'</small><em>优：'+option.pro+'</em><i>劣：'+option.con+'</i></button>';
+        }).join('')+'</div></section>';
+      }).join('');
+      const route=compiledRoute(plan);
+      const summary='<div class="choice-result"><div><span>已为你串成当天路线</span><b>'+route.map(function(option,index){return '<mark>'+(index+1)+'</mark>'+(option.name||option.id);}).join('<i>→</i>')+'</b></div><button type="button" data-build-route>按我的选择规划路线</button></div>';
+      detail.querySelector('.planner-notes').insertAdjacentHTML('afterend','<section class="trip-composer"><div class="trip-composer__head"><div><small>MY ROUTE</small><h3>选你喜欢的，我来串路线</h3></div><p>每类选一个；优劣、位置与绕行成本放在一起比较。选择会自动保存在本机。</p></div>'+groupsHtml+summary+'</section>');
+      detail.querySelectorAll('[data-choice-group]').forEach(function(button){button.onclick=function(){
+        try{localStorage.setItem('trip-choice-'+button.dataset.choiceGroup,button.dataset.choiceId);}catch(e){}
+        selectDay(days.findIndex(function(item){return item[2]===day;}));
+      };});
+      const build=detail.querySelector('[data-build-route]'); if(build)build.onclick=function(){
+        const chosen=compiledRoute(plan);
+        window.dispatchEvent(new CustomEvent('trip:compose',{detail:{day:day,ids:chosen.map(function(option){return option.id;})}}));
+      };
+    }
     days.forEach((d,i)=>{const b=document.createElement('button');b.type='button';b.innerHTML='<small>'+d[0]+' · D'+(i+1)+'</small><strong>'+d[1]+'</strong>';b.onclick=()=>selectDay(i);dayNav.append(b);});
     function selectDay(i){
       const d=days[i];Array.from(dayNav.children).forEach((b,j)=>{b.classList.toggle('selected',i===j);b.setAttribute('aria-pressed',String(i===j));});
       detail.innerHTML='<p class="roadtrip-eyebrow">DAY '+String(i+1).padStart(2,'0')+' / '+d[0]+'</p><h2>'+d[1]+'</h2><p class="planner-sub">'+d[4]+'<br>住宿：'+d[3]+'</p><div class="planner-mode"><button type="button" class="selected" data-mode="full">精力充足</button><button type="button" data-mode="normal">普通节奏</button><button type="button" data-mode="light">宝宝闹觉</button><button type="button" data-mode="rain">雨天备选</button></div><div class="planner-metrics"><span>驾驶 <b>'+d[4].split('·')[0].trim()+'</b></span><span>主任务 <b>'+d[5][Math.min(1,d[5].length-1)][1]+'</b></span><span>底线 <b>午睡不挪用</b></span></div><div class="planner-timeline">'+d[5].map((s,k)=>'<article data-stop-index="'+k+'"><time>'+s[0]+'</time><div><h3>'+s[1]+'</h3><p>'+s[2]+'</p></div></article>').join('')+'</div><div class="planner-rain" hidden><h3>当天替代安排</h3><p>'+d[8]+'</p><p>保留已订住宿，上午 10 点前决定是否取消室外项目；午睡时段不挪作补打卡。</p></div><div class="planner-notes"><h3>吃什么 · 预算是计划值</h3><p>'+d[6]+'</p><h3>开车与停车</h3><p>'+d[7]+'</p></div><div class="planner-memory"><label>今日记录</label><textarea rows="3" placeholder="宝宝今天最开心的瞬间……"></textarea><button type="button" class="roadtrip-btn roadtrip-btn--small">保存记录</button><span></span></div><div class="planner-next"><button type="button" id="prev-day" '+(i===0?'disabled':'')+'>← 前一天</button><button type="button" id="next-day" '+(i===13?'disabled':'')+'>后一天 →</button></div>';
       const relatedHtml=(related[d[2]]||[]).map(x=>'<article><small>'+x[0]+'</small><h3>'+x[2]+'</h3><p>'+x[3]+'</p><button type="button" data-related-map="'+x[1]+'">地图定位</button>'+(x[0]==='景点'?'<button type="button" data-related-view="attractions">详细介绍</button>':'')+'</article>').join('');
-      detail.querySelector('.planner-notes').insertAdjacentHTML('afterend','<section class="planner-related"><h3>今天关联的景点、住宿、补能与美食</h3><div>'+relatedHtml+'</div></section>');
+      if(choicePlans[d[2]])renderComposer(d[2]);
+      else detail.querySelector('.planner-notes').insertAdjacentHTML('afterend','<section class="planner-related"><h3>今天关联的景点、住宿、补能与美食</h3><div>'+relatedHtml+'</div></section>');
       detail.querySelectorAll('[data-related-map]').forEach(b=>b.onclick=()=>window.dispatchEvent(new CustomEvent('trip:point',{detail:b.dataset.relatedMap})));
       detail.querySelectorAll('[data-related-view]').forEach(b=>b.onclick=()=>showView(b.dataset.relatedView));
       detail.querySelectorAll('[data-mode]').forEach(b=>b.onclick=()=>{detail.querySelectorAll('[data-mode]').forEach(x=>x.classList.toggle('selected',b===x));const mode=b.dataset.mode;detail.querySelector('.planner-rain').hidden=mode!=='rain';detail.querySelector('.planner-timeline').hidden=mode==='rain';detail.querySelectorAll('.planner-timeline article').forEach((a,k)=>a.hidden=mode==='light'&&k>2||mode==='normal'&&k>3);});
       const memory=detail.querySelector('.planner-memory textarea'), memoryKey='roadtrip-memory-'+d[2]; try{memory.value=localStorage.getItem(memoryKey)||'';}catch(e){} detail.querySelector('.planner-memory button').onclick=()=>{try{localStorage.setItem(memoryKey,memory.value);detail.querySelector('.planner-memory span').textContent='已保存';}catch(e){}};
       detail.querySelector('#prev-day').onclick=()=>selectDay(i-1);detail.querySelector('#next-day').onclick=()=>selectDay(i+1);
       window.dispatchEvent(new CustomEvent('trip:day',{detail:d[2]}));
+      if(choicePlans[d[2]])setTimeout(function(){const chosen=compiledRoute(choicePlans[d[2]]);window.dispatchEvent(new CustomEvent('trip:compose',{detail:{day:d[2],ids:chosen.map(function(option){return option.id;})}}));},180);
     }
     const sections=['attractions','stays','charging','food','budget','checklist','toolkit'];
     function showView(view){workspace.hidden=view!=='journey';sections.forEach(id=>{root.querySelector('#'+id).hidden=!(id===view||(view==='budget'&&id==='checklist'));});nav.querySelectorAll('button').forEach(b=>b.classList.toggle('selected',b.dataset.view===view));window.dispatchEvent(new Event('trip:resize'));}
