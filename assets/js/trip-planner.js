@@ -43,7 +43,9 @@
       {id:'c-cangzhou',name:'B · 沧州主补能',meta:'减少一次停车',pro:'更接近北京，单次补能利用率高',con:'堵车或低温时前段余量更紧'}]},
     'attraction-penglai':{title:'当天主景点',type:'景点',options:[
       {id:'a-penglai',name:'A · 蓬莱阁与水城',meta:'经典人文 · 2–3 小时',pro:'山东代表性强，路线成熟',con:'台阶多、节假日人流大'},
-      {id:'a-yantaishan',name:'B · 直接去烟台山',meta:'轻松慢游 · 1–1.5 小时',pro:'少一次停车，离烟台酒店近',con:'会放弃蓬莱这一站'}]},
+      {id:'a-penglai-ocean',name:'B · 蓬莱海洋极地世界',meta:'室内亲子 · 3–4 小时',pro:'两岁宝宝参与感更强，天气影响小',con:'票价较高且假期馆内拥挤'},
+      {id:'a-sanxian',name:'C · 三仙山',meta:'园林建筑 · 2–3 小时',pro:'建筑与园林很出片，步行节奏自由',con:'园区大，和蓬莱阁同日容易超量'},
+      {id:'a-yantaishan',name:'D · 直接去烟台山',meta:'轻松慢游 · 1–1.5 小时',pro:'少一次停车，离烟台酒店近',con:'会放弃蓬莱这一站'}]},
     'hotel-yantai':{title:'烟台连住酒店',type:'酒店',options:[
       {id:'h-yantai-a',name:'A · 百纳瑞汀酒店',meta:'老城便利型',pro:'靠近烟台山、朝阳街，步行更方便',con:'节日周边车流和停车压力较大'},
       {id:'h-yantai-b',name:'B · 世茂希尔顿酒店',meta:'亲子舒适型',pro:'早餐与服务更稳定，午睡回房方便',con:'价格通常更高'}]},
@@ -56,7 +58,9 @@
     'attraction-yantai':{title:'烟台半日玩法',type:'景点',options:[
       {id:'a-yantaishan',name:'A · 烟台山—朝阳街',meta:'城市人文 · 推车友好',pro:'离酒店近，随时可回房午睡',con:'假日老城停车紧张'},
       {id:'a-yangma',name:'B · 养马岛环岛',meta:'海岸自驾 · 2–3 小时',pro:'山海照片更出片，自驾体验好',con:'风大、堵车时体验明显下降'},
-      {id:'a-fisher',name:'C · 渔人码头短停',meta:'轻量打卡 · 45–60 分钟',pro:'对两岁宝宝最轻松，进退自由',con:'内容较少，不适合作为全天主景点'}]},
+      {id:'a-fisher',name:'C · 渔人码头短停',meta:'轻量打卡 · 45–60 分钟',pro:'对两岁宝宝最轻松，进退自由',con:'内容较少，不适合作为全天主景点'},
+      {id:'a-suo',name:'D · 所城里夜游',meta:'老街夜景 · 1 小时',pro:'适合晚饭后散步，和烟台山衔接',con:'商业化较强，推车需避开人流'},
+      {id:'a-changyu',name:'E · 张裕酒文化博物馆',meta:'室内人文 · 1.5 小时',pro:'雨天稳定、离老城酒店近',con:'幼儿互动性一般'}]},
     'food-yantai':{title:'烟台正餐',type:'美食',options:[
       {id:'f-yantai',name:'A · 朝阳街 / 所城里周边',meta:'焖子 · 鲅鱼水饺',pro:'景点、吃饭、散步一次完成',con:'网红店多，需避开长队'},
       {id:'f-yantai-east',name:'B · 莱山商圈亲子餐',meta:'商场餐厅 · 有餐椅',pro:'停车、洗手间、宝宝餐更稳定',con:'本地烟火气弱一些'}]},
@@ -72,7 +76,9 @@
       {id:'f-weihai-mall',name:'B · 威高广场亲子餐',meta:'稳定省心型',pro:'餐椅、卫生间和宝宝餐更可靠',con:'地方特色不如街区明显'}]},
     'attraction-weihai':{title:'登岛日主任务',type:'景点',options:[
       {id:'a-liugong',name:'A · 刘公岛',meta:'半日 · 船班制约',pro:'历史与海岛体验完整，值得记录',con:'排队、风浪和船班对带娃要求高'},
-      {id:'a-haiyuan',name:'B · 海源公园 + 半月湾',meta:'免费 · 自由节奏',pro:'不坐船，宝宝状态不好可随时撤',con:'人文内容弱，仪式感不如登岛'}]},
+      {id:'a-haiyuan',name:'B · 海源公园',meta:'渔港慢走 · 1 小时',pro:'不坐船，宝宝状态不好可随时撤',con:'人文内容弱，仪式感不如登岛'},
+      {id:'a-banyue',name:'C · 半月湾',meta:'免费海岸 · 1 小时',pro:'日出日落都适合家庭照片',con:'大风时体感差'},
+      {id:'a-huoju',name:'D · 火炬八街',meta:'城市海景 · 45 分钟',pro:'地标辨识度高，适合短打卡',con:'假日拥堵停车难，商业感强'}]},
     'attraction-rongcheng':{title:'荣成主景点',type:'景点',options:[
       {id:'a-naxianghai',name:'A · 那香海钻石沙滩',meta:'玩沙亲子型',pro:'两岁宝宝参与感强，免费区域灵活',con:'国庆人多，单独看景丰富度一般'},
       {id:'a-chengshan',name:'B · 成山头',meta:'地标山海型',pro:'景观最有目的地感，照片值得留存',con:'路更远、风更大、台阶更多'},
@@ -92,15 +98,20 @@
       {id:'h-qingdao-b',name:'B · 海景花园大酒店',meta:'亲子自驾型',pro:'停车与服务更稳，靠近东部海岸',con:'游老城需要打车，往返午睡成本高'}]},
     'attraction-qingdao-east':{title:'抵达后散步',type:'景点',options:[
       {id:'a-olympic',name:'A · 奥帆中心',meta:'夜景城市型',pro:'路面平缓、吃饭方便、夜景稳定',con:'商业感较强，假日人多'},
-      {id:'a-xiaomai',name:'B · 小麦岛日落',meta:'草地海岸型',pro:'照片更自然，宝宝可短时放电',con:'停车和海风不确定'}]},
+      {id:'a-xiaomai',name:'B · 小麦岛日落',meta:'草地海岸型',pro:'照片更自然，宝宝可短时放电',con:'停车和海风不确定'},
+      {id:'a-mayfourth',name:'C · 五四广场',meta:'地标夜景 · 45 分钟',pro:'交通方便、平地推车友好',con:'内容单一，节假日人多'}]},
     'attraction-qingdao-old':{title:'老城主打卡',type:'景点',options:[
       {id:'a-zhanqiao',name:'A · 栈桥—中山路',meta:'经典地标 · 平缓',pro:'第一次到青岛辨识度最高',con:'国庆人流密集'},
       {id:'a-xiaoyushan',name:'B · 大学路—小鱼山',meta:'城市俯瞰 · 文艺街区',pro:'照片层次丰富，老城气质更强',con:'有坡度，推车体验一般'},
-      {id:'a-badaguan',name:'C · 八大关慢走',meta:'建筑海岸 · 1.5 小时',pro:'树荫多，路线可长可短',con:'景点分散，打卡感不如栈桥集中'}]},
+      {id:'a-badaguan',name:'C · 八大关慢走',meta:'建筑海岸 · 1.5 小时',pro:'树荫多，路线可长可短',con:'景点分散，打卡感不如栈桥集中'},
+      {id:'a-signalhill',name:'D · 信号山公园',meta:'老城俯瞰 · 1 小时',pro:'能一次看清红瓦老城与海岸线',con:'坡度明显，建议使用背带'},
+      {id:'a-cathedral',name:'E · 圣弥厄尔教堂',meta:'建筑打卡 · 30–45 分钟',pro:'与中山路顺路、停留灵活',con:'开放时间和宗教活动可能影响参观'}]},
     'attraction-qingdao-family':{title:'亲子主景点',type:'景点',options:[
       {id:'a-underwater',name:'A · 青岛海底世界',meta:'室内 · 约 2–3 小时',pro:'宝宝参与感最强，雨天也能玩',con:'门票高、节假日拥挤'},
-      {id:'a-badaguan',name:'B · 八大关 + 第二海水浴场',meta:'免费慢游型',pro:'节奏自由，午睡不受预约约束',con:'天气依赖强，互动性较弱'},
-      {id:'a-xiaomai',name:'C · 小麦岛公园',meta:'免费日落型',pro:'空间开阔，适合家庭影像记录',con:'大风时不适合久留'}]},
+      {id:'a-polar',name:'B · 极地海洋公园',meta:'表演互动 · 3–4 小时',pro:'亲子互动和演出更丰富',con:'价格高、一天只建议选一个海洋馆'},
+      {id:'a-badaguan',name:'C · 八大关 + 第二海水浴场',meta:'免费慢游型',pro:'节奏自由，午睡不受预约约束',con:'天气依赖强，互动性较弱'},
+      {id:'a-xiaomai',name:'D · 小麦岛公园',meta:'免费日落型',pro:'空间开阔，适合家庭影像记录',con:'大风时不适合久留'},
+      {id:'a-mayfourth',name:'E · 五四广场夜景',meta:'免费城市型',pro:'推车友好，晚饭后短走即可',con:'不适合作为全天唯一主景点'}]},
     'food-qingdao':{title:'青岛正餐',type:'美食',options:[
       {id:'f-qingdao',name:'A · 老城家常菜',meta:'锅贴 · 排骨米饭',pro:'本地味更浓，和老城路线自然衔接',con:'停车困难，热门店排队长'},
       {id:'f-qingdao-east',name:'B · 香港中路 / 奥帆商圈',meta:'亲子环境型',pro:'停车、餐椅、宝宝餐更稳',con:'价格偏高，旅行烟火气稍弱'}]}
@@ -121,46 +132,58 @@
   };
   document.addEventListener('DOMContentLoaded',function(){
     const root=document.querySelector('.roadtrip'); if(!root)return;
-    root.classList.add('planner-app');
+    root.classList.add('planner-app','planner-v2');
     const hero=root.querySelector('.roadtrip-hero');
-    hero.querySelector('h1').innerHTML='山东半岛，<span>一家三口慢慢走。</span>';
+    hero.innerHTML='<div class="planner-v2-hero"><div><p class="roadtrip-eyebrow">2026.09.23—10.06 · TWO ADULTS + ONE TODDLER</p><h1>山东半岛<br><span>自驾决策台</span></h1><p>你负责选择想去的地方，我负责把景点、吃饭、补能和酒店串成一条能开的路线。</p></div><div class="planner-v2-stats"><span><b>14</b>天行程</span><span><b>6</b>座城市</span><span><b>820</b>km 标称续航</span><span><b>2</b>岁宝宝</span></div></div>';
     const nav=document.createElement('nav'); nav.className='planner-nav'; nav.setAttribute('aria-label','攻略工作台');
-    nav.innerHTML='<b>半岛旅行计划 <small>2026 秋</small></b><div>'+[['journey','每日行程'],['attractions','景点详解'],['stays','酒店对比'],['charging','补能计划'],['food','吃饭攻略'],['budget','预算清单'],['toolkit','亲子工具包']].map(x=>'<button type="button" data-view="'+x[0]+'">'+x[1]+'</button>').join('')+'</div>';
+    nav.innerHTML='<b><i></i>半岛旅行 OS <small>所有选择自动保存</small></b><div>'+[['journey','路线编排'],['attractions','景点图鉴'],['stays','酒店'],['charging','补能'],['food','美食'],['toolkit','带娃工具']].map(x=>'<button type="button" data-view="'+x[0]+'">'+x[1]+'</button>').join('')+'</div>';
     hero.after(nav);
     const workspace=document.createElement('section');workspace.className='planner-workspace';workspace.id='planner-workspace';
-    workspace.innerHTML='<aside class="planner-days" aria-label="选择日期"></aside><section class="planner-detail" aria-live="polite"></section><aside class="planner-map"></aside>';
+    workspace.innerHTML='<aside class="planner-days" aria-label="选择日期"><header><span>TRIP</span><b>14 天</b></header></aside><main class="planner-detail" aria-live="polite"></main><aside class="planner-map"></aside>';
     nav.after(workspace);
     const toolkit=document.createElement('section'); toolkit.className='roadtrip-section trip-toolkit'; toolkit.id='toolkit';
     toolkit.innerHTML='<div class="roadtrip-section__head"><div><p class="roadtrip-eyebrow">FAMILY TOOLKIT</p><h2>带娃出发，少一点临场慌张</h2></div><p>建议出发前截图保存</p></div><div class="toolkit-grid"><article><span>车上随身包</span><h3>尿裤 · 湿巾 · 水杯 · 熟悉零食</h3><p>再放一条薄毯、换洗衣物、晕车袋和一个新玩具。每 90–120 分钟主动停车，不等宝宝闹。</p></article><article><span>海边安全</span><h3>防晒 · 防风 · 防蚊 · 防滑鞋</h3><p>海风大时减少停留；不让宝宝独自靠近礁石和浪线，海鲜确认熟透并先少量尝试。</p></article><article><span>应急位置</span><h3>医院、药店、母婴室先收藏</h3><p>每天入住后把最近医院和 24 小时药店加入高德收藏；商场优先解决热水、餐椅和卫生间。</p></article><article><span>假期判断</span><h3>大风 / 暴雨就删户外</h3><p>刘公岛停航、海边大风、青岛老城拥堵都不硬扛。保留酒店和午睡，行程不会因此失败。</p></article></div><div class="backup-attractions"><strong>备选打卡库</strong><p>养马岛环岛（顺路 / 日落） · 所城里（夜游） · 半月湾（清晨 / 日落） · 成山头（值得专程） · 金石湾艺术园区（家庭合照） · 小麦岛（日落）。地图中可筛选景点，按风力和宝宝状态替换。</p></div><div class="trip-journal"><label for="trip-journal-text"><strong>旅行记录 · 写给回来的自己</strong><small>内容只保存在本机浏览器</small></label><textarea id="trip-journal-text" rows="4" placeholder="今天宝宝最开心的瞬间……"></textarea><button type="button" class="roadtrip-btn roadtrip-btn--small" id="save-journal">保存今天记录</button><span id="journal-status" role="status"></span></div>';
     root.querySelector('#checklist').after(toolkit);
     const mapSection=root.querySelector('#route-map');workspace.querySelector('.planner-map').append(mapSection);
-    const mapNote=document.createElement('p');mapNote.className='route-map-note';mapNote.style.color='#67766d';mapNote.textContent='点击标记查看地址并打开高德导航。全览虚线为行程示意，不是实时驾车路线；部分酒店与景点为区域定位，导航请按名称确认入口。';mapSection.append(mapNote);
+    mapSection.querySelector('h2').textContent='高德 · 当天路线';
+    const mapNote=document.createElement('p');mapNote.className='route-map-note';mapNote.textContent='站内显示路线规划与逐路段详情；真正驾车时点击分段入口，在高德 App 开始导航。';mapSection.append(mapNote);
     root.querySelector('#day-by-day').hidden=true;
     const detail=workspace.querySelector('.planner-detail');
     const dayNav=workspace.querySelector('.planner-days');
     const pointLabels={'a-beijing':'北京出发','a-weifang':'潍坊老家'};
-    function selectedOption(groupId){
-      const group=candidateGroups[groupId]; let saved=null;
-      try{saved=localStorage.getItem('trip-choice-'+groupId);}catch(e){}
-      return (saved===null?null:group.options.find(function(option){return String(option.id||'')===saved;}))||group.options[0];
+    function optionKey(option){return option.id||'__skip__';}
+    function selectedOptions(groupId){
+      const group=candidateGroups[groupId]; let saved=null, keys=[];
+      try{saved=localStorage.getItem('trip-choice-v2-'+groupId);}catch(e){}
+      if(saved){try{keys=JSON.parse(saved);}catch(e){keys=[saved];}}
+      if(!Array.isArray(keys)||!keys.length)keys=[optionKey(group.options[0])];
+      const selected=keys.map(function(key){return group.options.find(function(option){return optionKey(option)===key;});}).filter(Boolean);
+      return selected.length?selected:[group.options[0]];
     }
     function compiledRoute(plan){
-      return plan.sequence.map(function(token){return token.charAt(0)==='@'?selectedOption(token.slice(1)):({id:token,name:pointLabels[token]||token});}).filter(function(option){return option&&option.id;});
+      return plan.sequence.reduce(function(result,token){
+        const choices=token.charAt(0)==='@'?selectedOptions(token.slice(1)):[{id:token,name:pointLabels[token]||token}];
+        choices.forEach(function(option){if(option&&option.id)result.push(option);});return result;
+      },[]);
     }
     function renderComposer(day){
       const plan=choicePlans[day]; if(!plan)return;
       const groupsHtml=plan.groups.map(function(groupId){
-        const group=candidateGroups[groupId], selected=selectedOption(groupId);
+        const group=candidateGroups[groupId], selected=selectedOptions(groupId), isSingle=group.type==='酒店';
         return '<section class="choice-group"><header><span>'+group.type+'</span><h4>'+group.title+'</h4></header><div>'+group.options.map(function(option){
-          const active=option===selected;
-          return '<button type="button" class="choice-option'+(active?' is-selected':'')+'" data-choice-group="'+groupId+'" data-choice-id="'+(option.id||'')+'" aria-pressed="'+active+'"><b>'+option.name+'</b><small>'+option.meta+'</small><em>优：'+option.pro+'</em><i>劣：'+option.con+'</i></button>';
-        }).join('')+'</div></section>';
+          const active=selected.indexOf(option)>-1;
+          return '<button type="button" class="choice-option'+(active?' is-selected':'')+'" data-choice-group="'+groupId+'" data-choice-id="'+optionKey(option)+'" aria-pressed="'+active+'"><span class="choice-check">'+(isSingle?'○':'＋')+'</span><b>'+option.name+'</b><small>'+option.meta+'</small><em>优：'+option.pro+'</em><i>劣：'+option.con+'</i></button>';
+        }).join('')+'</div><p class="choice-hint">'+(isSingle?'单选 · 连住期间自动沿用':'多选 · 再点一次取消，选择顺序即路线顺序')+'</p></section>';
       }).join('');
       const route=compiledRoute(plan);
       const summary='<div class="choice-result"><div><span>已为你串成当天路线</span><b>'+route.map(function(option,index){return '<mark>'+(index+1)+'</mark>'+(option.name||option.id);}).join('<i>→</i>')+'</b></div><button type="button" data-build-route>按我的选择规划路线</button></div>';
-      detail.querySelector('.planner-notes').insertAdjacentHTML('afterend','<section class="trip-composer"><div class="trip-composer__head"><div><small>MY ROUTE</small><h3>选你喜欢的，我来串路线</h3></div><p>每类选一个；优劣、位置与绕行成本放在一起比较。选择会自动保存在本机。</p></div>'+groupsHtml+summary+'</section>');
+      detail.querySelector('.planner-summary-anchor').insertAdjacentHTML('afterend','<section class="trip-composer"><div class="trip-composer__head"><div><small>BUILD YOUR DAY</small><h3>选完即成路线</h3></div><p>景点、美食、充电可多选；酒店单选。地图会按照你的选择重新计算。</p></div>'+groupsHtml+summary+'</section>');
       detail.querySelectorAll('[data-choice-group]').forEach(function(button){button.onclick=function(){
-        try{localStorage.setItem('trip-choice-'+button.dataset.choiceGroup,button.dataset.choiceId);}catch(e){}
+        const groupId=button.dataset.choiceGroup, group=candidateGroups[groupId], key=button.dataset.choiceId;
+        let keys=selectedOptions(groupId).map(optionKey);
+        if(group.type==='酒店'||key==='__skip__')keys=[key];
+        else{keys=keys.filter(function(item){return item!=='__skip__';});const at=keys.indexOf(key);if(at>-1)keys.splice(at,1);else keys.push(key);if(!keys.length)keys=[optionKey(group.options[0])];}
+        try{localStorage.setItem('trip-choice-v2-'+groupId,JSON.stringify(keys));}catch(e){}
         selectDay(days.findIndex(function(item){return item[2]===day;}));
       };});
       const build=detail.querySelector('[data-build-route]'); if(build)build.onclick=function(){
@@ -170,8 +193,8 @@
     }
     days.forEach((d,i)=>{const b=document.createElement('button');b.type='button';b.innerHTML='<small>'+d[0]+' · D'+(i+1)+'</small><strong>'+d[1]+'</strong>';b.onclick=()=>selectDay(i);dayNav.append(b);});
     function selectDay(i){
-      const d=days[i];Array.from(dayNav.children).forEach((b,j)=>{b.classList.toggle('selected',i===j);b.setAttribute('aria-pressed',String(i===j));});
-      detail.innerHTML='<p class="roadtrip-eyebrow">DAY '+String(i+1).padStart(2,'0')+' / '+d[0]+'</p><h2>'+d[1]+'</h2><p class="planner-sub">'+d[4]+'<br>住宿：'+d[3]+'</p><div class="planner-mode"><button type="button" class="selected" data-mode="full">精力充足</button><button type="button" data-mode="normal">普通节奏</button><button type="button" data-mode="light">宝宝闹觉</button><button type="button" data-mode="rain">雨天备选</button></div><div class="planner-metrics"><span>驾驶 <b>'+d[4].split('·')[0].trim()+'</b></span><span>主任务 <b>'+d[5][Math.min(1,d[5].length-1)][1]+'</b></span><span>底线 <b>午睡不挪用</b></span></div><div class="planner-timeline">'+d[5].map((s,k)=>'<article data-stop-index="'+k+'"><time>'+s[0]+'</time><div><h3>'+s[1]+'</h3><p>'+s[2]+'</p></div></article>').join('')+'</div><div class="planner-rain" hidden><h3>当天替代安排</h3><p>'+d[8]+'</p><p>保留已订住宿，上午 10 点前决定是否取消室外项目；午睡时段不挪作补打卡。</p></div><div class="planner-notes"><h3>吃什么 · 预算是计划值</h3><p>'+d[6]+'</p><h3>开车与停车</h3><p>'+d[7]+'</p></div><div class="planner-memory"><label>今日记录</label><textarea rows="3" placeholder="宝宝今天最开心的瞬间……"></textarea><button type="button" class="roadtrip-btn roadtrip-btn--small">保存记录</button><span></span></div><div class="planner-next"><button type="button" id="prev-day" '+(i===0?'disabled':'')+'>← 前一天</button><button type="button" id="next-day" '+(i===13?'disabled':'')+'>后一天 →</button></div>';
+      const d=days[i];Array.from(dayNav.querySelectorAll(':scope > button')).forEach((b,j)=>{b.classList.toggle('selected',i===j);b.setAttribute('aria-pressed',String(i===j));});
+      detail.innerHTML='<header class="planner-day-head"><div><p class="roadtrip-eyebrow">DAY '+String(i+1).padStart(2,'0')+' · '+d[0]+'</p><h2>'+d[1]+'</h2><p class="planner-sub">'+d[4]+' · '+d[3]+'</p></div><strong>'+(i+1)+'<small>/14</small></strong></header><div class="planner-mode"><span>今天的节奏</span><button type="button" class="selected" data-mode="full">充足</button><button type="button" data-mode="normal">普通</button><button type="button" data-mode="light">低电量</button><button type="button" data-mode="rain">下雨</button></div><div class="planner-metrics"><span>驾驶 <b>'+d[4].split('·')[0].trim()+'</b></span><span>建议主任务 <b>'+d[5][Math.min(1,d[5].length-1)][1]+'</b></span><span>不可牺牲 <b>午睡</b></span></div><div class="planner-summary-anchor"></div><details class="planner-schedule"><summary>查看建议时间表 <small>不影响你上面的自由选择</small></summary><div class="planner-timeline">'+d[5].map((s,k)=>'<article data-stop-index="'+k+'"><time>'+s[0]+'</time><div><h3>'+s[1]+'</h3><p>'+s[2]+'</p></div></article>').join('')+'</div></details><div class="planner-rain" hidden><h3>雨天替代</h3><p>'+d[8]+'</p><p>保留已订住宿与午睡，室外项目直接删除。</p></div><details class="planner-notes"><summary>吃饭、停车与风险提示</summary><h3>吃什么</h3><p>'+d[6]+'</p><h3>开车与停车</h3><p>'+d[7]+'</p></details><div class="planner-memory"><label>留一句旅行记录</label><textarea rows="2" placeholder="宝宝今天最开心的瞬间……"></textarea><button type="button" class="roadtrip-btn roadtrip-btn--small">保存</button><span></span></div><div class="planner-next"><button type="button" id="prev-day" '+(i===0?'disabled':'')+'>← 前一天</button><button type="button" id="next-day" '+(i===13?'disabled':'')+'>后一天 →</button></div>';
       const relatedHtml=(related[d[2]]||[]).map(x=>'<article><small>'+x[0]+'</small><h3>'+x[2]+'</h3><p>'+x[3]+'</p><button type="button" data-related-map="'+x[1]+'">地图定位</button>'+(x[0]==='景点'?'<button type="button" data-related-view="attractions">详细介绍</button>':'')+'</article>').join('');
       if(choicePlans[d[2]])renderComposer(d[2]);
       else detail.querySelector('.planner-notes').insertAdjacentHTML('afterend','<section class="planner-related"><h3>今天关联的景点、住宿、补能与美食</h3><div>'+relatedHtml+'</div></section>');

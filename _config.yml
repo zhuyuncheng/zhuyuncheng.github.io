@@ -25,6 +25,7 @@ description: > # this means to ignore newlines until "Language & timezone"
 # Optional 高德 Web JS API key. Fill this on a private/local config or deployment secret;
 # the travel planner automatically uses AMap when present and keeps the public fallback otherwise.
 amap_key: bbf3302edf0ee1a8042f9e4d28536c0a
+amap_security_code: ac804c5389980d5e99ae9b0e31cf65c3
 
 
 ## => Language and Timezone
