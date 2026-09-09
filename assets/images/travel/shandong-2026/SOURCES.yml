@@ -1,0 +1,19 @@
+generated:
+  - file: place-placeholder.svg
+    description: 山东半岛旅行资料封面，非地点实拍
+    author: 穆朗旅行执行台
+    license: 原创项目资产
+authorized_photos:
+  - poi: a-penglai
+    file: a-penglai/penglai-pavilion.jpg
+    source: https://commons.wikimedia.org/wiki/File:Penglai_Pavilion_viewed_from_the_southeast.jpg
+    author: Benlisquare
+    license: CC BY-SA 4.0
+  - poi: a-underwater
+    file: a-underwater/qingdao-underwater-world.jpg
+    source: https://commons.wikimedia.org/wiki/File:Qingdao-underwaterworld.jpg
+    author: Mark wyld
+    license: CC BY-SA 4.0
+notes:
+  - 授权实拍已下载为项目本地资产，页面不依赖 Wikimedia 图片外链。
+  - 酒店和餐厅不抓取携程、美团图片；无明确复用授权时使用占位插画并明确标注。

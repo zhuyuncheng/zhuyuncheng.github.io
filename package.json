@@ -5,6 +5,7 @@
   "scripts": {
     "build": "RUBYOPT=-r./tools/ruby4-compat.rb BUNDLE_PATH=vendor/bundle /opt/homebrew/opt/ruby/bin/bundle exec jekyll build",
     "serve": "RUBYOPT=-r./tools/ruby4-compat.rb BUNDLE_PATH=vendor/bundle /opt/homebrew/opt/ruby/bin/bundle exec jekyll serve -H 127.0.0.1",
+    "test:trip": "node tools/test-trip-data.js",
     "default": "bundle exec jekyll serve -H 0.0.0.0 -t",
     "dev": "bundle exec jekyll serve -H 0.0.0.0 -t --config ./docs/_config.dev.yml",
     "demo-dev": "bundle exec jekyll serve -H 0.0.0.0 -t --config ./docs/_config.yml",

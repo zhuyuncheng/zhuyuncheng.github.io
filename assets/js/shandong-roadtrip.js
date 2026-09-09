@@ -1,202 +1,357 @@
 (function () {
   'use strict';
+  if (!window.TripStore) return;
 
-  const points = [
-    {id:'a-beijing',type:'attraction',name:'北京出发 / 返程',lat:39.9042,lng:116.4074,address:'城市示意点，请用实际家庭地址导航',day:['d1','d14']},
-    {id:'a-weifang',type:'attraction',name:'潍坊市区',lat:36.7069,lng:119.1618,address:'潍坊老家停留与车辆整备',day:['d1','d2','d3','d4','d13','d14']},
-    {id:'a-penglai',type:'attraction',name:'蓬莱阁景区',lat:37.8250,lng:120.7505,address:'烟台市蓬莱区北关路 1 号',day:['d5']},
-    {id:'a-penglai-ocean',type:'attraction',name:'蓬莱海洋极地世界',lat:37.8222,lng:120.7338,address:'烟台市蓬莱区海港路 88 号',note:'室内亲子备选；节假日先核对场次与票价',day:['d5']},
-    {id:'a-sanxian',type:'attraction',name:'三仙山风景区',lat:37.8125,lng:120.7697,address:'烟台市蓬莱区海滨路 9 号',note:'园林建筑；面积较大，带娃建议只走核心区',day:['d5']},
-    {id:'a-yantaishan',type:'attraction',name:'烟台山景区',lat:37.5455,lng:121.3980,address:'烟台市芝罘区历新路 7 号',day:['d6']},
-    {id:'a-changyu',type:'attraction',name:'张裕酒文化博物馆',lat:37.5401,lng:121.3906,address:'烟台市芝罘区大马路 56 号',note:'室内备选；带宝宝不安排品酒环节',day:['d6']},
-    {id:'a-fisher',type:'attraction',name:'烟台渔人码头',lat:37.5270,lng:121.4586,address:'烟台市莱山区滨海中路',day:['d6']},
-    {id:'a-liugong',type:'attraction',name:'刘公岛客运中心',lat:37.5008,lng:122.1538,address:'威海市环翠区海滨北路 101-2 号',day:['d8']},
-    {id:'a-haiyuan',type:'attraction',name:'海源公园',lat:37.5267,lng:122.1472,address:'威海市环翠区环海路',day:['d7']},
-    {id:'a-huoju',type:'attraction',name:'火炬八街',lat:37.5284,lng:122.0583,address:'威海市环翠区火炬八街',day:['d8']},
-    {id:'a-naxianghai',type:'attraction',name:'那香海钻石沙滩',lat:37.3630,lng:122.5717,address:'威海市荣成市环海路 6699 号',day:['d9']},
-    {id:'a-olympic',type:'attraction',name:'青岛奥帆中心',lat:36.0605,lng:120.3976,address:'青岛市市南区燕儿岛路 1 号',day:['d10']},
-    {id:'a-mayfourth',type:'attraction',name:'五四广场',lat:36.0627,lng:120.3843,address:'青岛市市南区东海西路',note:'免费夜景；可与奥帆中心连走',day:['d10','d12']},
-    {id:'a-zhanqiao',type:'attraction',name:'青岛栈桥',lat:36.0610,lng:120.3197,address:'青岛市市南区太平路 12 号',day:['d11']},
-    {id:'a-xiaoyushan',type:'attraction',name:'小鱼山公园',lat:36.0609,lng:120.3362,address:'青岛市市南区福山支路 24 号',day:['d11']},
-    {id:'a-signalhill',type:'attraction',name:'信号山公园',lat:36.0664,lng:120.3310,address:'青岛市市南区龙山路 16 号甲',note:'老城俯瞰；有坡度，推车不如背带',day:['d11']},
-    {id:'a-cathedral',type:'attraction',name:'圣弥厄尔教堂',lat:36.0710,lng:120.3205,address:'青岛市市南区浙江路 15 号',note:'老城建筑打卡；开放和礼仪活动需现场确认',day:['d11']},
-    {id:'a-underwater',type:'attraction',name:'青岛海底世界',lat:36.0584,lng:120.3352,address:'青岛市市南区莱阳路 2 号',day:['d12']},
-    {id:'a-polar',type:'attraction',name:'青岛极地海洋公园',lat:36.0762,lng:120.4495,address:'青岛市崂山区东海东路 60 号',note:'亲子互动更强；票价较高，建议只选一个海洋馆',day:['d12']},
-    {id:'a-badaguan',type:'attraction',name:'八大关',lat:36.0523,lng:120.3518,address:'青岛市市南区武胜关支路',day:['d12']},
-    {id:'a-yangma',type:'attraction',name:'养马岛环岛',lat:37.4665,lng:121.6802,address:'烟台市牟平区养马岛旅游度假区',note:'顺路备选 · 日落推荐 · 国庆尽量早到',day:['d6']},
-    {id:'a-suo',type:'attraction',name:'所城里历史街区',lat:37.5420,lng:121.3978,address:'烟台市芝罘区所城里大街',note:'夜游推荐 · 适合短停',day:['d6']},
-    {id:'a-banyue',type:'attraction',name:'威海半月湾',lat:37.5355,lng:122.1670,address:'威海市环翠区环海路半月湾',note:'清晨 / 日落推荐 · 大风取消',day:['d7','d9']},
-    {id:'a-chengshan',type:'attraction',name:'成山头',lat:37.3850,lng:122.6950,address:'威海市荣成市成山镇',note:'值得专程 · 风大时取消',day:['d9']},
-    {id:'a-jinshi',type:'attraction',name:'金石湾艺术园区',lat:37.2800,lng:122.4500,address:'威海市荣成市滨海大道',note:'家庭合照 · 草地海岸 · 预留 1.5–2 小时',day:['d9']},
-    {id:'a-xiaomai',type:'attraction',name:'青岛小麦岛',lat:36.0562,lng:120.4234,address:'青岛市崂山区麦岛路',note:'日落推荐 · 大风取消',day:['d10','d12']},
+  var data = TripStore.data;
+  var poiById = TripStore.poiById;
+  var mapElement = document.getElementById('shandong-map');
+  var panel = document.getElementById('driving-panel');
+  var legList = document.getElementById('route-leg-list');
+  var map = null;
+  var markers = {};
+  var markerGroups = {};
+  var routeLine = null;
+  var driving = null;
+  var activeIds = [];
+  var activeDay = 'd1';
+  var activeFilter = 'all';
+  var requestToken = 0;
+  var markerSymbols = { attraction: '景', restaurant: '食', hotel: '住', charge: '电', hospital: '医', anchor: '点' };
 
-    {id:'h-yantai-a',type:'hotel',name:'烟台百纳瑞汀酒店',lat:37.5402,lng:121.4069,address:'烟台市芝罘区大马路 3-1 号',day:['d5','d6']},
-    {id:'h-yantai-b',type:'hotel',name:'烟台世茂希尔顿酒店',lat:37.5383,lng:121.4050,address:'烟台市芝罘区大马路 53 号',day:['d5','d6']},
-    {id:'h-weihai-a',type:'hotel',name:'威海抱海大酒店',lat:37.4412,lng:122.1608,address:'威海市环翠区海滨中路 29 号',day:['d7','d8','d9']},
-    {id:'h-weihai-b',type:'hotel',name:'威海蓝海御华大饭店',lat:37.4352,lng:122.1638,address:'威海市环翠区海滨中路 62-1 号',day:['d7','d8','d9']},
-    {id:'h-qingdao-a',type:'hotel',name:'青岛栈桥海景亚朵酒店',lat:36.0660,lng:120.3157,address:'青岛市市南区中山路周边',day:['d10','d11','d12']},
-    {id:'h-qingdao-b',type:'hotel',name:'青岛海景花园大酒店',lat:36.0552,lng:120.4266,address:'青岛市市南区彰化路 2 号',day:['d10','d11','d12']},
-
-    {id:'c-cangzhou',type:'charge',name:'沧州天成郡府闪充站',lat:38.29712,lng:116.82767,address:'沧州市运河区永安南大道',note:'进城备选，出发前在比亚迪 App 核实',day:['d1','d14']},
-    {id:'c-binzhou',type:'charge',name:'滨州黄河二路新立小区闪充站',lat:37.37222,lng:117.98165,address:'滨州市滨城区黄河二路彩虹湖',note:'4 把闪充枪；长途主补能候选',day:['d1','d14']},
-    {id:'c-weifang',type:'charge',name:'潍坊恒信时代广场闪充站',lat:36.70908,lng:119.183,address:'潍坊市高新区东风东街 5058 号',note:'4 把闪充枪',day:['d2','d4','d5','d13']},
-    {id:'c-penglai',type:'charge',name:'烟台北关路利群广场闪充站',lat:37.81656,lng:120.76124,address:'蓬莱区北关路 700 号',note:'2 把闪充枪',day:['d5']},
-    {id:'c-yantai',type:'charge',name:'烟台电视台闪充站',lat:37.46067,lng:121.45297,address:'莱山区观海路 349 号',note:'4 把闪充枪',day:['d5','d6','d7']},
-    {id:'c-weihai',type:'charge',name:'威海高铁北站闪充站',lat:37.49054,lng:122.0417,address:'威海高铁北站地面停车场',note:'4 把闪充枪',day:['d7','d8','d9','d10']},
-    {id:'c-rongcheng',type:'charge',name:'比亚迪荣成兴飞闪充站',lat:37.10978,lng:122.40007,address:'荣成市凭海西路鑫通汽车城',note:'2 把闪充枪；荣成返程备选',day:['d9']},
-    {id:'c-laixi',type:'charge',name:'青岛南京北路良茂凯悦闪充站',lat:36.86768,lng:120.53872,address:'青岛市莱西市南京北路 116 号',note:'威海—青岛途中候选',day:['d10']},
-    {id:'c-qingdao',type:'charge',name:'青岛徐州路便民市场闪充站',lat:36.08459,lng:120.37884,address:'青岛市市南区徐州路 171 号',note:'4 把闪充枪',day:['d10','d11','d12','d13']},
-
-    {id:'f-weifang',type:'food',name:'潍坊老城区餐饮区',lat:36.7104,lng:119.0998,address:'十笏园 / 城隍庙街周边',day:['d2']},
-    {id:'f-penglai',type:'food',name:'蓬莱阁外餐饮区',lat:37.8169,lng:120.7556,address:'蓬莱阁东门—北关路周边；选定餐厅后请二次导航',note:'蓬莱小面、鲅鱼水饺；此点为餐饮片区中心',day:['d5']},
-    {id:'f-yantai',type:'food',name:'烟台山—朝阳街餐饮区',lat:37.5428,lng:121.3971,address:'芝罘区朝阳街周边',day:['d6']},
-    {id:'f-yantai-east',type:'food',name:'烟台莱山亲子餐饮区',lat:37.4638,lng:121.4475,address:'莱山区观海路商圈；选定餐厅后请二次导航',note:'停车、餐椅与宝宝餐更稳定',day:['d6','d7']},
-    {id:'f-weihai',type:'food',name:'威海韩乐坊餐饮区',lat:37.4234,lng:122.1527,address:'环翠区韩乐坊',day:['d7','d8','d9']},
-    {id:'f-weihai-mall',type:'food',name:'威高广场亲子餐饮区',lat:37.5134,lng:122.1202,address:'环翠区新威路威高广场；选定餐厅后请二次导航',note:'商场停车、母婴设施与儿童餐更可控',day:['d7','d8']},
-    {id:'f-rongcheng',type:'food',name:'荣成城区海鲜家常菜区',lat:37.1636,lng:122.4158,address:'荣成市成山大道中段周边；选定餐厅后请二次导航',note:'问清海鲜计价单位与加工费',day:['d9']},
-    {id:'f-qingdao',type:'food',name:'青岛老城家常菜区域',lat:36.0675,lng:120.3250,address:'市南区中山路—黄岛路周边',day:['d11']}
-    ,{id:'f-qingdao-east',type:'food',name:'青岛香港中路亲子餐饮区',lat:36.0644,lng:120.3972,address:'市南区香港中路—奥帆商圈；选定餐厅后请二次导航',note:'商场餐厅、停车和宝宝餐更稳定',day:['d10','d11','d12']}
-    ,{id:'e-weihai',type:'emergency',name:'威海市立医院',lat:37.5136,lng:122.1165,address:'威海市环翠区和平路 70 号',note:'出发前请核对儿科急诊与停车入口',day:['d7','d8','d9']}
-    ,{id:'e-qingdao',type:'emergency',name:'青岛市妇女儿童医院',lat:36.1074,lng:120.3821,address:'青岛市市北区辽阳西路 217 号',note:'亲子旅行应急备选',day:['d10','d11','d12']}
-    ,{id:'e-yantai',type:'emergency',name:'烟台毓璜顶医院',lat:37.5351,lng:121.3895,address:'烟台市芝罘区毓璜顶东路 20 号',note:'出发前核对儿科急诊',day:['d5','d6']}
-  ];
-
-  const route = [
-    [39.9042,116.4074],[38.29712,116.82767],[37.37222,117.98165],[36.7069,119.1618],
-    [37.8250,120.7505],[37.5402,121.4069],[37.5008,122.1538],[37.3630,122.5717],
-    [37.5008,122.1538],[36.86768,120.53872],[36.0671,120.3826],[36.7069,119.1618],[39.9042,116.4074]
-  ];
-  const dayStops={d1:['a-beijing','a-weifang'],d5:['a-weifang','a-penglai','h-yantai-b'],d6:['h-yantai-b','a-yantaishan','a-fisher'],d7:['h-yantai-b','h-weihai-b','a-haiyuan'],d8:['h-weihai-b','a-liugong'],d9:['h-weihai-b','a-naxianghai'],d10:['h-weihai-b','h-qingdao-b','a-olympic'],d11:['h-qingdao-b','a-zhanqiao','a-xiaoyushan'],d12:['h-qingdao-b','a-underwater','a-badaguan'],d13:['h-qingdao-b','a-weifang'],d14:['a-weifang','a-beijing']};
-
-  const symbol = { attraction:'景', hotel:'住', charge:'电', food:'食', emergency:'医' };
-  let map;
-  let routeLine;
-  let activeDay = null;
-  const markerById = {};
-  const layersByType = { attraction:[], hotel:[], charge:[], food:[], emergency:[] };
-  let activeFilter = 'all';
-  let driving;
-  let activeDrivingDay;
-
-  function gaodeLink(point) {
-    return 'https://uri.amap.com/search?keyword=' + encodeURIComponent(point.name + ' ' + point.address) + '&src=moulang-blog&callnative=1';
-  }
-  function gaodeNavigationLink(from,to){
-    return 'https://uri.amap.com/navigation?from='+from.lng+','+from.lat+','+encodeURIComponent(from.name)+'&to='+to.lng+','+to.lat+','+encodeURIComponent(to.name)+'&mode=car&policy=1&src=moulang-blog&callnative=1';
-  }
-  function routeFallback(stops){
-    const local=/^(127\.0\.0\.1|localhost)$/.test(location.hostname);
-    const message=local?'本地预览域名未通过高德白名单，真实道路暂时无法返回；发布到白名单域名后会直接嵌入完整路线。':'高德暂时未返回道路数据，保留以下 App 导航作为兜底：';
-    return '<div class="route-fallback"><p>'+message+'</p>'+stops.slice(0,-1).map(function(point,index){const next=stops[index+1];return '<a href="'+gaodeNavigationLink(point,next)+'" target="_blank" rel="noopener"><b>'+(index+1)+' · '+point.name+' → '+next.name+'</b><span>兜底导航 ↗</span></a>';}).join('')+'</div>';
-  }
-
-  function initMap() {
-    const mapEl = document.getElementById('shandong-map');
-    if (!mapEl) return;
-    if (typeof window.AMap !== 'undefined') return initAMap(mapEl);
-    if (typeof window.L === 'undefined') return;
-    map = L.map(mapEl, {scrollWheelZoom:false, zoomControl:true}).setView([37.1,120.1],7);
-    L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
-      maxZoom:18,
-      attribution:'Tiles &copy; Esri — Esri, HERE, Garmin, USGS, OpenStreetMap contributors'
-    }).addTo(map);
-    routeLine=L.polyline(route,{color:'#10233f',weight:4,opacity:.72,dashArray:'9 8'}).addTo(map);
-    points.forEach(function(point){
-      const icon = L.divIcon({className:'',html:'<div class="trip-marker trip-marker--'+point.type+'"><span>'+symbol[point.type]+'</span></div>',iconSize:[30,30],iconAnchor:[15,28],popupAnchor:[0,-26]});
-      const popup = '<div class="map-popup"><h3>'+point.name+'</h3><p>'+point.address+'</p>'+(point.note?'<p>'+point.note+'</p>':'')+'<a href="'+gaodeLink(point)+'" target="_blank" rel="noopener">用高德打开 ↗</a></div>';
-      const marker = L.marker([point.lat,point.lng],{icon:icon}).bindPopup(popup).addTo(map);
-      marker.pointType = point.type; markerById[point.id]=marker; layersByType[point.type].push(marker);
+  function escapeHtml(value) {
+    return String(value == null ? '' : value).replace(/[&<>"']/g, function (char) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char];
     });
-    fitAll();
   }
 
-  function initAMap(mapEl) {
-    map = new AMap.Map(mapEl,{zoom:7,center:[120.1,37.1],mapStyle:'amap://styles/whitesmoke'});
-    map._amap=true;
-    routeLine=new AMap.Polyline({path:route.map(function(p){return[p[1],p[0]];}),strokeColor:'#10233f',strokeWeight:4,strokeOpacity:.72,strokeStyle:'dashed',map:map});
-    points.forEach(function(point){
-      const marker=new AMap.Marker({position:[point.lng,point.lat],title:point.name,offset:new AMap.Pixel(-15,-28),content:'<div class="trip-marker trip-marker--'+point.type+'"><span>'+symbol[point.type]+'</span></div>',map:map});
-      marker.pointType=point.type;marker.point=point;
-      marker.on('click',function(){const info=new AMap.InfoWindow({content:'<div class="map-popup"><h3>'+point.name+'</h3><p>'+point.address+'</p>'+(point.note?'<p>'+point.note+'</p>':'')+'<a href="'+gaodeLink(point)+'" target="_blank" rel="noopener">用高德打开 ↗</a></div>',offset:new AMap.Pixel(0,-24)});info.open(map,marker.getPosition());});
-      markerById[point.id]=marker;layersByType[point.type].push(marker);
+  function coordinates(poi) {
+    return poi.route_target || poi.location;
+  }
+
+  function navLink(from, to) {
+    if (window.TripPlanner) return TripPlanner.navLink(from, to);
+    var a = coordinates(from), b = coordinates(to);
+    return 'https://uri.amap.com/navigation?from=' + a.lng + ',' + a.lat + ',' + encodeURIComponent(from.name) +
+      '&to=' + b.lng + ',' + b.lat + ',' + encodeURIComponent(to.name) + '&mode=car&policy=1&src=moulang-blog&callnative=1';
+  }
+
+  function policyValue() {
+    var value = document.getElementById('route-policy').value;
+    if (!window.AMap) return 0;
+    if (value === 'traffic') return AMap.DrivingPolicy.LEAST_TIME || 0;
+    if (value === 'toll') return AMap.DrivingPolicy.LEAST_FEE || 1;
+    return AMap.DrivingPolicy.LEAST_TIME || 0;
+  }
+
+  function durationText(seconds) {
+    var minutes = Math.max(1, Math.round(seconds / 60));
+    var hours = Math.floor(minutes / 60);
+    return (hours ? hours + ' 小时 ' : '') + (minutes % 60) + ' 分';
+  }
+
+  function amapPopup(poi) {
+    return '<div class="trip-map-popup"><small>' + escapeHtml(poi.city + ' · ' + poi.type) + '</small><h3>' + escapeHtml(poi.name) +
+      '</h3><p>' + escapeHtml(poi.address) + '</p><button type="button" data-popup-poi="' + poi.id + '">查看完整资料</button></div>';
+  }
+
+  function markerHtml(poi) {
+    return '<div class="trip-marker trip-marker--' + poi.type + '"><span>' + (markerSymbols[poi.type] || '点') + '</span></div>';
+  }
+
+  function addMarkerToGroup(type, marker) {
+    if (!markerGroups[type]) markerGroups[type] = [];
+    markerGroups[type].push(marker);
+  }
+
+  function initAMap() {
+    map = new AMap.Map(mapElement, {
+      zoom: 7,
+      center: [120.1, 37.1],
+      mapStyle: 'amap://styles/whitesmoke',
+      scrollWheel: false,
+      resizeEnable: true
+    });
+    map.__isAMap = true;
+    data.pois.forEach(function (poi) {
+      var marker = new AMap.Marker({
+        position: [poi.location.lng, poi.location.lat],
+        title: poi.name,
+        offset: new AMap.Pixel(-16, -30),
+        content: markerHtml(poi),
+        map: map
+      });
+      marker.poi = poi;
+      marker.on('click', function () {
+        var info = new AMap.InfoWindow({ content: amapPopup(poi), offset: new AMap.Pixel(0, -25) });
+        info.open(map, marker.getPosition());
+        setTimeout(function () {
+          var button = document.querySelector('[data-popup-poi="' + poi.id + '"]');
+          if (button) button.onclick = function () { window.dispatchEvent(new CustomEvent('trip:openpoi', { detail: poi.id })); };
+        }, 10);
+      });
+      markers[poi.id] = marker;
+      addMarkerToGroup(poi.type, marker);
     });
     map.setFitView();
   }
 
-  function fitAll(){ if(map) {activeDay=null;setFilter('all');if(map._amap){routeLine.setPath(route.map(function(p){return[p[1],p[0]];}));map.setFitView();}else{routeLine.setLatLngs(route);map.fitBounds(L.latLngBounds(route),{padding:[28,28]});}} }
-  function setFilter(type){
-    activeFilter=type;
-    if(!map)return;
-    Object.keys(layersByType).forEach(function(key){ layersByType[key].forEach(function(marker){ const point=points.find(p=>markerById[p.id]===marker);const shouldShow=(type==='all'||type===key)&&(!activeDay||point.day.includes(activeDay)); if(map._amap) marker.setMap(shouldShow?map:null); else {if(shouldShow&&!map.hasLayer(marker))marker.addTo(map); if(!shouldShow&&map.hasLayer(marker))map.removeLayer(marker);} }); });
-    document.querySelectorAll('.map-filter').forEach(function(btn){btn.classList.toggle('is-active',btn.dataset.filter===type);});
-  }
-  function focusPoint(id){
-    const marker=markerById[id]; if(!map||!marker)return;
-    activeDay=null;setFilter('all'); if(map._amap){map.setZoomAndCenter(14,[marker.getPosition().lng,marker.getPosition().lat]);}else{map.setView(marker.getLatLng(),14,{animate:true});marker.openPopup();} document.getElementById('route-map').scrollIntoView({behavior:'smooth',block:'start'});
-  }
-  function focusDay(day){
-    if(!map)return;
-    const selected=points.filter(function(p){return p.day.indexOf(day)>-1;});
-    if(!selected.length)return;
-    const stops=(dayStops[day]||[]).map(id=>points.find(p=>p.id===id)).filter(Boolean);
-    activeDay=day;setFilter('all');stops.forEach(p=>{if(map._amap)markerById[p.id].setMap(map);else markerById[p.id].addTo(map);}); if(map._amap){routeLine.setPath(stops.map(p=>[p.lng,p.lat]));map.setFitView(stops.map(p=>markerById[p.id]));}else{routeLine.setLatLngs(stops.map(p=>[p.lat,p.lng])); map.fitBounds(L.latLngBounds(selected.concat(stops).map(function(p){return[p.lat,p.lng];})),{padding:[45,45],maxZoom:11});}
-    document.querySelectorAll('.day-card').forEach(function(card){card.classList.toggle('is-active',card.dataset.day===day);});
-  }
-
-  function planDrivingRoute(day,customIds){
-    if(!map||!map._amap||!window.AMap)return;
-    const ids=customIds&&customIds.length?customIds:dayStops[day]; const panel=document.getElementById('driving-panel');
-    if(!ids||ids.length<2){if(panel)panel.innerHTML='<p>这一天以老家休整或本地慢游为主，无需单独规划长距离驾车路线。</p>';return;}
-    const stops=ids.map(function(id){return points.find(function(p){return p.id===id;});}).filter(Boolean);
-    if(stops.length<2)return;
-    if(!AMap.Driving){
-      if(panel)panel.innerHTML='<p>正在加载高德完整路线服务…</p>';
-      AMap.plugin('AMap.Driving',function(){if(AMap.Driving)planDrivingRoute(day,customIds);else if(panel)panel.innerHTML=routeFallback(stops);});
+  function initLeaflet() {
+    if (!window.L) {
+      mapElement.innerHTML = '<div class="trip-map-error"><b>地图暂时无法加载</b><p>路线和高德分段入口仍可使用。</p></div>';
       return;
     }
-    activeDrivingDay=day;
-    if(driving)driving.clear();
-    if(routeLine&&routeLine.hide)routeLine.hide();
-    if(panel)panel.innerHTML='<p>正在向高德请求实时驾车路线…</p>';
-    driving=new AMap.Driving({map:map,panel:panel,policy:AMap.DrivingPolicy.LEAST_TIME,province:'京',ferry:1,showTraffic:true,hideMarkers:false});
-    const originInput=document.getElementById('route-origin'); const customOrigin=originInput&&originInput.value.trim();
-    const origin=customOrigin&&day==='d1'?{keyword:customOrigin}:new AMap.LngLat(stops[0].lng,stops[0].lat);
-    const destination=new AMap.LngLat(stops[stops.length-1].lng,stops[stops.length-1].lat);
-    const waypoints=stops.slice(1,-1).map(function(p){return new AMap.LngLat(p.lng,p.lat);});
-    driving.search(origin,destination,{waypoints:waypoints},function(status,result){
-      if(status!=='complete'){if(routeLine&&routeLine.show)routeLine.show();if(panel)panel.innerHTML=routeFallback(stops);return;}
-      const first=result.routes&&result.routes[0]; if(first&&panel){const km=(first.distance/1000).toFixed(1);const mins=Math.round(first.time/60);const hours=Math.floor(mins/60);const remain=mins%60;panel.insertAdjacentHTML('afterbegin','<div class="driving-summary"><b>高德推荐：约 '+km+' km · '+hours+' 小时 '+remain+' 分</b><span>实时结果仅供出发前参考；国庆当天请再次刷新。</span></div>');}
+    map = L.map(mapElement, { scrollWheelZoom: false }).setView([37.1, 120.1], 7);
+    L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
+      maxZoom: 18,
+      attribution: 'Tiles © Esri, HERE, Garmin, USGS, OpenStreetMap contributors'
+    }).addTo(map);
+    data.pois.forEach(function (poi) {
+      var icon = L.divIcon({ className: '', html: markerHtml(poi), iconSize: [32, 32], iconAnchor: [16, 30] });
+      var marker = L.marker([poi.location.lat, poi.location.lng], { icon: icon }).addTo(map);
+      marker.poi = poi;
+      marker.bindPopup(amapPopup(poi)).on('popupopen', function () {
+        var button = document.querySelector('[data-popup-poi="' + poi.id + '"]');
+        if (button) button.onclick = function () { window.dispatchEvent(new CustomEvent('trip:openpoi', { detail: poi.id })); };
+      });
+      markers[poi.id] = marker;
+      addMarkerToGroup(poi.type, marker);
     });
   }
 
-  function initUI(){
-    const toolbar=document.querySelector('.map-toolbar'); if(toolbar&&!toolbar.querySelector('[data-filter="emergency"]')){const b=document.createElement('button');b.className='map-filter';b.type='button';b.dataset.filter='emergency';b.innerHTML='<i class="map-dot map-dot--emergency"></i>医院';toolbar.append(b);b.addEventListener('click',function(){setFilter('emergency');});}
-    document.querySelectorAll('.map-filter').forEach(function(btn){btn.addEventListener('click',function(){setFilter(btn.dataset.filter);});});
-    const fit=document.getElementById('fit-all'); if(fit)fit.addEventListener('click',function(){setFilter('all');fitAll();});
-    document.querySelectorAll('[data-focus-day],.day-card').forEach(function(el){el.addEventListener('click',function(){focusDay(el.dataset.focusDay||el.dataset.day);});});
-    document.querySelectorAll('[data-map-id]').forEach(function(btn){btn.addEventListener('click',function(){focusPoint(btn.dataset.mapId);});});
-    document.querySelectorAll('.stay-tab').forEach(function(tab){tab.addEventListener('click',function(){document.querySelectorAll('.stay-tab').forEach(function(t){t.classList.toggle('is-active',t===tab);});document.querySelectorAll('.stay-panel').forEach(function(p){p.classList.toggle('is-active',p.dataset.stayPanel===tab.dataset.stay);});});});
-    document.querySelectorAll('[data-budget]').forEach(function(btn){btn.addEventListener('click',function(){const mode=btn.dataset.budget;document.querySelectorAll('[data-budget]').forEach(function(b){b.classList.toggle('is-active',b===btn);});document.querySelectorAll('#budget-breakdown dd').forEach(function(dd){dd.textContent=dd.dataset[mode];});document.getElementById('budget-total').textContent=mode==='comfort'?'¥17,000–23,000':'¥11,000–14,500';});});
-
-    const checks=document.querySelectorAll('[data-check]');
-    checks.forEach(function(box){box.checked=localStorage.getItem('roadtrip-'+box.dataset.check)==='1';box.addEventListener('change',function(){localStorage.setItem('roadtrip-'+box.dataset.check,box.checked?'1':'0');});});
-    const reset=document.getElementById('reset-checklist');if(reset)reset.addEventListener('click',function(){checks.forEach(function(box){box.checked=false;localStorage.removeItem('roadtrip-'+box.dataset.check);});});
-    const refresh=document.getElementById('refresh-driving-route');if(refresh)refresh.addEventListener('click',function(){planDrivingRoute(activeDrivingDay||'d1');});
+  function setMarkerVisible(marker, visible) {
+    if (!map) return;
+    if (map.__isAMap) marker.setMap(visible ? map : null);
+    else if (visible && !map.hasLayer(marker)) marker.addTo(map);
+    else if (!visible && map.hasLayer(marker)) map.removeLayer(marker);
   }
 
-  window.addEventListener('trip:day',function(e){if(map)setTimeout(function(){if(map._amap)map.resize();else map.invalidateSize();focusDay(e.detail);planDrivingRoute(e.detail);},100);});
-  window.addEventListener('trip:compose',function(e){
-    if(!map||!e.detail||!e.detail.ids)return;
-    const ids=e.detail.ids.filter(function(id,index,list){return id&&(index===0||id!==list[index-1]);});
-    const stops=ids.map(function(id){return points.find(function(point){return point.id===id;});}).filter(Boolean);
-    if(stops.length<2)return;
-    activeDay=e.detail.day;setFilter('all');
-    stops.forEach(function(point){if(map._amap)markerById[point.id].setMap(map);else markerById[point.id].addTo(map);});
-    if(map._amap){routeLine.setPath(stops.map(function(point){return[point.lng,point.lat];}));map.setFitView(stops.map(function(point){return markerById[point.id];}));}
-    else{routeLine.setLatLngs(stops.map(function(point){return[point.lat,point.lng];}));map.fitBounds(L.latLngBounds(stops.map(function(point){return[point.lat,point.lng];})),{padding:[38,38],maxZoom:12});}
-    planDrivingRoute(e.detail.day,ids);
+  function applyFilter() {
+    Object.keys(markerGroups).forEach(function (type) {
+      markerGroups[type].forEach(function (marker) {
+        var inRoute = !activeIds.length || activeIds.indexOf(marker.poi.id) > -1;
+        var typeMatch = activeFilter === 'all' || type === activeFilter;
+        setMarkerVisible(marker, inRoute && typeMatch);
+      });
+    });
+    document.querySelectorAll('[data-map-filter]').forEach(function (button) {
+      button.classList.toggle('is-active', button.dataset.mapFilter === activeFilter);
+    });
+  }
+
+  function drawFallback(ids) {
+    if (!map) return;
+    var path = ids.map(function (id) {
+      var point = coordinates(poiById[id]);
+      return map.__isAMap ? [point.lng, point.lat] : [point.lat, point.lng];
+    });
+    if (routeLine) {
+      if (map.__isAMap) routeLine.setMap(null);
+      else map.removeLayer(routeLine);
+    }
+    if (map.__isAMap) {
+      routeLine = new AMap.Polyline({ map: map, path: path, strokeColor: '#1f7654', strokeWeight: 4, strokeStyle: 'dashed' });
+      map.setFitView(ids.map(function (id) { return markers[id]; }).filter(Boolean));
+    } else if (path.length > 1) {
+      routeLine = L.polyline(path, { color: '#1f7654', weight: 4, opacity: 0.8, dashArray: '8 8' }).addTo(map);
+      map.fitBounds(routeLine.getBounds(), { padding: [35, 35], maxZoom: 12 });
+    }
+  }
+
+  function fallbackLegs(ids, message) {
+    panel.innerHTML = '<div class="trip-route-fallback"><b>' + escapeHtml(message) + '</b><p>停靠点已经保留，可逐段在高德中打开。</p></div>';
+    legList.innerHTML = ids.slice(0, -1).map(function (id, index) {
+      var from = poiById[id], to = poiById[ids[index + 1]];
+      return legCard(from, to, null, index);
+    }).join('');
+  }
+
+  function legCard(from, to, result, index) {
+    var route = result && result.routes && result.routes[0];
+    var roads = route ? uniqueRoads(route.steps || []).slice(0, 4).join(' → ') : '等待高德返回道路数据';
+    var distance = route ? (route.distance / 1000).toFixed(1) + ' km' : '距离待算';
+    var duration = route ? durationText(route.time) : '时间待算';
+    var toll = route && route.tolls != null ? ' · 预计收费 ¥' + Math.round(route.tolls) : '';
+    return '<article class="trip-leg"><header><i>' + (index + 1) + '</i><div><small>' + escapeHtml(from.name) + ' →</small><h3>' + escapeHtml(to.name) + '</h3></div></header>' +
+      '<p><b>' + distance + ' · ' + duration + toll + '</b></p><p>' + escapeHtml(roads || '按高德实时路线行驶') + '</p>' +
+      '<p class="trip-leg__arrival">到达：' + escapeHtml(to.route_target.label) + ' · ' + escapeHtml(to.address) + '</p>' +
+      '<footer><button type="button" data-poi="' + to.id + '">地点详情</button><a href="' + navLink(from, to) + '" target="_blank" rel="noopener">高德导航这一段 ↗</a></footer></article>';
+  }
+
+  function uniqueRoads(steps) {
+    var seen = {};
+    return steps.map(function (step) { return step.road || step.instruction || ''; }).filter(function (road) {
+      if (!road || seen[road]) return false;
+      seen[road] = true;
+      return true;
+    });
+  }
+
+  function bindLegDetails() {
+    legList.querySelectorAll('[data-poi]').forEach(function (button) {
+      button.onclick = function () { window.dispatchEvent(new CustomEvent('trip:openpoi', { detail: button.dataset.poi })); };
+    });
+  }
+
+  function cacheKey(from, to) {
+    return 'trip-leg-v3:' + from.id + ':' + to.id + ':' + document.getElementById('route-policy').value;
+  }
+
+  function readLegCache(from, to) {
+    try {
+      var cached = JSON.parse(sessionStorage.getItem(cacheKey(from, to)) || 'null');
+      if (cached && Date.now() - cached.savedAt < 600000) return cached.result;
+    } catch (error) {}
+    return null;
+  }
+
+  function writeLegCache(from, to, result) {
+    try { sessionStorage.setItem(cacheKey(from, to), JSON.stringify({ savedAt: Date.now(), result: result })); } catch (error) {}
+  }
+
+  function calculateLegs(ids, token, index, html) {
+    if (token !== requestToken) return;
+    if (index >= ids.length - 1) {
+      legList.innerHTML = html.join('');
+      bindLegDetails();
+      return;
+    }
+    var from = poiById[ids[index]], to = poiById[ids[index + 1]];
+    var cached = readLegCache(from, to);
+    if (cached) {
+      html.push(legCard(from, to, cached, index));
+      calculateLegs(ids, token, index + 1, html);
+      return;
+    }
+    var service = new AMap.Driving({ policy: policyValue(), ferry: 1, extensions: 'all' });
+    var settled = false;
+    var timeout = setTimeout(function () {
+      if (settled || token !== requestToken) return;
+      settled = true;
+      html.push(legCard(from, to, null, index));
+      calculateLegs(ids, token, index + 1, html);
+    }, 8000);
+    service.search(new AMap.LngLat(coordinates(from).lng, coordinates(from).lat), new AMap.LngLat(coordinates(to).lng, coordinates(to).lat), function (status, result) {
+      if (settled || token !== requestToken) return;
+      settled = true;
+      clearTimeout(timeout);
+      if (status === 'complete') writeLegCache(from, to, result);
+      html.push(legCard(from, to, status === 'complete' ? result : null, index));
+      setTimeout(function () { calculateLegs(ids, token, index + 1, html); }, 120);
+    });
+  }
+
+  function routeErrorMessage(result) {
+    var local = /^(127\.0\.0\.1|localhost)$/.test(location.hostname);
+    if (local) return '本地地址可能不在高德白名单，已切换为路线示意';
+    if (result && result.info) return '高德算路失败：' + result.info;
+    return '高德暂时没有返回道路数据';
+  }
+
+  function planRoute(dayId, ids) {
+    activeDay = dayId;
+    activeIds = ids.filter(function (id) { return poiById[id]; }).slice(0, 18);
+    requestToken += 1;
+    var token = requestToken;
+    applyFilter();
+    drawFallback(activeIds);
+    if (activeIds.length < 2) {
+      fallbackLegs(activeIds, '今天不需要单独规划驾车路线');
+      return;
+    }
+    if (!map || !map.__isAMap || !window.AMap) {
+      fallbackLegs(activeIds, '高德地图未加载，当前显示可用的兜底路线');
+      return;
+    }
+    if (!AMap.Driving) {
+      panel.innerHTML = '<p>正在加载高德路线服务…</p>';
+      AMap.plugin('AMap.Driving', function () { planRoute(dayId, ids); });
+      return;
+    }
+    if (driving) driving.clear();
+    if (routeLine) routeLine.setMap(null);
+    panel.innerHTML = '<p>正在计算完整路线和分段道路…</p>';
+    legList.innerHTML = '<div class="trip-route-loading">正在逐段核对里程、道路与到达入口</div>';
+    driving = new AMap.Driving({ map: map, policy: policyValue(), ferry: 1, extensions: 'all', showTraffic: true, hideMarkers: false });
+    var points = activeIds.map(function (id) { return poiById[id]; });
+    var originInput = document.getElementById('route-origin');
+    var originText = originInput && originInput.value.trim();
+    var origin = originText && dayId === 'd1' ? { keyword: originText, city: '北京' } :
+      new AMap.LngLat(coordinates(points[0]).lng, coordinates(points[0]).lat);
+    var destination = new AMap.LngLat(coordinates(points[points.length - 1]).lng, coordinates(points[points.length - 1]).lat);
+    var waypoints = points.slice(1, -1).map(function (poi) { return new AMap.LngLat(coordinates(poi).lng, coordinates(poi).lat); });
+    var settled = false;
+    var routeTimeout = setTimeout(function () {
+      if (settled || token !== requestToken) return;
+      settled = true;
+      drawFallback(activeIds);
+      fallbackLegs(activeIds, '高德算路超时，已切换为可继续使用的路线示意');
+    }, 12000);
+    driving.search(origin, destination, { waypoints: waypoints }, function (status, result) {
+      if (settled || token !== requestToken) return;
+      settled = true;
+      clearTimeout(routeTimeout);
+      if (status !== 'complete') {
+        drawFallback(activeIds);
+        fallbackLegs(activeIds, routeErrorMessage(result));
+        return;
+      }
+      var route = result.routes && result.routes[0];
+      if (!route) return;
+      var roads = uniqueRoads(route.steps || []).slice(0, 8);
+      var metric = {
+        day: dayId,
+        distanceKm: route.distance / 1000,
+        durationText: durationText(route.time),
+        durationSeconds: route.time,
+        tolls: route.tolls || 0,
+        roads: roads
+      };
+      panel.innerHTML = '<div class="trip-driving-summary"><small>高德实时结果</small><h3>' + metric.distanceKm.toFixed(1) + ' km · ' + metric.durationText +
+        '</h3><p>' + escapeHtml(roads.join(' → ') || '路线已绘制到地图') + '</p><span>预计收费 ¥' + Math.round(metric.tolls) + ' · 国庆当天请再次刷新</span></div>';
+      window.dispatchEvent(new CustomEvent('trip:route-result', { detail: metric }));
+      calculateLegs(activeIds, token, 0, []);
+    });
+  }
+
+  function focusPoi(id) {
+    var marker = markers[id], poi = poiById[id];
+    if (!map || !marker || !poi) return;
+    activeIds = [];
+    activeFilter = 'all';
+    applyFilter();
+    if (map.__isAMap) {
+      map.setZoomAndCenter(15, [poi.location.lng, poi.location.lat]);
+      marker.emit('click');
+    } else {
+      map.setView([poi.location.lat, poi.location.lng], 15);
+      marker.openPopup();
+    }
+  }
+
+  if (mapElement) {
+    if (window.AMap) initAMap();
+    else initLeaflet();
+  }
+  document.querySelectorAll('[data-map-filter]').forEach(function (button) {
+    button.onclick = function () { activeFilter = button.dataset.mapFilter; applyFilter(); };
   });
-  window.addEventListener('trip:point',function(e){focusPoint(e.detail);});
-  window.addEventListener('trip:resize',function(){if(map)setTimeout(function(){if(map._amap)map.resize();else map.invalidateSize();},100);});
-  window.addEventListener('DOMContentLoaded',function(){initMap();initUI();});
+  document.getElementById('fit-all').onclick = function () {
+    if (!map) return;
+    activeIds = [];
+    activeFilter = 'all';
+    applyFilter();
+    if (map.__isAMap) map.setFitView();
+    else map.fitBounds(L.latLngBounds(data.pois.map(function (poi) { return [poi.location.lat, poi.location.lng]; })), { padding: [25, 25] });
+  };
+  document.getElementById('refresh-driving-route').onclick = function () { planRoute(activeDay, activeIds); };
+  document.getElementById('route-policy').onchange = function () { planRoute(activeDay, activeIds); };
+  window.addEventListener('trip:route', function (event) {
+    planRoute(event.detail.day, event.detail.ids);
+    if (event.detail.scroll) document.getElementById('trip-map-panel').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+  window.addEventListener('trip:focuspoi', function (event) { focusPoi(event.detail); });
+  window.addEventListener('resize', function () {
+    if (!map) return;
+    setTimeout(function () { if (map.__isAMap) map.resize(); else map.invalidateSize(); }, 80);
+  });
 })();

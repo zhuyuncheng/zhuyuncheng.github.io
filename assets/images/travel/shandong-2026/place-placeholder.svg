@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">山东半岛旅行资料封面</title>
+  <desc id="desc">海岸、公路与山峰组成的扁平插画，不代表地点实拍。</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#dff4ea"/>
+      <stop offset="1" stop-color="#f9f3df"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="720" fill="url(#sky)"/>
+  <circle cx="940" cy="150" r="68" fill="#f5b46f" opacity=".9"/>
+  <path d="M0 410 C180 335 320 380 480 320 C650 255 780 350 940 286 C1040 246 1120 250 1200 230 V720 H0Z" fill="#4a8b70"/>
+  <path d="M0 480 C180 430 330 490 520 430 C710 370 870 450 1200 350 V720 H0Z" fill="#9ac8b3"/>
+  <path d="M0 520 C220 485 450 540 680 500 C900 462 1050 480 1200 430 V720 H0Z" fill="#8ec9df"/>
+  <path d="M490 720 C510 615 565 550 645 492 C710 445 785 420 850 380" fill="none" stroke="#f7f1dd" stroke-width="38" stroke-linecap="round"/>
+  <path d="M490 720 C510 615 565 550 645 492 C710 445 785 420 850 380" fill="none" stroke="#db7043" stroke-width="4" stroke-dasharray="20 22"/>
+  <g fill="none" stroke="#163b30" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M168 382 275 228l74 100 68-82 91 116"/>
+    <path d="M275 228 302 284 327 257"/>
+  </g>
+  <text x="76" y="112" fill="#163b30" font-family="system-ui,-apple-system,sans-serif" font-size="32" font-weight="700" letter-spacing="8">SHANDONG ROAD TRIP</text>
+  <text x="76" y="168" fill="#2a6653" font-family="system-ui,-apple-system,sans-serif" font-size="23">地点资料封面 · 非现场实拍</text>
+</svg>

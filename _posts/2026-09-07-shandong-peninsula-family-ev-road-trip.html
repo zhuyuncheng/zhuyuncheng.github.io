@@ -9,7 +9,7 @@ cover: /assets/images/site/topography-bg.jpg
 destination: 山东半岛
 duration: 14天13晚
 season: 2026 中秋国庆
-budget: ¥1.1万–2.0万
+budget: ¥1.1万–2.3万
 pace: 两岁宝宝友好
 roadtrip: true
 full_width: true
@@ -18,186 +18,95 @@ comment: false
 article_header: false
 sharing: false
 license: false
-excerpt: 9 月 23 日北京出发，潍坊陪家人三天，再以烟台、威海、青岛为三个住宿基地慢游山东半岛；含比亚迪闪充、酒店双方案、亲子节奏、费用与交互地图。
+excerpt: 一套可执行的山东半岛亲子电车自驾决策台：自由选择景点、餐厅、酒店和闪充站，自动生成逐日路线、最终方案与手机今天模式。
 ---
 
-<main class="roadtrip" id="roadtrip-top">
-  <section class="roadtrip-hero">
-    <div class="roadtrip-hero__content">
-      <p class="roadtrip-eyebrow">FAMILY ROAD TRIP · 2026.09.23—10.06</p>
-      <h1>把两千公里的海岸线，<br><span>开成宝宝也舒服的慢旅行</span></h1>
-      <p class="roadtrip-lead">北京 → 潍坊 → 蓬莱 → 烟台 → 威海 / 荣成 → 青岛 → 潍坊 → 北京</p>
-      <div class="roadtrip-hero__actions">
-        <a class="roadtrip-btn roadtrip-btn--primary" href="#route-map">打开全览地图</a>
-        <a class="roadtrip-btn" href="#day-by-day">查看每日安排</a>
-      </div>
-    </div>
-    <div class="roadtrip-hero__stamp" aria-label="适合两大一小">
-      <strong>2+1</strong><span>两大一小</span><small>2 周岁</small>
-    </div>
-  </section>
+<script>document.body.classList.add('roadtrip-page');</script>
+<script id="shandong-trip-data" type="application/json">{{ site.data.travel.shandong_2026 | jsonify }}</script>
+<output id="trip-runtime-error" class="trip-runtime-error" hidden></output>
 
-  <section class="roadtrip-section attraction-guide" id="attractions">
-    <div class="roadtrip-section__head"><div><p class="roadtrip-eyebrow">WHY GO</p><h2>值得为它停车的景点</h2></div><p>每个点都有适合时间、带娃提示与放弃条件</p></div>
-    <div class="attraction-grid">
-      <article class="attraction-card"><figure><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Penglai_Pavilion_viewed_from_the_southeast.jpg?width=1200" alt="蓬莱阁实拍"><figcaption><a href="https://commons.wikimedia.org/wiki/File:Penglai_Pavilion_viewed_from_the_southeast.jpg" target="_blank" rel="noopener">Benlisquare / CC BY-SA 4.0</a></figcaption></figure><div><span>蓬莱 · D5 主景点</span><h3>蓬莱阁与水城</h3><p>它不是单纯登阁：古城墙、海边视野和“仙境”叙事让一家人的照片更有故事。只走水城与主阁，控制在 2–2.5 小时。</p><ul><li>最佳：10:30 前入园，午饭后离开</li><li>带娃：推车走水城，台阶段换背带</li><li>放弃条件：大风、排队过长，直接去烟台入住</li></ul><button type="button" data-map-id="a-penglai">地图定位</button></div></article>
-      <article class="attraction-card"><figure><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Qingdao-underwaterworld.jpg?width=1200" alt="青岛海底世界实拍"><figcaption><a href="https://commons.wikimedia.org/wiki/File:Qingdao-underwaterworld.jpg" target="_blank" rel="noopener">Mark wyld / CC BY-SA 4.0</a></figcaption></figure><div><span>青岛 · D12 主景点</span><h3>青岛海底世界</h3><p>两岁宝宝最容易有反应的一站：暗光、水母、鱼群和鲸类展陈都比老城爬坡更友好。建议只抓早场，不为演出久等。</p><ul><li>最佳：开馆首场，约 90–120 分钟</li><li>带娃：备薄外套和熟悉零食，拥挤即撤</li><li>雨天：优先保留，是全线最稳的室内方案</li></ul><button type="button" data-map-id="a-underwater">地图定位</button></div></article>
-      <article class="attraction-card"><figure><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/%E6%88%90%E5%B1%B1%E5%A4%B4%20-%20altar-fountain%20complex%20with%20statues%20of%20various%20Chinese%20gods%20in%20Weihai%2C%20Shandong.jpg?width=1200" alt="成山头实拍"><figcaption><a href="https://commons.wikimedia.org/wiki/File:%E6%88%90%E5%B1%B1%E5%A4%B4_-_altar-fountain_complex_with_statues_of_various_Chinese_gods_in_Weihai,_Shandong.jpg" target="_blank" rel="noopener">guan / CC BY 3.0</a></figcaption></figure><div><span>荣成 · D9 可选专程</span><h3>成山头</h3><p>它是“山东半岛尽头”的仪式感，不只是打卡。晴天能把海岸线、灯塔与家庭合照放进一张图，但距离远，值得专门留出半天。</p><ul><li>最佳：晴朗无大风的上午</li><li>带娃：不走长距离礁石路，优先观景平台</li><li>放弃条件：风力大、导航拥堵、午睡被压缩</li></ul><button type="button" data-map-id="a-chengshan">地图定位</button></div></article>
-      <article class="attraction-card"><figure><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Weihai.jpg?width=1200" alt="威海海岸实拍"><figcaption><a href="https://commons.wikimedia.org/wiki/File:Weihai.jpg" target="_blank" rel="noopener">Fanghong / CC BY-SA</a></figcaption></figure><div><span>威海 · D7 / D9 轻松备选</span><h3>半月湾与海岸散步</h3><p>比网红街更适合一家三口：空间开阔、停留弹性大，清晨或傍晚走 45 分钟就有海岸感，是宝宝恢复日的好选择。</p><ul><li>最佳：清晨或 16:30 后</li><li>带娃：推车友好，远离湿滑礁石</li><li>放弃条件：强风、大浪或降温</li></ul><button type="button" data-map-id="a-banyue">地图定位</button></div></article>
-      <article class="attraction-card"><figure><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/%E7%85%99%E5%8F%B0%E5%B1%B1%E6%99%AF%E5%8D%80.jpg?width=1200" alt="烟台山景区实拍"><figcaption><a href="https://commons.wikimedia.org/wiki/File:%E7%85%99%E5%8F%B0%E5%B1%B1%E6%99%AF%E5%8D%80.jpg" target="_blank" rel="noopener">Vitsuha / CC BY-SA 4.0</a></figcaption></figure><div><span>烟台 · D6 上午主景点</span><h3>烟台山—朝阳街—所城里</h3><p>灯塔、领事馆建筑和老城街巷连成一条短线，既有海景也有城市历史。上午走烟台山与朝阳街，所城里留给傍晚，不必一次走完。</p><ul><li>建议：烟台山 60 分钟 + 朝阳街午饭</li><li>带娃：坡道与台阶交替，推车配合背带</li><li>停车：酒店停车后打车更省心</li></ul><button type="button" data-map-id="a-yantaishan">地图定位</button></div></article>
-      <article class="attraction-card"><figure><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/%E7%8E%AF%E7%BF%A0%20%E5%88%98%E5%85%AC%E5%B2%9B%E9%A3%8E%E6%99%AF%E5%90%8D%E8%83%9C%E5%8C%BA.jpg?width=1200" alt="刘公岛景区实拍"><figcaption><a href="https://commons.wikimedia.org/wiki/Category:Liugong_Island" target="_blank" rel="noopener">Wikimedia Commons / 开放授权</a></figcaption></figure><div><span>威海 · D8 半日主景点</span><h3>刘公岛</h3><p>这一天的价值在甲午历史与海上交通体验。只保留甲午战争博物院和一段岛上慢走，不追求环岛全打卡。</p><ul><li>建议：08:00 到码头，12:00 前准备离岛</li><li>带娃：候船时间不稳定，随身带主食和薄外套</li><li>取消条件：停航、强风或候船队伍过长</li></ul><button type="button" data-map-id="a-liugong">地图定位</button></div></article>
-      <article class="attraction-card"><figure><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/20240729%20Zhanqiao%2001.jpg?width=1200" alt="青岛栈桥实拍"><figcaption><a href="https://commons.wikimedia.org/wiki/Category:Zhanqiao_Pier" target="_blank" rel="noopener">Wikimedia Commons / 详见文件页</a></figcaption></figure><div><span>青岛 · D11 老城线</span><h3>栈桥—大学路—小鱼山</h3><p>这是青岛城市记忆最集中的半日路线。栈桥只需远观和拍照，随后打车或步行到大学路，体力允许再登小鱼山。</p><ul><li>建议：08:00 前到栈桥，11:00 前吃午饭</li><li>带娃：老城坡多，小鱼山属于可删项</li><li>停车：固定一个停车场后步行或打车</li></ul><button type="button" data-map-id="a-zhanqiao">地图定位</button></div></article>
-      <article class="attraction-card"><figure><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/1%20Shidao%20Road.jpg?width=1200" alt="青岛八大关实拍"><figcaption><a href="https://commons.wikimedia.org/wiki/Category:Badaguan" target="_blank" rel="noopener">Wikimedia Commons / 详见文件页</a></figcaption></figure><div><span>青岛 · D12 下午备选</span><h3>八大关</h3><p>树荫、老建筑和海岸线适合午睡后的短散步。它不需要“逛完”，只走临海一段便能获得青岛最松弛的城市质感。</p><ul><li>建议：16:00 后停留 45–60 分钟</li><li>带娃：选择平缓道路，收费建筑不必进入</li><li>替代：下雨或宝宝疲惫时直接取消</li></ul><button type="button" data-map-id="a-badaguan">地图定位</button></div></article>
-    </div>
-    <p class="booking-tip"><strong>下一批实拍补充：</strong>养马岛、所城里、金石湾和小麦岛已在地图与备选行程中；仅在找到明确授权的实拍素材后才会加入，不用来源不明的旅游平台图片。</p>
-  </section>
-
-  <section class="roadtrip-snapshot" aria-label="行程摘要">
-    <div><strong>14</strong><span>天 / 13 晚</span></div>
-    <div><strong>≈ 2,070</strong><span>公里总里程</span></div>
-    <div><strong>3</strong><span>半岛住宿基地</span></div>
-    <div><strong>6</strong><span>主 / 备闪充点</span></div>
-    <div><strong>1.1–2.0</strong><span>万元计划预算</span></div>
-  </section>
-
-  <aside class="roadtrip-notice">
-    <strong>日期怎么连：</strong>2026 年中秋 9 月 25–27 日、国庆 10 月 1–7 日；请假 9 月 28–30 日可连休 13 天。本计划建议 9 月 23 日提前出发、10 月 6 日错峰返京。酒店与票价查询基准为 2026-09-07，国庆价格波动大，请以付款页为准。
-  </aside>
-
-  <section class="roadtrip-section" id="route-map">
-    <div class="roadtrip-section__head">
-      <div><p class="roadtrip-eyebrow">ROUTE ATLAS</p><h2>一张图看懂路线、住宿与补能</h2></div>
-      <button class="roadtrip-btn roadtrip-btn--small" type="button" id="fit-all">恢复全览</button>
-    </div>
-    <div class="map-toolbar" role="group" aria-label="地图点位筛选">
-      <button class="map-filter is-active" type="button" data-filter="all">全部</button>
-      <button class="map-filter" type="button" data-filter="attraction"><i class="map-dot map-dot--attraction"></i>景点</button>
-      <button class="map-filter" type="button" data-filter="hotel"><i class="map-dot map-dot--hotel"></i>酒店</button>
-      <button class="map-filter" type="button" data-filter="charge"><i class="map-dot map-dot--charge"></i>闪充</button>
-      <button class="map-filter" type="button" data-filter="food"><i class="map-dot map-dot--food"></i>吃饭</button>
-    </div>
-    <div class="route-map-shell">
-      <div id="shandong-map" aria-label="山东半岛自驾交互地图"></div>
-      <div class="route-map-summary">
-        <p class="route-map-summary__label">推荐主线</p>
-        <ol>
-          <li><button type="button" data-focus-day="d1"><b>北京 → 潍坊</b><span>约 520 km · 途中补能 1 次</span></button></li>
-          <li><button type="button" data-focus-day="d5"><b>潍坊 → 蓬莱 → 烟台</b><span>约 330 km · 顺游蓬莱阁</span></button></li>
-          <li><button type="button" data-focus-day="d7"><b>烟台 → 威海</b><span>约 85 km · 连住 3 晚</span></button></li>
-          <li><button type="button" data-focus-day="d9"><b>威海 ⇄ 荣成</b><span>约 180 km · 当日往返</span></button></li>
-          <li><button type="button" data-focus-day="d10"><b>威海 → 青岛</b><span>约 270 km · 连住 3 晚</span></button></li>
-        </ol>
-        <p class="route-map-note">地图路线为行程示意；点击点位可查看地址与高德导航。实际道路、拥堵和临时管制以出发当天导航为准。</p>
-      </div>
-    </div>
-    <div class="driving-controls"><label>北京实际出发地（仅出发日）<input id="route-origin" type="text" placeholder="例如：北京市朝阳区 ×× 小区"></label><button class="roadtrip-btn roadtrip-btn--small" type="button" id="refresh-driving-route">重新绘制完整路线</button></div>
-    <div id="driving-panel" class="driving-panel" aria-live="polite"><p>选择当天的景点、美食、充电与酒店后，这里会直接渲染起点、全部途经点、终点和高德逐路段路线。</p></div>
-    <div class="route-leg-grid" aria-label="分段高德导航">
-      <a href="https://uri.amap.com/navigation?from=116.4074,39.9042,%E5%8C%97%E4%BA%AC&to=119.1618,36.7069,%E6%BD%8D%E5%9D%8A&mode=car&policy=1&src=moulang-blog&callnative=1" target="_blank" rel="noopener"><b>D1 北京 → 潍坊</b><span>约 520–580 km · 高德实时选路</span></a>
-      <a href="https://uri.amap.com/navigation?from=119.1618,36.7069,%E6%BD%8D%E5%9D%8A&to=120.7505,37.8250,%E8%93%AC%E8%8E%B1%E9%98%81&mode=car&policy=1&src=moulang-blog&callnative=1" target="_blank" rel="noopener"><b>D5 潍坊 → 蓬莱阁</b><span>约 250 km · 到达后再导航烟台酒店</span></a>
-      <a href="https://uri.amap.com/navigation?from=121.4050,37.5383,%E7%83%9F%E5%8F%B0%E9%85%92%E5%BA%97&to=122.1638,37.4352,%E5%A8%81%E6%B5%B7%E9%85%92%E5%BA%97&mode=car&policy=1&src=moulang-blog&callnative=1" target="_blank" rel="noopener"><b>D7 烟台 → 威海</b><span>约 85–100 km · 以最终酒店为终点</span></a>
-      <a href="https://uri.amap.com/navigation?from=122.1638,37.4352,%E5%A8%81%E6%B5%B7%E9%85%92%E5%BA%97&to=122.5717,37.3630,%E9%82%A3%E9%A6%99%E6%B5%B7&mode=car&policy=1&src=moulang-blog&callnative=1" target="_blank" rel="noopener"><b>D9 威海 → 那香海</b><span>荣成海岸当日往返</span></a>
-      <a href="https://uri.amap.com/navigation?from=122.1638,37.4352,%E5%A8%81%E6%B5%B7%E9%85%92%E5%BA%97&to=120.4266,36.0552,%E9%9D%92%E5%B2%9B%E9%85%92%E5%BA%97&mode=car&policy=1&src=moulang-blog&callnative=1" target="_blank" rel="noopener"><b>D10 威海 → 青岛</b><span>约 270–310 km · 可途经莱西补能</span></a>
-      <a href="https://uri.amap.com/navigation?from=120.4266,36.0552,%E9%9D%92%E5%B2%9B%E9%85%92%E5%BA%97&to=119.1618,36.7069,%E6%BD%8D%E5%9D%8A&mode=car&policy=1&src=moulang-blog&callnative=1" target="_blank" rel="noopener"><b>D13 青岛 → 潍坊</b><span>约 165–200 km · 高德实时选路</span></a>
-    </div>
-  </section>
-
-  <section class="roadtrip-section" id="day-by-day">
-    <div class="roadtrip-section__head"><div><p class="roadtrip-eyebrow">DAY BY DAY</p><h2>每天只安排一个主任务</h2></div><p>点任意一天，地图会同步聚焦</p></div>
-    <div class="day-grid">
-      <article class="day-card" data-day="d1"><time>09.23 · D1</time><h3>北京 → 潍坊</h3><p class="day-card__meta">约 520 km · 驾驶 6–7h</p><p>06:30 出发，避开进出京早高峰。沧州或滨州午饭 + 补能 25–35 分钟，宝宝下车活动；SOC 充至 75–85% 后直达潍坊。</p><span class="day-tag day-tag--drive">长途驾驶日</span></article>
-      <article class="day-card day-card--home" data-day="d2"><time>09.24–26 · D2–4</time><h3>潍坊老家慢三天</h3><p class="day-card__meta">不赶行程 · 车辆整备</p><p>陪家人、十笏园 / 风筝博物馆二选一。26 日晚将车补至 90%，检查胎压、儿童座椅、随车充与雨具。</p><span class="day-tag">中秋团圆</span></article>
-      <article class="day-card" data-day="d5"><time>09.27 · D5</time><h3>蓬莱阁顺游 → 烟台</h3><p class="day-card__meta">约 330 km · 10:00–16:00 景区</p><p>07:00 潍坊出发，先到蓬莱阁。推车走水城与主阁缓线，台阶段换背带；午饭后避开宝宝午睡继续开往烟台，连住 2 晚。</p><span class="day-tag">门票成人 ¥100</span></article>
-      <article class="day-card" data-day="d6"><time>09.28 · D6</time><h3>烟台：山海散步日</h3><p class="day-card__meta">少开车 · 免费景点为主</p><p>上午烟台山—朝阳街，午睡回酒店；16:00 后渔人码头看落日。若风大，改为烟台市博物馆，不硬扛海风。</p><span class="day-tag">宝宝恢复日</span></article>
-      <article class="day-card" data-day="d7"><time>09.29 · D7</time><h3>烟台 → 威海 · 刘公岛</h3><p class="day-card__meta">约 85 km · 船班受天气影响</p><p>07:30 出发，车停刘公岛客运中心。以中国甲午战争博物院 + 环岛观光车为主，13:30 前离岛回酒店午休，威海连住 3 晚。</p><span class="day-tag">成人 ¥122 · 宝宝免费</span></article>
-      <article class="day-card" data-day="d8"><time>09.30 · D8</time><h3>威海：公园与落日</h3><p class="day-card__meta">海源公园 → 火炬八街</p><p>上午海源公园 / 一战华工纪念馆；午睡后去国际海水浴场。火炬八街只短暂停留拍照，17:00 前离开拥挤路段。</p><span class="day-tag">全程免费</span></article>
-      <article class="day-card" data-day="d9"><time>10.01 · D9</time><h3>荣成海岸当日往返</h3><p class="day-card__meta">往返约 180 km · 不换酒店</p><p>早去那香海钻石沙滩，午饭后宝宝车上睡；下午只选布鲁威斯沉船远观或金石湾艺术园区之一。大风或堵车时直接改威海室内日。</p><span class="day-tag">假期首日 · 早出早回</span></article>
-      <article class="day-card" data-day="d10"><time>10.02 · D10</time><h3>威海 → 青岛</h3><p class="day-card__meta">约 270 km · 驾驶 3.5–4.5h</p><p>早餐后退房，莱西附近安排一次闪充 / 午饭。15:00 入住青岛，傍晚只逛五四广场—奥帆中心，连住 3 晚。</p><span class="day-tag day-tag--drive">换城日</span></article>
-      <article class="day-card" data-day="d11"><time>10.03 · D11</time><h3>青岛老城轻徒步</h3><p class="day-card__meta">栈桥 → 大学路 → 小鱼山</p><p>08:00 前到栈桥，之后信号山 / 小鱼山只选一个。中午吃本地家常菜，回酒店午睡；傍晚沿海散步，不排网红店长队。</p><span class="day-tag">停车后步行</span></article>
-      <article class="day-card" data-day="d12"><time>10.04 · D12</time><h3>海底世界 + 八大关</h3><p class="day-card__meta">室内主场 · 适合幼儿</p><p>预约最早场，避开 10:30 后客流；午睡后八大关只走临海平缓路段。若宝宝状态一般，直接取消第二站。</p><span class="day-tag">通票成人 ¥170</span></article>
-      <article class="day-card" data-day="d13"><time>10.05 · D13</time><h3>青岛 → 潍坊</h3><p class="day-card__meta">约 165 km · 回家缓冲</p><p>睡醒再走，避开青岛午后返程峰值。到潍坊补齐伴手礼，清洗车内、整理返京物品，晚上早休息。</p><span class="day-tag">机动半日</span></article>
-      <article class="day-card" data-day="d14"><time>10.06 · D14</time><h3>潍坊 → 北京</h3><p class="day-card__meta">约 520 km · 错峰返京</p><p>06:30 出发，仍在滨州 / 沧州安排一次主补能和一次弹性休息。不要等到 15% 才找桩，假日保持 20% 安全余量。</p><span class="day-tag day-tag--drive">预留 10.07 兜底</span></article>
-    </div>
-  </section>
-
-  <section class="roadtrip-section" id="stays">
-    <div class="roadtrip-section__head"><div><p class="roadtrip-eyebrow">STAY WELL</p><h2>每个基地，两档酒店方案</h2></div><p>价格为国庆区间估算 / 每晚含税参考</p></div>
-    <div class="stay-tabs" role="tablist" aria-label="住宿城市">
-      <button class="stay-tab is-active" type="button" data-stay="yantai">烟台 · 2 晚</button><button class="stay-tab" type="button" data-stay="weihai">威海 · 3 晚</button><button class="stay-tab" type="button" data-stay="qingdao">青岛 · 3 晚</button>
-    </div>
-    <div class="stay-panels">
-      <div class="stay-panel is-active" data-stay-panel="yantai">
-        <article class="hotel-card"><div class="hotel-card__top"><span class="hotel-level">位置优先</span><span>¥600–1,000 / 晚</span></div><h3>烟台百纳瑞汀酒店</h3><p>靠近第一海水浴场与烟台山，少折返；自驾停车、早餐和亲子房型下单前确认。</p><ul><li>适合：城市漫步 + 午睡回房</li><li>代价：海景房节日期间溢价明显</li></ul><div class="hotel-links"><a href="https://hotels.ctrip.com/hotels/list?city=533&amp;searchWord=%E7%83%9F%E5%8F%B0%E7%99%BE%E7%BA%B3%E7%91%9E%E6%B1%80%E9%85%92%E5%BA%97" target="_blank" rel="noopener">携程查价</a><a href="https://www.meituan.com/s/%E7%83%9F%E5%8F%B0%E7%99%BE%E7%BA%B3%E7%91%9E%E6%B1%80%E9%85%92%E5%BA%97/" target="_blank" rel="noopener">美团查价</a><button type="button" data-map-id="h-yantai-a">地图</button></div></article>
-        <article class="hotel-card hotel-card--recommended"><div class="hotel-card__top"><span class="hotel-level">舒适海景 · 推荐</span><span>¥900–1,600 / 晚</span></div><h3>烟台世茂希尔顿酒店</h3><p>市区海岸线位置好，雨天在酒店也不狼狈；优先选可取消、含双早的高楼层房型。</p><ul><li>适合：带娃服务与稳定早餐</li><li>代价：自驾进出老城区可能拥堵</li></ul><div class="hotel-links"><a href="https://hotels.ctrip.com/hotels/list?city=533&amp;searchWord=%E7%83%9F%E5%8F%B0%E4%B8%96%E8%8C%82%E5%B8%8C%E5%B0%94%E9%A1%BF%E9%85%92%E5%BA%97" target="_blank" rel="noopener">携程查价</a><a href="https://www.meituan.com/s/%E7%83%9F%E5%8F%B0%E4%B8%96%E8%8C%82%E5%B8%8C%E5%B0%94%E9%A1%BF%E9%85%92%E5%BA%97/" target="_blank" rel="noopener">美团查价</a><button type="button" data-map-id="h-yantai-b">地图</button></div></article>
-      </div>
-      <div class="stay-panel" data-stay-panel="weihai">
-        <article class="hotel-card"><div class="hotel-card__top"><span class="hotel-level">性价比</span><span>¥500–900 / 晚</span></div><h3>威海抱海大酒店</h3><p>靠近海上公园，停车相对方便；去刘公岛码头和荣成方向都顺路。</p><ul><li>适合：自驾效率、预算可控</li><li>代价：装修新旧需看具体房型</li></ul><div class="hotel-links"><a href="https://hotels.ctrip.com/hotels/list?city=479&amp;searchWord=%E5%A8%81%E6%B5%B7%E6%8A%B1%E6%B5%B7%E5%A4%A7%E9%85%92%E5%BA%97" target="_blank" rel="noopener">携程查价</a><a href="https://www.meituan.com/s/%E5%A8%81%E6%B5%B7%E6%8A%B1%E6%B5%B7%E5%A4%A7%E9%85%92%E5%BA%97/" target="_blank" rel="noopener">美团查价</a><button type="button" data-map-id="h-weihai-a">地图</button></div></article>
-        <article class="hotel-card hotel-card--recommended"><div class="hotel-card__top"><span class="hotel-level">亲子舒适 · 推荐</span><span>¥700–1,300 / 晚</span></div><h3>威海蓝海御华大饭店</h3><p>空间、早餐和停车更稳，适合连续住三晚；订房时备注婴儿床、床围和无烟房。</p><ul><li>适合：降低长住的不确定性</li><li>代价：与火炬八街分处城市两侧</li></ul><div class="hotel-links"><a href="https://hotels.ctrip.com/hotels/list?city=479&amp;searchWord=%E5%A8%81%E6%B5%B7%E8%93%9D%E6%B5%B7%E5%BE%A1%E5%8D%8E%E5%A4%A7%E9%A5%AD%E5%BA%97" target="_blank" rel="noopener">携程查价</a><a href="https://www.meituan.com/s/%E5%A8%81%E6%B5%B7%E8%93%9D%E6%B5%B7%E5%BE%A1%E5%8D%8E%E5%A4%A7%E9%A5%AD%E5%BA%97/" target="_blank" rel="noopener">美团查价</a><button type="button" data-map-id="h-weihai-b">地图</button></div></article>
-      </div>
-      <div class="stay-panel" data-stay-panel="qingdao">
-        <article class="hotel-card"><div class="hotel-card__top"><span class="hotel-level">老城便利</span><span>¥700–1,300 / 晚</span></div><h3>青岛栈桥海景亚朵酒店</h3><p>步行覆盖栈桥与老城，能少开一天车；务必确认停车位，不接受机械车位可提前沟通。</p><ul><li>适合：老城路线、控制预算</li><li>代价：假期周边车流与人流密集</li></ul><div class="hotel-links"><a href="https://hotels.ctrip.com/hotels/list?city=7&amp;searchWord=%E9%9D%92%E5%B2%9B%E6%A0%88%E6%A1%A5%E6%B5%B7%E6%99%AF%E4%BA%9A%E6%9C%B5%E9%85%92%E5%BA%97" target="_blank" rel="noopener">携程查价</a><a href="https://www.meituan.com/s/%E9%9D%92%E5%B2%9B%E6%A0%88%E6%A1%A5%E6%B5%B7%E6%99%AF%E4%BA%9A%E6%9C%B5%E9%85%92%E5%BA%97/" target="_blank" rel="noopener">美团查价</a><button type="button" data-map-id="h-qingdao-a">地图</button></div></article>
-        <article class="hotel-card hotel-card--recommended"><div class="hotel-card__top"><span class="hotel-level">服务优先 · 推荐</span><span>¥1,200–2,200 / 晚</span></div><h3>青岛海景花园大酒店</h3><p>亲子服务口碑稳定、靠近东部海岸；连续三晚能显著减少假期带娃的体力消耗。</p><ul><li>适合：家庭服务、海边散步</li><li>代价：老城景点需打车或自驾</li></ul><div class="hotel-links"><a href="https://hotels.ctrip.com/hotels/list?city=7&amp;searchWord=%E9%9D%92%E5%B2%9B%E6%B5%B7%E6%99%AF%E8%8A%B1%E5%9B%AD%E5%A4%A7%E9%85%92%E5%BA%97" target="_blank" rel="noopener">携程查价</a><a href="https://www.meituan.com/s/%E9%9D%92%E5%B2%9B%E6%B5%B7%E6%99%AF%E8%8A%B1%E5%9B%AD%E5%A4%A7%E9%85%92%E5%BA%97/" target="_blank" rel="noopener">美团查价</a><button type="button" data-map-id="h-qingdao-b">地图</button></div></article>
-      </div>
-    </div>
-    <p class="booking-tip"><strong>订房顺序：</strong>今天先下“可免费取消”的推荐档，再用 9 月 15 日和 9 月 21 日两个提醒日复查降价。筛选必须包含：免费停车、双早、无烟房；电话确认婴儿床 / 床围、冰箱和电梯动线。不要为了酒店慢充牺牲位置，主线已有闪充。</p>
-    <div class="hotel-decision-table"><div><b>酒店</b><b>到主景点</b><b>停车 / 带娃判断</b></div><div><span>烟台百纳瑞汀</span><span>烟台山约 1–2 km</span><span>老城最方便，节日车流较多</span></div><div><span>烟台世茂希尔顿</span><span>烟台山 / 朝阳街约 1 km</span><span>早餐与服务稳定，适合午睡回房</span></div><div><span>威海抱海大酒店</span><span>刘公岛码头约 3–5 km</span><span>停车和荣成方向自驾更顺</span></div><div><span>威海蓝海御华</span><span>海上公园约 1 km</span><span>连续住三晚舒适，去火炬八街较远</span></div><div><span>栈桥海景亚朵</span><span>栈桥 / 老城步行圈</span><span>景点最近，但必须提前确认停车位</span></div><div><span>青岛海景花园</span><span>小麦岛约 2–4 km</span><span>亲子与停车更好，去老城建议打车</span></div></div>
-  </section>
-
-  <section class="roadtrip-section roadtrip-section--split" id="charging">
+<main class="roadtrip trip-v3" id="roadtrip-app">
+  <header class="trip-hero">
     <div>
-      <p class="roadtrip-eyebrow">ENERGY PLAN</p><h2>腾势 Z9GT 补能策略</h2>
-      <p class="section-intro">按假日高速实际 400–550 km 续航，不跑极限：长途段以 75% 作为下一段出发电量，20% 作为找桩底线。半岛内跨城均在实际续航内，充电安排与吃饭 / 午睡重合。</p>
-      <div class="energy-rule"><span>20%</span><p><b>开始执行备选</b>，不再继续赌下一站</p></div>
-      <div class="energy-rule"><span>75–85%</span><p><b>假日最佳离站区间</b>，避开尾段低功率</p></div>
-      <div class="energy-rule"><span>90%</span><p><b>潍坊出发前夜</b>，覆盖蓬莱 + 烟台</p></div>
+      <p class="trip-kicker">2026.09.23—10.06 · TWO ADULTS + ONE TODDLER</p>
+      <h1>山东半岛<br><span>旅行执行台</span></h1>
+      <p>从北京出发，经潍坊、蓬莱、烟台、威海、荣成和青岛。选好想去的地方，系统负责把景点、吃饭、补能与住宿串成真正能开的路线。</p>
     </div>
-    <div class="charge-list">
-      <article><i>主</i><div><h3>潍坊恒信时代广场闪充站</h3><p>东风东街 5058 号 · 4 把闪充枪</p></div><button type="button" data-map-id="c-weifang">地图</button></article>
-      <article><i>主</i><div><h3>烟台北关路利群广场闪充站</h3><p>蓬莱区北关路 700 号 · 2 把闪充枪</p></div><button type="button" data-map-id="c-penglai">地图</button></article>
-      <article><i>备</i><div><h3>烟台电视台闪充站</h3><p>莱山区观海路 349 号 · 4 把闪充枪</p></div><button type="button" data-map-id="c-yantai">地图</button></article>
-      <article><i>主</i><div><h3>威海高铁北站闪充站</h3><p>北站地面停车场 · 4 把闪充枪</p></div><button type="button" data-map-id="c-weihai">地图</button></article>
-      <article><i>备</i><div><h3>比亚迪荣成兴飞闪充站</h3><p>凭海西路鑫通汽车城 · 2 把闪充枪</p></div><button type="button" data-map-id="c-rongcheng">地图</button></article>
-      <article><i>主</i><div><h3>青岛徐州路便民市场闪充站</h3><p>市南区徐州路 171 号 · 4 把闪充枪</p></div><button type="button" data-map-id="c-qingdao">地图</button></article>
+    <div class="trip-hero__stats" aria-label="行程摘要">
+      <span><b>14</b>天</span><span><b>2+1</b>家庭</span><span><b>820</b>km 标称</span><span><b>3</b>基地</span>
+    </div>
+  </header>
+
+  <nav class="trip-topbar" aria-label="旅行执行台主导航">
+    <a class="trip-brand" href="#today"><i></i><span>半岛旅行 OS</span><small id="trip-save-status">选择自动保存</small></a>
+    <div>
+      <button type="button" data-view="today">今天</button>
+      <button type="button" class="is-active" data-view="journey">路线编排</button>
+      <button type="button" data-view="plan">我的方案</button>
+      <button type="button" data-view="catalog">地点图鉴</button>
+      <button type="button" data-view="more">更多</button>
+    </div>
+  </nav>
+
+  <section class="trip-view is-active" data-view-panel="journey" id="journey">
+    <div class="trip-workspace">
+      <aside class="trip-days" aria-label="选择行程日期">
+        <header><span>TRIP</span><b>14 天</b></header>
+        <div id="trip-day-list"></div>
+      </aside>
+      <section class="trip-day-editor" id="trip-day-editor" aria-live="polite"></section>
+      <aside class="trip-map-panel" id="trip-map-panel">
+        <header class="trip-panel-head">
+          <div><small>AMAP ROUTE</small><h2>当天精确路线</h2></div>
+          <button type="button" id="fit-all">全览</button>
+        </header>
+        <div class="trip-map-filters" role="group" aria-label="地图点位筛选">
+          <button type="button" class="is-active" data-map-filter="all">全部</button>
+          <button type="button" data-map-filter="attraction">景点</button>
+          <button type="button" data-map-filter="restaurant">美食</button>
+          <button type="button" data-map-filter="hotel">酒店</button>
+          <button type="button" data-map-filter="charge">补能</button>
+          <button type="button" data-map-filter="hospital">医院</button>
+        </div>
+        <div id="shandong-map" aria-label="山东半岛自驾交互地图"></div>
+        <div class="trip-route-controls">
+          <label>北京实际出发地<input id="route-origin" type="text" autocomplete="street-address" placeholder="只用于当次 D1 算路，不保存"></label>
+          <label>算路策略<select id="route-policy"><option value="fast">最快</option><option value="traffic">避免拥堵</option><option value="toll">少收费</option></select></label>
+          <button type="button" id="refresh-driving-route">重新计算</button>
+        </div>
+        <div id="driving-panel" class="trip-driving-panel" aria-live="polite"><p>选择一天后显示完整道路与逐段导航。</p></div>
+        <div id="route-leg-list" class="trip-route-legs"></div>
+      </aside>
     </div>
   </section>
 
-  <section class="roadtrip-section" id="food">
-    <div class="roadtrip-section__head"><div><p class="roadtrip-eyebrow">EAT LOCAL</p><h2>吃得像本地人，也照顾两岁宝宝</h2></div><p>餐厅不追唯一网红店，以街区 + 菜品做替补</p></div>
-    <div class="food-grid">
-      <article><span>潍坊</span><h3>朝天锅、肉火烧、鸡鸭和乐</h3><p>早餐吃肉火烧，正餐选老潍县菜。给宝宝单点清汤和乐、炖菜，蘸料后放。</p><button type="button" data-map-id="f-weifang">地图找吃的</button></article>
-      <article><span>蓬莱 / 烟台</span><h3>鲅鱼水饺、蓬莱小面、焖子</h3><p>海鲜只点当日明码标价；宝宝吃小面、蒸蛋、清蒸鱼，先剔刺再上桌。</p><button type="button" data-map-id="f-yantai">地图找吃的</button></article>
-      <article><span>威海 / 荣成</span><h3>海菜包子、锅煽海蛎子、无花果</h3><p>韩餐街可做换口味备选。长途日午饭选商场，停车和母婴室更可靠。</p><button type="button" data-map-id="f-weihai">地图找吃的</button></article>
-      <article><span>青岛</span><h3>锅贴、排骨米饭、家常海鲜</h3><p>不把台东夜市当正餐主场；选居民区家常菜，啤酒与驾车严格错开。</p><button type="button" data-map-id="f-qingdao">地图找吃的</button></article>
-    </div>
-    <div class="food-playbook"><article><b>早餐怎么吃</b><p>潍坊肉火烧、蓬莱小面、烟台焖子、威海海菜包子、青岛甜沫或馄饨。每天只选一种地方早餐，宝宝继续吃熟悉主食。</p></article><article><b>午餐怎么选</b><p>长途日选商场或停车方便的家常菜；景区日提前到 11:00–11:30 就餐。点清蒸鱼、蒸蛋、炖菜和面食，海鲜先确认计价单位。</p></article><article><b>晚餐怎么安排</b><p>酒店 2–3 km 内解决，不把夜市当主餐。烟台可选鲅鱼水饺，威海选韩餐或海鲜家常菜，青岛选排骨米饭、锅贴和本地炒菜。</p></article><article><b>宝宝饮食底线</b><p>海鲜完全熟透、剔刺后少量尝试；整粒坚果、整颗葡萄和酒精烹调菜不直接给宝宝。随身保留一份熟悉主食作为兜底。</p></article></div>
-  </section>
+  <section class="trip-view trip-today" data-view-panel="today" id="today" hidden></section>
+  <section class="trip-view trip-plan" data-view-panel="plan" id="my-plan" hidden></section>
+  <section class="trip-view trip-catalog" data-view-panel="catalog" id="catalog" hidden></section>
+  <section class="trip-view trip-more" data-view-panel="more" id="more" hidden></section>
 
-  <section class="roadtrip-section roadtrip-section--split" id="budget">
-    <div><p class="roadtrip-eyebrow">BUDGET</p><h2>预算拨杆</h2><p class="section-intro">选择住宿档位，快速得到三口之家 14 天的计划区间。比亚迪免费闪充按“权益覆盖主充电”估算，仍保留公共桩应急费用。</p><div class="budget-toggle" role="group" aria-label="住宿预算"><button class="is-active" type="button" data-budget="balanced">均衡档</button><button type="button" data-budget="comfort">舒适档</button></div><div class="budget-total"><span>建议准备</span><strong id="budget-total">¥11,000–14,500</strong><small>不含购物与老家期间日常开销</small></div></div>
-    <dl class="budget-breakdown" id="budget-breakdown">
-      <div><dt>住宿 · 8 晚</dt><dd data-balanced="¥5,100–7,300" data-comfort="¥8,900–13,600">¥5,100–7,300</dd></div>
-      <div><dt>餐饮 · 3 人</dt><dd data-balanced="¥2,800–3,800" data-comfort="¥3,800–5,200">¥2,800–3,800</dd></div>
-      <div><dt>门票 / 船票</dt><dd data-balanced="约 ¥800" data-comfort="约 ¥1,000">约 ¥800</dd></div>
-      <div><dt>高速 / 停车</dt><dd data-balanced="¥1,100–1,500" data-comfort="¥1,300–1,800">¥1,100–1,500</dd></div>
-      <div><dt>补能应急金</dt><dd data-balanced="¥200" data-comfort="¥300">¥200</dd></div>
-      <div><dt>机动金</dt><dd data-balanced="¥1,000" data-comfort="¥1,500">¥1,000</dd></div>
-    </dl>
-  </section>
+  <nav class="trip-mobile-nav" aria-label="手机快捷导航">
+    <button type="button" data-view="today"><span>今</span>今天</button>
+    <button type="button" data-mobile-map><span>图</span>地图</button>
+    <button type="button" data-view="plan"><span>案</span>方案</button>
+    <button type="button" data-view="more"><span>···</span>更多</button>
+  </nav>
 
-  <section class="roadtrip-section" id="checklist">
-    <div class="roadtrip-section__head"><div><p class="roadtrip-eyebrow">BEFORE GO</p><h2>出发前打勾清单</h2></div><button class="text-button" type="button" id="reset-checklist">清空进度</button></div>
-    <div class="checklist-grid">
-      <label><input type="checkbox" data-check="hotel"><span><b>酒店可取消订单</b>三城都先占房，确认停车和婴儿床</span></label>
-      <label><input type="checkbox" data-check="tickets"><span><b>景区预约</b>蓬莱阁、刘公岛、青岛海底世界</span></label>
-      <label><input type="checkbox" data-check="car"><span><b>车辆检查</b>胎压、玻璃水、补胎工具、随车充</span></label>
-      <label><input type="checkbox" data-check="charge"><span><b>权益复核</b>比亚迪 App 确认闪充权益、站点与空闲枪</span></label>
-      <label><input type="checkbox" data-check="baby"><span><b>宝宝车上包</b>尿裤、保温杯、零食、薄毯、晕车袋</span></label>
-      <label><input type="checkbox" data-check="weather"><span><b>天气与船班</b>提前 48 小时看海风，刘公岛备改期</span></label>
-    </div>
-  </section>
+  <div class="trip-drawer-layer" id="trip-drawer-layer" hidden>
+    <button type="button" class="trip-drawer-backdrop" data-close-drawer aria-label="关闭地点详情"></button>
+    <aside class="trip-drawer" role="dialog" aria-modal="true" aria-labelledby="trip-drawer-title">
+      <button type="button" class="trip-drawer-close" data-close-drawer aria-label="关闭">×</button>
+      <div id="trip-drawer-content"></div>
+    </aside>
+  </div>
 
-  <section class="roadtrip-final-note">
-    <p class="roadtrip-eyebrow">THE ONE RULE</p><h2>宝宝状态比打卡清单重要。</h2><p>每天保住午睡，只完成一个主景点，就是这趟旅行最好的节奏。任何一天遇到大风、拥堵或情绪不好，都可以删掉下午行程，不会破坏整条路线。</p>
-    <div class="source-note"><strong>信息来源与复核：</strong>假期来自国务院办公厅；票价与开放信息来自烟台市文旅局、威海市官方公开信息和青岛海底世界官网；闪充点来自 2026-09-07 公共站点快照，并以比亚迪官方查询页作出发前最终依据。</div>
-  </section>
+  <div class="trip-toast" id="trip-toast" role="status" aria-live="polite"></div>
+  <input type="file" id="trip-import-file" accept="application/json,.json" hidden>
+
+  <noscript>
+    <section class="trip-noscript">
+      <h2>请启用 JavaScript 使用旅行执行台</h2>
+      <p>推荐主线：北京 → 潍坊 → 蓬莱 → 烟台 → 威海 / 荣成 → 青岛 → 潍坊 → 北京。每天保留午睡，只安排一个主景点。</p>
+    </section>
+  </noscript>
 </main>
