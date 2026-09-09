@@ -85,7 +85,9 @@
     return 'https://uri.amap.com/navigation?from='+from.lng+','+from.lat+','+encodeURIComponent(from.name)+'&to='+to.lng+','+to.lat+','+encodeURIComponent(to.name)+'&mode=car&policy=1&src=moulang-blog&callnative=1';
   }
   function routeFallback(stops){
-    return '<div class="route-fallback"><p>暂时未取到高德逐路段数据，可按已选顺序逐段导航：</p>'+stops.slice(0,-1).map(function(point,index){const next=stops[index+1];return '<a href="'+gaodeNavigationLink(point,next)+'" target="_blank" rel="noopener"><b>'+(index+1)+' · '+point.name+' → '+next.name+'</b><span>在高德打开这一段 ↗</span></a>';}).join('')+'</div>';
+    const local=/^(127\.0\.0\.1|localhost)$/.test(location.hostname);
+    const message=local?'本地预览域名未通过高德白名单，真实道路暂时无法返回；发布到白名单域名后会直接嵌入完整路线。':'高德暂时未返回道路数据，保留以下 App 导航作为兜底：';
+    return '<div class="route-fallback"><p>'+message+'</p>'+stops.slice(0,-1).map(function(point,index){const next=stops[index+1];return '<a href="'+gaodeNavigationLink(point,next)+'" target="_blank" rel="noopener"><b>'+(index+1)+' · '+point.name+' → '+next.name+'</b><span>兜底导航 ↗</span></a>';}).join('')+'</div>';
   }
 
   function initMap() {
@@ -142,13 +144,19 @@
   }
 
   function planDrivingRoute(day,customIds){
-    if(!map||!map._amap||!window.AMap||!AMap.Driving)return;
+    if(!map||!map._amap||!window.AMap)return;
     const ids=customIds&&customIds.length?customIds:dayStops[day]; const panel=document.getElementById('driving-panel');
     if(!ids||ids.length<2){if(panel)panel.innerHTML='<p>这一天以老家休整或本地慢游为主，无需单独规划长距离驾车路线。</p>';return;}
     const stops=ids.map(function(id){return points.find(function(p){return p.id===id;});}).filter(Boolean);
     if(stops.length<2)return;
+    if(!AMap.Driving){
+      if(panel)panel.innerHTML='<p>正在加载高德完整路线服务…</p>';
+      AMap.plugin('AMap.Driving',function(){if(AMap.Driving)planDrivingRoute(day,customIds);else if(panel)panel.innerHTML=routeFallback(stops);});
+      return;
+    }
     activeDrivingDay=day;
     if(driving)driving.clear();
+    if(routeLine&&routeLine.hide)routeLine.hide();
     if(panel)panel.innerHTML='<p>正在向高德请求实时驾车路线…</p>';
     driving=new AMap.Driving({map:map,panel:panel,policy:AMap.DrivingPolicy.LEAST_TIME,province:'京',ferry:1,showTraffic:true,hideMarkers:false});
     const originInput=document.getElementById('route-origin'); const customOrigin=originInput&&originInput.value.trim();
@@ -156,7 +164,7 @@
     const destination=new AMap.LngLat(stops[stops.length-1].lng,stops[stops.length-1].lat);
     const waypoints=stops.slice(1,-1).map(function(p){return new AMap.LngLat(p.lng,p.lat);});
     driving.search(origin,destination,{waypoints:waypoints},function(status,result){
-      if(status!=='complete'){if(panel)panel.innerHTML=routeFallback(stops);return;}
+      if(status!=='complete'){if(routeLine&&routeLine.show)routeLine.show();if(panel)panel.innerHTML=routeFallback(stops);return;}
       const first=result.routes&&result.routes[0]; if(first&&panel){const km=(first.distance/1000).toFixed(1);const mins=Math.round(first.time/60);const hours=Math.floor(mins/60);const remain=mins%60;panel.insertAdjacentHTML('afterbegin','<div class="driving-summary"><b>高德推荐：约 '+km+' km · '+hours+' 小时 '+remain+' 分</b><span>实时结果仅供出发前参考；国庆当天请再次刷新。</span></div>');}
     });
   }
