@@ -22,6 +22,7 @@
 
   function infoRows(poi) {
     var rows = [
+      ['推荐时段', poi.time_constraint],
       ['建议停留', poi.duration],
       ['价格参考', poi.price],
       ['开放 / 营业', poi.hours],
@@ -31,6 +32,36 @@
     return rows.map(function (row) {
       return '<div><dt>' + escapeHtml(row[0]) + '</dt><dd>' + escapeHtml(row[1] || '出发前复核') + '</dd></div>';
     }).join('');
+  }
+
+  function guideHtml(poi) {
+    var guide = poi.guide || {};
+    if (poi.type === 'attraction') {
+      return '<div class="trip-address"><small>为什么值得去</small><p>' + escapeHtml(guide.why || poi.summary) + '</p>' +
+        '<small>推荐游览顺序</small><p>' + escapeHtml(guide.visit_route || '按现场开放区域顺序游览，优先保留主景观。') + '</p>' +
+        '<small>值得记录的画面</small><p>' + escapeHtml(guide.photo_spots || '入口标志、代表性景观与家庭合影。') + '</p>' +
+        '<small>天气 / 拥挤取舍</small><p>' + escapeHtml(guide.fallback || '天气或客流影响体验时缩短停留。') + '</p></div>';
+    }
+    if (poi.type === 'restaurant') {
+      return '<div class="trip-address"><small>建议点单</small><p>' + escapeHtml((guide.signature_dishes || []).join(' · ')) + '</p>' +
+        '<small>宝宝怎么吃</small><p>' + escapeHtml(guide.family_order || poi.baby.meal) + '</p>' +
+        '<small>排队备选</small><p>' + escapeHtml(guide.queue_plan || '排队过久时启用同区域备选。') + '</p></div>';
+    }
+    if (poi.type === 'hotel') {
+      return '<div class="trip-address"><small>适合哪类行程</small><p>' + escapeHtml(guide.fit || poi.summary) + '</p>' +
+        '<small>午睡回房成本</small><p>' + escapeHtml(guide.nap_cost || '下单前核对到主景点的高德实时车程。') + '</p>' +
+        '<small>下单前确认</small><p>' + escapeHtml(guide.booking_check || '免费取消、停车、早餐和儿童用品。') + '</p></div>';
+    }
+    if (poi.type === 'charge') {
+      return '<div class="trip-address"><small>推荐使用场景</small><p>' + escapeHtml(guide.use_case || poi.summary) + '</p>' +
+        '<small>绕行判断</small><p>' + escapeHtml(guide.detour_check || '先比较总路线绕行时间。') + '</p>' +
+        '<small>备用策略</small><p>' + escapeHtml(guide.backup || '出发前在比亚迪 App 核验枪位。') + '</p></div>';
+    }
+    if (poi.type === 'hospital') {
+      return '<div class="trip-address"><small>就医提示</small><p>' + escapeHtml(guide.emergency || poi.summary) + '</p>' +
+        '<small>到达分工</small><p>' + escapeHtml(guide.parking_plan || poi.parking.notes) + '</p></div>';
+    }
+    return '';
   }
 
   function linksHtml(poi) {
@@ -66,7 +97,7 @@
       '<h2 id="trip-drawer-title">' + escapeHtml(poi.name) + '</h2><p>' + escapeHtml(poi.summary) + '</p></header>' +
       '<div class="trip-drawer-tabs" role="tablist"><button type="button" class="is-active" data-detail-tab="overview">总览</button>' +
       '<button type="button" data-detail-tab="family">带娃</button><button type="button" data-detail-tab="parking">停车</button><button type="button" data-detail-tab="source">核验</button></div>' +
-      '<section data-detail-panel="overview"><dl class="trip-detail-list">' + infoRows(poi) + '</dl>' +
+      '<section data-detail-panel="overview"><dl class="trip-detail-list">' + infoRows(poi) + '</dl>' + guideHtml(poi) +
       '<div class="trip-address"><small>导航目的地</small><b>' + escapeHtml(poi.route_target.label) + '</b><p>' + escapeHtml(poi.address) + '</p></div></section>' +
       '<section data-detail-panel="family" hidden><div class="trip-detail-cards"><article><small>推车</small><p>' + escapeHtml(poi.baby.stroller) +
       '</p></article><article><small>背带</small><p>' + escapeHtml(poi.baby.carrier) + '</p></article><article><small>卫生间</small><p>' +

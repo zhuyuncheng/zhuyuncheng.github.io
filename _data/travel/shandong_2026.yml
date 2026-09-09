@@ -812,7 +812,9 @@
       "sources": [
         "高德地图导航落点",
         "项目既有攻略资料"
-      ]
+      ],
+      "route_priority": 0,
+      "time_constraint": "起点或终点"
     },
     {
       "id": "a-weifang",
@@ -876,7 +878,9 @@
       "sources": [
         "高德地图导航落点",
         "项目既有攻略资料"
-      ]
+      ],
+      "route_priority": 0.1,
+      "time_constraint": "起点或终点"
     },
     {
       "id": "a-penglai",
@@ -932,13 +936,35 @@
           "credit": "Benlisquare",
           "license": "CC BY-SA 4.0",
           "source": "https://commons.wikimedia.org/wiki/Special:FilePath/Penglai_Pavilion_viewed_from_the_southeast.jpg"
+        },
+        {
+          "src": "/assets/images/travel/shandong-2026/a-penglai/commons-4230774.jpg",
+          "alt": "蓬莱阁景区授权实拍",
+          "credit": "Fanghong",
+          "license": "CC BY-SA 3.0",
+          "source": "https://commons.wikimedia.org/wiki/File:Penglaige.jpg"
+        },
+        {
+          "src": "/assets/images/travel/shandong-2026/a-penglai/commons-31766198.jpg",
+          "alt": "蓬莱阁景区授权实拍",
+          "credit": "Chrishcn",
+          "license": "CC BY 2.0",
+          "source": "https://commons.wikimedia.org/wiki/File:PenglaiPavilion.jpg"
         }
       ],
       "verified_at": "2026-09-09（价格、营业与停车须出发前复核）",
       "sources": [
         "高德地图导航落点",
         "项目既有攻略资料"
-      ]
+      ],
+      "route_priority": 25.2,
+      "time_constraint": "09:00–11:30 / 15:00–17:30",
+      "guide": {
+        "why": "古建、海景和八仙文化集中，第一次到蓬莱最值得保留。",
+        "visit_route": "振扬门入园 → 人间蓬莱坊 → 主阁古建筑群 → 天横山远眺；带娃不走完整城墙。",
+        "photo_spots": "主阁东南侧、丹崖仙境坊、田横山临海步道入口。",
+        "fallback": "大风或暴雨时缩短为主阁古建区，取消临海栈道。"
+      }
     },
     {
       "id": "a-penglai-ocean",
@@ -1000,7 +1026,15 @@
       "sources": [
         "高德地图导航落点",
         "项目既有攻略资料"
-      ]
+      ],
+      "route_priority": 25.3,
+      "time_constraint": "09:00–11:30 / 15:00–17:30",
+      "guide": {
+        "why": "室内为主，适合大风雨天，也比纯海边行程更能吸引两岁宝宝。",
+        "visit_route": "热带雨林馆 → 极地动物馆 → 海底隧道 → 海洋剧场；表演前 20 分钟入场。",
+        "photo_spots": "海底隧道蓝色拱顶、企鹅展区、白鲸水下窗。",
+        "fallback": "雨天保留；国庆拥挤时只看主馆和一场表演。"
+      }
     },
     {
       "id": "a-sanxian",
@@ -1062,7 +1096,15 @@
       "sources": [
         "高德地图导航落点",
         "项目既有攻略资料"
-      ]
+      ],
+      "route_priority": 25.4,
+      "time_constraint": "09:00–11:30 / 15:00–17:30",
+      "guide": {
+        "why": "园林、楼阁与海景组合，节奏比蓬莱阁舒缓。",
+        "visit_route": "和气大殿 → 蓬莱仙岛园林 → 三和殿 → 临海长廊；推车走平缓主路。",
+        "photo_spots": "水榭倒影、仿古楼阁中轴线、临海长廊。",
+        "fallback": "小雨可保留，强风时取消临海部分。"
+      }
     },
     {
       "id": "a-yantaishan",
@@ -1113,18 +1155,40 @@
       },
       "photos": [
         {
-          "src": "/assets/images/travel/shandong-2026/place-placeholder.svg",
-          "alt": "烟台山景区资料封面（非实拍）",
-          "credit": "穆朗旅行执行台",
-          "license": "原创占位插画",
-          "source": ""
+          "src": "/assets/images/travel/shandong-2026/a-yantaishan/commons-80872787.jpg",
+          "alt": "烟台山景区授权实拍",
+          "credit": "Ngguls",
+          "license": "CC0",
+          "source": "https://commons.wikimedia.org/wiki/File:%E7%83%9F%E5%8F%B0%E5%B1%B1%E8%BF%91%E4%BB%A3%E5%BB%BA%E7%AD%91%E7%BE%A4.jpg"
+        },
+        {
+          "src": "/assets/images/travel/shandong-2026/a-yantaishan/commons-85713612.jpg",
+          "alt": "烟台山景区授权实拍",
+          "credit": "董辰兴",
+          "license": "CC BY-SA 4.0",
+          "source": "https://commons.wikimedia.org/wiki/File:%E7%83%9F%E5%8F%B0%E5%B1%B1%E7%83%BD%E7%81%AB%E5%8F%B0%E4%B8%8E%E7%83%9F%E5%8F%B0%E5%B1%B1%E7%81%AF%E5%A1%94.jpg"
+        },
+        {
+          "src": "/assets/images/travel/shandong-2026/a-yantaishan/commons-57486430.jpg",
+          "alt": "烟台山景区授权实拍",
+          "credit": "rheins",
+          "license": "CC BY 3.0",
+          "source": "https://commons.wikimedia.org/wiki/File:%E7%83%9F%E5%8F%B0%E5%B1%B1%E5%85%AC%E5%9B%AD_-_Yantaishan_Park_-_2014.02_-_panoramio.jpg"
         }
       ],
       "verified_at": "2026-09-09（价格、营业与停车须出发前复核）",
       "sources": [
         "高德地图导航落点",
         "项目既有攻略资料"
-      ]
+      ],
+      "route_priority": 25.5,
+      "time_constraint": "09:00–11:30 / 15:00–17:30",
+      "guide": {
+        "why": "灯塔、近代建筑和城市海岸线在一个步行圈内。",
+        "visit_route": "景区入口 → 近代建筑群 → 灯塔平台 → 惹浪亭；返程不走重复坡路。",
+        "photo_spots": "灯塔下方平台、惹浪亭、领事馆旧址街景。",
+        "fallback": "大风时只走建筑群，湿滑时不登临海岩石。"
+      }
     },
     {
       "id": "a-changyu",
@@ -1186,7 +1250,15 @@
       "sources": [
         "高德地图导航落点",
         "项目既有攻略资料"
-      ]
+      ],
+      "route_priority": 25.6,
+      "time_constraint": "09:00–11:30 / 15:00–17:30",
+      "guide": {
+        "why": "室内展陈稳定，能了解烟台葡萄酒工业史。",
+        "visit_route": "历史展厅 → 地下酒窖 → 酿造展区 → 文创区；亲子家庭跳过长时间品鉴。",
+        "photo_spots": "百年酒窖拱顶、橡木桶走廊、老厂牌。",
+        "fallback": "雨天优先保留；宝宝烦躁时控制在 60 分钟。"
+      }
     },
     {
       "id": "a-fisher",
@@ -1237,18 +1309,26 @@
       },
       "photos": [
         {
-          "src": "/assets/images/travel/shandong-2026/place-placeholder.svg",
-          "alt": "烟台渔人码头资料封面（非实拍）",
-          "credit": "穆朗旅行执行台",
-          "license": "原创占位插画",
-          "source": ""
+          "src": "/assets/images/travel/shandong-2026/a-fisher/commons-54501756.jpg",
+          "alt": "烟台渔人码头授权实拍",
+          "credit": "宋迎利",
+          "license": "CC BY-SA 3.0",
+          "source": "https://commons.wikimedia.org/wiki/File:%E7%83%9F%E5%8F%B0%E6%B8%94%E4%BA%BA%E7%A0%81%E5%A4%B4_-_panoramio.jpg"
         }
       ],
       "verified_at": "2026-09-09（价格、营业与停车须出发前复核）",
       "sources": [
         "高德地图导航落点",
         "项目既有攻略资料"
-      ]
+      ],
+      "route_priority": 25.7,
+      "time_constraint": "09:00–11:30 / 15:00–17:30",
+      "guide": {
+        "why": "欧式建筑、海边步道和鲸鲨馆外景适合傍晚散步。",
+        "visit_route": "停车后沿滨海步道向灯塔方向走 → 广场 → 原路返回；不进入湿滑礁石区。",
+        "photo_spots": "海昌钟楼、沿海栏杆、日落时的建筑剪影。",
+        "fallback": "大风降温时改为车览或取消。"
+      }
     },
     {
       "id": "a-liugong",
@@ -1299,18 +1379,40 @@
       },
       "photos": [
         {
-          "src": "/assets/images/travel/shandong-2026/place-placeholder.svg",
-          "alt": "刘公岛客运中心资料封面（非实拍）",
-          "credit": "穆朗旅行执行台",
-          "license": "原创占位插画",
-          "source": ""
+          "src": "/assets/images/travel/shandong-2026/a-liugong/commons-59699856.jpg",
+          "alt": "刘公岛客运中心授权实拍",
+          "credit": "Nyx Ning",
+          "license": "CC BY-SA 3.0",
+          "source": "https://commons.wikimedia.org/wiki/File:%E5%B1%B1%E4%B8%9C_%E5%A8%81%E6%B5%B7%E5%88%98%E5%85%AC%E5%B2%9B_-_panoramio.jpg"
+        },
+        {
+          "src": "/assets/images/travel/shandong-2026/a-liugong/commons-59699788.jpg",
+          "alt": "刘公岛客运中心授权实拍",
+          "credit": "Nyx Ning",
+          "license": "CC BY-SA 3.0",
+          "source": "https://commons.wikimedia.org/wiki/File:%E5%B1%B1%E4%B8%9C_%E5%A8%81%E6%B5%B7_%E5%88%98%E5%85%AC%E5%B2%9B%E7%A0%81%E5%A4%B4_-_panoramio.jpg"
+        },
+        {
+          "src": "/assets/images/travel/shandong-2026/a-liugong/commons-59699828.jpg",
+          "alt": "刘公岛客运中心授权实拍",
+          "credit": "Nyx Ning",
+          "license": "CC BY-SA 3.0",
+          "source": "https://commons.wikimedia.org/wiki/File:%E5%B1%B1%E4%B8%9C_%E5%A8%81%E6%B5%B7%E5%88%98%E5%85%AC%E5%B2%9B%E4%BA%BA%E5%AE%B6_-_panoramio.jpg"
         }
       ],
       "verified_at": "2026-09-09（价格、营业与停车须出发前复核）",
       "sources": [
         "高德地图导航落点",
         "项目既有攻略资料"
-      ]
+      ],
+      "route_priority": 25.8,
+      "time_constraint": "09:00–11:30 / 15:00–17:30",
+      "guide": {
+        "why": "甲午历史与海岛风景兼具，是威海辨识度最高的半日项目。",
+        "visit_route": "客运中心 → 提前取票候船 → 登岛后甲午战争博物院 → 定远舰远观 → 返航。",
+        "photo_spots": "码头远眺、博物院广场、环岛海岸线。",
+        "fallback": "船班停航立即切换海源公园或威海博物馆，不等待赌天气。"
+      }
     },
     {
       "id": "a-haiyuan",
@@ -1372,7 +1474,15 @@
       "sources": [
         "高德地图导航落点",
         "项目既有攻略资料"
-      ]
+      ],
+      "route_priority": 25.9,
+      "time_constraint": "09:00–11:30 / 15:00–17:30",
+      "guide": {
+        "why": "免费、平缓、离城区近，适合宝宝午睡前后放松。",
+        "visit_route": "一战华工纪念馆外 → 合庆码头 → 海边步道 → 返回停车点。",
+        "photo_spots": "合庆码头渔船、纪念馆建筑、海湾日落。",
+        "fallback": "小雨可短走，大风时取消海边停留。"
+      }
     },
     {
       "id": "a-huoju",
@@ -1434,7 +1544,15 @@
       "sources": [
         "高德地图导航落点",
         "项目既有攻略资料"
-      ]
+      ],
+      "route_priority": 25,
+      "time_constraint": "09:00–11:30 / 15:00–17:30",
+      "guide": {
+        "why": "坡道通向大海的城市取景点，适合短停而非长时间游玩。",
+        "visit_route": "停到外围车位 → 步行下坡拍照 → 海边停留 → 原路返回；全程控制 45 分钟。",
+        "photo_spots": "道路中轴线看海、街角咖啡店、海边斑马线。",
+        "fallback": "拥堵或封控时直接删除，不值得为一张照片长时间排队。"
+      }
     },
     {
       "id": "a-naxianghai",
@@ -1496,7 +1614,15 @@
       "sources": [
         "高德地图导航落点",
         "项目既有攻略资料"
-      ]
+      ],
+      "route_priority": 25.1,
+      "time_constraint": "09:00–11:30 / 15:00–17:30",
+      "guide": {
+        "why": "沙滩开阔、设施相对集中，适合亲子慢玩。",
+        "visit_route": "游客中心 → 钻石沙滩 → 儿童活动区 → 海边咖啡区；午睡前离开。",
+        "photo_spots": "风车与沙滩同框、钻石沙滩木栈道、日落海面。",
+        "fallback": "风力较大时缩短到游客中心附近，不下水。"
+      }
     },
     {
       "id": "a-olympic",
@@ -1547,18 +1673,40 @@
       },
       "photos": [
         {
-          "src": "/assets/images/travel/shandong-2026/place-placeholder.svg",
-          "alt": "青岛奥帆中心资料封面（非实拍）",
-          "credit": "穆朗旅行执行台",
-          "license": "原创占位插画",
-          "source": ""
+          "src": "/assets/images/travel/shandong-2026/a-olympic/commons-59699872.jpg",
+          "alt": "青岛奥帆中心授权实拍",
+          "credit": "Nyx Ning",
+          "license": "CC BY-SA 3.0",
+          "source": "https://commons.wikimedia.org/wiki/File:%E9%9D%92%E5%B2%9B%E5%A5%A5%E5%B8%86%E4%B8%AD%E5%BF%83_%E9%9F%B3%E4%B9%90%E4%B9%8B%E5%B8%86_-_panoramio.jpg"
+        },
+        {
+          "src": "/assets/images/travel/shandong-2026/a-olympic/commons-53759586.jpg",
+          "alt": "青岛奥帆中心授权实拍",
+          "credit": "黄河山曲",
+          "license": "CC BY-SA 3.0",
+          "source": "https://commons.wikimedia.org/wiki/File:%E9%9D%92%E5%B2%9B%E5%A5%A5%E5%B8%86%E4%B8%AD%E5%BF%83%E5%86%85%E6%B8%AF_-_panoramio.jpg"
+        },
+        {
+          "src": "/assets/images/travel/shandong-2026/a-olympic/commons-73173942.jpg",
+          "alt": "青岛奥帆中心授权实拍",
+          "credit": "Baishiya_白石崖",
+          "license": "CC BY 2.0",
+          "source": "https://commons.wikimedia.org/wiki/File:%E9%9D%92%E5%B2%9B%E5%A5%A5%E5%B8%86%E4%B8%AD%E5%BF%83_2013-09-26.jpg"
         }
       ],
       "verified_at": "2026-09-09（价格、营业与停车须出发前复核）",
       "sources": [
         "高德地图导航落点",
         "项目既有攻略资料"
-      ]
+      ],
+      "route_priority": 25.2,
+      "time_constraint": "09:00–11:30 / 15:00–17:30",
+      "guide": {
+        "why": "城市天际线、帆船港和夜景集中，傍晚到夜间最舒服。",
+        "visit_route": "奥帆博物馆外 → 情人坝 → 灯塔 → 看夜景后返回；推车全程可用。",
+        "photo_spots": "情人坝回望城市、帆船港、灯塔与晚霞。",
+        "fallback": "雨天改为商场吃饭后短暂停车看夜景。"
+      }
     },
     {
       "id": "a-mayfourth",
@@ -1610,18 +1758,40 @@
       },
       "photos": [
         {
-          "src": "/assets/images/travel/shandong-2026/place-placeholder.svg",
-          "alt": "五四广场资料封面（非实拍）",
-          "credit": "穆朗旅行执行台",
-          "license": "原创占位插画",
-          "source": ""
+          "src": "/assets/images/travel/shandong-2026/a-mayfourth/commons-147248984.jpg",
+          "alt": "五四广场授权实拍",
+          "credit": "xiquinhosilva",
+          "license": "CC BY 2.0",
+          "source": "https://commons.wikimedia.org/wiki/File:51361-Qingdao_May_Fourth_Square.jpg"
+        },
+        {
+          "src": "/assets/images/travel/shandong-2026/a-mayfourth/commons-52559678.jpg",
+          "alt": "五四广场授权实拍",
+          "credit": "Tiger@西北",
+          "license": "CC BY-SA 3.0",
+          "source": "https://commons.wikimedia.org/wiki/File:%E9%9D%92%E5%B2%9B_-_%E4%BA%94%E5%9B%9B%E5%B9%BF%E5%9C%BA_-_panoramio.jpg"
+        },
+        {
+          "src": "/assets/images/travel/shandong-2026/a-mayfourth/commons-88709637.jpg",
+          "alt": "五四广场授权实拍",
+          "credit": "長安城根喚朱雀",
+          "license": "CC BY-SA 3.0",
+          "source": "https://commons.wikimedia.org/wiki/File:%E9%9D%92%E5%B2%9B%E4%BA%94%E5%9B%9B%E5%B9%BF%E5%9C%BA_%E5%A4%9C%E6%99%AF.jpg"
         }
       ],
       "verified_at": "2026-09-09（价格、营业与停车须出发前复核）",
       "sources": [
         "高德地图导航落点",
         "项目既有攻略资料"
-      ]
+      ],
+      "route_priority": 25.3,
+      "time_constraint": "09:00–11:30 / 15:00–17:30",
+      "guide": {
+        "why": "青岛城市地标，和奥帆中心可连成一条滨海步行线。",
+        "visit_route": "音乐广场方向进入 → 五月的风 → 海边步道 → 奥帆中心。",
+        "photo_spots": "五月的风正面、海湾夜景、远眺奥帆灯光。",
+        "fallback": "人流过密时远观即可，不挤到雕塑正下方。"
+      }
     },
     {
       "id": "a-zhanqiao",
@@ -1672,18 +1842,40 @@
       },
       "photos": [
         {
-          "src": "/assets/images/travel/shandong-2026/place-placeholder.svg",
-          "alt": "青岛栈桥资料封面（非实拍）",
-          "credit": "穆朗旅行执行台",
-          "license": "原创占位插画",
-          "source": ""
+          "src": "/assets/images/travel/shandong-2026/a-zhanqiao/commons-54868802.jpg",
+          "alt": "青岛栈桥授权实拍",
+          "credit": "StefanTsingtauer",
+          "license": "CC BY-SA 4.0",
+          "source": "https://commons.wikimedia.org/wiki/File:%E9%9D%92%E5%B2%9B%E6%A0%88%E6%A1%A5_Ehemalige_Landungsbr%C3%BCcke_Qingdao.jpg"
+        },
+        {
+          "src": "/assets/images/travel/shandong-2026/a-zhanqiao/commons-61916934.jpg",
+          "alt": "青岛栈桥授权实拍",
+          "credit": "StefanTsingtauer",
+          "license": "CC BY-SA 4.0",
+          "source": "https://commons.wikimedia.org/wiki/File:%E9%9D%92%E5%B2%9B%E6%A0%88%E6%A1%A5%E5%B0%8F%E9%9D%92%E5%B2%9B%E8%A7%86%E8%A7%92.jpg"
+        },
+        {
+          "src": "/assets/images/travel/shandong-2026/a-zhanqiao/commons-54618296.jpg",
+          "alt": "青岛栈桥授权实拍",
+          "credit": "gdczjkk",
+          "license": "CC BY 3.0",
+          "source": "https://commons.wikimedia.org/wiki/File:%E9%9D%92%E5%B2%9B%E6%A0%88%E6%A1%A5_-_panoramio.jpg"
         }
       ],
       "verified_at": "2026-09-09（价格、营业与停车须出发前复核）",
       "sources": [
         "高德地图导航落点",
         "项目既有攻略资料"
-      ]
+      ],
+      "route_priority": 25.4,
+      "time_constraint": "09:00–11:30 / 15:00–17:30",
+      "guide": {
+        "why": "青岛老城代表性地标，清晨体验远好于白天高峰。",
+        "visit_route": "地下通道出入口 → 栈桥入口 → 回澜阁远观 → 沿太平路向教堂方向。",
+        "photo_spots": "太平路海岸线、栈桥中段回望老城、回澜阁。",
+        "fallback": "大浪封桥时只在岸边拍摄；国庆午后不建议进入。"
+      }
     },
     {
       "id": "a-xiaoyushan",
@@ -1734,18 +1926,40 @@
       },
       "photos": [
         {
-          "src": "/assets/images/travel/shandong-2026/place-placeholder.svg",
-          "alt": "小鱼山公园资料封面（非实拍）",
-          "credit": "穆朗旅行执行台",
-          "license": "原创占位插画",
-          "source": ""
+          "src": "/assets/images/travel/shandong-2026/a-xiaoyushan/commons-135113929.jpg",
+          "alt": "小鱼山公园授权实拍",
+          "credit": "Dr. Hans-Günter Wagner",
+          "license": "CC BY-SA 2.0",
+          "source": "https://commons.wikimedia.org/wiki/File:%E9%9D%92%E5%B2%9B%E5%9F%BA%E7%9D%A3%E6%95%99%E5%A0%82%E4%B8%8E%E5%B0%8F%E9%B1%BC%E5%B1%B1.jpg"
+        },
+        {
+          "src": "/assets/images/travel/shandong-2026/a-xiaoyushan/commons-74233821.jpg",
+          "alt": "小鱼山公园授权实拍",
+          "credit": "tak.wing",
+          "license": "CC BY-SA 2.0",
+          "source": "https://commons.wikimedia.org/wiki/File:%E9%9D%92%E5%B2%9B%E5%A4%A7%E5%AD%A6%E8%B7%AF%E5%B0%8F%E9%B1%BC%E5%B1%B1%E4%B8%80%E5%B8%A6%E4%BF%AF%E7%9E%B0_2005-11-07.jpg"
+        },
+        {
+          "src": "/assets/images/travel/shandong-2026/a-xiaoyushan/commons-161998097.jpg",
+          "alt": "小鱼山公园授权实拍",
+          "credit": "Sprt98",
+          "license": "CC BY-SA 4.0",
+          "source": "https://commons.wikimedia.org/wiki/File:%E5%B0%8F%E9%B1%BC%E5%B1%B1%E5%85%AC%E5%9B%AD%E2%80%94%E2%80%94%E9%B1%BC%E5%B1%B1%E7%A7%8B%E6%9C%88.jpg"
         }
       ],
       "verified_at": "2026-09-09（价格、营业与停车须出发前复核）",
       "sources": [
         "高德地图导航落点",
         "项目既有攻略资料"
-      ]
+      ],
+      "route_priority": 25.5,
+      "time_constraint": "09:00–11:30 / 15:00–17:30",
+      "guide": {
+        "why": "短距离登高即可看红瓦、绿树、碧海全景。",
+        "visit_route": "福山支路入口 → 览潮阁 → 环形观景台 → 原路下山；坡路使用背带。",
+        "photo_spots": "览潮阁平台看第一海水浴场、红瓦屋顶全景。",
+        "fallback": "雨后湿滑或宝宝睡着时取消，改到海边平路。"
+      }
     },
     {
       "id": "a-signalhill",
@@ -1796,18 +2010,40 @@
       },
       "photos": [
         {
-          "src": "/assets/images/travel/shandong-2026/place-placeholder.svg",
-          "alt": "信号山公园资料封面（非实拍）",
-          "credit": "穆朗旅行执行台",
-          "license": "原创占位插画",
-          "source": ""
+          "src": "/assets/images/travel/shandong-2026/a-signalhill/commons-57522676.jpg",
+          "alt": "信号山公园授权实拍",
+          "credit": "StefanTsingtauer",
+          "license": "CC BY-SA 4.0",
+          "source": "https://commons.wikimedia.org/wiki/File:%E9%9D%92%E5%B2%9B%E4%BF%A1%E5%8F%B7%E5%B1%B1%E9%9B%AA%E6%99%AF.jpg"
+        },
+        {
+          "src": "/assets/images/travel/shandong-2026/a-signalhill/commons-61916937.jpg",
+          "alt": "信号山公园授权实拍",
+          "credit": "StefanTsingtauer",
+          "license": "CC BY-SA 4.0",
+          "source": "https://commons.wikimedia.org/wiki/File:%E9%9D%92%E5%B2%9B%E4%BF%A1%E5%8F%B7%E5%B1%B1%E6%B5%B7%E4%B8%8A%E8%A7%86%E8%A7%92.jpg"
+        },
+        {
+          "src": "/assets/images/travel/shandong-2026/a-signalhill/commons-82583409.jpg",
+          "alt": "信号山公园授权实拍",
+          "credit": "Unknown authorUnknown author",
+          "license": "Public domain",
+          "source": "https://commons.wikimedia.org/wiki/File:%E9%9D%92%E5%B2%9B%E4%BF%A1%E5%8F%B7%E5%B1%B1%E6%97%A0%E7%BA%BF%E7%94%B5%E5%8F%B0.jpg"
         }
       ],
       "verified_at": "2026-09-09（价格、营业与停车须出发前复核）",
       "sources": [
         "高德地图导航落点",
         "项目既有攻略资料"
-      ]
+      ],
+      "route_priority": 25.6,
+      "time_constraint": "09:00–11:30 / 15:00–17:30",
+      "guide": {
+        "why": "三个红色蘑菇楼和老城制高点很有辨识度。",
+        "visit_route": "龙山路入口 → 连心桥 → 旋转观景楼外平台 → 下山；不追求完整环线。",
+        "photo_spots": "观景台看德国总督楼、红瓦屋顶、胶州湾。",
+        "fallback": "雾大时观景价值低，可替换为室内展馆。"
+      }
     },
     {
       "id": "a-cathedral",
@@ -1858,18 +2094,40 @@
       },
       "photos": [
         {
-          "src": "/assets/images/travel/shandong-2026/place-placeholder.svg",
-          "alt": "圣弥厄尔教堂资料封面（非实拍）",
-          "credit": "穆朗旅行执行台",
-          "license": "原创占位插画",
-          "source": ""
+          "src": "/assets/images/travel/shandong-2026/a-cathedral/commons-151145726.jpg",
+          "alt": "圣弥厄尔教堂授权实拍",
+          "credit": "Windmemories",
+          "license": "CC BY-SA 4.0",
+          "source": "https://commons.wikimedia.org/wiki/File:20240730_St._Michael%27s_Cathedral,_Qingdao_01.jpg"
+        },
+        {
+          "src": "/assets/images/travel/shandong-2026/a-cathedral/commons-151145725.jpg",
+          "alt": "圣弥厄尔教堂授权实拍",
+          "credit": "Windmemories",
+          "license": "CC BY-SA 4.0",
+          "source": "https://commons.wikimedia.org/wiki/File:20240730_St._Michael%27s_Cathedral,_Qingdao_02.jpg"
+        },
+        {
+          "src": "/assets/images/travel/shandong-2026/a-cathedral/commons-9726011.png",
+          "alt": "圣弥厄尔教堂授权实拍",
+          "credit": "Noraft",
+          "license": "Public domain",
+          "source": "https://commons.wikimedia.org/wiki/File:St_Michaels_Cathedral_West_Front.png"
         }
       ],
       "verified_at": "2026-09-09（价格、营业与停车须出发前复核）",
       "sources": [
         "高德地图导航落点",
         "项目既有攻略资料"
-      ]
+      ],
+      "route_priority": 25.7,
+      "time_constraint": "09:00–11:30 / 15:00–17:30",
+      "guide": {
+        "why": "老城步行路线中的视觉中心，外观拍摄成本低。",
+        "visit_route": "中山路步行进入 → 教堂广场 → 肥城路街景 → 前往大鲍岛或餐厅。",
+        "photo_spots": "教堂正面台阶、肥城路坡道、广场侧面。",
+        "fallback": "婚拍拥挤时停留 15 分钟即可。"
+      }
     },
     {
       "id": "a-underwater",
@@ -1931,7 +2189,15 @@
       "sources": [
         "高德地图导航落点",
         "项目既有攻略资料"
-      ]
+      ],
+      "route_priority": 25.8,
+      "time_constraint": "09:00–11:30 / 15:00–17:30",
+      "guide": {
+        "why": "海底隧道和水母展区对低龄宝宝直观，且天气影响小。",
+        "visit_route": "梦幻水母宫 → 海洋生物馆 → 海底隧道 → 表演区；先看当日演出表。",
+        "photo_spots": "海底隧道、圆柱水族箱、水母灯光展区。",
+        "fallback": "雨天优先保留；极端拥挤时改去极地海洋公园二选一。"
+      }
     },
     {
       "id": "a-polar",
@@ -1984,16 +2250,24 @@
         {
           "src": "/assets/images/travel/shandong-2026/place-placeholder.svg",
           "alt": "青岛极地海洋公园资料封面（非实拍）",
-          "credit": "穆朗旅行执行台",
-          "license": "原创占位插画",
-          "source": ""
+          "credit": "穆朗旅行执行台 · 原创占位插画",
+          "license": "原创项目资产",
+          "source": "local-generated-placeholder"
         }
       ],
       "verified_at": "2026-09-09（价格、营业与停车须出发前复核）",
       "sources": [
         "高德地图导航落点",
         "项目既有攻略资料"
-      ]
+      ],
+      "route_priority": 25.9,
+      "time_constraint": "09:00–11:30 / 15:00–17:30",
+      "guide": {
+        "why": "动物表演与极地展馆集中，半天内容足够。",
+        "visit_route": "极地馆 → 白鲸/海豚区域 → 海洋剧场 → 室外海景；只选一场核心表演。",
+        "photo_spots": "白鲸水下窗、企鹅馆、剧场看台上层。",
+        "fallback": "雨天可保留，表演满场时不要反复排队。"
+      }
     },
     {
       "id": "a-badaguan",
@@ -2044,18 +2318,40 @@
       },
       "photos": [
         {
-          "src": "/assets/images/travel/shandong-2026/place-placeholder.svg",
-          "alt": "八大关资料封面（非实拍）",
-          "credit": "穆朗旅行执行台",
-          "license": "原创占位插画",
-          "source": ""
+          "src": "/assets/images/travel/shandong-2026/a-badaguan/commons-17274980.jpg",
+          "alt": "八大关授权实拍",
+          "credit": "Gisling",
+          "license": "CC BY-SA 3.0",
+          "source": "https://commons.wikimedia.org/wiki/File:%E9%9D%92%E5%B2%9B%E5%85%AB%E5%A4%A7%E5%85%B3%E8%8A%B1%E7%9F%B3%E6%A5%BC.jpg"
+        },
+        {
+          "src": "/assets/images/travel/shandong-2026/a-badaguan/commons-50864167.jpg",
+          "alt": "八大关授权实拍",
+          "credit": "自行拍摄。图中文字作者不详，可能为政府。",
+          "license": "CC BY-SA 4.0",
+          "source": "https://commons.wikimedia.org/wiki/File:%E9%9D%92%E5%B2%9B%E5%85%AB%E5%A4%A7%E5%85%B3%E4%BB%8B%E7%BB%8D%E7%89%8C.jpg"
+        },
+        {
+          "src": "/assets/images/travel/shandong-2026/a-badaguan/commons-62485030.jpg",
+          "alt": "八大关授权实拍",
+          "credit": "StefanTsingtauer",
+          "license": "CC BY-SA 4.0",
+          "source": "https://commons.wikimedia.org/wiki/File:%E9%9D%92%E5%B2%9B%E5%85%AB%E5%A4%A7%E5%85%B3%E5%B0%8F%E7%A4%BC%E5%A0%82_2017-08-06.jpg"
         }
       ],
       "verified_at": "2026-09-09（价格、营业与停车须出发前复核）",
       "sources": [
         "高德地图导航落点",
         "项目既有攻略资料"
-      ]
+      ],
+      "route_priority": 25,
+      "time_constraint": "09:00–11:30 / 15:00–17:30",
+      "guide": {
+        "why": "建筑、林荫路和海岸线适合推车慢走。",
+        "visit_route": "韶关路 → 嘉峪关路 → 花石楼外 → 第二海水浴场；单向穿行避免折返。",
+        "photo_spots": "梧桐路、花石楼外景、第二海水浴场礁石岸线。",
+        "fallback": "雨天只走建筑外观短线，落叶湿滑时避免坡道。"
+      }
     },
     {
       "id": "a-yangma",
@@ -2106,18 +2402,26 @@
       },
       "photos": [
         {
-          "src": "/assets/images/travel/shandong-2026/place-placeholder.svg",
-          "alt": "养马岛环岛资料封面（非实拍）",
-          "credit": "穆朗旅行执行台",
-          "license": "原创占位插画",
-          "source": ""
+          "src": "/assets/images/travel/shandong-2026/a-yangma/commons-50739480.jpg",
+          "alt": "养马岛环岛授权实拍",
+          "credit": "China Q-H",
+          "license": "CC BY 3.0",
+          "source": "https://commons.wikimedia.org/wiki/File:Untitled_-_panoramio_-_China_Q-H.jpg"
         }
       ],
       "verified_at": "2026-09-09（价格、营业与停车须出发前复核）",
       "sources": [
         "高德地图导航落点",
         "项目既有攻略资料"
-      ]
+      ],
+      "route_priority": 25.1,
+      "time_constraint": "09:00–11:30 / 15:00–17:30",
+      "guide": {
+        "why": "岛上视野开阔，适合自驾看海，但节假日容易堵。",
+        "visit_route": "西入口 → 獐岛观景区 → 御笔苑 → 东侧海岸 → 离岛；实时拥堵严重则不进岛。",
+        "photo_spots": "獐岛木栈道、后海礁石、环岛公路观景位。",
+        "fallback": "强风或全岛拥堵时取消，换烟台市区海岸线。"
+      }
     },
     {
       "id": "a-suo",
@@ -2179,7 +2483,15 @@
       "sources": [
         "高德地图导航落点",
         "项目既有攻略资料"
-      ]
+      ],
+      "route_priority": 25.2,
+      "time_constraint": "09:00–11:30 / 15:00–17:30",
+      "guide": {
+        "why": "老烟台街巷适合晚饭前后短逛。",
+        "visit_route": "南门进入 → 朝阳街连接段 → 钟书阁附近 → 原路或北门离开。",
+        "photo_spots": "城门、红砖街巷、夜间灯笼街景。",
+        "fallback": "下雨可缩短，餐厅排队时作为等位活动。"
+      }
     },
     {
       "id": "a-banyue",
@@ -2242,7 +2554,15 @@
       "sources": [
         "高德地图导航落点",
         "项目既有攻略资料"
-      ]
+      ],
+      "route_priority": 25.3,
+      "time_constraint": "09:00–11:30 / 15:00–17:30",
+      "guide": {
+        "why": "日出和弧形海湾是重点，适合清晨短停。",
+        "visit_route": "半月湾停车区 → 沙滩北段 → 沿步道走 20 分钟 → 返回。",
+        "photo_spots": "海湾弧线、日出、远处猫头山轮廓。",
+        "fallback": "睡眠优先，不为日出强行早起；风大只车览。"
+      }
     },
     {
       "id": "a-chengshan",
@@ -2304,7 +2624,15 @@
       "sources": [
         "高德地图导航落点",
         "项目既有攻略资料"
-      ]
+      ],
+      "route_priority": 25.4,
+      "time_constraint": "09:00–11:30 / 15:00–17:30",
+      "guide": {
+        "why": "山东半岛最东端的海岸地貌，路程长但景观独特。",
+        "visit_route": "游客中心 → 天尽头主景区 → 海驴岛远眺点 → 原路返程；不叠加西霞口动物园。",
+        "photo_spots": "天尽头石碑侧面、海蚀崖、东端海面。",
+        "fallback": "大风、大雾或宝宝状态差时删除，改那香海轻松线。"
+      }
     },
     {
       "id": "a-jinshi",
@@ -2366,7 +2694,15 @@
       "sources": [
         "高德地图导航落点",
         "项目既有攻略资料"
-      ]
+      ],
+      "route_priority": 25.5,
+      "time_constraint": "09:00–11:30 / 15:00–17:30",
+      "guide": {
+        "why": "海草房、海岸艺术装置与自然海湾组合，适合拍照。",
+        "visit_route": "停车区 → 海草房群 → 海边装置 → 咖啡休息 → 返回。",
+        "photo_spots": "海草房屋顶、临海艺术装置、草地与海岸线。",
+        "fallback": "场馆临时关闭时只拍外景；雨天不专程前往。"
+      }
     },
     {
       "id": "a-xiaomai",
@@ -2429,7 +2765,15 @@
       "sources": [
         "高德地图导航落点",
         "项目既有攻略资料"
-      ]
+      ],
+      "route_priority": 25.6,
+      "time_constraint": "09:00–11:30 / 15:00–17:30",
+      "guide": {
+        "why": "城市近岸小岛和草坡视野适合傍晚散步。",
+        "visit_route": "停车后走连接堤 → 北侧草坡 → 灯塔方向 → 日落前返回。",
+        "photo_spots": "草坡看城市天际线、连接堤、海边礁石远景。",
+        "fallback": "风大、湿滑或停车拥堵时取消。"
+      }
     },
     {
       "id": "h-yantai-a",
@@ -2489,7 +2833,14 @@
       "sources": [
         "高德地图导航落点",
         "项目既有攻略资料"
-      ]
+      ],
+      "route_priority": 90.7,
+      "time_constraint": "当天路线终点",
+      "guide": {
+        "fit": "适合烟台山、所城里与芝罘老城路线",
+        "nap_cost": "回房午睡成本低，主城区景点通常短途车程",
+        "booking_check": "确认免费取消、无烟房、婴儿床或床围、早餐政策、停车费和地库限高。"
+      }
     },
     {
       "id": "h-yantai-b",
@@ -2549,7 +2900,14 @@
       "sources": [
         "高德地图导航落点",
         "项目既有攻略资料"
-      ]
+      ],
+      "route_priority": 90.8,
+      "time_constraint": "当天路线终点",
+      "guide": {
+        "fit": "适合滨海广场、烟台山和城市夜景",
+        "nap_cost": "老城游玩后回房方便，但节假日房价波动大",
+        "booking_check": "确认免费取消、无烟房、婴儿床或床围、早餐政策、停车费和地库限高。"
+      }
     },
     {
       "id": "h-weihai-a",
@@ -2610,7 +2968,14 @@
       "sources": [
         "高德地图导航落点",
         "项目既有攻略资料"
-      ]
+      ],
+      "route_priority": 90.9,
+      "time_constraint": "当天路线终点",
+      "guide": {
+        "fit": "适合刘公岛码头、海源公园与威海城区",
+        "nap_cost": "登岛日早起成本较低，午睡可直接回酒店",
+        "booking_check": "确认免费取消、无烟房、婴儿床或床围、早餐政策、停车费和地库限高。"
+      }
     },
     {
       "id": "h-weihai-b",
@@ -2671,7 +3036,14 @@
       "sources": [
         "高德地图导航落点",
         "项目既有攻略资料"
-      ]
+      ],
+      "route_priority": 90,
+      "time_constraint": "当天路线终点",
+      "guide": {
+        "fit": "适合城区休整、商场吃饭与环翠区活动",
+        "nap_cost": "去刘公岛和荣成方向需额外预留车程",
+        "booking_check": "确认免费取消、无烟房、婴儿床或床围、早餐政策、停车费和地库限高。"
+      }
     },
     {
       "id": "h-qingdao-a",
@@ -2732,7 +3104,14 @@
       "sources": [
         "高德地图导航落点",
         "项目既有攻略资料"
-      ]
+      ],
+      "route_priority": 90.1,
+      "time_constraint": "当天路线终点",
+      "guide": {
+        "fit": "适合栈桥、教堂、信号山和老城步行线",
+        "nap_cost": "老城日可少开车；去东部奥帆中心车程较长",
+        "booking_check": "确认免费取消、无烟房、婴儿床或床围、早餐政策、停车费和地库限高。"
+      }
     },
     {
       "id": "h-qingdao-b",
@@ -2793,7 +3172,14 @@
       "sources": [
         "高德地图导航落点",
         "项目既有攻略资料"
-      ]
+      ],
+      "route_priority": 90.2,
+      "time_constraint": "当天路线终点",
+      "guide": {
+        "fit": "适合奥帆中心、五四广场和东部海岸线",
+        "nap_cost": "东部日回房午睡方便；老城日需跨区移动",
+        "booking_check": "确认免费取消、无烟房、婴儿床或床围、早餐政策、停车费和地库限高。"
+      }
     },
     {
       "id": "c-cangzhou",
@@ -2853,7 +3239,14 @@
       "sources": [
         "高德地图导航落点",
         "项目既有攻略资料"
-      ]
+      ],
+      "route_priority": 65.3,
+      "time_constraint": "跨城后或进酒店前",
+      "guide": {
+        "use_case": "进城备选，出发前在比亚迪 App 核实",
+        "detour_check": "出发前用高德比较总路线绕行时间；超过 20 分钟时优先顺路高速快充。",
+        "backup": "到站前在比亚迪 App 查看枪位；排队或故障时立即切换当日备用站。"
+      }
     },
     {
       "id": "c-binzhou",
@@ -2913,7 +3306,14 @@
       "sources": [
         "高德地图导航落点",
         "项目既有攻略资料"
-      ]
+      ],
+      "route_priority": 65.4,
+      "time_constraint": "跨城后或进酒店前",
+      "guide": {
+        "use_case": "4 把闪充枪；长途主补能候选",
+        "detour_check": "出发前用高德比较总路线绕行时间；超过 20 分钟时优先顺路高速快充。",
+        "backup": "到站前在比亚迪 App 查看枪位；排队或故障时立即切换当日备用站。"
+      }
     },
     {
       "id": "c-weifang",
@@ -2975,7 +3375,14 @@
       "sources": [
         "高德地图导航落点",
         "项目既有攻略资料"
-      ]
+      ],
+      "route_priority": 65.5,
+      "time_constraint": "跨城后或进酒店前",
+      "guide": {
+        "use_case": "4 把闪充枪",
+        "detour_check": "出发前用高德比较总路线绕行时间；超过 20 分钟时优先顺路高速快充。",
+        "backup": "到站前在比亚迪 App 查看枪位；排队或故障时立即切换当日备用站。"
+      }
     },
     {
       "id": "c-penglai",
@@ -3034,7 +3441,14 @@
       "sources": [
         "高德地图导航落点",
         "项目既有攻略资料"
-      ]
+      ],
+      "route_priority": 65.6,
+      "time_constraint": "跨城后或进酒店前",
+      "guide": {
+        "use_case": "2 把闪充枪",
+        "detour_check": "出发前用高德比较总路线绕行时间；超过 20 分钟时优先顺路高速快充。",
+        "backup": "到站前在比亚迪 App 查看枪位；排队或故障时立即切换当日备用站。"
+      }
     },
     {
       "id": "c-yantai",
@@ -3095,7 +3509,14 @@
       "sources": [
         "高德地图导航落点",
         "项目既有攻略资料"
-      ]
+      ],
+      "route_priority": 65.7,
+      "time_constraint": "跨城后或进酒店前",
+      "guide": {
+        "use_case": "4 把闪充枪",
+        "detour_check": "出发前用高德比较总路线绕行时间；超过 20 分钟时优先顺路高速快充。",
+        "backup": "到站前在比亚迪 App 查看枪位；排队或故障时立即切换当日备用站。"
+      }
     },
     {
       "id": "c-weihai",
@@ -3157,7 +3578,14 @@
       "sources": [
         "高德地图导航落点",
         "项目既有攻略资料"
-      ]
+      ],
+      "route_priority": 65.8,
+      "time_constraint": "跨城后或进酒店前",
+      "guide": {
+        "use_case": "4 把闪充枪",
+        "detour_check": "出发前用高德比较总路线绕行时间；超过 20 分钟时优先顺路高速快充。",
+        "backup": "到站前在比亚迪 App 查看枪位；排队或故障时立即切换当日备用站。"
+      }
     },
     {
       "id": "c-rongcheng",
@@ -3216,7 +3644,14 @@
       "sources": [
         "高德地图导航落点",
         "项目既有攻略资料"
-      ]
+      ],
+      "route_priority": 65.9,
+      "time_constraint": "跨城后或进酒店前",
+      "guide": {
+        "use_case": "2 把闪充枪；荣成返程备选",
+        "detour_check": "出发前用高德比较总路线绕行时间；超过 20 分钟时优先顺路高速快充。",
+        "backup": "到站前在比亚迪 App 查看枪位；排队或故障时立即切换当日备用站。"
+      }
     },
     {
       "id": "c-laixi",
@@ -3275,7 +3710,14 @@
       "sources": [
         "高德地图导航落点",
         "项目既有攻略资料"
-      ]
+      ],
+      "route_priority": 65,
+      "time_constraint": "跨城后或进酒店前",
+      "guide": {
+        "use_case": "威海—青岛途中候选",
+        "detour_check": "出发前用高德比较总路线绕行时间；超过 20 分钟时优先顺路高速快充。",
+        "backup": "到站前在比亚迪 App 查看枪位；排队或故障时立即切换当日备用站。"
+      }
     },
     {
       "id": "c-qingdao",
@@ -3337,7 +3779,14 @@
       "sources": [
         "高德地图导航落点",
         "项目既有攻略资料"
-      ]
+      ],
+      "route_priority": 65.1,
+      "time_constraint": "跨城后或进酒店前",
+      "guide": {
+        "use_case": "4 把闪充枪",
+        "detour_check": "出发前用高德比较总路线绕行时间；超过 20 分钟时优先顺路高速快充。",
+        "backup": "到站前在比亚迪 App 查看枪位；排队或故障时立即切换当日备用站。"
+      }
     },
     {
       "id": "f-weifang",
@@ -3396,7 +3845,18 @@
       "sources": [
         "高德地图导航落点",
         "项目既有攻略资料"
-      ]
+      ],
+      "route_priority": 45.2,
+      "time_constraint": "11:15–12:30 / 17:00–18:30",
+      "guide": {
+        "signature_dishes": [
+          "朝天锅卷饼",
+          "猪头肉",
+          "鸡蛋与清淡小菜"
+        ],
+        "family_order": "先确认儿童椅；宝宝优先蒸蛋、米饭、清汤面，海鲜去刺并少量尝试。",
+        "queue_plan": "到店排队超过 30 分钟，直接启用同区域备用餐厅，不牺牲午睡。"
+      }
     },
     {
       "id": "f-penglai",
@@ -3455,7 +3915,18 @@
       "sources": [
         "高德地图导航落点",
         "项目既有攻略资料"
-      ]
+      ],
+      "route_priority": 45.3,
+      "time_constraint": "11:15–12:30 / 17:00–18:30",
+      "guide": {
+        "signature_dishes": [
+          "蓬莱小面",
+          "卤味拼盘",
+          "清汤面"
+        ],
+        "family_order": "先确认儿童椅；宝宝优先蒸蛋、米饭、清汤面，海鲜去刺并少量尝试。",
+        "queue_plan": "到店排队超过 30 分钟，直接启用同区域备用餐厅，不牺牲午睡。"
+      }
     },
     {
       "id": "f-yantai",
@@ -3514,7 +3985,18 @@
       "sources": [
         "高德地图导航落点",
         "项目既有攻略资料"
-      ]
+      ],
+      "route_priority": 45.4,
+      "time_constraint": "11:15–12:30 / 17:00–18:30",
+      "guide": {
+        "signature_dishes": [
+          "胶东海鲜",
+          "焖子",
+          "鲅鱼水饺"
+        ],
+        "family_order": "先确认儿童椅；宝宝优先蒸蛋、米饭、清汤面，海鲜去刺并少量尝试。",
+        "queue_plan": "到店排队超过 30 分钟，直接启用同区域备用餐厅，不牺牲午睡。"
+      }
     },
     {
       "id": "f-yantai-east",
@@ -3574,7 +4056,18 @@
       "sources": [
         "高德地图导航落点",
         "项目既有攻略资料"
-      ]
+      ],
+      "route_priority": 45.5,
+      "time_constraint": "11:15–12:30 / 17:00–18:30",
+      "guide": {
+        "signature_dishes": [
+          "胶东家常菜",
+          "海鲜疙瘩汤",
+          "蒸蛋"
+        ],
+        "family_order": "先确认儿童椅；宝宝优先蒸蛋、米饭、清汤面，海鲜去刺并少量尝试。",
+        "queue_plan": "到店排队超过 30 分钟，直接启用同区域备用餐厅，不牺牲午睡。"
+      }
     },
     {
       "id": "f-weihai",
@@ -3635,7 +4128,18 @@
       "sources": [
         "高德地图导航落点",
         "项目既有攻略资料"
-      ]
+      ],
+      "route_priority": 45.6,
+      "time_constraint": "11:15–12:30 / 17:00–18:30",
+      "guide": {
+        "signature_dishes": [
+          "脊骨汤",
+          "石锅拌饭",
+          "不辣煎饼"
+        ],
+        "family_order": "先确认儿童椅；宝宝优先蒸蛋、米饭、清汤面，海鲜去刺并少量尝试。",
+        "queue_plan": "到店排队超过 30 分钟，直接启用同区域备用餐厅，不牺牲午睡。"
+      }
     },
     {
       "id": "f-weihai-mall",
@@ -3695,7 +4199,18 @@
       "sources": [
         "高德地图导航落点",
         "项目既有攻略资料"
-      ]
+      ],
+      "route_priority": 45.7,
+      "time_constraint": "11:15–12:30 / 17:00–18:30",
+      "guide": {
+        "signature_dishes": [
+          "胶东家常菜",
+          "海鲜面",
+          "蒸蛋"
+        ],
+        "family_order": "先确认儿童椅；宝宝优先蒸蛋、米饭、清汤面，海鲜去刺并少量尝试。",
+        "queue_plan": "到店排队超过 30 分钟，直接启用同区域备用餐厅，不牺牲午睡。"
+      }
     },
     {
       "id": "f-rongcheng",
@@ -3754,7 +4269,18 @@
       "sources": [
         "高德地图导航落点",
         "项目既有攻略资料"
-      ]
+      ],
+      "route_priority": 45.8,
+      "time_constraint": "11:15–12:30 / 17:00–18:30",
+      "guide": {
+        "signature_dishes": [
+          "荣成海鲜",
+          "海鲜疙瘩汤",
+          "清蒸鱼"
+        ],
+        "family_order": "先确认儿童椅；宝宝优先蒸蛋、米饭、清汤面，海鲜去刺并少量尝试。",
+        "queue_plan": "到店排队超过 30 分钟，直接启用同区域备用餐厅，不牺牲午睡。"
+      }
     },
     {
       "id": "f-qingdao",
@@ -3813,7 +4339,18 @@
       "sources": [
         "高德地图导航落点",
         "项目既有攻略资料"
-      ]
+      ],
+      "route_priority": 45.9,
+      "time_constraint": "11:15–12:30 / 17:00–18:30",
+      "guide": {
+        "signature_dishes": [
+          "香辣鱿鱼条",
+          "蛤蜊",
+          "家常鲁菜"
+        ],
+        "family_order": "先确认儿童椅；宝宝优先蒸蛋、米饭、清汤面，海鲜去刺并少量尝试。",
+        "queue_plan": "到店排队超过 30 分钟，直接启用同区域备用餐厅，不牺牲午睡。"
+      }
     },
     {
       "id": "f-qingdao-east",
@@ -3874,7 +4411,18 @@
       "sources": [
         "高德地图导航落点",
         "项目既有攻略资料"
-      ]
+      ],
+      "route_priority": 45,
+      "time_constraint": "11:15–12:30 / 17:00–18:30",
+      "guide": {
+        "signature_dishes": [
+          "鲅鱼水饺",
+          "黄花鱼水饺",
+          "海鲜小菜"
+        ],
+        "family_order": "先确认儿童椅；宝宝优先蒸蛋、米饭、清汤面，海鲜去刺并少量尝试。",
+        "queue_plan": "到店排队超过 30 分钟，直接启用同区域备用餐厅，不牺牲午睡。"
+      }
     },
     {
       "id": "e-weihai",
@@ -3935,7 +4483,13 @@
       "sources": [
         "高德地图导航落点",
         "项目既有攻略资料"
-      ]
+      ],
+      "route_priority": 95.1,
+      "time_constraint": "仅应急启用",
+      "guide": {
+        "emergency": "紧急情况先拨打 120；普通就诊前电话确认儿科急诊接诊时间和入口。",
+        "parking_plan": "一名成人陪同宝宝先下车，另一名成人停车，避免全家在地库寻找入口。"
+      }
     },
     {
       "id": "e-qingdao",
@@ -3996,7 +4550,13 @@
       "sources": [
         "高德地图导航落点",
         "项目既有攻略资料"
-      ]
+      ],
+      "route_priority": 95.2,
+      "time_constraint": "仅应急启用",
+      "guide": {
+        "emergency": "紧急情况先拨打 120；普通就诊前电话确认儿科急诊接诊时间和入口。",
+        "parking_plan": "一名成人陪同宝宝先下车，另一名成人停车，避免全家在地库寻找入口。"
+      }
     },
     {
       "id": "e-yantai",
@@ -4056,7 +4616,13 @@
       "sources": [
         "高德地图导航落点",
         "项目既有攻略资料"
-      ]
+      ],
+      "route_priority": 95.3,
+      "time_constraint": "仅应急启用",
+      "guide": {
+        "emergency": "紧急情况先拨打 120；普通就诊前电话确认儿科急诊接诊时间和入口。",
+        "parking_plan": "一名成人陪同宝宝先下车，另一名成人停车，避免全家在地库寻找入口。"
+      }
     },
     {
       "id": "r-weifang-alt",
@@ -4115,7 +4681,18 @@
       "sources": [
         "候选门店公开信息",
         "高德地图导航落点"
-      ]
+      ],
+      "route_priority": 45.4,
+      "time_constraint": "11:15–12:30 / 17:00–18:30",
+      "guide": {
+        "signature_dishes": [
+          "朝天锅",
+          "肉火烧",
+          "清淡汤菜"
+        ],
+        "family_order": "先确认儿童椅；宝宝优先蒸蛋、米饭、清汤面，海鲜去刺并少量尝试。",
+        "queue_plan": "到店排队超过 30 分钟，直接启用同区域备用餐厅，不牺牲午睡。"
+      }
     },
     {
       "id": "r-penglai-alt",
@@ -4174,7 +4751,18 @@
       "sources": [
         "候选门店公开信息",
         "高德地图导航落点"
-      ]
+      ],
+      "route_priority": 45.5,
+      "time_constraint": "11:15–12:30 / 17:00–18:30",
+      "guide": {
+        "signature_dishes": [
+          "蓬莱地方菜",
+          "海鲜家常做法",
+          "米饭与蒸蛋"
+        ],
+        "family_order": "先确认儿童椅；宝宝优先蒸蛋、米饭、清汤面，海鲜去刺并少量尝试。",
+        "queue_plan": "到店排队超过 30 分钟，直接启用同区域备用餐厅，不牺牲午睡。"
+      }
     },
     {
       "id": "r-yantai-alt",
@@ -4233,7 +4821,18 @@
       "sources": [
         "候选门店公开信息",
         "高德地图导航落点"
-      ]
+      ],
+      "route_priority": 45.6,
+      "time_constraint": "11:15–12:30 / 17:00–18:30",
+      "guide": {
+        "signature_dishes": [
+          "海肠捞饭",
+          "清蒸鱼",
+          "家常炒菜"
+        ],
+        "family_order": "先确认儿童椅；宝宝优先蒸蛋、米饭、清汤面，海鲜去刺并少量尝试。",
+        "queue_plan": "到店排队超过 30 分钟，直接启用同区域备用餐厅，不牺牲午睡。"
+      }
     },
     {
       "id": "r-yantai-east-alt",
@@ -4292,7 +4891,18 @@
       "sources": [
         "候选门店公开信息",
         "高德地图导航落点"
-      ]
+      ],
+      "route_priority": 45.7,
+      "time_constraint": "11:15–12:30 / 17:00–18:30",
+      "guide": {
+        "signature_dishes": [
+          "虾仁水饺",
+          "三鲜水饺",
+          "儿童清汤面"
+        ],
+        "family_order": "先确认儿童椅；宝宝优先蒸蛋、米饭、清汤面，海鲜去刺并少量尝试。",
+        "queue_plan": "到店排队超过 30 分钟，直接启用同区域备用餐厅，不牺牲午睡。"
+      }
     },
     {
       "id": "r-weihai-alt",
@@ -4351,7 +4961,18 @@
       "sources": [
         "候选门店公开信息",
         "高德地图导航落点"
-      ]
+      ],
+      "route_priority": 45.8,
+      "time_constraint": "11:15–12:30 / 17:00–18:30",
+      "guide": {
+        "signature_dishes": [
+          "春川炒鸡排",
+          "紫菜包饭",
+          "儿童不辣饭"
+        ],
+        "family_order": "先确认儿童椅；宝宝优先蒸蛋、米饭、清汤面，海鲜去刺并少量尝试。",
+        "queue_plan": "到店排队超过 30 分钟，直接启用同区域备用餐厅，不牺牲午睡。"
+      }
     },
     {
       "id": "r-weihai-mall-alt",
@@ -4410,7 +5031,18 @@
       "sources": [
         "候选门店公开信息",
         "高德地图导航落点"
-      ]
+      ],
+      "route_priority": 45.9,
+      "time_constraint": "11:15–12:30 / 17:00–18:30",
+      "guide": {
+        "signature_dishes": [
+          "威海地方菜",
+          "清蒸海鱼",
+          "家常主食"
+        ],
+        "family_order": "先确认儿童椅；宝宝优先蒸蛋、米饭、清汤面，海鲜去刺并少量尝试。",
+        "queue_plan": "到店排队超过 30 分钟，直接启用同区域备用餐厅，不牺牲午睡。"
+      }
     },
     {
       "id": "r-rongcheng-alt",
@@ -4469,7 +5101,18 @@
       "sources": [
         "候选门店公开信息",
         "高德地图导航落点"
-      ]
+      ],
+      "route_priority": 45,
+      "time_constraint": "11:15–12:30 / 17:00–18:30",
+      "guide": {
+        "signature_dishes": [
+          "海草房家常菜",
+          "炖鱼",
+          "米饭与蒸蛋"
+        ],
+        "family_order": "先确认儿童椅；宝宝优先蒸蛋、米饭、清汤面，海鲜去刺并少量尝试。",
+        "queue_plan": "到店排队超过 30 分钟，直接启用同区域备用餐厅，不牺牲午睡。"
+      }
     },
     {
       "id": "r-qingdao-alt",
@@ -4528,7 +5171,18 @@
       "sources": [
         "候选门店公开信息",
         "高德地图导航落点"
-      ]
+      ],
+      "route_priority": 45.1,
+      "time_constraint": "11:15–12:30 / 17:00–18:30",
+      "guide": {
+        "signature_dishes": [
+          "排骨米饭",
+          "海带汤",
+          "儿童米饭"
+        ],
+        "family_order": "先确认儿童椅；宝宝优先蒸蛋、米饭、清汤面，海鲜去刺并少量尝试。",
+        "queue_plan": "到店排队超过 30 分钟，直接启用同区域备用餐厅，不牺牲午睡。"
+      }
     },
     {
       "id": "r-qingdao-east-alt",
@@ -4587,7 +5241,18 @@
       "sources": [
         "候选门店公开信息",
         "高德地图导航落点"
-      ]
+      ],
+      "route_priority": 45.2,
+      "time_constraint": "11:15–12:30 / 17:00–18:30",
+      "guide": {
+        "signature_dishes": [
+          "虾水饺",
+          "海鲜家常菜",
+          "蒸蛋"
+        ],
+        "family_order": "先确认儿童椅；宝宝优先蒸蛋、米饭、清汤面，海鲜去刺并少量尝试。",
+        "queue_plan": "到店排队超过 30 分钟，直接启用同区域备用餐厅，不牺牲午睡。"
+      }
     }
   ],
   "choice_groups": {
@@ -4600,14 +5265,18 @@
           "name": "A · 沧州天成郡府闪充",
           "meta": "免费闪充优先",
           "pro": "可把午饭、休息、补能合并",
-          "con": "需要下高速进城，拥堵时绕行成本高"
+          "con": "需要下高速进城，拥堵时绕行成本高",
+          "route_priority": 10,
+          "time_constraint": "跨城后或低于安全线时"
         },
         {
           "id": "c-binzhou",
           "name": "B · 滨州黄河二路闪充",
           "meta": "更靠近潍坊",
           "pro": "适合前半程耗电偏高时兜底",
-          "con": "同为城区站，不能替代顺路高速桩"
+          "con": "同为城区站，不能替代顺路高速桩",
+          "route_priority": 20,
+          "time_constraint": "跨城后或低于安全线时"
         }
       ],
       "mode": "multi"
@@ -4621,14 +5290,18 @@
           "name": "A · 恒信时代广场闪充",
           "meta": "补至 90–100%",
           "pro": "次日跨城无需临时找桩",
-          "con": "需提前确认权益和空闲枪位"
+          "con": "需提前确认权益和空闲枪位",
+          "route_priority": 10,
+          "time_constraint": "跨城后或低于安全线时"
         },
         {
           "id": null,
           "name": "B · 家附近补能",
           "meta": "路线最省事",
           "pro": "不专程绕路，收行李更从容",
-          "con": "不一定能用免费闪充权益"
+          "con": "不一定能用免费闪充权益",
+          "route_priority": 20,
+          "time_constraint": "跨城后或低于安全线时"
         }
       ],
       "mode": "multi"
@@ -4642,14 +5315,18 @@
           "name": "A · 滨州主补能",
           "meta": "更早建立余量",
           "pro": "保守、安全，后程仍可在沧州追加",
-          "con": "若出发满电可能充电偏早"
+          "con": "若出发满电可能充电偏早",
+          "route_priority": 10,
+          "time_constraint": "跨城后或低于安全线时"
         },
         {
           "id": "c-cangzhou",
           "name": "B · 沧州主补能",
           "meta": "减少一次停车",
           "pro": "更接近北京，单次补能利用率高",
-          "con": "堵车或低温时前段余量更紧"
+          "con": "堵车或低温时前段余量更紧",
+          "route_priority": 20,
+          "time_constraint": "跨城后或低于安全线时"
         }
       ],
       "mode": "multi"
@@ -4663,28 +5340,36 @@
           "name": "A · 蓬莱阁与水城",
           "meta": "经典人文 · 2–3 小时",
           "pro": "山东代表性强，路线成熟",
-          "con": "台阶多、节假日人流大"
+          "con": "台阶多、节假日人流大",
+          "route_priority": 10,
+          "time_constraint": "主游玩时段"
         },
         {
           "id": "a-penglai-ocean",
           "name": "B · 蓬莱海洋极地世界",
           "meta": "室内亲子 · 3–4 小时",
           "pro": "两岁宝宝参与感更强，天气影响小",
-          "con": "票价较高且假期馆内拥挤"
+          "con": "票价较高且假期馆内拥挤",
+          "route_priority": 20,
+          "time_constraint": "主游玩时段"
         },
         {
           "id": "a-sanxian",
           "name": "C · 三仙山",
           "meta": "园林建筑 · 2–3 小时",
           "pro": "建筑与园林很出片，步行节奏自由",
-          "con": "园区大，和蓬莱阁同日容易超量"
+          "con": "园区大，和蓬莱阁同日容易超量",
+          "route_priority": 30,
+          "time_constraint": "主游玩时段"
         },
         {
           "id": "a-yantaishan",
           "name": "D · 直接去烟台山",
           "meta": "轻松慢游 · 1–1.5 小时",
           "pro": "少一次停车，离烟台酒店近",
-          "con": "会放弃蓬莱这一站"
+          "con": "会放弃蓬莱这一站",
+          "route_priority": 40,
+          "time_constraint": "主游玩时段"
         }
       ],
       "mode": "multi"
@@ -4698,14 +5383,18 @@
           "name": "A · 百纳瑞汀酒店",
           "meta": "老城便利型",
           "pro": "靠近烟台山、朝阳街，步行更方便",
-          "con": "节日周边车流和停车压力较大"
+          "con": "节日周边车流和停车压力较大",
+          "route_priority": 10,
+          "time_constraint": "当天终点"
         },
         {
           "id": "h-yantai-b",
           "name": "B · 世茂希尔顿酒店",
           "meta": "亲子舒适型",
           "pro": "早餐与服务更稳定，午睡回房方便",
-          "con": "价格通常更高"
+          "con": "价格通常更高",
+          "route_priority": 20,
+          "time_constraint": "当天终点"
         }
       ],
       "mode": "single"
@@ -4719,14 +5408,18 @@
           "name": "A · 蓬莱阁外小面 / 水饺",
           "meta": "人均约 40–70 元",
           "pro": "游完直接吃，不增加跨城饥饿等待",
-          "con": "景区周边热门店可能排队"
+          "con": "景区周边热门店可能排队",
+          "route_priority": 10,
+          "time_constraint": "正餐时段"
         },
         {
           "id": "f-yantai",
           "name": "B · 到烟台老城再吃",
           "meta": "人均约 60–100 元",
           "pro": "餐厅选择更多，环境与餐椅更稳",
-          "con": "宝宝饭点可能被 80 km 车程推迟"
+          "con": "宝宝饭点可能被 80 km 车程推迟",
+          "route_priority": 20,
+          "time_constraint": "正餐时段"
         }
       ],
       "mode": "multi"
@@ -4740,14 +5433,18 @@
           "name": "A · 电量够就跳过",
           "meta": "推荐默认",
           "pro": "不为免费电打断午睡和换城节奏",
-          "con": "需保证到烟台后仍有 20% 以上"
+          "con": "需保证到烟台后仍有 20% 以上",
+          "route_priority": 10,
+          "time_constraint": "跨城后或低于安全线时"
         },
         {
           "id": "c-penglai",
           "name": "B · 利群广场闪充",
           "meta": "2 把闪充枪",
           "pro": "免费权益可用，吃饭时补能",
-          "con": "枪少，排队会侵占游玩时间"
+          "con": "枪少，排队会侵占游玩时间",
+          "route_priority": 20,
+          "time_constraint": "跨城后或低于安全线时"
         }
       ],
       "mode": "multi"
@@ -4761,35 +5458,45 @@
           "name": "A · 烟台山—朝阳街",
           "meta": "城市人文 · 推车友好",
           "pro": "离酒店近，随时可回房午睡",
-          "con": "假日老城停车紧张"
+          "con": "假日老城停车紧张",
+          "route_priority": 10,
+          "time_constraint": "主游玩时段"
         },
         {
           "id": "a-yangma",
           "name": "B · 养马岛环岛",
           "meta": "海岸自驾 · 2–3 小时",
           "pro": "山海照片更出片，自驾体验好",
-          "con": "风大、堵车时体验明显下降"
+          "con": "风大、堵车时体验明显下降",
+          "route_priority": 20,
+          "time_constraint": "主游玩时段"
         },
         {
           "id": "a-fisher",
           "name": "C · 渔人码头短停",
           "meta": "轻量打卡 · 45–60 分钟",
           "pro": "对两岁宝宝最轻松，进退自由",
-          "con": "内容较少，不适合作为全天主景点"
+          "con": "内容较少，不适合作为全天主景点",
+          "route_priority": 30,
+          "time_constraint": "主游玩时段"
         },
         {
           "id": "a-suo",
           "name": "D · 所城里夜游",
           "meta": "老街夜景 · 1 小时",
           "pro": "适合晚饭后散步，和烟台山衔接",
-          "con": "商业化较强，推车需避开人流"
+          "con": "商业化较强，推车需避开人流",
+          "route_priority": 40,
+          "time_constraint": "主游玩时段"
         },
         {
           "id": "a-changyu",
           "name": "E · 张裕酒文化博物馆",
           "meta": "室内人文 · 1.5 小时",
           "pro": "雨天稳定、离老城酒店近",
-          "con": "幼儿互动性一般"
+          "con": "幼儿互动性一般",
+          "route_priority": 50,
+          "time_constraint": "主游玩时段"
         }
       ],
       "mode": "multi"
@@ -4803,14 +5510,18 @@
           "name": "A · 朝阳街 / 所城里周边",
           "meta": "焖子 · 鲅鱼水饺",
           "pro": "景点、吃饭、散步一次完成",
-          "con": "网红店多，需避开长队"
+          "con": "网红店多，需避开长队",
+          "route_priority": 10,
+          "time_constraint": "正餐时段"
         },
         {
           "id": "f-yantai-east",
           "name": "B · 莱山商圈亲子餐",
           "meta": "商场餐厅 · 有餐椅",
           "pro": "停车、洗手间、宝宝餐更稳定",
-          "con": "本地烟火气弱一些"
+          "con": "本地烟火气弱一些",
+          "route_priority": 20,
+          "time_constraint": "正餐时段"
         }
       ],
       "mode": "multi"
@@ -4824,14 +5535,18 @@
           "name": "A · 抱海大酒店",
           "meta": "自驾效率型",
           "pro": "去刘公岛和荣成方向更顺，停车稳",
-          "con": "装修与亲子配套相对传统"
+          "con": "装修与亲子配套相对传统",
+          "route_priority": 10,
+          "time_constraint": "当天终点"
         },
         {
           "id": "h-weihai-b",
           "name": "B · 蓝海御华大饭店",
           "meta": "连住舒适型",
           "pro": "房间与早餐更适合连续住三晚",
-          "con": "前往火炬八街距离更远"
+          "con": "前往火炬八街距离更远",
+          "route_priority": 20,
+          "time_constraint": "当天终点"
         }
       ],
       "mode": "single"
@@ -4845,21 +5560,27 @@
           "name": "A · 烟台电视台闪充",
           "meta": "离烟台酒店较近",
           "pro": "退房前补好，到威海后不再找桩",
-          "con": "若走北线可能需要绕路"
+          "con": "若走北线可能需要绕路",
+          "route_priority": 10,
+          "time_constraint": "跨城后或低于安全线时"
         },
         {
           "id": "c-weihai",
           "name": "B · 威海北站闪充",
           "meta": "到达后补能",
           "pro": "抵达威海再按实际 SOC 决定",
-          "con": "与海滨酒店并不完全顺路"
+          "con": "与海滨酒店并不完全顺路",
+          "route_priority": 20,
+          "time_constraint": "跨城后或低于安全线时"
         },
         {
           "id": null,
           "name": "C · 暂不补能",
           "meta": "SOC 充足时",
           "pro": "85–100 km 换城无需强行充电",
-          "con": "次日活动前需重新评估"
+          "con": "次日活动前需重新评估",
+          "route_priority": 30,
+          "time_constraint": "跨城后或低于安全线时"
         }
       ],
       "mode": "multi"
@@ -4873,14 +5594,18 @@
           "name": "A · 韩乐坊餐饮区",
           "meta": "韩餐 · 海鲜 · 选择多",
           "pro": "下雨也好逛，家庭选择面广",
-          "con": "热门时段停车和排队较难"
+          "con": "热门时段停车和排队较难",
+          "route_priority": 10,
+          "time_constraint": "正餐时段"
         },
         {
           "id": "f-weihai-mall",
           "name": "B · 威高广场亲子餐",
           "meta": "稳定省心型",
           "pro": "餐椅、卫生间和宝宝餐更可靠",
-          "con": "地方特色不如街区明显"
+          "con": "地方特色不如街区明显",
+          "route_priority": 20,
+          "time_constraint": "正餐时段"
         }
       ],
       "mode": "multi"
@@ -4894,28 +5619,36 @@
           "name": "A · 刘公岛",
           "meta": "半日 · 船班制约",
           "pro": "历史与海岛体验完整，值得记录",
-          "con": "排队、风浪和船班对带娃要求高"
+          "con": "排队、风浪和船班对带娃要求高",
+          "route_priority": 10,
+          "time_constraint": "主游玩时段"
         },
         {
           "id": "a-haiyuan",
           "name": "B · 海源公园",
           "meta": "渔港慢走 · 1 小时",
           "pro": "不坐船，宝宝状态不好可随时撤",
-          "con": "人文内容弱，仪式感不如登岛"
+          "con": "人文内容弱，仪式感不如登岛",
+          "route_priority": 20,
+          "time_constraint": "主游玩时段"
         },
         {
           "id": "a-banyue",
           "name": "C · 半月湾",
           "meta": "免费海岸 · 1 小时",
           "pro": "日出日落都适合家庭照片",
-          "con": "大风时体感差"
+          "con": "大风时体感差",
+          "route_priority": 30,
+          "time_constraint": "主游玩时段"
         },
         {
           "id": "a-huoju",
           "name": "D · 火炬八街",
           "meta": "城市海景 · 45 分钟",
           "pro": "地标辨识度高，适合短打卡",
-          "con": "假日拥堵停车难，商业感强"
+          "con": "假日拥堵停车难，商业感强",
+          "route_priority": 40,
+          "time_constraint": "主游玩时段"
         }
       ],
       "mode": "multi"
@@ -4929,21 +5662,27 @@
           "name": "A · 那香海钻石沙滩",
           "meta": "玩沙亲子型",
           "pro": "两岁宝宝参与感强，免费区域灵活",
-          "con": "国庆人多，单独看景丰富度一般"
+          "con": "国庆人多，单独看景丰富度一般",
+          "route_priority": 10,
+          "time_constraint": "主游玩时段"
         },
         {
           "id": "a-chengshan",
           "name": "B · 成山头",
           "meta": "地标山海型",
           "pro": "景观最有目的地感，照片值得留存",
-          "con": "路更远、风更大、台阶更多"
+          "con": "路更远、风更大、台阶更多",
+          "route_priority": 20,
+          "time_constraint": "主游玩时段"
         },
         {
           "id": "a-jinshi",
           "name": "C · 金石湾艺术园区",
           "meta": "拍照慢游型",
           "pro": "家庭合照场景丰富，节奏松弛",
-          "con": "内容偏审美打卡，宝宝游乐性弱"
+          "con": "内容偏审美打卡，宝宝游乐性弱",
+          "route_priority": 30,
+          "time_constraint": "主游玩时段"
         }
       ],
       "mode": "multi"
@@ -4957,14 +5696,18 @@
           "name": "A · 威海满电往返",
           "meta": "推荐默认",
           "pro": "不深入荣成城区，路线最短",
-          "con": "出发时建议至少 80–85%"
+          "con": "出发时建议至少 80–85%",
+          "route_priority": 10,
+          "time_constraint": "跨城后或低于安全线时"
         },
         {
           "id": "c-rongcheng",
           "name": "B · 荣成兴飞闪充",
           "meta": "返程兜底",
           "pro": "深度游成山头时更安心",
-          "con": "离那香海并不近，可能明显绕行"
+          "con": "离那香海并不近，可能明显绕行",
+          "route_priority": 20,
+          "time_constraint": "跨城后或低于安全线时"
         }
       ],
       "mode": "multi"
@@ -4978,14 +5721,18 @@
           "name": "A · 荣成城区海鲜家常菜",
           "meta": "人均约 70–120 元",
           "pro": "热菜选择多，适合深度游后休息",
-          "con": "从那香海过去会增加里程"
+          "con": "从那香海过去会增加里程",
+          "route_priority": 10,
+          "time_constraint": "正餐时段"
         },
         {
           "id": "f-weihai",
           "name": "B · 返回威海再吃",
           "meta": "熟悉稳妥型",
           "pro": "餐厅选择多，直接回酒店午睡",
-          "con": "需要自带宝宝垫餐，饭点偏晚"
+          "con": "需要自带宝宝垫餐，饭点偏晚",
+          "route_priority": 20,
+          "time_constraint": "正餐时段"
         }
       ],
       "mode": "multi"
@@ -4999,21 +5746,27 @@
           "name": "A · 莱西南京北路闪充",
           "meta": "跨城途中候选",
           "pro": "可把午饭与补能合并",
-          "con": "属于城区站，须比较高速桩绕行"
+          "con": "属于城区站，须比较高速桩绕行",
+          "route_priority": 10,
+          "time_constraint": "跨城后或低于安全线时"
         },
         {
           "id": "c-qingdao",
           "name": "B · 到青岛市区再充",
           "meta": "抵达后安排",
           "pro": "按真实到达 SOC 决策，不提前绕路",
-          "con": "晚高峰找桩可能更耗时"
+          "con": "晚高峰找桩可能更耗时",
+          "route_priority": 20,
+          "time_constraint": "跨城后或低于安全线时"
         },
         {
           "id": null,
           "name": "C · 顺路高速快充",
           "meta": "效率优先",
           "pro": "不用下高速，通常总耗时更短",
-          "con": "不一定享受免费闪充权益"
+          "con": "不一定享受免费闪充权益",
+          "route_priority": 30,
+          "time_constraint": "跨城后或低于安全线时"
         }
       ],
       "mode": "multi"
@@ -5027,14 +5780,18 @@
           "name": "A · 栈桥海景亚朵",
           "meta": "老城步行型",
           "pro": "栈桥、大学路、海底世界都更近",
-          "con": "停车位紧张，去崂山方向较慢"
+          "con": "停车位紧张，去崂山方向较慢",
+          "route_priority": 10,
+          "time_constraint": "当天终点"
         },
         {
           "id": "h-qingdao-b",
           "name": "B · 海景花园大酒店",
           "meta": "亲子自驾型",
           "pro": "停车与服务更稳，靠近东部海岸",
-          "con": "游老城需要打车，往返午睡成本高"
+          "con": "游老城需要打车，往返午睡成本高",
+          "route_priority": 20,
+          "time_constraint": "当天终点"
         }
       ],
       "mode": "single"
@@ -5048,21 +5805,27 @@
           "name": "A · 奥帆中心",
           "meta": "夜景城市型",
           "pro": "路面平缓、吃饭方便、夜景稳定",
-          "con": "商业感较强，假日人多"
+          "con": "商业感较强，假日人多",
+          "route_priority": 10,
+          "time_constraint": "主游玩时段"
         },
         {
           "id": "a-xiaomai",
           "name": "B · 小麦岛日落",
           "meta": "草地海岸型",
           "pro": "照片更自然，宝宝可短时放电",
-          "con": "停车和海风不确定"
+          "con": "停车和海风不确定",
+          "route_priority": 20,
+          "time_constraint": "主游玩时段"
         },
         {
           "id": "a-mayfourth",
           "name": "C · 五四广场",
           "meta": "地标夜景 · 45 分钟",
           "pro": "交通方便、平地推车友好",
-          "con": "内容单一，节假日人多"
+          "con": "内容单一，节假日人多",
+          "route_priority": 30,
+          "time_constraint": "主游玩时段"
         }
       ],
       "mode": "multi"
@@ -5076,35 +5839,45 @@
           "name": "A · 栈桥—中山路",
           "meta": "经典地标 · 平缓",
           "pro": "第一次到青岛辨识度最高",
-          "con": "国庆人流密集"
+          "con": "国庆人流密集",
+          "route_priority": 10,
+          "time_constraint": "主游玩时段"
         },
         {
           "id": "a-xiaoyushan",
           "name": "B · 大学路—小鱼山",
           "meta": "城市俯瞰 · 文艺街区",
           "pro": "照片层次丰富，老城气质更强",
-          "con": "有坡度，推车体验一般"
+          "con": "有坡度，推车体验一般",
+          "route_priority": 20,
+          "time_constraint": "主游玩时段"
         },
         {
           "id": "a-badaguan",
           "name": "C · 八大关慢走",
           "meta": "建筑海岸 · 1.5 小时",
           "pro": "树荫多，路线可长可短",
-          "con": "景点分散，打卡感不如栈桥集中"
+          "con": "景点分散，打卡感不如栈桥集中",
+          "route_priority": 30,
+          "time_constraint": "主游玩时段"
         },
         {
           "id": "a-signalhill",
           "name": "D · 信号山公园",
           "meta": "老城俯瞰 · 1 小时",
           "pro": "能一次看清红瓦老城与海岸线",
-          "con": "坡度明显，建议使用背带"
+          "con": "坡度明显，建议使用背带",
+          "route_priority": 40,
+          "time_constraint": "主游玩时段"
         },
         {
           "id": "a-cathedral",
           "name": "E · 圣弥厄尔教堂",
           "meta": "建筑打卡 · 30–45 分钟",
           "pro": "与中山路顺路、停留灵活",
-          "con": "开放时间和宗教活动可能影响参观"
+          "con": "开放时间和宗教活动可能影响参观",
+          "route_priority": 50,
+          "time_constraint": "主游玩时段"
         }
       ],
       "mode": "multi"
@@ -5118,35 +5891,45 @@
           "name": "A · 青岛海底世界",
           "meta": "室内 · 约 2–3 小时",
           "pro": "宝宝参与感最强，雨天也能玩",
-          "con": "门票高、节假日拥挤"
+          "con": "门票高、节假日拥挤",
+          "route_priority": 10,
+          "time_constraint": "主游玩时段"
         },
         {
           "id": "a-polar",
           "name": "B · 极地海洋公园",
           "meta": "表演互动 · 3–4 小时",
           "pro": "亲子互动和演出更丰富",
-          "con": "价格高、一天只建议选一个海洋馆"
+          "con": "价格高、一天只建议选一个海洋馆",
+          "route_priority": 20,
+          "time_constraint": "主游玩时段"
         },
         {
           "id": "a-badaguan",
           "name": "C · 八大关 + 第二海水浴场",
           "meta": "免费慢游型",
           "pro": "节奏自由，午睡不受预约约束",
-          "con": "天气依赖强，互动性较弱"
+          "con": "天气依赖强，互动性较弱",
+          "route_priority": 30,
+          "time_constraint": "主游玩时段"
         },
         {
           "id": "a-xiaomai",
           "name": "D · 小麦岛公园",
           "meta": "免费日落型",
           "pro": "空间开阔，适合家庭影像记录",
-          "con": "大风时不适合久留"
+          "con": "大风时不适合久留",
+          "route_priority": 40,
+          "time_constraint": "主游玩时段"
         },
         {
           "id": "a-mayfourth",
           "name": "E · 五四广场夜景",
           "meta": "免费城市型",
           "pro": "推车友好，晚饭后短走即可",
-          "con": "不适合作为全天唯一主景点"
+          "con": "不适合作为全天唯一主景点",
+          "route_priority": 50,
+          "time_constraint": "主游玩时段"
         }
       ],
       "mode": "multi"
@@ -5160,14 +5943,18 @@
           "name": "A · 老城家常菜",
           "meta": "锅贴 · 排骨米饭",
           "pro": "本地味更浓，和老城路线自然衔接",
-          "con": "停车困难，热门店排队长"
+          "con": "停车困难，热门店排队长",
+          "route_priority": 10,
+          "time_constraint": "正餐时段"
         },
         {
           "id": "f-qingdao-east",
           "name": "B · 香港中路 / 奥帆商圈",
           "meta": "亲子环境型",
           "pro": "停车、餐椅、宝宝餐更稳",
-          "con": "价格偏高，旅行烟火气稍弱"
+          "con": "价格偏高，旅行烟火气稍弱",
+          "route_priority": 20,
+          "time_constraint": "正餐时段"
         }
       ],
       "mode": "multi"

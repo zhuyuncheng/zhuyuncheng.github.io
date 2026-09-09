@@ -43,7 +43,9 @@
         result.push(token);
         return;
       }
-      selections(token.slice(1)).forEach(function (option) {
+      selections(token.slice(1)).slice().sort(function (a, b) {
+        return (a.route_priority || 999) - (b.route_priority || 999);
+      }).forEach(function (option) {
         if (option && option.id) result.push(option.id);
       });
     });
@@ -150,7 +152,7 @@
     var locked = index === 0 || index === ids.length - 1;
     return '<li draggable="' + (!locked) + '" data-route-index="' + index + '" class="' + (locked ? 'is-locked' : '') + '">' +
       '<span class="trip-stop__index">' + (index + 1) + '</span><button type="button" class="trip-stop__name" data-poi="' + id + '">' +
-      '<small>' + escapeHtml(poi.type) + '</small><b>' + escapeHtml(poi.name) + '</b></button>' +
+      '<small>' + escapeHtml(poi.type + (poi.time_constraint ? ' · ' + poi.time_constraint : '')) + '</small><b>' + escapeHtml(poi.name) + '</b></button>' +
       '<div class="trip-stop__actions">' +
       (locked ? '<span title="起终点锁定">锁定</span>' :
         '<button type="button" data-route-up="' + index + '" aria-label="上移">↑</button>' +

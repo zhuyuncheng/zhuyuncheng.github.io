@@ -5,15 +5,170 @@ generated:
     license: 原创项目资产
 authorized_photos:
   - poi: a-penglai
-    file: a-penglai/penglai-pavilion.jpg
-    source: https://commons.wikimedia.org/wiki/File:Penglai_Pavilion_viewed_from_the_southeast.jpg
-    author: Benlisquare
-    license: CC BY-SA 4.0
+    file: "a-penglai/penglai-pavilion.jpg"
+    source: "https://commons.wikimedia.org/wiki/Special:FilePath/Penglai_Pavilion_viewed_from_the_southeast.jpg"
+    author: "Benlisquare"
+    license: "CC BY-SA 4.0"
+  - poi: a-penglai
+    file: "a-penglai/commons-4230774.jpg"
+    source: "https://commons.wikimedia.org/wiki/File:Penglaige.jpg"
+    author: "Fanghong"
+    license: "CC BY-SA 3.0"
+  - poi: a-penglai
+    file: "a-penglai/commons-31766198.jpg"
+    source: "https://commons.wikimedia.org/wiki/File:PenglaiPavilion.jpg"
+    author: "Chrishcn"
+    license: "CC BY 2.0"
+  - poi: a-yantaishan
+    file: "a-yantaishan/commons-80872787.jpg"
+    source: "https://commons.wikimedia.org/wiki/File:%E7%83%9F%E5%8F%B0%E5%B1%B1%E8%BF%91%E4%BB%A3%E5%BB%BA%E7%AD%91%E7%BE%A4.jpg"
+    author: "Ngguls"
+    license: "CC0"
+  - poi: a-yantaishan
+    file: "a-yantaishan/commons-85713612.jpg"
+    source: "https://commons.wikimedia.org/wiki/File:%E7%83%9F%E5%8F%B0%E5%B1%B1%E7%83%BD%E7%81%AB%E5%8F%B0%E4%B8%8E%E7%83%9F%E5%8F%B0%E5%B1%B1%E7%81%AF%E5%A1%94.jpg"
+    author: "董辰兴"
+    license: "CC BY-SA 4.0"
+  - poi: a-yantaishan
+    file: "a-yantaishan/commons-57486430.jpg"
+    source: "https://commons.wikimedia.org/wiki/File:%E7%83%9F%E5%8F%B0%E5%B1%B1%E5%85%AC%E5%9B%AD_-_Yantaishan_Park_-_2014.02_-_panoramio.jpg"
+    author: "rheins"
+    license: "CC BY 3.0"
+  - poi: a-fisher
+    file: "a-fisher/commons-54501756.jpg"
+    source: "https://commons.wikimedia.org/wiki/File:%E7%83%9F%E5%8F%B0%E6%B8%94%E4%BA%BA%E7%A0%81%E5%A4%B4_-_panoramio.jpg"
+    author: "宋迎利"
+    license: "CC BY-SA 3.0"
+  - poi: a-liugong
+    file: "a-liugong/commons-59699856.jpg"
+    source: "https://commons.wikimedia.org/wiki/File:%E5%B1%B1%E4%B8%9C_%E5%A8%81%E6%B5%B7%E5%88%98%E5%85%AC%E5%B2%9B_-_panoramio.jpg"
+    author: "Nyx Ning"
+    license: "CC BY-SA 3.0"
+  - poi: a-liugong
+    file: "a-liugong/commons-59699788.jpg"
+    source: "https://commons.wikimedia.org/wiki/File:%E5%B1%B1%E4%B8%9C_%E5%A8%81%E6%B5%B7_%E5%88%98%E5%85%AC%E5%B2%9B%E7%A0%81%E5%A4%B4_-_panoramio.jpg"
+    author: "Nyx Ning"
+    license: "CC BY-SA 3.0"
+  - poi: a-liugong
+    file: "a-liugong/commons-59699828.jpg"
+    source: "https://commons.wikimedia.org/wiki/File:%E5%B1%B1%E4%B8%9C_%E5%A8%81%E6%B5%B7%E5%88%98%E5%85%AC%E5%B2%9B%E4%BA%BA%E5%AE%B6_-_panoramio.jpg"
+    author: "Nyx Ning"
+    license: "CC BY-SA 3.0"
+  - poi: a-olympic
+    file: "a-olympic/commons-59699872.jpg"
+    source: "https://commons.wikimedia.org/wiki/File:%E9%9D%92%E5%B2%9B%E5%A5%A5%E5%B8%86%E4%B8%AD%E5%BF%83_%E9%9F%B3%E4%B9%90%E4%B9%8B%E5%B8%86_-_panoramio.jpg"
+    author: "Nyx Ning"
+    license: "CC BY-SA 3.0"
+  - poi: a-olympic
+    file: "a-olympic/commons-53759586.jpg"
+    source: "https://commons.wikimedia.org/wiki/File:%E9%9D%92%E5%B2%9B%E5%A5%A5%E5%B8%86%E4%B8%AD%E5%BF%83%E5%86%85%E6%B8%AF_-_panoramio.jpg"
+    author: "黄河山曲"
+    license: "CC BY-SA 3.0"
+  - poi: a-olympic
+    file: "a-olympic/commons-73173942.jpg"
+    source: "https://commons.wikimedia.org/wiki/File:%E9%9D%92%E5%B2%9B%E5%A5%A5%E5%B8%86%E4%B8%AD%E5%BF%83_2013-09-26.jpg"
+    author: "Baishiya_白石崖"
+    license: "CC BY 2.0"
+  - poi: a-mayfourth
+    file: "a-mayfourth/commons-147248984.jpg"
+    source: "https://commons.wikimedia.org/wiki/File:51361-Qingdao_May_Fourth_Square.jpg"
+    author: "xiquinhosilva"
+    license: "CC BY 2.0"
+  - poi: a-mayfourth
+    file: "a-mayfourth/commons-52559678.jpg"
+    source: "https://commons.wikimedia.org/wiki/File:%E9%9D%92%E5%B2%9B_-_%E4%BA%94%E5%9B%9B%E5%B9%BF%E5%9C%BA_-_panoramio.jpg"
+    author: "Tiger@西北"
+    license: "CC BY-SA 3.0"
+  - poi: a-mayfourth
+    file: "a-mayfourth/commons-88709637.jpg"
+    source: "https://commons.wikimedia.org/wiki/File:%E9%9D%92%E5%B2%9B%E4%BA%94%E5%9B%9B%E5%B9%BF%E5%9C%BA_%E5%A4%9C%E6%99%AF.jpg"
+    author: "長安城根喚朱雀"
+    license: "CC BY-SA 3.0"
+  - poi: a-zhanqiao
+    file: "a-zhanqiao/commons-54868802.jpg"
+    source: "https://commons.wikimedia.org/wiki/File:%E9%9D%92%E5%B2%9B%E6%A0%88%E6%A1%A5_Ehemalige_Landungsbr%C3%BCcke_Qingdao.jpg"
+    author: "StefanTsingtauer"
+    license: "CC BY-SA 4.0"
+  - poi: a-zhanqiao
+    file: "a-zhanqiao/commons-61916934.jpg"
+    source: "https://commons.wikimedia.org/wiki/File:%E9%9D%92%E5%B2%9B%E6%A0%88%E6%A1%A5%E5%B0%8F%E9%9D%92%E5%B2%9B%E8%A7%86%E8%A7%92.jpg"
+    author: "StefanTsingtauer"
+    license: "CC BY-SA 4.0"
+  - poi: a-zhanqiao
+    file: "a-zhanqiao/commons-54618296.jpg"
+    source: "https://commons.wikimedia.org/wiki/File:%E9%9D%92%E5%B2%9B%E6%A0%88%E6%A1%A5_-_panoramio.jpg"
+    author: "gdczjkk"
+    license: "CC BY 3.0"
+  - poi: a-xiaoyushan
+    file: "a-xiaoyushan/commons-135113929.jpg"
+    source: "https://commons.wikimedia.org/wiki/File:%E9%9D%92%E5%B2%9B%E5%9F%BA%E7%9D%A3%E6%95%99%E5%A0%82%E4%B8%8E%E5%B0%8F%E9%B1%BC%E5%B1%B1.jpg"
+    author: "Dr. Hans-Günter Wagner"
+    license: "CC BY-SA 2.0"
+  - poi: a-xiaoyushan
+    file: "a-xiaoyushan/commons-74233821.jpg"
+    source: "https://commons.wikimedia.org/wiki/File:%E9%9D%92%E5%B2%9B%E5%A4%A7%E5%AD%A6%E8%B7%AF%E5%B0%8F%E9%B1%BC%E5%B1%B1%E4%B8%80%E5%B8%A6%E4%BF%AF%E7%9E%B0_2005-11-07.jpg"
+    author: "tak.wing"
+    license: "CC BY-SA 2.0"
+  - poi: a-xiaoyushan
+    file: "a-xiaoyushan/commons-161998097.jpg"
+    source: "https://commons.wikimedia.org/wiki/File:%E5%B0%8F%E9%B1%BC%E5%B1%B1%E5%85%AC%E5%9B%AD%E2%80%94%E2%80%94%E9%B1%BC%E5%B1%B1%E7%A7%8B%E6%9C%88.jpg"
+    author: "Sprt98"
+    license: "CC BY-SA 4.0"
+  - poi: a-signalhill
+    file: "a-signalhill/commons-57522676.jpg"
+    source: "https://commons.wikimedia.org/wiki/File:%E9%9D%92%E5%B2%9B%E4%BF%A1%E5%8F%B7%E5%B1%B1%E9%9B%AA%E6%99%AF.jpg"
+    author: "StefanTsingtauer"
+    license: "CC BY-SA 4.0"
+  - poi: a-signalhill
+    file: "a-signalhill/commons-61916937.jpg"
+    source: "https://commons.wikimedia.org/wiki/File:%E9%9D%92%E5%B2%9B%E4%BF%A1%E5%8F%B7%E5%B1%B1%E6%B5%B7%E4%B8%8A%E8%A7%86%E8%A7%92.jpg"
+    author: "StefanTsingtauer"
+    license: "CC BY-SA 4.0"
+  - poi: a-signalhill
+    file: "a-signalhill/commons-82583409.jpg"
+    source: "https://commons.wikimedia.org/wiki/File:%E9%9D%92%E5%B2%9B%E4%BF%A1%E5%8F%B7%E5%B1%B1%E6%97%A0%E7%BA%BF%E7%94%B5%E5%8F%B0.jpg"
+    author: "Unknown authorUnknown author"
+    license: "Public domain"
+  - poi: a-cathedral
+    file: "a-cathedral/commons-151145726.jpg"
+    source: "https://commons.wikimedia.org/wiki/File:20240730_St._Michael%27s_Cathedral,_Qingdao_01.jpg"
+    author: "Windmemories"
+    license: "CC BY-SA 4.0"
+  - poi: a-cathedral
+    file: "a-cathedral/commons-151145725.jpg"
+    source: "https://commons.wikimedia.org/wiki/File:20240730_St._Michael%27s_Cathedral,_Qingdao_02.jpg"
+    author: "Windmemories"
+    license: "CC BY-SA 4.0"
+  - poi: a-cathedral
+    file: "a-cathedral/commons-9726011.png"
+    source: "https://commons.wikimedia.org/wiki/File:St_Michaels_Cathedral_West_Front.png"
+    author: "Noraft"
+    license: "Public domain"
   - poi: a-underwater
-    file: a-underwater/qingdao-underwater-world.jpg
-    source: https://commons.wikimedia.org/wiki/File:Qingdao-underwaterworld.jpg
-    author: Mark wyld
-    license: CC BY-SA 4.0
+    file: "a-underwater/qingdao-underwater-world.jpg"
+    source: "https://commons.wikimedia.org/wiki/Special:FilePath/Qingdao-underwaterworld.jpg"
+    author: "Mark wyld"
+    license: "CC BY-SA 4.0"
+  - poi: a-badaguan
+    file: "a-badaguan/commons-17274980.jpg"
+    source: "https://commons.wikimedia.org/wiki/File:%E9%9D%92%E5%B2%9B%E5%85%AB%E5%A4%A7%E5%85%B3%E8%8A%B1%E7%9F%B3%E6%A5%BC.jpg"
+    author: "Gisling"
+    license: "CC BY-SA 3.0"
+  - poi: a-badaguan
+    file: "a-badaguan/commons-50864167.jpg"
+    source: "https://commons.wikimedia.org/wiki/File:%E9%9D%92%E5%B2%9B%E5%85%AB%E5%A4%A7%E5%85%B3%E4%BB%8B%E7%BB%8D%E7%89%8C.jpg"
+    author: "自行拍摄。图中文字作者不详，可能为政府。"
+    license: "CC BY-SA 4.0"
+  - poi: a-badaguan
+    file: "a-badaguan/commons-62485030.jpg"
+    source: "https://commons.wikimedia.org/wiki/File:%E9%9D%92%E5%B2%9B%E5%85%AB%E5%A4%A7%E5%85%B3%E5%B0%8F%E7%A4%BC%E5%A0%82_2017-08-06.jpg"
+    author: "StefanTsingtauer"
+    license: "CC BY-SA 4.0"
+  - poi: a-yangma
+    file: "a-yangma/commons-50739480.jpg"
+    source: "https://commons.wikimedia.org/wiki/File:Untitled_-_panoramio_-_China_Q-H.jpg"
+    author: "China Q-H"
+    license: "CC BY 3.0"
 notes:
-  - 授权实拍已下载为项目本地资产，页面不依赖 Wikimedia 图片外链。
-  - 酒店和餐厅不抓取携程、美团图片；无明确复用授权时使用占位插画并明确标注。
+  - 授权实拍已下载为项目本地资产，页面不依赖图片外链。
+  - 酒店和餐厅无明确复用授权时使用占位插画，并明确标注非现场实拍。

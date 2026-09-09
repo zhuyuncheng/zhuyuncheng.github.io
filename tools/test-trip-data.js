@@ -72,12 +72,26 @@ data.pois.forEach((poi) => {
   assert.ok(Number.isFinite(poi.location.lng) && Number.isFinite(poi.location.lat), `POI 坐标无效: ${poi.id}`);
   assert.ok(Number.isFinite(poi.route_target.lng) && Number.isFinite(poi.route_target.lat), `导航落点无效: ${poi.id}`);
   assert.ok(Array.isArray(poi.photos) && poi.photos.length, `图片信息缺失: ${poi.id}`);
+  poi.photos.forEach((photo) => {
+    assert.ok(photo.src && photo.alt, `图片描述缺失: ${poi.id}`);
+    if (photo.src.startsWith('/assets/')) {
+      assert.ok(fs.existsSync(path.join(root, photo.src.slice(1))), `本地图片文件不存在: ${poi.id}/${photo.src}`);
+    }
+    if (!photo.src.includes('place-placeholder')) {
+      assert.ok(photo.credit && photo.license && photo.source, `实拍图片授权信息缺失: ${poi.id}/${photo.src}`);
+    }
+  });
+  assert.ok(Number.isFinite(poi.route_priority), `路线优先级缺失: ${poi.id}`);
+  assert.ok(poi.time_constraint, `时段约束缺失: ${poi.id}`);
+  if (!['anchor'].includes(poi.type)) assert.ok(poi.guide, `详情指南缺失: ${poi.id}`);
 });
 
 Object.entries(data.choice_groups).forEach(([groupId, group]) => {
   assert.ok(['single', 'multi'].includes(group.mode), `候选模式无效: ${groupId}`);
   group.options.forEach((option) => {
     assert.ok(option.id === null || option.id === '__skip__' || poiById[option.id], `候选 POI 不存在: ${groupId}/${option.id}`);
+    assert.ok(Number.isFinite(option.route_priority), `候选路线优先级缺失: ${groupId}/${option.id}`);
+    assert.ok(option.time_constraint, `候选时段约束缺失: ${groupId}/${option.id}`);
   });
 });
 
