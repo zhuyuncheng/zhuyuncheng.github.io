@@ -32,45 +32,11 @@
   }
 
   function recommendedRoute(dayId) {
-    var plan = data.choice_plans[dayId];
-    if (!plan) {
-      var day = dayById(dayId);
-      return (day && day.route ? day.route : []).slice();
-    }
-    var result = [];
-    plan.sequence.forEach(function (token) {
-      if (token.charAt(0) !== '@') {
-        result.push(token);
-        return;
-      }
-      selections(token.slice(1)).slice().sort(function (a, b) {
-        return (a.route_priority || 999) - (b.route_priority || 999);
-      }).forEach(function (option) {
-        if (option && option.id) result.push(option.id);
-      });
-    });
-    return result;
+    return window.TripRoutes.recommended(data,store.getState(),dayId);
   }
 
   function routeForDay(dayId) {
-    var state = store.getState();
-    var saved = state.routeOrders[dayId];
-    var recommended = recommendedRoute(dayId);
-    if (!Array.isArray(saved) || saved.length < 2) return recommended;
-    // A saved route may intentionally omit optional stops. Keep it when every
-    // saved stop still belongs to today's current selection and the locked
-    // start/end anchors are unchanged.
-    var allowed = recommended.reduce(function (counts, id) {
-      counts[id] = (counts[id] || 0) + 1;
-      return counts;
-    }, {});
-    var valid = saved.every(function (id) {
-      if (!allowed[id]) return false;
-      allowed[id] -= 1;
-      return true;
-    });
-    valid = valid && saved[0] === recommended[0] && saved[saved.length - 1] === recommended[recommended.length - 1];
-    return valid ? saved.slice() : recommended;
+    return window.TripRoutes.route(data,store.getState(),dayId);
   }
 
   function routeNames(ids) {
@@ -213,7 +179,7 @@
     var plan = data.choice_plans[day.id];
     var mode = state.dayModes[day.id] || 'normal';
     var ids = routeForDay(day.id);
-    var groups = plan ? plan.groups.map(function (groupId) {
+    var groups = plan ? plan.groups.filter(function(groupId){return !/^food-/.test(groupId);}).map(function (groupId) {
       var group = data.choice_groups[groupId];
       var selectedKeys = state.selections[groupId] || [];
       return '<section class="trip-choice-group"><header><span>' + escapeHtml(group.type) + '</span><div><h3>' + escapeHtml(group.title) +
@@ -246,6 +212,7 @@
     });
     bindPoiButtons(editor);
     bindRouteSorter(editor, ids);
+    if (window.TripExecution) window.TripExecution.renderMeals(editor,day.id);
     dispatchRoute(day.id);
   }
 
@@ -269,6 +236,7 @@
     var cards = data.days.map(function (day) {
       var ids = routeForDay(day.id);
       var metric = routeMetrics[day.id];
+      if (metric && JSON.stringify(metric.ids) !== JSON.stringify(ids)) metric = null;
       if (metric) totalKm += metric.distanceKm || 0;
       else {
         var match = day.distance.match(/\d+/);
@@ -280,17 +248,19 @@
       return '<article class="trip-plan-day"><header><div><small>' + escapeHtml(day.label) + ' · D' + day.index + '</small><h3>' + escapeHtml(day.title) +
         '</h3></div><span>' + escapeHtml(metric ? metric.distanceKm.toFixed(1) + ' km · ' + metric.durationText : day.distance) + '</span></header>' +
         '<ol>' + ids.map(function (id, index) { var poi = poiById[id]; return poi ? '<li><i>' + (index + 1) + '</i><button type="button" data-poi="' + id + '">' + escapeHtml(poi.name) + '</button></li>' : ''; }).join('') + '</ol>' +
-        (warnings.length ? '<div class="trip-plan-warnings">' + warnings.map(function (warning) { return '<span class="' + warning[0] + '">' + escapeHtml(warning[2]) + '</span>'; }).join('') + '</div>' : '') +
+        (warnings.length ? '<div class="trip-plan-warnings">' + warnings.map(function (warning) { return '<span class="' + warning[0] + '">' + escapeHtml(warning[1]) + '</span>'; }).join('') + '</div>' : '') +
         '<footer><button type="button" data-edit-day="' + day.id + '">编辑当天</button><button type="button" data-map-day="' + day.id + '">查看地图</button></footer></article>';
     }).join('');
     planPanel.innerHTML = '<header class="trip-view-head"><div><p>MY FINAL PLAN</p><h2>我的最终方案</h2><span>选择、顺序与完成状态都保存在当前浏览器</span></div><div class="trip-plan-actions">' +
       '<button type="button" data-plan-action="reset">恢复推荐</button><button type="button" data-plan-action="export">导出 JSON</button><button type="button" data-plan-action="import">导入 JSON</button>' +
       '<button type="button" data-plan-action="share">复制分享链接</button><button type="button" data-plan-action="toggle">' + (planCollapsed ? '展开全部日期' : '收起全部日期') + '</button><button type="button" data-plan-action="print">打印</button></div></header>' +
       '<div class="trip-plan-stats"><span><small>行程</small><b>14 天 / 13 晚</b></span><span><small>当前估算里程</small><b>' + Math.round(totalKm) + ' km</b></span>' +
-      '<span><small>补能停靠</small><b>' + chargeCount + ' 次</b></span><span><small>预算</small><b>' + escapeHtml(data.budget.balanced) + '</b></span></div>' +
+      '<span><small>补能停靠</small><b>' + chargeCount + ' 次</b></span><span><small>初始预算参考（非台账）</small><b>' + escapeHtml(data.budget.balanced) + '</b></span></div>' +
       '<section class="trip-audit"><h3>方案检查 · ' + allWarnings.length + ' 项</h3>' +
       (allWarnings.length ? allWarnings.map(function (warning) { return '<p class="' + warning[1] + '"><b>' + warning[0] + '</b>' + escapeHtml(warning[2]) + '</p>'; }).join('') : '<p class="ok">当前没有明显冲突。</p>') + '</section>' +
       '<div class="trip-plan-grid"' + (planCollapsed ? ' hidden' : '') + '>' + cards + '</div>';
+    if (window.TripHotels) window.TripHotels.render(planPanel);
+    if (window.TripExecution) window.TripExecution.renderBudget(planPanel);
     bindPoiButtons(planPanel);
     planPanel.querySelectorAll('[data-edit-day]').forEach(function (button) {
       button.onclick = function () { selectDay(button.dataset.editDay); showView('journey'); };
@@ -313,7 +283,7 @@
 
   function nextPending(ids, completed) {
     for (var i = 1; i < ids.length; i += 1) {
-      if (!completed[ids[i]]) return { id: ids[i], index: i };
+      if (!window.TripRoutes.status(completed,ids,i)) return { id: ids[i], index: i };
     }
     return null;
   }
@@ -321,7 +291,7 @@
   function nextByType(ids, completed, startIndex, type) {
     for (var i = Math.max(1, startIndex || 1); i < ids.length; i += 1) {
       var poi = poiById[ids[i]];
-      if (poi && !completed[ids[i]] && poi.type === type) return poi;
+      if (poi && !window.TripRoutes.status(completed,ids,i) && poi.type === type) return poi;
     }
     return null;
   }
@@ -342,16 +312,17 @@
     var nextCharge = nextByType(ids, done, nextIndex, 'charge');
     var hotel = ids.map(function (id) { return poiById[id]; }).filter(function (poi) { return poi && poi.type === 'hotel'; }).pop();
     var nextMetric = routeMetrics[day.id];
+    if(nextMetric && JSON.stringify(nextMetric.ids)!==JSON.stringify(ids))nextMetric=null;
     todayPanel.innerHTML = '<header class="trip-view-head trip-today-head"><div><p>' + (realToday === day.id ? 'TODAY · 正在旅途中' : 'PREVIEW · 行前预演') +
       '</p><h2>' + escapeHtml(day.label) + ' · ' + escapeHtml(day.title) + '</h2><span>' + escapeHtml(day.distance) + '</span></div>' +
       '<label>切换日期<select id="today-day-select">' + data.days.map(function (item) { return '<option value="' + item.id + '"' + (item.id === day.id ? ' selected' : '') + '>' + item.label + ' · ' + item.title + '</option>'; }).join('') + '</select></label></header>' +
       '<div class="trip-today-grid"><section class="trip-next-stop">' +
       (nextPoi ? '<span>下一站 · ' + escapeHtml(nextPoi.type) + '</span><button type="button" data-poi="' + nextPoi.id + '"><h3>' + escapeHtml(nextPoi.name) + '</h3><p>' + escapeHtml(nextPoi.route_target.label) + ' · ' + escapeHtml(nextPoi.address) + '</p></button>' +
         '<a class="trip-nav-button" href="' + navLink(fromPoi, nextPoi) + '" target="_blank" rel="noopener">在高德导航下一站</a>' +
-        '<div><button type="button" data-stop-status="done" data-stop-id="' + nextPoi.id + '">已完成</button><button type="button" data-stop-status="skip" data-stop-id="' + nextPoi.id + '">跳过可选项</button></div>' :
+        '<div><button type="button" data-stop-status="done" data-stop-id="' + window.TripRoutes.stopKey(ids,next.index) + '">已完成</button>'+(next.index<ids.length-1?'<button type="button" data-stop-status="skip" data-stop-id="'+window.TripRoutes.stopKey(ids,next.index)+'">跳过可选项</button>':'')+'</div>' :
         '<span>今日路线</span><h3>今天的停靠点都处理完了</h3><p>回酒店休息，别为了补打卡继续加行程。</p>') + '</section>' +
       '<section class="trip-today-route"><header><h3>今日顺序</h3><button type="button" data-today-map>地图</button></header><ol>' +
-      ids.map(function (id, index) { var poi = poiById[id]; return poi ? '<li class="' + (done[id] ? 'is-done' : '') + '"><i>' + (index + 1) + '</i><button type="button" data-poi="' + id + '">' + escapeHtml(poi.name) + '</button><small>' + (done[id] === 'skip' ? '已跳过' : done[id] ? '已完成' : '') + '</small></li>' : ''; }).join('') +
+      ids.map(function (id, index) { var poi = poiById[id], status=window.TripRoutes.status(done,ids,index); return poi ? '<li class="' + (status ? 'is-done' : '') + '"><i>' + (index + 1) + '</i><button type="button" data-poi="' + id + '">' + escapeHtml(poi.name) + '</button><small>' + (status === 'skip' ? '已跳过' : status ? '已完成' : '') + (status?'<button type="button" data-stop-status="" data-stop-id="'+window.TripRoutes.stopKey(ids,index)+'">撤销</button>':'')+'</small></li>' : ''; }).join('') +
       '</ol></section><section class="trip-today-facts"><article><small>不可牺牲</small><b>午睡 ' + escapeHtml(day.nap) + '</b></article>' +
       '<article><small>当前状态</small><b>' + modeLabel(mode) + '</b></article>' +
       '<article><small>预计到达</small><b>' + escapeHtml(nextMetric ? '今日全程 ' + nextMetric.durationText : '以高德实时导航为准') + '</b></article>' +
@@ -368,6 +339,7 @@
     var mapButton = todayPanel.querySelector('[data-today-map]');
     if (mapButton) mapButton.onclick = function () { showView('journey'); setTimeout(function () { document.getElementById('trip-map-panel').scrollIntoView({ behavior: 'smooth' }); }, 100); };
     bindPoiButtons(todayPanel);
+    if (window.TripExecution) window.TripExecution.renderToday(todayPanel,day.id);
   }
 
   function renderCatalog(filter) {
@@ -418,6 +390,7 @@
         morePanel.querySelector('#journal-result').textContent = '浏览器未允许保存';
       }
     };
+    if (window.TripExecution) window.TripExecution.renderMore(morePanel);
   }
 
   function renderAll(reason) {
@@ -449,7 +422,10 @@
       importFile.value = '';
     });
   };
-  window.addEventListener('trip:statechange', function (event) { renderAll(event.detail.reason); });
+  window.addEventListener('trip:statechange', function (event) {
+    renderAll(event.detail.reason);
+    if(!event.detail.saved){var status=document.getElementById('trip-save-status');if(status)status.textContent='仅本次会话生效，请导出备份';}
+  });
   window.addEventListener('trip:route-result', function (event) {
     routeMetrics[event.detail.day] = event.detail;
     if (activeView === 'plan') renderPlan();

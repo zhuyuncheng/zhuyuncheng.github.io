@@ -1,0 +1,24 @@
+.trip-v3 .trip-simulation{min-width:0;overflow-wrap:anywhere}
+.trip-v3 .trip-simulation input,.trip-v3 .trip-simulation select{max-width:100%;box-sizing:border-box;padding:7px;border:1px solid #dce4dd;border-radius:6px;background:#fff;color:#173b2b}
+.trip-v3 .trip-simulation input[type=number]{width:80px}
+.trip-v3 .trip-simulation button{padding:7px 10px;border:1px solid #dce4dd;border-radius:6px;background:#f3f7f3;color:#176747;cursor:pointer;text-align:left;max-width:100%}
+.trip-v3 .trip-simulation-stop{padding:12px 0;border-bottom:1px solid #dce4dd}
+.trip-v3 .trip-simulation-stop p{margin:6px 0}
+.trip-v3 .trip-simulation details{margin-top:18px}
+.trip-v3 .trip-simulation form label{min-width:0}
+.trip-v3 .trip-hotel-budget article{padding:16px 0;border-top:1px solid #dce4dd;min-width:0}
+.trip-v3 .trip-hotel-budget form{display:flex;flex-wrap:wrap;gap:12px;align-items:end}
+.trip-v3 .trip-hotel-budget label{display:grid;gap:6px;max-width:100%}
+.trip-v3 .trip-hotel-budget input{width:120px}
+.trip-v3 .trip-hotel-budget input,.trip-v3 .trip-hotel-budget select,.trip-v3 .trip-hotel-budget button{box-sizing:border-box;max-width:100%;padding:8px;border:1px solid #dce4dd;border-radius:6px;background:#fff;color:#176747}
+.trip-v3 .trip-hotel-budget p{display:block;overflow-wrap:anywhere;background:none;padding:0;margin:10px 0;font-size:.82rem;line-height:1.6;color:#52675b}
+.trip-v3 .trip-execution{background:white;border:1px solid #dce4dd;border-radius:14px;padding:20px;margin:16px 0;min-width:0;overflow-wrap:anywhere}
+.trip-v3 .trip-execution form{display:flex;flex-wrap:wrap;align-items:end;gap:12px;margin:14px 0}
+.trip-v3 .trip-execution fieldset{min-width:0;width:100%;border:1px solid #dce4dd;border-radius:10px;padding:14px}
+.trip-v3 .trip-execution label{display:grid;gap:6px;min-width:0;max-width:100%;margin:8px 0}
+.trip-v3 .trip-execution input,.trip-v3 .trip-execution select,.trip-v3 .trip-execution button{box-sizing:border-box;max-width:100%;padding:9px;border:1px solid #dce4dd;border-radius:7px;background:#f7faf7;color:#176747;font:inherit}
+.trip-v3 .trip-execution input[type=number]{width:120px}
+.trip-v3 .trip-execution h4{flex-basis:100%}
+.trip-v3 .trip-execution button{cursor:pointer;white-space:normal}
+@media(max-width:700px){.trip-v3 .trip-execution{padding:14px}.trip-v3 .trip-execution fieldset,.trip-v3 .trip-execution label{width:100%}.trip-v3 .trip-execution form{display:block}.trip-v3 .trip-execution select{width:100%}.trip-v3 .trip-execution button{margin:4px 0}}
+@media(max-width:700px){.trip-v3 .trip-simulation form{flex-direction:column}.trip-v3 .trip-simulation select{width:100%}}

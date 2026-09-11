@@ -53,6 +53,11 @@
       routeOrders: {},
       dayModes: {},
       completedStops: {},
+      daySettings: {},
+      hotelBudgets: {},
+      meals: {},
+      expenses: {},
+      bookings: {},
       updatedAt: new Date().toISOString()
     };
   }
@@ -94,6 +99,8 @@
       var incoming = input.selections && input.selections[groupId];
       if (Array.isArray(incoming)) {
         incoming = incoming.filter(function (key) { return valid.indexOf(key) > -1; });
+        incoming = incoming.filter(function(key,index) { return incoming.indexOf(key) === index; });
+        if (group.type === '酒店') incoming = incoming.slice(0,1);
         if (incoming.length) base.selections[groupId] = incoming;
       }
     });
@@ -101,6 +108,59 @@
     base.dayModes = input.dayModes && typeof input.dayModes === 'object' ? input.dayModes : {};
     base.completedStops = input.completedStops && typeof input.completedStops === 'object' ? input.completedStops : {};
     base.updatedAt = input.updatedAt || base.updatedAt;
+    (data.days || []).forEach(function(day) {
+      var meals = input.meals && input.meals[day.id];
+      if (meals && typeof meals==='object') {
+        base.meals[day.id]={};
+        ['lunch','dinner'].forEach(function(slot){
+          var v=meals[slot] || {}, out={};
+          ['primary','backup'].forEach(function(key){if(poiById[v[key]] && poiById[v[key]].type==='restaurant')out[key]=v[key];});
+          if(poiById[v.after])out.after=v.after;
+          base.meals[day.id][slot]=out;
+        });
+      }
+      var expenses=input.expenses && input.expenses[day.id];
+      if(expenses && typeof expenses==='object') {
+        base.expenses[day.id]={};
+        ['food','tickets','charge','parking','tolls','other'].forEach(function(key){var n=expenses[key];if(Number.isFinite(n)&&n>=0&&n<=100000)base.expenses[day.id][key]=n;});
+      }
+      var bookings=input.bookings && input.bookings[day.id];
+      if(bookings && typeof bookings==='object') {
+        base.bookings[day.id]={};
+        Object.keys(bookings).forEach(function(id){
+          if(!poiById[id] || !bookings[id] || typeof bookings[id]!=='object')return;
+          var v=bookings[id], out={status:'pending'};
+          if(['pending','booked','confirmed'].indexOf(v.status)>=0)out.status=v.status;
+          ['time','cancel'].forEach(function(key){if(typeof v[key]==='string' && /^2026-\d{2}-\d{2}T\d{2}:\d{2}$/.test(v[key]) && !isNaN(Date.parse(v[key]+':00+08:00')))out[key]=v[key];});
+          base.bookings[day.id][id]=out;
+        });
+      }
+    });
+    Object.keys(input.hotelBudgets || {}).forEach(function (id) {
+      if (!poiById[id] || poiById[id].type !== 'hotel') return;
+      var entry = input.hotelBudgets[id];
+      if (!entry || typeof entry !== 'object') return;
+      var normalized = { rooms:1, status:'pending' };
+      if (Number.isFinite(entry.nightly) && entry.nightly >= 0 && entry.nightly <= 100000) normalized.nightly = entry.nightly;
+      if (Number.isInteger(entry.rooms) && entry.rooms >= 1 && entry.rooms <= 10) normalized.rooms = entry.rooms;
+      if (['pending','booked','confirmed'].indexOf(entry.status) >= 0) normalized.status = entry.status;
+      base.hotelBudgets[id] = normalized;
+    });
+    Object.keys(input.daySettings || {}).forEach(function (id) {
+      if (!(data.days || []).some(function (day) { return day.id === id; })) return;
+      var value = input.daySettings[id];
+      if (!value || typeof value !== 'object') return;
+      base.daySettings[id] = {};
+      base.daySettings[id].stays = {};
+      Object.keys(value.stays || {}).forEach(function (poiId) {
+        var minutes = value.stays[poiId];
+        if (poiById[poiId] && Number.isFinite(minutes) && minutes >= 0 && minutes <= 720) base.daySettings[id].stays[poiId] = minutes;
+      });
+      if (/^([01]\d|2[0-3]):[0-5]\d$/.test(value.departure || '')) base.daySettings[id].departure = value.departure;
+      ['soc', 'target'].forEach(function (key) {
+        if (Number.isFinite(value[key]) && value[key] >= 0 && value[key] <= 100) base.daySettings[id][key] = value[key];
+      });
+    });
     return base;
   }
 
@@ -129,6 +189,7 @@
     window.dispatchEvent(new CustomEvent('trip:statechange', {
       detail: { reason: reason || 'update', state: getState(), saved: saved }
     }));
+    return saved;
   }
 
   function getState() {
@@ -149,6 +210,33 @@
     emit('day');
   }
 
+  function setDaySettings(dayId, settings) {
+    var next = getState();
+    next.daySettings[dayId] = settings;
+    state = normalize(next);
+    emit('day-settings');
+  }
+
+  function setHotelBudget(id, budget) {
+    var next = getState();
+    next.hotelBudgets[id] = budget;
+    Object.keys(next.bookings).forEach(function(dayId){
+      if(next.bookings[dayId][id])next.bookings[dayId][id].status=budget.status;
+    });
+    state = normalize(next);
+    emit('hotel-budget');
+  }
+
+  function setExecution(field,dayId,value) {
+    if(['meals','expenses','bookings'].indexOf(field)<0)return;
+    var next=getState();next[field][dayId]=value;
+    if(field==='bookings')Object.keys(value || {}).forEach(function(id){
+      if(poiById[id] && poiById[id].type==='hotel' && value[id])next.hotelBudgets[id]=Object.assign({},next.hotelBudgets[id],{status:value[id].status});
+    });
+    if(field==='meals')delete next.routeOrders[dayId];
+    state=normalize(next);return emit(field);
+  }
+
   function toggleChoice(groupId, key) {
     var group = data.choice_groups[groupId];
     if (!group) return;
@@ -164,6 +252,9 @@
       if (!keys.length) keys = [optionKey(group.options[0])];
     }
     state.selections[groupId] = keys;
+    Object.keys(data.choice_plans || {}).forEach(function (dayId) {
+      if (data.choice_plans[dayId].groups.indexOf(groupId) >= 0 || data.choice_plans[dayId].sequence.indexOf('@' + groupId) >= 0) delete state.routeOrders[dayId];
+    });
     delete state.routeOrders[state.selectedDay];
     emit('choice');
   }
@@ -199,6 +290,11 @@
       routeOrders: state.routeOrders,
       dayModes: state.dayModes,
       completedStops: state.completedStops,
+      daySettings: state.daySettings,
+      hotelBudgets: state.hotelBudgets,
+      meals: state.meals,
+      expenses: state.expenses,
+      bookings: state.bookings,
       updatedAt: state.updatedAt
     };
   }
@@ -217,6 +313,7 @@
 
   function importState(input) {
     if (!input || input.tripId !== data.trip.id) throw new Error('这不是山东半岛 2026 行程配置');
+    if (input.schemaVersion && input.schemaVersion > SCHEMA_VERSION) throw new Error('方案版本高于当前页面，请先更新页面');
     state = normalize(input);
     emit('import');
   }
@@ -236,6 +333,9 @@
     groupSelections: groupSelections,
     optionKey: optionKey,
     setSelectedDay: setSelectedDay,
+    setDaySettings: setDaySettings,
+    setHotelBudget: setHotelBudget,
+    setExecution: setExecution,
     toggleChoice: toggleChoice,
     setRouteOrder: setRouteOrder,
     setDayMode: setDayMode,

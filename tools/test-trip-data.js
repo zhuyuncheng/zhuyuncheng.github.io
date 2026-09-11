@@ -122,8 +122,24 @@ assert.ok(runtime.store.getState().selections['attraction-penglai'].includes('a-
 runtime.store.setRouteOrder('d5', ['a-weifang', 'a-penglai', 'h-yantai-a']);
 const savedState = JSON.parse(runtime.memory.get('trip-plan-v3'));
 assert.deepStrictEqual(savedState.routeOrders.d5, ['a-weifang', 'a-penglai', 'h-yantai-a']);
+runtime.store.setDaySettings('d5', {departure:'09:30',soc:75,target:85,stays:{'a-penglai':120}});
+assert.equal(runtime.store.getState().daySettings.d5.stays['a-penglai'],120);
+runtime.store.importState(runtime.store.getState());
+assert.equal(runtime.store.getState().daySettings.d5.departure,'09:30');
+runtime.store.setDaySettings('d5', {departure:'99:99',soc:-1,target:101,stays:{'a-penglai':-20}});
+assert.equal(runtime.store.getState().daySettings.d5.soc,undefined);
+assert.equal(runtime.store.getState().daySettings.d5.stays['a-penglai'],undefined);
 
 // 旧版选择迁移。
+runtime.store.setHotelBudget('h-yantai-a',{nightly:650.5,rooms:2,status:'booked'});
+runtime.store.importState(runtime.store.getState());
+assert.equal(runtime.store.getState().hotelBudgets['h-yantai-a'].nightly,650.5);
+assert.equal(runtime.store.getState().hotelBudgets['h-yantai-a'].status,'booked');
+runtime.store.setHotelBudget('h-yantai-a',{nightly:-5,rooms:0,status:'invalid'});
+assert.equal(runtime.store.getState().hotelBudgets['h-yantai-a'].nightly,undefined);
+runtime.store.setRouteOrder('d6',['h-yantai-a','a-yantaishan','h-yantai-a']);
+runtime.store.toggleChoice('hotel-yantai','h-yantai-b');
+assert.equal(runtime.store.getState().routeOrders.d6,undefined);
 runtime = makeStore({ 'trip-choice-v2-hotel-yantai': JSON.stringify('h-yantai-b') });
 assert.deepStrictEqual(Array.from(runtime.store.getState().selections['hotel-yantai']), ['h-yantai-b']);
 
@@ -159,4 +175,19 @@ assert.strictEqual(detectRouteConflicts(data.days[0], ['a-beijing', 'a-weifang']
 assert.strictEqual(detectRouteConflicts(data.days[0], defaultRoutes[0]).missingCharge, false);
 assert.strictEqual(detectRouteConflicts(data.days[0], ['a-beijing', 'a-penglai', 'a-sanxian', 'a-yantaishan', 'a-underwater', 'r-yantai', 'c-yantai', 'h-yantai-a']).overloaded, true);
 
+const executionRuntime=makeStore();
+executionRuntime.store.setExecution('meals','d5',{lunch:{primary:'r-yantai',backup:'not-a-poi',after:'a-penglai'},dinner:{primary:'h-yantai-a'}});
+executionRuntime.store.setExecution('expenses','d5',{food:100,parking:0,tolls:-5,other:'bad'});
+executionRuntime.store.setExecution('bookings','d5',{'a-penglai':{status:'booked',time:'2026-09-27T10:30',cancel:'bad'}});
+const restoredExecution=makeStore(Object.fromEntries(executionRuntime.memory)).store.getState();
+assert.equal(restoredExecution.expenses.d5.food,100);
+assert.equal(restoredExecution.expenses.d5.parking,0);
+assert.equal(restoredExecution.expenses.d5.tolls,undefined);
+assert.equal(restoredExecution.bookings.d5['a-penglai'].time,'2026-09-27T10:30');
+assert.equal(restoredExecution.bookings.d5['a-penglai'].cancel,undefined);
+assert.ok(!restoredExecution.meals.d5.lunch.backup);
+assert.ok(!restoredExecution.meals.d5.dinner.primary);
+executionRuntime.store.setExecution('bookings','d5',{'h-yantai-a':{status:'booked'}});
+executionRuntime.store.setHotelBudget('h-yantai-a',{nightly:600,rooms:1,status:'confirmed'});
+assert.equal(executionRuntime.store.getState().bookings.d5['h-yantai-a'].status,'confirmed');
 console.log(`trip data OK: ${data.days.length} days, ${data.pois.length} POIs, ${Object.keys(data.choice_groups).length} groups`);

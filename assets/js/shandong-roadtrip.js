@@ -208,6 +208,16 @@
     try { sessionStorage.setItem(cacheKey(from, to), JSON.stringify({ savedAt: Date.now(), result: result })); } catch (error) {}
   }
 
+  function publishLeg(ids, index, result) {
+    var route = result && result.routes && result.routes[0];
+    if (!route) return;
+    window.dispatchEvent(new CustomEvent('trip:leg-result', { detail: {
+      day: activeDay, ids: ids.slice(), index: index,
+      distanceKm: route.distance / 1000, durationSeconds: route.time,
+      policy: document.getElementById('route-policy').value
+    } }));
+  }
+
   function calculateLegs(ids, token, index, html) {
     if (token !== requestToken) return;
     if (index >= ids.length - 1) {
@@ -218,6 +228,7 @@
     var from = poiById[ids[index]], to = poiById[ids[index + 1]];
     var cached = readLegCache(from, to);
     if (cached) {
+      publishLeg(ids, index, cached);
       html.push(legCard(from, to, cached, index));
       calculateLegs(ids, token, index + 1, html);
       return;
@@ -235,6 +246,7 @@
       settled = true;
       clearTimeout(timeout);
       if (status === 'complete') writeLegCache(from, to, result);
+      if (status === 'complete') publishLeg(ids, index, result);
       html.push(legCard(from, to, status === 'complete' ? result : null, index));
       setTimeout(function () { calculateLegs(ids, token, index + 1, html); }, 120);
     });
@@ -249,8 +261,10 @@
 
   function planRoute(dayId, ids) {
     activeDay = dayId;
-    activeIds = ids.filter(function (id) { return poiById[id]; }).slice(0, 18);
+    activeIds = ids.filter(function (id) { return poiById[id]; });
     requestToken += 1;
+    window.dispatchEvent(new CustomEvent('trip:route-start',{detail:{day:dayId,ids:activeIds.slice()}}));
+    if(activeIds.length>18){drawFallback(activeIds);fallbackLegs(activeIds,'停靠点超过高德途经点限制，请减少至 18 个以内；已保留所有点位。');return;}
     var token = requestToken;
     applyFilter();
     drawFallback(activeIds);
@@ -300,6 +314,7 @@
       var roads = uniqueRoads(route.steps || []).slice(0, 8);
       var metric = {
         day: dayId,
+        ids: activeIds.slice(),
         distanceKm: route.distance / 1000,
         durationText: durationText(route.time),
         durationSeconds: route.time,
@@ -327,6 +342,23 @@
       marker.openPopup();
     }
   }
+
+  window.TripMapPreview = function(ids, dayId) {
+    return new Promise(function(resolve,reject){
+      if(!window.AMap || !AMap.Driving || ids.length<2 || ids.length>18){reject(new Error('高德路线服务不可用或点数超限'));return;}
+      var service=new AMap.Driving({policy:policyValue(),ferry:1,extensions:'all'}),settled=false;
+      var timer=setTimeout(function(){if(!settled){settled=true;reject(new Error('高德校核超时'));}},9000);
+      var points=ids.map(function(id){var c=coordinates(poiById[id]);return new AMap.LngLat(c.lng,c.lat);});
+      var originInput=document.getElementById('route-origin');
+      var origin=dayId==='d1' && originInput && originInput.value.trim()?{keyword:originInput.value.trim(),city:'北京'}:points[0];
+      service.search(origin,points[points.length-1],{waypoints:points.slice(1,-1)},function(status,result){
+        if(settled)return;settled=true;clearTimeout(timer);
+        var r=result && result.routes && result.routes[0];
+        if(status!=='complete'||!r){reject(new Error('高德未返回可用路线'));return;}
+        resolve({distanceKm:r.distance/1000,durationSeconds:r.time,tolls:r.tolls==null?null:r.tolls});
+      });
+    });
+  };
 
   if (mapElement) {
     if (window.AMap) initAMap();
