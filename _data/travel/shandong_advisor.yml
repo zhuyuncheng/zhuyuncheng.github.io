@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "reviewed_at": "2026-09-14",
+  "presets": {
+    "d5": {"group":"attraction-penglai","light":["a-yantaishan"],"standard":["a-penglai"],"rich":["a-penglai","a-yantaishan"],"lunch":"f-penglai","dinner":"r-yantai-alt","note":"换城日不叠加两个大型收费景区；轻松版跳过蓬莱，餐饮移到烟台。"},
+    "d6": {"group":"attraction-yantai","light":["a-yantaishan"],"standard":["a-yantaishan","a-suo"],"rich":["a-yantaishan","a-suo","a-fisher"],"lunch":"f-yantai","dinner":"r-yantai-alt","note":"老城为主，丰富版增加渔人码头；养马岛留作单独替换，不与老城多点强行叠加。"},
+    "d8": {"group":"attraction-weihai","light":["a-haiyuan"],"standard":["a-liugong"],"rich":["a-liugong","a-haiyuan"],"lunch":"f-weihai-mall","dinner":"f-weihai","note":"登岛版包含候船风险；午睡时间无法保证，宝宝需要固定回房午睡时选轻松版。"},
+    "d9": {"group":"attraction-rongcheng","light":["a-naxianghai"],"standard":["a-naxianghai","a-jinshi"],"rich":["a-chengshan","a-naxianghai"],"lunch":"f-rongcheng","dinner":"f-weihai-mall","note":"丰富版是长距离替代组合，不是全部景点叠加；餐厅位置可能绕行，采用前比较路线。"},
+    "d10": {"group":"attraction-qingdao-east","light":["a-mayfourth"],"standard":["a-olympic"],"rich":["a-olympic","a-mayfourth"],"lunch":"f-qingdao-east","dinner":"r-qingdao-east-alt","note":"长途抵达日，午餐另在高速休息时解决；这里安排的餐厅为抵达后的晚餐，散步可随时取消。"},
+    "d11": {"group":"attraction-qingdao-old","light":["a-zhanqiao"],"standard":["a-zhanqiao","a-cathedral"],"rich":["a-zhanqiao","a-cathedral","a-xiaoyushan"],"lunch":"f-qingdao","dinner":"r-qingdao-alt","note":"先走老城，再按体力决定登高；丰富版坡路多，背带比推车省事，不能视为固定无障碍线路。"},
+    "d12": {"group":"attraction-qingdao-family","light":["a-badaguan"],"standard":["a-underwater"],"rich":["a-underwater","a-mayfourth"],"lunch":"f-qingdao","dinner":"f-qingdao-east","note":"海底世界与极地公园二选一；丰富版夜景放在休息后，不追逐每场表演。"}
+  },
+  "minutes": {"a-penglai":150,"a-penglai-ocean":180,"a-sanxian":150,"a-yantaishan":90,"a-suo":45,"a-fisher":45,"a-yangma":150,"a-changyu":90,"a-liugong":240,"a-haiyuan":60,"a-banyue":60,"a-huoju":40,"a-naxianghai":90,"a-jinshi":45,"a-chengshan":150,"a-olympic":60,"a-xiaomai":60,"a-mayfourth":40,"a-zhanqiao":60,"a-cathedral":35,"a-xiaoyushan":75,"a-badaguan":90,"a-signalhill":60,"a-underwater":150,"a-polar":210},
+  "evidence": {
+    "a-liugong": {"text":"2026 年客运中心公开信息列有区域停车设施。2015 年官网曾说明 A 区靠近客运中心，但不能据此确认 2026 年入口与分区不变。导航先查客运中心停车场，到场遵循现行指引。","source":"https://qsyxxgk.weihai.gov.cn/art/2026/4/20/art_85585_4594448.html","extra_source":"https://www.liugongdao.com.cn/index.php?a=show&c=index&catid=10&id=371&m=content"},
+    "a-penglai": {"text":"政府公布过蓬莱阁、田横山停车场五一优惠政策。该公告不是国庆承诺；电车免费时长和入口需出发前确认。","source":"https://www.penglai.gov.cn/col/col13354/art/2026/art_d682b5d2b4bf4ee799c1b822b2662abc.html"},
+    "a-underwater": {"text":"青岛政务资料确认地址为莱阳路 2 号，邻近鲁迅公园和第一海水浴场；该地址不是已核验的停车场入口。","source":"https://www.qingdao.gov.cn/yfqd/qdwl/cjfw/wyqtsjd/202009/t20200910_521986.shtml"},
+    "h-yantai-b": {"text":"希尔顿官网列有婴儿床服务；数量、预留、收费及所订房型适用情况仍需联系酒店。官网公布电话：0535-6798888。","source":"https://www.hilton.com/zh-hans/hotels/yntjrhi-hilton-yantai/hotel-info/"}
+  }
+}

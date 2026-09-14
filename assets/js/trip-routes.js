@@ -13,7 +13,9 @@
         .sort(function(a,b){return (a.route_priority || 0)-(b.route_priority || 0);}).forEach(function(o){result.push(o.id);});
     });
     var meals = state.meals && state.meals[dayId];
-    if (!meals || result.length<2) return result;
+    if(result.length<2)return result;
+    (state.extraStops&&state.extraStops[dayId]||[]).forEach(function(id){if(byId[id]&&result.indexOf(id)<0)result.splice(result.length-1,0,id);});
+    if (!meals)return addHotelReturn(result,byId,state,dayId);
     result = result.filter(function(id){return byId[id].type!=='restaurant';});
     ['dinner','lunch'].forEach(function(slot){
       var meal = meals[slot];
@@ -22,7 +24,16 @@
       if (at<0) at = slot==='dinner' ? result.length-2 : Math.min(1,result.length-2);
       result.splice(Math.min(at+1,result.length-1),0,meal.primary);
     });
-    return result;
+    return addHotelReturn(result,byId,state,dayId);
+  }
+  function addHotelReturn(ids,byId,state,dayId){
+    if(!state.outingModes||state.outingModes[dayId]!=='return'||ids[0]!==ids[ids.length-1]||!byId[ids[0]]||byId[ids[0]].type!=='hotel')return ids;
+    var lunch=state.meals&&state.meals[dayId]&&state.meals[dayId].lunch&&state.meals[dayId].lunch.primary;
+    var at=lunch?ids.indexOf(lunch):ids.findIndex(function(id){return byId[id].type==='restaurant';});
+    if(at<=0)at=ids.findIndex(function(id){return byId[id].type==='attraction';});
+    // No extra excursion after lunch means the final hotel already is the return stop.
+    if(at>0&&at<ids.length-2&&ids[at+1]!==ids[0])ids.splice(at+1,0,ids[0]);
+    return ids;
   }
   function route(data,state,dayId) {
     var rec = recommended(data,state,dayId), saved = state.routeOrders[dayId];

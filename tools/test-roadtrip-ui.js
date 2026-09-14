@@ -18,6 +18,8 @@ assert.ok(head.includes("site.time | date: '%s'"), '旅行资源必须携带构�
 [
   '/assets/css/roadtrip.css',
   '/assets/css/roadtrip-mobile.css',
+  '/assets/css/trip-advisor.css',
+  '/assets/js/trip-advisor.js',
   '/assets/js/trip-store.js',
   '/assets/js/shandong-roadtrip.js',
   '/assets/js/trip-details.js',

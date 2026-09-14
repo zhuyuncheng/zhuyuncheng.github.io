@@ -55,6 +55,10 @@
       completedStops: {},
       daySettings: {},
       hotelBudgets: {},
+      hotelChecks: {},
+      wishes: [],
+      extraStops: {},
+      outingModes: {},
       meals: {},
       expenses: {},
       bookings: {},
@@ -108,6 +112,13 @@
     base.dayModes = input.dayModes && typeof input.dayModes === 'object' ? input.dayModes : {};
     base.completedStops = input.completedStops && typeof input.completedStops === 'object' ? input.completedStops : {};
     base.updatedAt = input.updatedAt || base.updatedAt;
+    base.wishes=Array.isArray(input.wishes)?Array.from(new Set(input.wishes.filter(function(id){return poiById[id]&&poiById[id].type==='attraction';}))):[];
+    data.days.forEach(function(day){
+      var ids=input.extraStops&&input.extraStops[day.id];
+      if(Array.isArray(ids))base.extraStops[day.id]=Array.from(new Set(ids.filter(function(id){return poiById[id]&&poiById[id].type==='attraction';}))).slice(0,6);
+      var mode=input.outingModes&&input.outingModes[day.id];if(mode==='return'||mode==='away')base.outingModes[day.id]=mode;
+    });
+    Object.keys(input.hotelChecks||{}).forEach(function(id){if(poiById[id]&&poiById[id].type==='hotel'&&Array.isArray(input.hotelChecks[id]))base.hotelChecks[id]=Array.from(new Set(input.hotelChecks[id].filter(function(n){return Number.isInteger(n)&&n>=0&&n<7;})));});
     (data.days || []).forEach(function(day) {
       var meals = input.meals && input.meals[day.id];
       if (meals && typeof meals==='object') {
@@ -151,6 +162,10 @@
       var value = input.daySettings[id];
       if (!value || typeof value !== 'object') return;
       base.daySettings[id] = {};
+      if(Number.isFinite(value.napMinutes)&&value.napMinutes>=0&&value.napMinutes<=180)base.daySettings[id].napMinutes=value.napMinutes;
+      base.daySettings[id].napAtHotel=value.napAtHotel===true;
+      base.daySettings[id].mealTimes={};
+      Object.keys(value.mealTimes||{}).forEach(function(poiId){var n=value.mealTimes[poiId];if(poiById[poiId]&&poiById[poiId].type==='restaurant'&&Number.isInteger(n)&&n>=0&&n<1440)base.daySettings[id].mealTimes[poiId]=n;});
       base.daySettings[id].stays = {};
       Object.keys(value.stays || {}).forEach(function (poiId) {
         var minutes = value.stays[poiId];
@@ -292,6 +307,10 @@
       completedStops: state.completedStops,
       daySettings: state.daySettings,
       hotelBudgets: state.hotelBudgets,
+      hotelChecks: state.hotelChecks,
+      wishes: state.wishes,
+      extraStops: state.extraStops,
+      outingModes: state.outingModes,
       meals: state.meals,
       expenses: state.expenses,
       bookings: state.bookings,

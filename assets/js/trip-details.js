@@ -110,6 +110,8 @@
       '<footer class="trip-drawer-links">' + linksHtml(poi) + '<button type="button" data-drawer-map="' + poi.id + '">地图定位</button></footer></div>';
 
     drawer.querySelectorAll('[data-close-drawer]').forEach(function (button) { button.onclick = close; });
+    if(window.TripAdvisor)drawer.querySelector('[data-detail-panel="parking"]').insertAdjacentHTML('beforeend',window.TripAdvisor.lastMile(poi));
+    if(window.TripExperience)window.TripExperience.play(poi,drawer.querySelector('[data-detail-panel="overview"]'));
     drawer.querySelectorAll('[data-detail-tab]').forEach(function (button) {
       button.onclick = function () {
         drawer.querySelectorAll('[data-detail-tab]').forEach(function (tab) { tab.classList.toggle('is-active', tab === button); });

@@ -23,6 +23,8 @@ excerpt: 一套可执行的山东半岛亲子电车自驾决策台：自由选�
 
 <script>document.body.classList.add('roadtrip-page');</script>
 <script id="shandong-trip-data" type="application/json">{{ site.data.travel.shandong_2026 | jsonify }}</script>
+<script id="shandong-advisor-data" type="application/json">{{ site.data.travel.shandong_advisor | jsonify }}</script>
+<span id="trip-family-base" data-url="https://zhuyuncheng.github.io/travel/family/" hidden></span>
 <output id="trip-runtime-error" class="trip-runtime-error" hidden></output>
 
 <main class="roadtrip trip-v3" id="roadtrip-app">

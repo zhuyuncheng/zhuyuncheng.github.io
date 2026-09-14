@@ -43,6 +43,7 @@
           '<p>相关日期 '+stay.days.map(function(dayId){return '<button type="button" data-hotel-day="'+dayId+'">'+esc(dayId.toUpperCase())+'</button>';}).join(' ')+'</p></article>';
       }).join('');
     root.querySelector('.trip-plan-stats').insertAdjacentElement('afterend',section);
+    if(window.TripAdvisor)window.TripAdvisor.renderHotels(section);
     section.querySelectorAll('[data-hotel-budget]').forEach(function(form){form.onsubmit=function(e){e.preventDefault();var v=form.elements;store.setHotelBudget(form.dataset.hotelBudget,{nightly:v.nightly.value===''?null:Number(v.nightly.value),rooms:Number(v.rooms.value),status:v.status.value});};});
     section.querySelectorAll('[data-hotel-group]').forEach(function(select){select.onchange=function(){store.toggleChoice(select.dataset.hotelGroup,select.value);};});
     section.querySelectorAll('[data-hotel-poi]').forEach(function(button){button.onclick=function(){window.dispatchEvent(new CustomEvent('trip:openpoi',{detail:button.dataset.hotelPoi}));};});

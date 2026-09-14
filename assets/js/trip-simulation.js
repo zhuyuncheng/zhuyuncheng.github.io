@@ -19,6 +19,7 @@
     var total = metric ? metric.distanceKm : sum;
     var rows = [];
     var calculatedKm = 0;
+    var napUsed=false;
     pois.forEach(function (poi, i) {
       var km = i ? (sum ? legs[i-1]/sum*total : 0) : 0;
       var drive = i ? (metric && sum ? legs[i-1]/sum*metric.durationSeconds/60 : km/(km > 60 ? 75 : 30)*60) : 0;
@@ -29,15 +30,18 @@
       low -= km/400*100; high -= km/550*100;
       var arrivalRaw=time;
       var appointment=settings.appointments && settings.appointments[poi.id];
+      var booked=Number.isFinite(appointment);
+      if(!Number.isFinite(appointment)&&settings.mealTimes)appointment=settings.mealTimes[poi.id];
       if(i && Number.isFinite(appointment))time=Math.max(time,appointment);
       var stay = i === 0 || i === pois.length-1 ? 0 : ({ attraction:90, restaurant:60, charge:40, hotel:0, anchor:0 }[poi.type] || 30);
       if (i > 0 && i < pois.length-1 && settings.stays && Number.isFinite(settings.stays[poi.id])) stay = settings.stays[poi.id];
-      var row = { id:poi.id, arrival:Math.round(time), low:low, high:high, km:km, stay:stay, exact:Boolean(exact),late:i&&Number.isFinite(appointment)?Math.max(0,Math.round(arrivalRaw-appointment)):0 };
+      var row = { id:poi.id, arrival:Math.round(time), low:low, high:high, km:km, stay:stay, exact:Boolean(exact),wait:Math.round(time-arrivalRaw),late:i&&booked?Math.max(0,Math.round(arrivalRaw-appointment)):0 };
       if (i && poi.type === 'charge') {
         low = Math.max(low, settings.target == null ? 80 : settings.target);
         high = Math.max(high, low);
       }
       time += stay + (stay && poi.type !== 'charge' ? 15 : 0);
+      if(i>0 && i<pois.length-1 && !napUsed && settings.napMinutes && (settings.napAtHotel?(poi.type==='hotel'&&poi.id===pois[0].id):poi.type==='restaurant')){time+=settings.napMinutes;row.nap=settings.napMinutes;napUsed=true;}
       row.leave = Math.round(time);
       rows.push(row);
     });
@@ -68,12 +72,15 @@
     section.innerHTML = '<h3>当天行程试算</h3><p>调整出发时间和电量，查看到达顺序与补能余量。</p>' +
       '<form style="display:flex;flex-wrap:wrap;gap:12px"><label>出发时间 <input name="departure" type="time" required value="'+esc(settings.departure)+'"></label>' +
       '<label>出发电量 % <input style="width:65px" name="soc" type="number" min="0" max="100" required value="'+settings.soc+'"></label>' +
+      '<label>餐后休息预算（分钟） <input name="nap" type="number" min="0" max="180" required value="'+(settings.napMinutes||0)+'"></label>'+
       '<label>补能目标 % <input style="width:65px" name="target" type="number" min="0" max="100" required value="'+settings.target+'"></label><button type="submit">更新试算</button></form>' +
       '<p>'+ (metric ? '已接入高德结果；每站标明分段算路或粗估。到达时间包含停留预算，不代表未来实时路况。' : '尚无该路线高德结果：里程按直线距离 × 1.3 粗估，不能作为导航依据。') +'</p>' +
       '<p>预计 '+Math.round(result.km)+' km · '+clock(result.end)+' 到达终点</p>' +
       result.rows.map(function(row, i) {
         var risk = row.low < 20 ? ' · 电量可能低于 20%，优先安排补能' : '';
         if(row.late)risk+=' · 预计晚于预约 '+row.late+' 分钟';
+        if(row.nap)risk+=' · '+(settings.napAtHotel?'回酒店':'餐后')+'预留休息 '+row.nap+' 分钟'+(settings.napAtHotel?'（房间可用性需确认）':'（未指定午睡场所）');
+        if(row.wait)risk+=' · 含饭点/预约前等待 '+row.wait+' 分钟';
         var nap = pois[i].type === 'attraction' && row.arrival < 870 && row.leave > 750 ? ' · 与 12:30–14:30 午睡重叠' : '';
         return '<div class="trip-simulation-stop"><button type="button" data-sim-poi="'+esc(row.id)+'">'+clock(row.arrival)+' '+esc(pois[i].name)+'</button><p><small>'+ (i ? (row.exact ? '高德分段' : '路段粗估')+' · '+Math.round(row.km)+' km · ' : '')+'到达电量估算 '+Math.round(row.low)+'–'+Math.round(row.high)+'%'+esc(risk+nap)+'</small></p>'+(i > 0 && i < pois.length-1 ? '<label>停留分钟 <input type="number" min="0" max="720" data-stay="'+esc(row.id)+'" value="'+row.stay+'"></label>' : '')+'</div>';
       }).join('') + '<small>按满电实际续航 400–550 km 试算；负值表示当前补能安排不可行。停留时长可修改，另加停车步行 15 分钟。补能后假设达到目标电量，需现场确认；已填写的当天预约时间参与排程，营业时间仍需核验。</small>';
@@ -81,7 +88,7 @@
     section.querySelector('form').onsubmit = function(event) {
       event.preventDefault();
       var form = event.currentTarget;
-      store.setDaySettings(id, Object.assign({}, settings, { departure:form.elements.departure.value, soc:Number(form.elements.soc.value), target:Number(form.elements.target.value) }));
+      store.setDaySettings(id, Object.assign({}, settings, { departure:form.elements.departure.value, soc:Number(form.elements.soc.value), target:Number(form.elements.target.value),napMinutes:Number(form.elements.nap.value) }));
     };
     section.querySelectorAll('[data-stay]').forEach(function(input) {
       input.onchange = function() {

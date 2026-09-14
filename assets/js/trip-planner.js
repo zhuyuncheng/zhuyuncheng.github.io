@@ -213,6 +213,8 @@
     bindPoiButtons(editor);
     bindRouteSorter(editor, ids);
     if (window.TripExecution) window.TripExecution.renderMeals(editor,day.id);
+    if (window.TripAdvisor) window.TripAdvisor.renderEditor(editor,day.id);
+    if (window.TripExperience) window.TripExperience.editor(editor,day.id);
     dispatchRoute(day.id);
   }
 
@@ -357,6 +359,7 @@
       button.onclick = function () { renderCatalog(button.dataset.catalogFilter); };
     });
     bindPoiButtons(catalogPanel);
+    if(window.TripExperience)window.TripExperience.catalog(catalogPanel);
   }
 
   function copyText(value, button, success) {
@@ -391,6 +394,7 @@
       }
     };
     if (window.TripExecution) window.TripExecution.renderMore(morePanel);
+    if(window.TripExperience)window.TripExperience.sharing(morePanel);
   }
 
   function renderAll(reason) {

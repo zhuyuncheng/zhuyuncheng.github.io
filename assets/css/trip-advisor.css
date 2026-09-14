@@ -1,0 +1,19 @@
+.trip-v3 .trip-advisor{margin:20px 0;padding:18px;border:1px solid #cadbd1;border-radius:14px;background:#f5faf6;min-width:0;overflow-wrap:anywhere}
+.trip-v3 .trip-advisor h3,.trip-v3 .trip-advisor h4{margin:0 0 12px;color:#183c2b}
+.trip-v3 .trip-advisor p,.trip-v3 .trip-advisor li,.trip-v3 .trip-advisor label,.trip-v3 .trip-advisor dd,.trip-v3 .trip-advisor dt{font-size:.8rem;line-height:1.65;background:none;color:#41594d}
+.trip-v3 .trip-advisor-actions{display:flex;gap:8px;flex-wrap:wrap}
+.trip-v3 .trip-advisor button,.trip-v3 .trip-advisor select{max-width:100%;padding:10px 12px;border:1px solid #b8cec0;border-radius:8px;background:white;color:#175f3c;white-space:normal;font:inherit;cursor:pointer}
+.trip-v3 .trip-advisor button:focus-visible,.trip-v3 .trip-advisor select:focus-visible,.trip-v3 .trip-advisor summary:focus-visible{outline:3px solid #297650;outline-offset:3px}
+.trip-v3 .trip-advisor [data-adopt],.trip-v3 .trip-advisor [data-package]{background:#1e5139;color:white}
+.trip-v3 .trip-advisor details{margin:14px 0}.trip-v3 .trip-advisor summary{cursor:pointer;padding:10px 0;font-weight:700}
+.trip-v3 .trip-advisor-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:12px}
+.trip-v3 .trip-advisor-grid article{min-width:0;background:white;padding:14px;border:1px solid #dae4dd;border-radius:12px}
+.trip-v3 .trip-advisor figure{margin:0 0 12px}.trip-v3 .trip-advisor figure img{width:100%;height:160px;object-fit:cover;border-radius:8px}.trip-v3 .trip-advisor figcaption{font-size:.65rem;color:#697b70;line-height:1.5}
+.trip-v3 .trip-advisor dl{margin:10px 0}.trip-v3 .trip-advisor dt{font-weight:700;margin-top:12px}.trip-v3 .trip-advisor dd{margin:2px 0}
+.trip-v3 .trip-advisor .trip-advisor-disclaimer,.trip-v3 .trip-advisor-mile .trip-advisor-disclaimer{color:#785b2a;font-size:.75rem}
+.trip-v3 .trip-advisor .trip-advisor-warning{color:#a43b1f;font-weight:700}
+.trip-v3 .trip-advisor label{display:block;margin:8px 0}.trip-v3 .trip-advisor input[type=checkbox]{width:20px;height:20px;vertical-align:middle}
+.trip-v3 .trip-advisor-mile{padding:14px;background:#f5faf6;border-radius:12px;overflow-wrap:anywhere}.trip-v3 .trip-advisor-mile p{font-size:.8rem;line-height:1.7}
+.trip-v3 #shandong-map{position:relative;isolation:isolate;z-index:0}
+@media(max-width:700px){.trip-v3 .trip-advisor{padding:12px}.trip-v3 .trip-advisor-grid{grid-template-columns:1fr}.trip-v3 .trip-advisor select{width:100%}.trip-v3 .trip-advisor button{font-size:.82rem}}
+@media print{.trip-v3 .trip-advisor{display:none}}
