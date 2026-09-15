@@ -1,0 +1,32 @@
+flowchart TD
+    subgraph phase1 [2020-2022 工具整合阶段]
+        A1[CI Engine]
+        A2[CD Orchestrator]
+        A3[Feature Flags]
+        A4[CCM]
+    end
+
+    subgraph phase2 [2022-2024 平台化阶段]
+        B1[统一 Pipeline 引擎]
+        B2[统一 RBAC/治理]
+        B3[GitOps + IaCM]
+        B4[STO + SCS 安全层]
+        B5[IDP + SEI 开发者层]
+    end
+
+    subgraph phase3 [2024-2026 AI-Native 阶段]
+        C1[AI Agents]
+        C2[MCP Protocol]
+        C3[Agentic Workflows]
+        C4[Autonomous DevOps]
+    end
+
+    A1 --> B1
+    A2 --> B1
+    A3 --> B2
+    A4 --> B2
+    B1 --> C1
+    B2 --> C2
+    B3 --> C3
+    B4 --> C3
+    B5 --> C4

@@ -1,0 +1,51 @@
+@startuml multi-agent
+skinparam backgroundColor #ffffff
+skinparam defaultFontColor #1e293b
+skinparam defaultFontSize 12
+skinparam componentBorderColor #7c3aed
+skinparam componentBackgroundColor #f5f3ff
+skinparam componentFontColor #1e293b
+skinparam arrowColor #7c3aed
+skinparam packageBorderColor #94a3b8
+skinparam packageBackgroundColor #f8fafc
+skinparam noteBorderColor #f59e0b
+skinparam noteBackgroundColor #fffbeb
+skinparam noteFontColor #92400e
+
+title 多 Agent 编排模式
+
+package "Harness Orchestration Layer" {
+    component "Orchestrator Agent\n规划 · 分解 · 分配" as orch #ede9fe
+
+    package "Execution Agents（并行执行）" {
+        component "Coding Agent\n功能实现" as coder #dbeafe
+        component "Test Agent\n测试编写" as tester #dbeafe
+    }
+
+    component "Review Agent\n代码审查 · 汇总" as reviewer #dcfce7
+}
+
+package "Background Agent（持续后台运行）" {
+    component "Cleanup Agent\n熵减 · 扫描过期文档/死代码" as cleaner #fef9c3
+}
+
+orch -[#7c3aed]-> coder : 分配功能实现子任务
+orch -[#7c3aed]-> tester : 分配测试编写子任务
+coder -[#3b82f6]-> reviewer : 提交代码审查
+tester -[#3b82f6]-> reviewer : 提交测试审查
+reviewer -[#16a34a]-> orch : 审查结论 + 通过/驳回
+
+note right of cleaner
+  后台 Agent 三项职责
+  • 扫描过期注释和死代码
+  • 修复废弃依赖引用
+  • 对齐文档与实现偏差
+end note
+
+note bottom of reviewer
+  Review Agent 输出
+  通过 → orch 继续下一任务
+  驳回 → 携带原因返回 coder/tester 修复
+end note
+
+@enduml

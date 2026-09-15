@@ -1,0 +1,11 @@
+flowchart TD
+    A[工程师提交 Terraform PR] --> B[Harness IaCM 触发]
+    B --> C[terraform plan 执行]
+    C --> D[Cost Estimation\n估算变更成本增减]
+    D --> E[OPA Policy Check\n合规策略检查]
+    E --> F{策略通过?}
+    F -->|否| G[PR 被阻断\n通知工程师修复]
+    F -->|是| H[展示 Plan 摘要到 PR 评论]
+    H --> I[人工审批]
+    I --> J[terraform apply 变更执行]
+    J --> K[State 管理与漂移检测]

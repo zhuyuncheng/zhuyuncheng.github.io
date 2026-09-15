@@ -1,0 +1,57 @@
+@startuml guardrail-state
+skinparam backgroundColor #ffffff
+skinparam defaultFontColor #1e293b
+skinparam defaultFontSize 12
+skinparam state {
+    BackgroundColor #f1f5f9
+    BorderColor #3b82f6
+    FontColor #1e293b
+    ArrowColor #3b82f6
+    StartColor #16a34a
+    EndColor #dc2626
+}
+skinparam noteBorderColor #f59e0b
+skinparam noteBackgroundColor #fffbeb
+skinparam noteFontColor #92400e
+
+title Guardrail 状态机：Action 风险分级处理
+
+[*] --> Pending : Agent 生成 Action
+
+state Pending #e2e8f0
+state Checking #dbeafe : 风险评估中
+
+Pending --> Checking : 提交检查
+
+state "已批准执行" as Approved #dcfce7
+state "沙盒执行" as Sandboxed #dcfce7
+state "等待人工确认" as HITL #fef9c3
+state "已拦截" as Blocked #fee2e2
+
+Checking --> Approved : 读操作\n无副作用
+Checking --> Sandboxed : 写操作\n有限范围
+Checking --> HITL : 破坏性操作\n删除/部署/外发
+Checking --> Blocked : 违反约束\n越权行为
+
+Approved --> [*] : 返回结果
+Sandboxed --> [*] : 隔离执行，返回结果
+HITL --> Approved : 人工批准
+HITL --> Blocked : 人工拒绝
+Blocked --> Pending : 附带修复建议\n重新生成 Action
+
+note right of HITL
+  Human-in-the-Loop 触发条件
+  • git push / git reset --hard
+  • rm -rf / 批量删除
+  • curl 外部网络请求
+  • 生产环境部署命令
+end note
+
+note right of Blocked
+  拦截后必须提供
+  • 明确的拒绝原因
+  • 合规的替代方案建议
+  • 相关规则引用（AGENTS.md）
+end note
+
+@enduml

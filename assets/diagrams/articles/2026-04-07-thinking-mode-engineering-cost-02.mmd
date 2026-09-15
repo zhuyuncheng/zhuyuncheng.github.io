@@ -1,0 +1,14 @@
+flowchart LR
+    A["标准推理\nDirect Answer\n~50 tokens"]
+    B["Chain-of-Thought\n线性思维链\n~500 tokens"]
+    C["Tree-of-Thought\n树状多路径探索\n~2000 tokens"]
+    D["MCTS\n蒙特卡洛树搜索\n~5000+ tokens"]
+
+    A -->|"增加中间推理步骤"| B
+    B -->|"并行探索多条路径"| C
+    C -->|"引入搜索算法评估"| D
+
+    style A fill:#2d3748,color:#e2e8f0
+    style B fill:#2b4c7e,color:#e2e8f0
+    style C fill:#1a3a5c,color:#e2e8f0
+    style D fill:#0f2a45,color:#e2e8f0

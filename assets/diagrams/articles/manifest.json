@@ -1,0 +1,471 @@
+[
+  {
+    "file": "2026-04-07-thinking-mode-engineering-cost.md",
+    "id": "2026-04-07-thinking-mode-engineering-cost-01",
+    "kind": "mermaid",
+    "src": "2026-04-07-thinking-mode-engineering-cost-01.mmd",
+    "raw": "```mermaid\ntimeline\n    title AI Scaling 范式演进\n    2020 : GPT-3（1750亿参数）问世\n         : 训练时扩展 Scaling Law 确立\n    2022 : ChatGPT 爆发\n         : 数据质量成为新瓶颈\n    2023 : GPT-4 / Llama 2 发布\n         : 单次训练成本突破 1 亿美元\n    2024 : OpenAI o1 发布\n         : 推理时计算扩展范式正式登场\n    2025 : DeepSeek-R1 / Qwen3 全面跟进\n         : Test-time Compute 成行业标准\n    2026 : 自适应推理预算成新方向\n         : 快慢思切换工程化普及\n```\n"
+  },
+  {
+    "file": "2026-04-07-thinking-mode-engineering-cost.md",
+    "id": "2026-04-07-thinking-mode-engineering-cost-02",
+    "kind": "mermaid",
+    "src": "2026-04-07-thinking-mode-engineering-cost-02.mmd",
+    "raw": "```mermaid\nflowchart LR\n    A[\"标准推理\\nDirect Answer\\n~50 tokens\"] \n    B[\"Chain-of-Thought\\n线性思维链\\n~500 tokens\"]\n    C[\"Tree-of-Thought\\n树状多路径探索\\n~2000 tokens\"]\n    D[\"MCTS\\n蒙特卡洛树搜索\\n~5000+ tokens\"]\n\n    A -->|\"增加中间推理步骤\"| B\n    B -->|\"并行探索多条路径\"| C\n    C -->|\"引入搜索算法评估\"| D\n\n    style A fill:#2d3748,color:#e2e8f0\n    style B fill:#2b4c7e,color:#e2e8f0\n    style C fill:#1a3a5c,color:#e2e8f0\n    style D fill:#0f2a45,color:#e2e8f0\n```\n"
+  },
+  {
+    "file": "2026-04-07-thinking-mode-engineering-cost.md",
+    "id": "2026-04-07-thinking-mode-engineering-cost-03",
+    "kind": "mermaid",
+    "src": "2026-04-07-thinking-mode-engineering-cost-03.mmd",
+    "raw": "```mermaid\nflowchart TD\n    Input[\"📥 用户输入\\nQ: 证明 √2 是无理数\"]\n    Input --> BBEngine{{\"🔲 Black Box\\n内部推理引擎\\n对外完全不可见\"}}\n    BBEngine -->|\"输出约 6000 tokens / 延迟 15~60 秒\"| Output[\"📤 最终答案\\nA: 假设 √2 = p/q …\"]\n\n    Dev[\"👨‍💻 开发者视角\"]\n    Dev -. \"❌ 无法观测思考过程\\n❌ 无法调节计算量\\n❌ 无法蒸馏复用\" .-> BBEngine\n\n    style BBEngine fill:#1a1a2e,color:#9090bb,stroke:#555,stroke-width:2px,stroke-dasharray:6 3\n    style Dev fill:#2d1b1b,color:#c09090,stroke:#553333\n    style Input fill:#1e2a3a,color:#c0d8f0\n    style Output fill:#1e2a3a,color:#c0d8f0\n```\n"
+  },
+  {
+    "file": "2026-04-07-thinking-mode-engineering-cost.md",
+    "id": "2026-04-07-thinking-mode-engineering-cost-04",
+    "kind": "mermaid",
+    "src": "2026-04-07-thinking-mode-engineering-cost-04.mmd",
+    "raw": "```mermaid\nflowchart TD\n    Input[\"📥 用户输入\\nQ: 证明 √2 是无理数\"]\n    Input --> Think[\"&lt;think&gt;\\n① 假设 √2 = p/q 为最简分数\\n② 则 2q² = p²，推出 p 为偶数\\n③ 令 p=2k，代入得 q 也为偶数\\n④ 与最简分数矛盾 → 假设不成立\\n&lt;/think&gt;\"]\n    Think --> Output[\"📤 最终答案\\n√2 是无理数（反证法）\"]\n\n    GRPO[\"🎓 GRPO 训练机制\\nGroup Relative Policy Optimization\\n• 并行采样 G 个候选答案\\n• 组内相对奖励替代 Critic Model\\n• 训练成本比 PPO 降低约 50%\"]\n    GRPO -. \"赋予显式推理能力\" .-> Think\n\n    Distill[\"🔬 蒸馏链路\\nR1-671B → 32B → 14B → 7B\\n继承完整推理链，成本降低 10~100x\"]\n    Distill -. \"知识传递\" .-> Output\n\n    style Think fill:#0f2a45,color:#b0d0f0,stroke:#2a5a8a,stroke-width:2px\n    style GRPO fill:#1a3a1a,color:#90c090,stroke:#2a6a2a\n    style Distill fill:#1a2a3a,color:#90a0d0,stroke:#2a4a7a\n    style Input fill:#1e2a3a,color:#c0d8f0\n    style Output fill:#1e2a3a,color:#c0d8f0\n```\n"
+  },
+  {
+    "file": "2026-04-07-thinking-mode-engineering-cost.md",
+    "id": "2026-04-07-thinking-mode-engineering-cost-05",
+    "kind": "mermaid",
+    "src": "2026-04-07-thinking-mode-engineering-cost-05.mmd",
+    "raw": "```mermaid\nflowchart TD\n    Input[\"📥 用户输入\"] --> Switch{\"enable_thinking = ?\"}\n\n    Switch -->|\"True  慢思模式\"| SlowPath[\"🐢 深度推理路径\\n生成完整 CoT 思维链\\n─────────────────\\nToken 消耗: 2,000 ~ 10,000\\nTTFT 延迟: 8 ~ 30 秒\\n适合: 数学 / 代码 / 逻辑推理\"]\n\n    Switch -->|\"False  快思模式\"| FastPath[\"⚡ 直接输出路径\\n跳过推理链，直接回答\\n─────────────────\\nToken 消耗: ~500\\nTTFT 延迟: < 1 秒\\n适合: 对话 / 翻译 / 摘要\"]\n\n    SlowPath --> Output[\"📤 答案输出\"]\n    FastPath --> Output\n\n    Train[\"混合训练策略\\nThinking 数据 + Non-Thinking 数据\\n同一组权重同时习得两种能力\\n→ 运行时按参数动态切换，无需换模型\"]\n    Train -. \"训练支撑\" .-> Switch\n\n    style SlowPath fill:#1a2a4a,color:#b0c8f0,stroke:#2a4a8a,stroke-width:2px\n    style FastPath fill:#1a3a22,color:#90d0a0,stroke:#2a6a3a,stroke-width:2px\n    style Train fill:#3a2a10,color:#f0c880,stroke:#6a4a20\n    style Switch fill:#2a2a2a,color:#ffffff,stroke:#888,stroke-width:2px\n    style Input fill:#1e2a3a,color:#c0d8f0\n    style Output fill:#1e2a3a,color:#c0d8f0\n```\n"
+  },
+  {
+    "file": "2026-04-07-thinking-mode-engineering-cost.md",
+    "id": "2026-04-07-thinking-mode-engineering-cost-06",
+    "kind": "mermaid",
+    "src": "2026-04-07-thinking-mode-engineering-cost-06.mmd",
+    "raw": "```mermaid\nflowchart TD\n    A[\"问题 Q\\n例如：解一道高中数学题\"] \n    A --> B[\"策略模型 π_θ\\n并行采样 G=8 个候选答案\"]\n    \n    B --> C1[\"答案 1\\n过程 + 结论\"]\n    B --> C2[\"答案 2\\n过程 + 结论\"]\n    B --> C3[\"答案 3\\n...\"]\n    B --> C4[\"答案 G=8\\n过程 + 结论\"]\n    \n    C1 --> D[\"规则奖励函数\\n✅ 答案正确 +1\\n✅ 格式规范 +0.2\\n❌ 答案错误 -1\"]\n    C2 --> D\n    C3 --> D\n    C4 --> D\n    \n    D --> E[\"组内归一化\\nAdvantage_i = (r_i - mean) / std\"]\n    E --> F[\"梯度更新\\n直接优化策略模型权重\"]\n    F -.->|\"下一轮迭代\"| A\n\n    G[\"⚠️ 传统 PPO/RLHF\\n需要额外的 Critic Model\\n训练成本 ×2\"] \n    G -. \"GRPO 消除了这一依赖\" .-> F\n\n    style G fill:#4a1942,color:#f0e6ef\n    style F fill:#1a4a2e,color:#e6f0ea\n```\n"
+  },
+  {
+    "file": "2026-04-07-thinking-mode-engineering-cost.md",
+    "id": "2026-04-07-thinking-mode-engineering-cost-07",
+    "kind": "mermaid",
+    "src": "2026-04-07-thinking-mode-engineering-cost-07.mmd",
+    "raw": "```mermaid\nxychart-beta\n    title \"不同模式下首 Token 延迟对比（秒）\"\n    x-axis [\"GPT-4o\", \"o3-mini\", \"DeepSeek-R1\", \"Qwen3-Thinking\", \"Qwen3-Fast\"]\n    y-axis \"TTFT (秒)\" 0 --> 65\n    bar [0.8, 12, 18, 8, 0.6]\n```\n"
+  },
+  {
+    "file": "2026-04-07-thinking-mode-engineering-cost.md",
+    "id": "2026-04-07-thinking-mode-engineering-cost-08",
+    "kind": "mermaid",
+    "src": "2026-04-07-thinking-mode-engineering-cost-08.mmd",
+    "raw": "```mermaid\nxychart-beta\n    title \"单次请求 Token 消耗估算（典型数学题）\"\n    x-axis [\"直接回答\", \"CoT Prompt\", \"DeepSeek-R1\\nThinking\", \"o3\\nThinking\", \"MCTS 模式\"]\n    y-axis \"Token 数\" 0 --> 12000\n    bar [120, 600, 3500, 6000, 11000]\n```\n"
+  },
+  {
+    "file": "2026-04-07-thinking-mode-engineering-cost.md",
+    "id": "2026-04-07-thinking-mode-engineering-cost-09",
+    "kind": "mermaid",
+    "src": "2026-04-07-thinking-mode-engineering-cost-09.mmd",
+    "raw": "```mermaid\nxychart-beta\n    title \"Thinking 模式开启后准确率提升幅度（%）\"\n    x-axis [\"数学证明\", \"竞赛编程\", \"逻辑推理\", \"SQL生成\", \"代码补全\", \"内容摘要\", \"文本翻译\", \"实时客服\"]\n    y-axis \"准确率提升 %\" 0 --> 32\n    bar [28, 25, 20, 14, 11, 2, 1, 1]\n```\n"
+  },
+  {
+    "file": "2026-04-07-thinking-mode-engineering-cost.md",
+    "id": "2026-04-07-thinking-mode-engineering-cost-10",
+    "kind": "mermaid",
+    "src": "2026-04-07-thinking-mode-engineering-cost-10.mmd",
+    "raw": "```mermaid\nflowchart TD\n    Start([\"🎯 你的业务场景\"]) --> Q1{\"任务是否有\\n可验证的正确答案？\\n数学/代码/逻辑\"}\n    \n    Q1 -->|\"否\\n翻译/摘要/创作/闲聊\"| No1[\"❌ 关闭 Thinking\\n收益极小，成本浪费\"]\n    Q1 -->|\"是\"| Q2{\"延迟要求？\"}\n    \n    Q2 -->|\"实时交互\\nTTFT < 3秒\"| No2[\"❌ 关闭 Thinking\\n首Token延迟不可接受\"]\n    Q2 -->|\"允许等待\\n> 10秒 或异步\"| Q3{\"并发规模？\"}\n    \n    Q3 -->|\"高并发\\n> 100 QPS\"| Q4{\"预算是否充裕？\"}\n    Q3 -->|\"低频/异步任务\"| Yes[\"✅ 开启 Thinking\\n准确率最优\"]\n    \n    Q4 -->|\"预算有限\"| Lite[\"⚡ 使用蒸馏版\\nDeepSeek-R1-Distill-14B\\n或 Qwen3-14B-Thinking\"]\n    Q4 -->|\"预算充裕\"| Full[\"✅ 开启全量 Thinking\\nDeepSeek-R1 / Qwen3-235B\"]\n    \n    No1 --> T1[\"💡 推荐模型\\nQwen3-7B enable_thinking=False\\n或 GPT-4o Mini\"]\n    No2 --> T2[\"💡 推荐模型\\nQwen3-Fast 模式\\n或 Claude 3.5 Haiku\"]\n    Lite --> T3[\"💡 推荐模型\\nDeepSeek-R1-Distill-Qwen-14B\\n7B 蒸馏版成本最优\"]\n    Full --> T4[\"💡 推荐模型\\nDeepSeek-R1 / Qwen3-235B\\n或 o3 如质量要求极高\"]\n    Yes --> T4\n\n    style Start fill:#1a3a5c,color:#e2e8f0\n    style Yes fill:#1a4a2e,color:#e6f0ea\n    style Full fill:#1a4a2e,color:#e6f0ea\n    style No1 fill:#4a1a1a,color:#f0e6e6\n    style No2 fill:#4a1a1a,color:#f0e6e6\n```\n"
+  },
+  {
+    "file": "2026-04-07-thinking-mode-engineering-cost.md",
+    "id": "2026-04-07-thinking-mode-engineering-cost-11",
+    "kind": "mermaid",
+    "src": "2026-04-07-thinking-mode-engineering-cost-11.mmd",
+    "raw": "```mermaid\ngraph LR\n    A[\"公开 Benchmark\\nGSM8K / MATH / HumanEval\"] --> B{\"存在的问题\"}\n    B --> C[\"测试集污染\\n训练数据包含测试题\"]\n    B --> D[\"分布偏差\\n实际任务千变万化\"]\n    B --> E[\"指标单一\\n只测准确率忽略延迟/成本\"]\n    \n    C --> F[\"🔧 工程建议\\n用自己的业务数据集评估\"]\n    D --> F\n    E --> F\n    \n    F --> G[\"真实评估维度\\n✅ 业务准确率\\n✅ P90 延迟\\n✅ 单次成本\\n✅ 失败/拒绝率\"]\n```\n"
+  },
+  {
+    "file": "2026-04-07-thinking-mode-engineering-cost.md",
+    "id": "2026-04-07-thinking-mode-engineering-cost-12",
+    "kind": "mermaid",
+    "src": "2026-04-07-thinking-mode-engineering-cost-12.mmd",
+    "raw": "```mermaid\ntimeline\n    title Thinking 模式技术演进路线\n    2024 Q4 : OpenAI o1 发布\n             : 推理时计算完成概念验证\n    2025 Q1 : DeepSeek-R1 开源\n             : GRPO 训练范式公开，推理链可解释\n    2025 Q2 : Qwen2.5-QwQ / Qwen3 发布\n             : 快思/慢思混合训练，工程化 enable_thinking\n    2025 Q4 : 各厂商全面跟进\n             : Thinking 成为旗舰模型标配\n    2026    : 自适应推理预算\n             : 模型根据问题复杂度自动分配 Thinking 深度\n    未来     : 实时 Thinking\n             : 推理加速（投机解码+专用硬件）使延迟降至秒级以内\n```\n"
+  },
+  {
+    "file": "2026-04-09-harness-platform-deep-dive.md",
+    "id": "2026-04-09-harness-platform-deep-dive-01",
+    "kind": "plantuml",
+    "src": "2026-04-09-harness-platform-deep-dive-01.puml",
+    "raw": "```plantuml\n@startuml harness-c4-context\n!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml\n\ntitle Harness 平台 - 系统上下文图 (C4 Level 1)\n\nPerson(dev, \"研发工程师\", \"开发、测试和部署应用\")\nPerson(sre, \"SRE/运维工程师\", \"管理基础设施和系统稳定性\")\nPerson(em, \"工程管理者\", \"度量工程效能和成本\")\n\nSystem(harness, \"Harness Platform\", \"统一软件交付平台\\n提供 CI/CD、安全、成本、混沌、AI 等能力\")\n\nSystem_Ext(scm, \"代码托管 (GitHub/GitLab/Bitbucket)\", \"源代码版本管理\")\nSystem_Ext(registry, \"制品仓库 (Docker Hub/ECR/GCR)\", \"镜像和包管理\")\nSystem_Ext(cloud, \"云平台 (AWS/GCP/Azure)\", \"基础设施资源\")\nSystem_Ext(k8s, \"Kubernetes 集群\", \"容器编排\")\nSystem_Ext(monitoring, \"监控系统 (Datadog/New Relic/Prometheus)\", \"可观测性数据\")\nSystem_Ext(security_tools, \"安全扫描工具 (Snyk/SonarQube)\", \"漏洞扫描\")\n\nRel(dev, harness, \"触发构建/部署/特性开关\", \"HTTPS/WebUI/API\")\nRel(sre, harness, \"管理基础设施/运行混沌实验\", \"HTTPS/WebUI/API\")\nRel(em, harness, \"查看效能指标/成本报告\", \"HTTPS/WebUI\")\n\nRel(harness, scm, \"拉取代码/触发 PR 检查\", \"HTTPS/Webhook\")\nRel(harness, registry, \"推送/拉取制品\", \"HTTPS\")\nRel(harness, cloud, \"管理云资源/拉取成本数据\", \"Cloud APIs\")\nRel(harness, k8s, \"部署工作负载/运行混沌实验\", \"Kubernetes API\")\nRel(harness, monitoring, \"采集指标/持续验证\", \"HTTPS/APIs\")\nRel(harness, security_tools, \"触发扫描/摄入结果\", \"HTTPS/SARIF\")\n\n@enduml\n```\n"
+  },
+  {
+    "file": "2026-04-09-harness-platform-deep-dive.md",
+    "id": "2026-04-09-harness-platform-deep-dive-02",
+    "kind": "mermaid",
+    "src": "2026-04-09-harness-platform-deep-dive-02.mmd",
+    "raw": "```mermaid\nmindmap\n  root((Harness Platform))\n    交付核心\n      CI 持续集成\n      CD and GitOps\n      CODE 代码仓库\n      IaCM 基础设施即代码\n    安全合规\n      STO 安全测试编排\n      SCS 软件供应链安全\n      AAST 高级应用安全\n      SSCA 供应链合规\n    可靠性工程\n      SRM 服务可靠性管理\n      Chaos Engineering\n      CET 持续错误追踪\n    特性管理\n      FF Feature Flags\n      FME 功能管理与实验\n    成本智能\n      CCM 云成本管理\n    开发者体验\n      IDP 内部开发者门户\n      SEI 软件工程洞察\n      AIDA 人工智能助手\n```\n"
+  },
+  {
+    "file": "2026-04-09-harness-platform-deep-dive.md",
+    "id": "2026-04-09-harness-platform-deep-dive-03",
+    "kind": "plantuml",
+    "src": "2026-04-09-harness-platform-deep-dive-03.puml",
+    "raw": "```plantuml\n@startuml harness-c4-container\n!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml\n\ntitle Harness 平台 - 容器架构图 (C4 Level 2)\n\nPerson(user, \"用户\", \"研发/运维/管理人员\")\n\nSystem_Boundary(harness_saas, \"Harness SaaS (控制平面)\") {\n    Container(web_ui, \"Web Console\", \"React SPA\", \"统一操作界面\")\n    Container(api_gateway, \"API Gateway\", \"gRPC/REST\", \"认证鉴权 & 路由\")\n    Container(pipeline_service, \"Pipeline Service\", \"Java/Go\", \"流水线编排引擎\")\n    Container(module_services, \"模块服务群\", \"Go/Java/Python\", \"CI/CD/FF/CCM/Chaos/STO/AI\")\n    ContainerDb(primary_db, \"Database\", \"MongoDB/PostgreSQL\", \"状态与配置数据\")\n    Container(event_bus, \"Event Bus\", \"Kafka\", \"异步事件流\")\n}\n\nSystem_Boundary(execution_plane, \"执行平面 (用户基础设施)\") {\n    Container(delegate, \"Harness Delegate\", \"Java/Docker\", \"任务代理，出站连接控制平面\")\n    Container(runner, \"CI Runner / Chaos Agent\", \"Docker/K8s\", \"构建执行 & 混沌注入\")\n}\n\nRel(user, web_ui, \"操作\", \"HTTPS\")\nRel(web_ui, api_gateway, \"调用\", \"HTTPS\")\nRel(api_gateway, pipeline_service, \"路由\", \"gRPC\")\nRel(pipeline_service, module_services, \"调度\", \"gRPC/Kafka\")\nRel(pipeline_service, event_bus, \"发布事件\")\nRel(module_services, primary_db, \"读写\")\nRel(delegate, api_gateway, \"出站轮询任务\", \"HTTPS/WSS\")\nRel(delegate, runner, \"启动执行单元\", \"Docker API\")\n\n@enduml\n```\n"
+  },
+  {
+    "file": "2026-04-09-harness-platform-deep-dive.md",
+    "id": "2026-04-09-harness-platform-deep-dive-04",
+    "kind": "plantuml",
+    "src": "2026-04-09-harness-platform-deep-dive-04.puml",
+    "raw": "```plantuml\n@startuml delegate-communication\nskinparam sequenceArrowThickness 2\nskinparam roundcorner 5\nskinparam sequenceParticipantBorderColor #0f3460\nskinparam sequenceParticipantBackgroundColor #dbeafe\nskinparam noteBorderColor #0f3460\nskinparam noteBackgroundColor #fef9c3\n\ntitle Harness Delegate 通信时序图\n\nparticipant \"Harness Manager\\n(SaaS 控制平面)\" as Manager\nparticipant \"Delegate\\n(用户网络)\" as Delegate\nparticipant \"目标基础设施\\n(K8s/Cloud)\" as Target\nparticipant \"外部系统\\n(SCM/Registry)\" as External\n\n== 初始化阶段 ==\nDelegate -> Manager : 出站 HTTPS/WSS 连接 (TLS，永久长连接)\nManager --> Delegate : 心跳确认 + 任务订阅\nnote right of Manager\n  只需出站 443/HTTPS\n  无需入站端口开放\nend note\n\n== 任务执行阶段 ==\nManager -> Delegate : 推送任务 (via WebSocket)\nnote over Delegate\n  任务类型：部署/构建/扫描/成本采集/混沌注入\nend note\nDelegate -> External : 拉取代码/镜像\nExternal --> Delegate : 代码/制品\nDelegate -> Target : 执行部署/操作\nTarget --> Delegate : 执行结果\nDelegate -> Manager : 回传日志与状态\n\n== 高可用与负载均衡 ==\ngroup 多副本场景\n    Manager -> Delegate : 任务分配 (基于 Selector 路由)\n    note left : 同一 Selector 的多个\\nDelegate 自动负载均衡\nend\n\n@enduml\n```\n"
+  },
+  {
+    "file": "2026-04-09-harness-platform-deep-dive.md",
+    "id": "2026-04-09-harness-platform-deep-dive-05",
+    "kind": "mermaid",
+    "src": "2026-04-09-harness-platform-deep-dive-05.mmd",
+    "raw": "```mermaid\nflowchart TD\n    A[流水线触发部署任务] --> B{Delegate 选择器匹配}\n    B --> C[美东 K8s Delegate\\nSelector: prod-k8s-us-east]\n    B --> D[国内云 Delegate\\nSelector: prod-cloud-cn]\n    B --> E[数据中心 Delegate\\nSelector: onprem-dc1]\n    B --> F[任意可用 Delegate\\n无特定 Selector]\n    C --> G[美东 K8s 集群]\n    D --> H[阿里云/腾讯云]\n    E --> I[私有数据中心]\n    F --> J[默认执行]\n```\n"
+  },
+  {
+    "file": "2026-04-09-harness-platform-deep-dive.md",
+    "id": "2026-04-09-harness-platform-deep-dive-06",
+    "kind": "plantuml",
+    "src": "2026-04-09-harness-platform-deep-dive-06.puml",
+    "raw": "```plantuml\n@startuml test-intelligence\nskinparam backgroundColor #ffffff\nskinparam componentBorderColor #3b82f6\nskinparam databaseBorderColor #10b981\nskinparam noteBorderColor #f59e0b\n\ntitle Test Intelligence 核心工作原理\n\ncomponent \"Git Diff 解析器\" as diff\ncomponent \"AST 变更分析\" as ast\ndatabase \"Call Graph\\n代码↔测试调用关系图\" as callgraph\ncomponent \"TI Service\" as ti_service\ncomponent \"Test Runner Agent\" as runner\n\ndiff --> ast : 解析变更文件\nast --> ti_service : 查询影响范围\nti_service --> callgraph : 检索关联测试\ncallgraph --> runner : 仅执行受影响测试\n\nnote right of callgraph\n  新增/修改的测试\n  始终强制执行\nend note\n\nnote bottom of runner\n  官方数据：节省 70~90% 测试时间\nend note\n\n@enduml\n```\n"
+  },
+  {
+    "file": "2026-04-09-harness-platform-deep-dive.md",
+    "id": "2026-04-09-harness-platform-deep-dive-07",
+    "kind": "mermaid",
+    "src": "2026-04-09-harness-platform-deep-dive-07.mmd",
+    "raw": "```mermaid\nsequenceDiagram\n    participant Dev as 开发者 Push\n    participant CI as CI Manager\n    participant Cache as Cache Service\n    participant Build as 构建容器\n\n    Dev->>CI: 触发构建\n    CI->>Cache: 查询缓存 key（基于依赖文件 hash）\n\n    alt 缓存命中\n        Cache-->>Build: 恢复缓存（node_modules / .m2 / go/pkg 等）\n        Build->>Build: 跳过依赖下载\n        Note over Build: 构建时间减少 60~80%\n    else 缓存未命中\n        Build->>Build: 正常下载依赖\n        Build->>Cache: 保存依赖缓存\n    end\n\n    Build->>CI: 构建结果上报\n```\n"
+  },
+  {
+    "file": "2026-04-09-harness-platform-deep-dive.md",
+    "id": "2026-04-09-harness-platform-deep-dive-08",
+    "kind": "mermaid",
+    "src": "2026-04-09-harness-platform-deep-dive-08.mmd",
+    "raw": "```mermaid\nflowchart LR\n    subgraph traditional [传统构建模式]\n        A1[全量重新构建] --> B1[100% 任务执行] --> C1[构建时间 T]\n    end\n\n    subgraph smart [Build Intelligence 模式]\n        A2[代码变更] --> B2[任务 Fingerprint 计算]\n        B2 --> C2{远程缓存命中?}\n        C2 -->|命中 约80%| D2[直接复用结果]\n        C2 -->|未命中 约20%| E2[仅执行变更任务]\n        D2 --> F2[构建时间 约0.2T]\n        E2 --> F2\n    end\n```\n"
+  },
+  {
+    "file": "2026-04-09-harness-platform-deep-dive.md",
+    "id": "2026-04-09-harness-platform-deep-dive-09",
+    "kind": "mermaid",
+    "src": "2026-04-09-harness-platform-deep-dive-09.mmd",
+    "raw": "```mermaid\nflowchart TB\n    A[部署策略选择] --> B[蓝绿部署 Blue-Green]\n    A --> C[金丝雀部署 Canary]\n    A --> D[滚动部署 Rolling Update]\n    A --> E[自定义策略 Custom]\n\n    B --> B1[流量瞬间切换\\n适合有状态服务\\n快速完整回滚]\n    C --> C1[渐进式流量切分\\n5% → 20% → 50% → 100%\\n配合持续验证]\n    D --> D1[逐批替换实例\\n零停机更新\\n资源利用率高]\n    E --> E1[结合 Webhook\\n自定义部署逻辑\\n混合云场景]\n\n    F[自动回滚触发] --> G[持续验证失败]\n    F --> H[部署超时]\n    F --> I[健康检查失败]\n    F --> J[人工触发]\n\n    C1 -.->|分数低于阈值| F\n```\n"
+  },
+  {
+    "file": "2026-04-09-harness-platform-deep-dive.md",
+    "id": "2026-04-09-harness-platform-deep-dive-10",
+    "kind": "plantuml",
+    "src": "2026-04-09-harness-platform-deep-dive-10.puml",
+    "raw": "```plantuml\n@startuml canary-cv\nskinparam backgroundColor #ffffff\nskinparam swimlaneBorderColor #94a3b8\nskinparam activityBorderColor #3b82f6\nskinparam noteBorderColor #f59e0b\nskinparam noteBackgroundColor #fef9c3\n\ntitle 金丝雀部署 + 持续验证（CV）完整流程\n\n|Harness CD|\nstart\n:创建 Canary 部署;\n:部署 5% 流量到 Canary 版本;\n\n|监控系统|\n:采集 Canary vs Baseline 指标;\nnote right\n  对比维度：\n  • 错误率\n  • 响应时间 P99\n  • 吞吐量\n  • JVM/系统指标\nend note\n\n|Harness CV 引擎|\n:机器学习基线对比分析;\n:计算 Canary Score (0-100);\n\n|Harness CD|\nif (Score >= 阈值 如80?) then (是)\n    :扩大流量至 20%;\n    :继续验证直到 100%;\n    :清理 Baseline 版本;\n    stop\nelse (否)\n    :自动回滚到 Baseline;\n    :发送 Slack/PagerDuty 告警;\n    :记录失败原因到 Audit Trail;\n    stop\nendif\n\n@enduml\n```\n"
+  },
+  {
+    "file": "2026-04-09-harness-platform-deep-dive.md",
+    "id": "2026-04-09-harness-platform-deep-dive-11",
+    "kind": "plantuml",
+    "src": "2026-04-09-harness-platform-deep-dive-11.puml",
+    "raw": "```plantuml\n@startuml gitops-flow\nskinparam backgroundColor #ffffff\nskinparam rectangleBorderColor #3b82f6\nskinparam componentBorderColor #3b82f6\n\ntitle Harness GitOps 多集群管理架构\n\nrectangle \"Git 仓库\\n(Source of Truth)\" as git {\n    file \"app-manifests/\\n  prod/deployment.yaml\\n  staging/deployment.yaml\" as manifests\n}\n\nrectangle \"Harness 控制平面\" as control {\n    component \"GitOps Service\" as gitops_svc\n    component \"RBAC Engine\" as rbac\n    component \"PR Pipeline Trigger\" as pr_pipeline\n    component \"Drift Detection Dashboard\" as drift\n}\n\nrectangle \"目标集群 - Prod\" as prod_cluster {\n    component \"GitOps Agent (Argo CD)\" as agent_prod\n}\n\nrectangle \"目标集群 - Staging\" as staging_cluster {\n    component \"GitOps Agent (Argo CD)\" as agent_staging\n}\n\ngit --> agent_prod : 监听变更并拉取 (30s)\ngit --> agent_staging : 监听变更并拉取 (30s)\nagent_prod --> control : 上报同步状态\nagent_staging --> control : 上报同步状态\ncontrol --> agent_prod : 下发 App 定义\ncontrol --> agent_staging : 下发 App 定义\npr_pipeline --> git : 自动合并 PR\\n(多环境渐进推进)\ndrift --> control : 展示漂移告警\n\n@enduml\n```\n"
+  },
+  {
+    "file": "2026-04-09-harness-platform-deep-dive.md",
+    "id": "2026-04-09-harness-platform-deep-dive-12",
+    "kind": "mermaid",
+    "src": "2026-04-09-harness-platform-deep-dive-12.mmd",
+    "raw": "```mermaid\nflowchart TD\n    A[工程师提交 Terraform PR] --> B[Harness IaCM 触发]\n    B --> C[terraform plan 执行]\n    C --> D[Cost Estimation\\n估算变更成本增减]\n    D --> E[OPA Policy Check\\n合规策略检查]\n    E --> F{策略通过?}\n    F -->|否| G[PR 被阻断\\n通知工程师修复]\n    F -->|是| H[展示 Plan 摘要到 PR 评论]\n    H --> I[人工审批]\n    I --> J[terraform apply 变更执行]\n    J --> K[State 管理与漂移检测]\n```\n"
+  },
+  {
+    "file": "2026-04-09-harness-platform-deep-dive.md",
+    "id": "2026-04-09-harness-platform-deep-dive-13",
+    "kind": "plantuml",
+    "src": "2026-04-09-harness-platform-deep-dive-13.puml",
+    "raw": "```plantuml\n@startuml ff-evaluation\nskinparam backgroundColor #ffffff\nskinparam activityBorderColor #3b82f6\nskinparam noteBorderColor #f59e0b\nskinparam noteBackgroundColor #fef9c3\n\ntitle Feature Flag 本地评估引擎流程\n\nstart\n\n:SDK 接收评估请求\\n(用户 ID + Flag Key);\n\n:查询本地缓存\\n(内存中的规则快照);\n\nnote right\n  SDK 初始化时同步全量规则\n  通过 SSE/轮询保持实时更新\n  本地评估无需网络请求，极低延迟\nend note\n\n:匹配目标规则 (Targeting Rules);\n\nfork\n    :检查用户 ID 白名单;\nfork again\n    :检查用户属性条件\\n(country=CN AND plan=premium);\nfork again\n    :检查流量百分比规则\\n(基于 MurmurHash3 分桶);\nend fork\n\nif (命中某条规则?) then (是)\n    :返回规则对应的 Variation;\nelse (否)\n    :返回默认 Variation;\nendif\n\n:异步批量上报评估事件\\n(不阻塞主流程);\n\n:返回 Variation 给业务代码;\n\nstop\n\n@enduml\n```\n"
+  },
+  {
+    "file": "2026-04-09-harness-platform-deep-dive.md",
+    "id": "2026-04-09-harness-platform-deep-dive-14",
+    "kind": "mermaid",
+    "src": "2026-04-09-harness-platform-deep-dive-14.mmd",
+    "raw": "```mermaid\ngantt\n    title 功能渐进式发布计划\n    dateFormat YYYY-MM-DD\n    section 内部验证\n    内部员工 1%       :done, a1, 2025-01-01, 3d\n    section 灰度发布\n    Beta 用户 5%      :done, a2, 2025-01-04, 5d\n    高价值用户 20%    :done, a3, 2025-01-09, 7d\n    section 全量发布\n    50% 用户          :active, a4, 2025-01-16, 5d\n    100% 全量         :a5, 2025-01-21, 3d\n    section 实验分析\n    A/B 数据采集      :a6, 2025-01-04, 20d\n    统计显著性分析    :a7, 2025-01-21, 7d\n```\n"
+  },
+  {
+    "file": "2026-04-09-harness-platform-deep-dive.md",
+    "id": "2026-04-09-harness-platform-deep-dive-15",
+    "kind": "plantuml",
+    "src": "2026-04-09-harness-platform-deep-dive-15.puml",
+    "raw": "```plantuml\n@startuml sto-architecture\nskinparam backgroundColor #ffffff\nskinparam rectangleBorderColor #94a3b8\nskinparam componentBorderColor #3b82f6\n\ntitle STO DevSecOps 安全扫描编排架构\n\nrectangle \"代码阶段 (Commit/PR)\" as code_stage {\n    component \"SAST 静态代码分析\\n(SonarQube, Semgrep)\" as sast\n    component \"Secret Scanning 密钥扫描\\n(Gitleaks, Trufflehog)\" as secret\n}\n\nrectangle \"构建阶段 (Build)\" as build_stage {\n    component \"SCA 软件成分分析\\n(Snyk, OWASP Dep-Check)\" as sca\n    component \"Container Scanning 镜像扫描\\n(Trivy, Prisma Cloud)\" as container\n}\n\nrectangle \"部署阶段 (Deploy)\" as deploy_stage {\n    component \"DAST 动态应用安全\\n(OWASP ZAP, Burp Suite)\" as dast\n    component \"IaC Scanning\\n(Checkov, Terrascan)\" as iac\n}\n\nrectangle \"STO 核心处理层\" as sto_core {\n    component \"结果规范化 (SARIF 格式统一)\" as normalize\n    component \"智能去重 (跨工具漏洞合并)\" as dedup\n    component \"优先级计算 (CVSS + 业务权重)\" as priority\n    component \"豁免管理 (误报/已知风险标记)\" as exemption\n}\n\nrectangle \"治理与策略层\" as governance {\n    component \"OPA 策略引擎\" as opa\n    component \"Pipeline Break 阻断流水线\" as break_gate\n    component \"安全仪表盘\" as dashboard\n}\n\ncode_stage --> sto_core : 扫描结果\nbuild_stage --> sto_core : 扫描结果\ndeploy_stage --> sto_core : 扫描结果\nnormalize --> dedup\ndedup --> priority\npriority --> exemption\nexemption --> opa\nopa --> break_gate : Critical 漏洞触发阻断\nopa --> dashboard : 可视化报告\n\n@enduml\n```\n"
+  },
+  {
+    "file": "2026-04-09-harness-platform-deep-dive.md",
+    "id": "2026-04-09-harness-platform-deep-dive-16",
+    "kind": "mermaid",
+    "src": "2026-04-09-harness-platform-deep-dive-16.mmd",
+    "raw": "```mermaid\nflowchart LR\n    subgraph sbom [SBOM 管理]\n        A[SBOM 生成\\nCycloneDX/SPDX] --> B[SBOM 存储与制品签名]\n        B --> C[组件血缘图追踪]\n    end\n\n    subgraph policy [供应链策略]\n        D[SLSA 合规等级\\nLevel 1-4] --> E[构建来源证明\\nProvenance]\n        E --> F[部署门控合规检查]\n    end\n\n    subgraph vuln [漏洞管理]\n        G[CVE 实时订阅] --> H[受影响制品识别]\n        H --> I[自动 PR 修复建议]\n    end\n```\n"
+  },
+  {
+    "file": "2026-04-09-harness-platform-deep-dive.md",
+    "id": "2026-04-09-harness-platform-deep-dive-17",
+    "kind": "plantuml",
+    "src": "2026-04-09-harness-platform-deep-dive-17.puml",
+    "raw": "```plantuml\n@startuml ccm-architecture\nskinparam backgroundColor #ffffff\nskinparam componentBorderColor #3b82f6\nskinparam databaseBorderColor #10b981\n\ntitle CCM 云成本管理数据流（核心）\n\ncomponent \"AWS / Azure / GCP\\n成本数据采集\" as ingestion\ndatabase \"Cost Data Warehouse\" as dwh\ncomponent \"成本分配引擎\\n(Tag/Label 映射)\" as allocator\ncomponent \"ML 异常检测\" as anomaly\ncomponent \"推荐引擎\\n(RI / Spot 建议)\" as recommender\ncomponent \"AutoStopping\\n非生产自动休眠\" as autostop\ncomponent \"成本仪表盘 & 预算告警\" as dashboard\n\ningestion --> dwh\ndwh --> allocator\ndwh --> anomaly\ndwh --> recommender\nallocator --> dashboard\nanomaly --> dashboard\nrecommender --> autostop\n\n@enduml\n```\n"
+  },
+  {
+    "file": "2026-04-09-harness-platform-deep-dive.md",
+    "id": "2026-04-09-harness-platform-deep-dive-18",
+    "kind": "mermaid",
+    "src": "2026-04-09-harness-platform-deep-dive-18.mmd",
+    "raw": "```mermaid\nsequenceDiagram\n    participant Traffic as 流量请求\n    participant Proxy as AutoStopping Proxy\n    participant Monitor as 流量监控器\n    participant Resource as 云资源 EC2/RDS\n    participant Cloud as 云平台 API\n\n    Traffic->>Proxy: HTTP 请求\n    Proxy->>Resource: 转发请求（资源运行中）\n\n    Note over Monitor: 检测到 30 分钟无流量\n    Monitor->>Cloud: 停止实例\n    Cloud-->>Monitor: 实例已停止（成本降为零）\n\n    Traffic->>Proxy: 新 HTTP 请求到来\n    Proxy->>Cloud: 唤醒实例\n    Proxy->>Proxy: 持有请求等待启动\n    Cloud-->>Resource: 实例已就绪\n    Resource-->>Proxy: 就绪信号\n    Proxy->>Resource: 转发之前持有的请求\n\n    Note over Proxy,Resource: 冷启动约 2~5 分钟\n    Note over Monitor: 官方数据：节省 70%+ 非生产成本\n```\n"
+  },
+  {
+    "file": "2026-04-09-harness-platform-deep-dive.md",
+    "id": "2026-04-09-harness-platform-deep-dive-19",
+    "kind": "mermaid",
+    "src": "2026-04-09-harness-platform-deep-dive-19.mmd",
+    "raw": "```mermaid\nflowchart TD\n    A[历史使用量分析\\n过去 90 天] --> B[使用模式分类]\n    B --> C[稳定基础负载]\n    B --> D[波动弹性负载]\n    B --> E[偶发/批量负载]\n    C --> F[建议购买 Reserved Instances\\n1-3年期 最高 72% 折扣]\n    D --> G[建议购买 Savings Plans\\n灵活承诺 约 40-60% 折扣]\n    E --> H[建议使用 Spot Instances\\n最高 90% 折扣]\n    F --> I[自动执行购买或生成审批工单]\n    G --> I\n    H --> I\n    I --> J[持续监控 RI 利用率]\n    J --> K{利用率低于 80%?}\n    K -->|是| L[建议转售或调整]\n    K -->|否| J\n```\n"
+  },
+  {
+    "file": "2026-04-09-harness-platform-deep-dive.md",
+    "id": "2026-04-09-harness-platform-deep-dive-20",
+    "kind": "plantuml",
+    "src": "2026-04-09-harness-platform-deep-dive-20.puml",
+    "raw": "```plantuml\n@startuml chaos-control\nskinparam backgroundColor #ffffff\nskinparam rectangleBorderColor #94a3b8\nskinparam componentBorderColor #7c3aed\n\ntitle Harness 混沌工程控制平面架构\n\nrectangle \"控制平面 (Harness SaaS)\" as control {\n    component \"实验设计器 (可视化)\" as designer\n    component \"混沌中心 (Chaos Hub)\" as hub\n    component \"韧性评分引擎\" as scoring\n    component \"RBAC + Chaos Guard\\n爆炸半径控制\" as guard\n}\n\nrectangle \"可观测性集成\" as observability {\n    component \"Resilience Probes (健康检查探针)\" as probes\n    component \"Prometheus/Datadog/New Relic 集成\" as monitoring\n    component \"应用映射 (服务依赖图)\" as app_map\n}\n\ndesigner --> hub : 选择实验模板\nguard --> designer : 策略约束\nprobes --> scoring : 上报健康状态\nmonitoring --> scoring : 上报指标\nscoring --> designer : 韧性分数反馈\n\nnote right of guard\n  Chaos Guard 功能：\n  • 禁止在生产高峰期执行\n  • 限制特定命名空间\n  • 限制最大故障范围\n  • 只读环境保护\nend note\n\n@enduml\n```\n"
+  },
+  {
+    "file": "2026-04-09-harness-platform-deep-dive.md",
+    "id": "2026-04-09-harness-platform-deep-dive-21",
+    "kind": "mermaid",
+    "src": "2026-04-09-harness-platform-deep-dive-21.mmd",
+    "raw": "```mermaid\nquadrantChart\n    title Service Resilience Coverage Matrix\n    x-axis Low Business Criticality --> High Business Criticality\n    y-axis Low Test Coverage --> High Test Coverage\n    quadrant-1 Protected Zone\n    quadrant-2 Over-invested\n    quadrant-3 Neglected\n    quadrant-4 Risk Exposure\n    Payment Service: [0.9, 0.85]\n    Auth Service: [0.85, 0.7]\n    Recommend Service: [0.6, 0.8]\n    Log Service: [0.2, 0.4]\n    Message Queue: [0.75, 0.3]\n    Search Service: [0.7, 0.65]\n```\n"
+  },
+  {
+    "file": "2026-04-09-harness-platform-deep-dive.md",
+    "id": "2026-04-09-harness-platform-deep-dive-22",
+    "kind": "plantuml",
+    "src": "2026-04-09-harness-platform-deep-dive-22.puml",
+    "raw": "```plantuml\n@startuml aida-architecture\nskinparam backgroundColor #ffffff\nskinparam componentBorderColor #7c3aed\nskinparam rectangleBorderColor #94a3b8\n\ntitle Harness AI Agent 架构（2025）\n\ncomponent \"Chat / MCP Client\\n(Web / Claude / Cursor)\" as input\ncomponent \"AI Gateway\\n路由 & 鉴权\" as gateway\n\nrectangle \"Agent 层\" as agents {\n    component \"Code Agent\" as code_agent\n    component \"DevOps Agent\" as devops_agent\n    component \"Release Agent\" as release_agent\n    component \"Support Agent\" as support_agent\n}\n\nrectangle \"核心能力\" as core {\n    component \"MCP Server\\n10 tools / 137 resources\" as mcp_server\n    component \"Skill Library\\n自然语言 → API 调用\" as skills\n    component \"Memory Service\\n跨会话持久化\" as memory\n}\n\ncomponent \"Harness 平台数据\\nPipeline / Cost / Security / Test\" as platform_data\n\ninput --> gateway\ngateway --> agents\ndevops_agent --> skills\ndevops_agent --> memory\nmcp_server --> skills\nskills --> platform_data\n\n@enduml\n```\n"
+  },
+  {
+    "file": "2026-04-09-harness-platform-deep-dive.md",
+    "id": "2026-04-09-harness-platform-deep-dive-23",
+    "kind": "mermaid",
+    "src": "2026-04-09-harness-platform-deep-dive-23.mmd",
+    "raw": "```mermaid\nflowchart LR\n    subgraph editors [AI 编辑器/助手]\n        A[Claude Code]\n        B[Cursor]\n        C[GitHub Copilot]\n    end\n\n    subgraph mcp [Harness MCP Server]\n        D[10 个核心工具\\n137 种资源类型]\n        E[Pipeline Tools]\n        F[Deployment Tools]\n        G[Feature Flag Tools]\n        H[Cost Analysis Tools]\n    end\n\n    subgraph platform [Harness Platform]\n        I[API Layer]\n        J[所有平台资源]\n    end\n\n    A -->|MCP Protocol| D\n    B -->|MCP Protocol| D\n    C -->|MCP Protocol| D\n    D --> E\n    D --> F\n    D --> G\n    D --> H\n    E --> I\n    F --> I\n    G --> I\n    H --> I\n    I --> J\n```\n"
+  },
+  {
+    "file": "2026-04-09-harness-platform-deep-dive.md",
+    "id": "2026-04-09-harness-platform-deep-dive-24",
+    "kind": "plantuml",
+    "src": "2026-04-09-harness-platform-deep-dive-24.puml",
+    "raw": "```plantuml\n@startuml idp-architecture\nskinparam backgroundColor #ffffff\nskinparam rectangleBorderColor #94a3b8\nskinparam componentBorderColor #3b82f6\n\ntitle Harness IDP 架构图（基于 Backstage）\n\nrectangle \"开发者门户层 (Backstage-based)\" as portal {\n    component \"软件目录 (Service Catalog)\" as catalog\n    component \"自助服务工作流 (Self-service Workflows)\" as workflows\n    component \"评分卡 (Scorecards)\" as scorecards\n    component \"插件市场 (Plugin Ecosystem)\" as plugins\n}\n\nrectangle \"数据集成层\" as integration {\n    component \"GitHub/GitLab 集成\" as scm_int\n    component \"Jira/ServiceNow 集成\" as ticket_int\n    component \"CI/CD 数据集成\" as cicd_int\n    component \"SonarQube/监控集成\" as monitor_int\n}\n\nrectangle \"AI 增强层\" as ai {\n    component \"AI Knowledge Agent (智能问答)\" as ai_agent\n    component \"自动文档生成\" as auto_doc\n    component \"服务依赖推断\" as dep_inference\n}\n\nrectangle \"治理层\" as governance {\n    component \"RBAC (基于角色访问控制)\" as rbac\n    component \"Audit Trail (操作审计)\" as audit\n    component \"OPA 策略 (合规检查)\" as opa\n}\n\nportal --> integration : 数据聚合\nai --> catalog : 增强搜索与问答\ngovernance --> portal : 访问控制\n\nnote right of scorecards\n  评分维度示例：\n  • 服务是否有 README\n  • 代码覆盖率 > 80%\n  • 是否配置告警\n  • DORA 指标达标\n  • 安全漏洞数 < N\nend note\n\n@enduml\n```\n"
+  },
+  {
+    "file": "2026-04-09-harness-platform-deep-dive.md",
+    "id": "2026-04-09-harness-platform-deep-dive-25",
+    "kind": "mermaid",
+    "src": "2026-04-09-harness-platform-deep-dive-25.mmd",
+    "raw": "```mermaid\nflowchart LR\n    subgraph dora [DORA 指标体系]\n        A[部署频率\\nDeployment Frequency\\n精英目标: 按需多次/天]\n        B[变更前置时间\\nLead Time for Changes\\n精英目标: 小于 1 小时]\n        C[变更失败率\\nChange Failure Rate\\n精英目标: 0~5%]\n        D[服务恢复时间\\nMTTR\\n精英目标: 小于 1 小时]\n    end\n\n    subgraph sources [数据来源]\n        E[Harness CD 部署记录]\n        F[Git 提交时间戳]\n        G[Jira 工单状态]\n        H[PagerDuty 告警]\n        I[Incident 记录]\n    end\n\n    E --> A\n    E --> C\n    F --> B\n    G --> B\n    H --> D\n    I --> D\n    I --> C\n```\n"
+  },
+  {
+    "file": "2026-04-09-harness-platform-deep-dive.md",
+    "id": "2026-04-09-harness-platform-deep-dive-26",
+    "kind": "plantuml",
+    "src": "2026-04-09-harness-platform-deep-dive-26.puml",
+    "raw": "```plantuml\n@startuml sei-metrics\nskinparam backgroundColor #ffffff\nskinparam rectangleBorderColor #94a3b8\nskinparam artifactBorderColor #3b82f6\nskinparam databaseBorderColor #10b981\n\ntitle SEI 工程效能度量体系\n\nrectangle \"交付效率层 (DORA)\" as delivery {\n    artifact \"部署频率\" as df\n    artifact \"变更前置时间\" as ltc\n    artifact \"变更失败率\" as cfr\n    artifact \"MTTR 服务恢复时间\" as mttr\n}\n\nrectangle \"开发者生产力层\" as dev_prod {\n    artifact \"PR Cycle Time\" as pr_time\n    artifact \"Coding Time\" as coding\n    artifact \"Review Lag 等待 Review 时间\" as review_lag\n    artifact \"Rework Rate 返工率\" as rework\n}\n\nrectangle \"流程健康度层\" as process {\n    artifact \"Sprint 速度趋势\" as sprint_velocity\n    artifact \"Tech Debt 趋势\" as tech_debt\n    artifact \"测试覆盖率\" as test_cov\n    artifact \"安全漏洞趋势\" as sec_trend\n}\n\nrectangle \"数据源整合层\" as datasource {\n    database \"GitHub/GitLab (代码活动)\" as git_src\n    database \"Jira/Linear (工单数据)\" as jira_src\n    database \"Harness CI/CD (构建部署)\" as harness_src\n    database \"PagerDuty (Incident)\" as pager_src\n    database \"SonarQube (代码质量)\" as sonar_src\n}\n\ngit_src --> dev_prod\njira_src --> dev_prod\nharness_src --> delivery\npager_src --> delivery\nsonar_src --> process\n\n@enduml\n```\n"
+  },
+  {
+    "file": "2026-04-09-harness-platform-deep-dive.md",
+    "id": "2026-04-09-harness-platform-deep-dive-27",
+    "kind": "mermaid",
+    "src": "2026-04-09-harness-platform-deep-dive-27.mmd",
+    "raw": "```mermaid\ntimeline\n    title Harness 平台关键里程碑\n    2016 : 公司成立，专注 CD 自动化\n    2018 : Harness CD 正式发布\n         : Delegate 架构成型\n    2020 : CI 模块发布\n         : Test Intelligence 上线\n    2021 : Feature Flags 发布\n         : CCM 模块上线\n         : Chaos Engineering 发布\n    2022 : Security Testing Orchestration\n         : Internal Developer Portal IDP\n         : SEI 发布\n    2023 : AIDA AI 助手发布\n         : IaCM 发布\n         : SCS 供应链安全\n    2024 : AI Agents 全面升级\n         : MCP Server 发布\n         : FME 整合 Split.io\n         : Commitment Orchestrator\n    2025 : AI-Native DevOps 全面落地\n         : Persistent Memory 持久化记忆\n         : Warehouse-Native Experimentation\n         : GKE Autopilot Chaos 支持\n    2026 : Agentic DevOps 愿景\n         : 全自动交付闭环\n```\n"
+  },
+  {
+    "file": "2026-04-09-harness-platform-deep-dive.md",
+    "id": "2026-04-09-harness-platform-deep-dive-28",
+    "kind": "mermaid",
+    "src": "2026-04-09-harness-platform-deep-dive-28.mmd",
+    "raw": "```mermaid\ngantt\n    title Harness AI 能力演进路线图 2023-2026\n    dateFormat YYYY-MM\n    axisFormat %Y-%m\n    section 基础 AI 能力\n    AIDA 流水线生成        :done, 2023-04, 6M\n    故障根因分析           :done, 2023-07, 6M\n    PR 摘要与代码审查      :done, 2023-10, 6M\n    section Agents 体系\n    Code Agent             :done, 2024-01, 6M\n    DevOps Agent           :done, 2024-04, 6M\n    Release Agent          :done, 2024-07, 6M\n    Support Agent          :done, 2024-10, 4M\n    section MCP 与集成\n    MCP Server 发布        :done, 2025-01, 3M\n    Claude/Cursor 集成     :done, 2025-01, 6M\n    AI Knowledge Agent     :active, 2025-04, 6M\n    section 高级特性\n    持久化记忆             :active, 2025-07, 6M\n    多 Agent 协作          :2025-10, 6M\n    全自动 PR-to-Prod      :2026-01, 9M\n```\n"
+  },
+  {
+    "file": "2026-04-09-harness-platform-deep-dive.md",
+    "id": "2026-04-09-harness-platform-deep-dive-29",
+    "kind": "mermaid",
+    "src": "2026-04-09-harness-platform-deep-dive-29.mmd",
+    "raw": "```mermaid\nflowchart TD\n    subgraph phase1 [2020-2022 工具整合阶段]\n        A1[CI Engine]\n        A2[CD Orchestrator]\n        A3[Feature Flags]\n        A4[CCM]\n    end\n\n    subgraph phase2 [2022-2024 平台化阶段]\n        B1[统一 Pipeline 引擎]\n        B2[统一 RBAC/治理]\n        B3[GitOps + IaCM]\n        B4[STO + SCS 安全层]\n        B5[IDP + SEI 开发者层]\n    end\n\n    subgraph phase3 [2024-2026 AI-Native 阶段]\n        C1[AI Agents]\n        C2[MCP Protocol]\n        C3[Agentic Workflows]\n        C4[Autonomous DevOps]\n    end\n\n    A1 --> B1\n    A2 --> B1\n    A3 --> B2\n    A4 --> B2\n    B1 --> C1\n    B2 --> C2\n    B3 --> C3\n    B4 --> C3\n    B5 --> C4\n```\n"
+  },
+  {
+    "file": "2026-04-09-harness-platform-deep-dive.md",
+    "id": "2026-04-09-harness-platform-deep-dive-30",
+    "kind": "mermaid",
+    "src": "2026-04-09-harness-platform-deep-dive-30.mmd",
+    "raw": "```mermaid\nquadrantChart\n    title CI/CD Tool Comparison: Features vs Operational Complexity\n    x-axis Low Ops Complexity --> High Ops Complexity\n    y-axis Low Feature Coverage --> High Feature Coverage\n    quadrant-1 Powerful and Simple\n    quadrant-2 Powerful but Complex\n    quadrant-3 Weak and Complex\n    quadrant-4 Limited but Simple\n    Harness: [0.2, 0.92]\n    GitHub Actions: [0.15, 0.68]\n    GitLab CI: [0.55, 0.75]\n    Jenkins: [0.95, 0.7]\n    CircleCI: [0.2, 0.6]\n    ArgoCD: [0.45, 0.55]\n    Spinnaker: [0.85, 0.72]\n    TeamCity: [0.65, 0.65]\n```\n"
+  },
+  {
+    "file": "2026-04-09-harness-platform-deep-dive.md",
+    "id": "2026-04-09-harness-platform-deep-dive-31",
+    "kind": "mermaid",
+    "src": "2026-04-09-harness-platform-deep-dive-31.mmd",
+    "raw": "```mermaid\nflowchart TD\n    Start[选择 CI/CD 工具] --> Q1{团队规模}\n    Q1 -->|小于 20 人 创业团队| R1[GitHub Actions\\n生态丰富 成本低 快速上手]\n    Q1 -->|20-200 人 成长型| Q2{已使用 GitLab?}\n    Q1 -->|大于 200 人 大型企业| Q3{核心痛点}\n    Q2 -->|是| R2[GitLab CI\\n一体化 减少工具切换]\n    Q2 -->|否| Q3\n    Q3 -->|工具碎片化需统一平台| R3[Harness\\n全平台整合 减少集成成本]\n    Q3 -->|历史 Jenkins 大量存在| R4[Jenkins 增强\\n或渐进式迁移 Harness]\n    Q3 -->|纯 K8s 只需 GitOps| R5[ArgoCD / Flux\\n轻量专注]\n    Q3 -->|复杂多云 自建能力强| R6[Spinnaker\\n功能强但运维复杂]\n    R3 --> Note1[Harness 适合:\\n需要 Feature Flags\\n需要成本管理\\n需要混沌工程\\n需要统一安全扫描\\n需要 AI 辅助]\n```\n"
+  },
+  {
+    "file": "2026-04-09-harness-platform-deep-dive.md",
+    "id": "2026-04-09-harness-platform-deep-dive-32",
+    "kind": "mermaid",
+    "src": "2026-04-09-harness-platform-deep-dive-32.mmd",
+    "raw": "```mermaid\ngantt\n    title Harness 渐进式迁移路线图\n    dateFormat YYYY-MM\n    section 第一阶段 CD 先行\n    评估现有部署流程          :done, a1, 2025-01, 1M\n    核心服务迁移 Harness CD   :done, a2, 2025-02, 2M\n    建立 Canary + CV 基线     :done, a3, 2025-04, 1M\n    section 第二阶段 CI 整合\n    CI 流水线迁移             :active, b1, 2025-05, 2M\n    接入 Test Intelligence    :b2, 2025-07, 1M\n    建立 Cache Intelligence   :b3, 2025-08, 1M\n    section 第三阶段 平台扩展\n    接入 STO 安全扫描         :c1, 2025-09, 1M\n    启用 Feature Flags        :c2, 2025-10, 1M\n    CCM 成本可见性            :c3, 2025-11, 1M\n    section 第四阶段 高阶能力\n    混沌工程试点              :d1, 2026-01, 2M\n    IDP 开发者门户            :d2, 2026-02, 2M\n    AI Agents 全面启用        :d3, 2026-04, 2M\n```\n"
+  },
+  {
+    "file": "2026-04-09-harness-platform-deep-dive.md",
+    "id": "2026-04-09-harness-platform-deep-dive-33",
+    "kind": "plantuml",
+    "src": "2026-04-09-harness-platform-deep-dive-33.puml",
+    "raw": "```plantuml\n@startuml delegate-best-practice\nskinparam backgroundColor #ffffff\nskinparam rectangleBorderColor #94a3b8\nskinparam componentBorderColor #3b82f6\n\ntitle Delegate 多环境部署最佳实践\n\nrectangle \"生产环境 VPC\" as prod {\n    component \"Delegate-Prod-1 (Replica 1)\" as d_prod_1\n    component \"Delegate-Prod-2 (Replica 2)\" as d_prod_2\n    note bottom: Selector: prod\\n高可用双副本\n}\n\nrectangle \"预发布环境 VPC\" as staging {\n    component \"Delegate-Staging (Replica 1)\" as d_staging\n    note bottom: Selector: staging\\n单副本即可\n}\n\nrectangle \"开发测试环境 VPC\" as dev {\n    component \"Delegate-Dev (Replica 1)\" as d_dev\n    note bottom: Selector: dev\\n共享使用\n}\n\nrectangle \"Harness SaaS\" as harness {\n    component \"Pipeline Engine + 任务调度器\" as scheduler\n}\n\nscheduler --> d_prod_1 : Selector=prod 任务\nscheduler --> d_prod_2 : Selector=prod 任务（负载均衡）\nscheduler --> d_staging : Selector=staging 任务\nscheduler --> d_dev : Selector=dev 任务\n\nnote right of prod\n  最佳实践：\n  • 生产环境独立 Delegate\n  • 不与其他环境共享\n  • minimal 镜像 + 自定义工具\n  • 定期轮换 Delegate Token\nend note\n\n@enduml\n```\n"
+  },
+  {
+    "file": "2026-04-09-harness-platform-deep-dive.md",
+    "id": "2026-04-09-harness-platform-deep-dive-34",
+    "kind": "mermaid",
+    "src": "2026-04-09-harness-platform-deep-dive-34.mmd",
+    "raw": "```mermaid\nflowchart TD\n    subgraph template [Pipeline 模板化体系]\n        T1[基础模板 Base Template] --> T2[语言特化模板\\nJava / Go / Python]\n        T2 --> T3[服务类型模板\\nMicroservice / Monolith]\n        T3 --> T4[具体业务 Pipeline\\n继承并覆盖]\n    end\n\n    subgraph opa [OPA 策略治理]\n        P1[部署窗口限制\\n禁止周五生产部署]\n        P2[强制 Code Review\\n至少 2 人 Approve]\n        P3[安全扫描门控\\nCritical 漏洞必须修复]\n        P4[成本预算检查\\n基础设施变更成本评估]\n    end\n\n    subgraph rbac [RBAC 权限矩阵]\n        R1[研发工程师\\n可触发 Dev/Staging 部署]\n        R2[Tech Lead\\n可触发 Production 部署]\n        R3[SRE\\n可执行紧急回滚]\n        R4[只读角色\\n查看流水线状态]\n    end\n```\n"
+  },
+  {
+    "file": "2026-04-10-harness-engineering.md",
+    "id": "2026-04-10-harness-engineering-01",
+    "kind": "mermaid",
+    "src": "2026-04-10-harness-engineering-01.mmd",
+    "raw": "```mermaid\ntimeline\n    title AI 工程方法论演进时间线\n    2023-2024 : Prompt Engineering 巅峰\n              : 核心问题：问什么？\n              : 精心设计 few-shot、COT 等提示词\n    2025 年中  : Context Engineering 兴起\n              : Andrej Karpathy 系列推文引爆\n              : 核心问题：给模型看什么？\n              : 管理 Token 窗口里的所有信息\n    2026 年初  : Harness Engineering 正式命名\n              : Mitchell Hashimoto 博客\n              : OpenAI Codex 实践报告\n              : Martin Fowler 权威定义\n              : 核心问题：环境如何设计？\n```\n"
+  },
+  {
+    "file": "2026-04-10-harness-engineering.md",
+    "id": "2026-04-10-harness-engineering-02",
+    "kind": "mermaid",
+    "src": "2026-04-10-harness-engineering-02.mmd",
+    "raw": "```mermaid\nblock-beta\n  columns 3\n\n  block:car[\"🚗 汽车类比\"]:1\n    columns 1\n    CM[\"引擎 Engine\\n= Model\\n提供动力/推理\"]\n    CC[\"燃料+仪表盘\\n= Context\\n当前状态信息\"]\n    CH[\"转向/刹车/车道/警示灯\\n= Harness\\n工具调用/护栏/约束/可观测性\"]\n  end\n\n  space\n\n  block:os[\"💻 操作系统类比\"]:1\n    columns 1\n    OM[\"CPU 处理器\\n= Model\\n执行指令/推理\"]\n    OC[\"寄存器状态\\n= Context\\n当前执行上下文\"]\n    OH[\"内存/文件/系统调用/权限\\n= Harness\\n上下文管理/持久化/接口/护栏\"]\n  end\n```\n"
+  },
+  {
+    "file": "2026-04-10-harness-engineering.md",
+    "id": "2026-04-10-harness-engineering-03",
+    "kind": "plantuml",
+    "src": "2026-04-10-harness-engineering-03.puml",
+    "raw": "```plantuml\n@startuml tool-layer\nskinparam backgroundColor #ffffff\nskinparam defaultFontColor #1e293b\nskinparam defaultFontSize 12\nskinparam componentBorderColor #3b82f6\nskinparam componentBackgroundColor #eff6ff\nskinparam componentFontColor #1e293b\nskinparam arrowColor #3b82f6\nskinparam packageBorderColor #94a3b8\nskinparam packageBackgroundColor #f8fafc\nskinparam noteBorderColor #f59e0b\nskinparam noteBackgroundColor #fffbeb\nskinparam noteFontColor #92400e\n\ntitle 工具层架构：LLM → Tool Router → 分类执行\n\ncomponent \"LLM 推理引擎\\n生成 tool_call(name, args)\" as llm #e0e7ff\n\ncomponent \"Tool Router\\nHarness 核心分发器\" as router #dbeafe\n\npackage \"读操作工具（安全 · 无副作用）\" {\n    component \"文件系统读取\\nRead / Search / List\" as fs_r #dcfce7\n    component \"数据库查询\\nSELECT only\" as db_r #dcfce7\n    component \"外部搜索\\nGitHub / Search API\" as search #dcfce7\n}\n\npackage \"写操作工具（有副作用 · 沙盒执行）\" {\n    component \"文件系统写入\\nWrite / Edit / Delete\" as fs_w #fef9c3\n    component \"代码执行\\nBash / Python\" as exec #fef9c3\n    component \"外部 API 写入\\nJira / GitHub PR\" as api_w #fef9c3\n    component \"浏览器自动化\\nPuppeteer / Playwright\" as browser #fef9c3\n}\n\ncomponent \"Observation 结果\\n返回给 LLM 上下文\" as obs #eff6ff\n\nllm -[#6366f1]-> router : tool_call(name, args)\nrouter -[#16a34a]-> fs_r\nrouter -[#16a34a]-> db_r\nrouter -[#16a34a]-> search\nrouter -[#d97706]-> fs_w\nrouter -[#d97706]-> exec\nrouter -[#d97706]-> api_w\nrouter -[#d97706]-> browser\n\nfs_r -[#3b82f6]-> obs\ndb_r -[#3b82f6]-> obs\nsearch -[#3b82f6]-> obs\nfs_w -[#3b82f6]-> obs\nexec -[#3b82f6]-> obs\napi_w -[#3b82f6]-> obs\nbrowser -[#3b82f6]-> obs\n\nobs -[#6366f1]-> llm : 注入 Observation\n\nnote right of router\n  Router 职责\n  • 权限校验（Guardrail 前置）\n  • 参数格式化与校验\n  • 超时与重试控制\n  • 调用日志记录（可观测性）\nend note\n\n@enduml\n```\n"
+  },
+  {
+    "file": "2026-04-10-harness-engineering.md",
+    "id": "2026-04-10-harness-engineering-04",
+    "kind": "plantuml",
+    "src": "2026-04-10-harness-engineering-04.puml",
+    "raw": "```plantuml\n@startuml memory-types\nskinparam backgroundColor #ffffff\nskinparam defaultFontColor #1e293b\nskinparam defaultFontSize 12\nskinparam rectangleBorderColor #3b82f6\nskinparam rectangleBackgroundColor #f0f9ff\nskinparam rectangleFontColor #1e293b\nskinparam arrowColor #3b82f6\nskinparam noteBorderColor #f59e0b\nskinparam noteBackgroundColor #fffbeb\nskinparam noteFontColor #92400e\n\nrectangle \"In-Context Memory（Token 窗口 · 临时）\" as ctx #dbeafe {\n    rectangle \"对话历史\\nConversation History\" as history #eff6ff\n    rectangle \"Tool Call 结果\\nObservations\" as tool_results #eff6ff\n    rectangle \"工作状态摘要\\nWorking Summary\" as summary #eff6ff\n}\n\nrectangle \"External Memory（持久化存储 · 跨 Session）\" as ext #dcfce7 {\n    rectangle \"进度文件\\nclaude-progress.txt\" as progress #f0fdf4\n    rectangle \"Git 历史\\nCommit Log\" as git #f0fdf4\n    rectangle \"向量数据库\\nVector Store · RAG\" as vector #f0fdf4\n    rectangle \"任务清单\\nfeature-list.json\" as structured #f0fdf4\n}\n\next -[#16a34a]-> ctx : Session 启动时检索注入\nctx -[#3b82f6]-> ext : Session 结束时持久化\n\nnote right of ctx\n  生命周期：单次 Session\n  上下文窗口满了即失效\n  依赖 External Memory 续航\nend note\n\nnote right of ext\n  生命周期：永久\n  跨 Session 保持连续性\n  是长任务的关键基础设施\nend note\n\n@enduml\n```\n"
+  },
+  {
+    "file": "2026-04-10-harness-engineering.md",
+    "id": "2026-04-10-harness-engineering-05",
+    "kind": "mermaid",
+    "src": "2026-04-10-harness-engineering-05.mmd",
+    "raw": "```mermaid\nxychart-beta\n    title \"Keep Quality Left：发现越早，修复成本越低\"\n    x-axis [\"提交前 Pre-commit\", \"CI 阶段\", \"Code Review\", \"集成测试\", \"生产故障\"]\n    y-axis \"修复相对成本\" 0 --> 100\n    bar [1, 5, 15, 40, 100]\n```\n"
+  },
+  {
+    "file": "2026-04-10-harness-engineering.md",
+    "id": "2026-04-10-harness-engineering-06",
+    "kind": "plantuml",
+    "src": "2026-04-10-harness-engineering-06.puml",
+    "raw": "```plantuml\n@startuml guardrail-state\nskinparam backgroundColor #ffffff\nskinparam defaultFontColor #1e293b\nskinparam defaultFontSize 12\nskinparam state {\n    BackgroundColor #f1f5f9\n    BorderColor #3b82f6\n    FontColor #1e293b\n    ArrowColor #3b82f6\n    StartColor #16a34a\n    EndColor #dc2626\n}\nskinparam noteBorderColor #f59e0b\nskinparam noteBackgroundColor #fffbeb\nskinparam noteFontColor #92400e\n\ntitle Guardrail 状态机：Action 风险分级处理\n\n[*] --> Pending : Agent 生成 Action\n\nstate Pending #e2e8f0\nstate Checking #dbeafe : 风险评估中\n\nPending --> Checking : 提交检查\n\nstate \"已批准执行\" as Approved #dcfce7\nstate \"沙盒执行\" as Sandboxed #dcfce7\nstate \"等待人工确认\" as HITL #fef9c3\nstate \"已拦截\" as Blocked #fee2e2\n\nChecking --> Approved : 读操作\\n无副作用\nChecking --> Sandboxed : 写操作\\n有限范围\nChecking --> HITL : 破坏性操作\\n删除/部署/外发\nChecking --> Blocked : 违反约束\\n越权行为\n\nApproved --> [*] : 返回结果\nSandboxed --> [*] : 隔离执行，返回结果\nHITL --> Approved : 人工批准\nHITL --> Blocked : 人工拒绝\nBlocked --> Pending : 附带修复建议\\n重新生成 Action\n\nnote right of HITL\n  Human-in-the-Loop 触发条件\n  • git push / git reset --hard\n  • rm -rf / 批量删除\n  • curl 外部网络请求\n  • 生产环境部署命令\nend note\n\nnote right of Blocked\n  拦截后必须提供\n  • 明确的拒绝原因\n  • 合规的替代方案建议\n  • 相关规则引用（AGENTS.md）\nend note\n\n@enduml\n```\n"
+  },
+  {
+    "file": "2026-04-10-harness-engineering.md",
+    "id": "2026-04-10-harness-engineering-07",
+    "kind": "plantuml",
+    "src": "2026-04-10-harness-engineering-07.puml",
+    "raw": "```plantuml\n@startuml observability\nskinparam backgroundColor #ffffff\nskinparam defaultFontColor #1e293b\nskinparam defaultFontSize 12\nskinparam rectangleBorderColor #94a3b8\nskinparam rectangleBackgroundColor #f8fafc\nskinparam rectangleFontColor #1e293b\nskinparam arrowColor #3b82f6\nskinparam noteBorderColor #f59e0b\nskinparam noteBackgroundColor #fffbeb\nskinparam noteFontColor #92400e\n\nrectangle \"Logs  结构化日志\" as logs #fef2f2 {\n    rectangle \"tool_call 入参/出参\\nJSON 结构化\" as tl #fff1f2\n    rectangle \"Token 消耗\\nprompt + completion\" as tk #fff1f2\n    rectangle \"Session 生命周期\\nstart / end / error\" as sl #fff1f2\n}\n\nrectangle \"Metrics  可量化指标\" as metrics #f0fdf4 {\n    rectangle \"任务成功率\\nSuccess Rate %\" as sr #f0fdf4\n    rectangle \"Retry 次数分布\\nP50 / P95 / P99\" as rd #f0fdf4\n    rectangle \"Guardrail 触发频率\\nBlock Rate\" as gf #f0fdf4\n    rectangle \"平均 Token / 任务\\nCost per Task\" as tc #f0fdf4\n}\n\nrectangle \"Traces  调用链追踪\" as traces #eff6ff {\n    rectangle \"跨 Tool 调用链\\nSpan → Parent Span\" as tc2 #eff6ff\n    rectangle \"多 Agent 协作链路\\nOrchestrator → Sub-agent\" as ma #eff6ff\n    rectangle \"Context 注入时序\\n何时 / 注入了什么\" as ci #eff6ff\n}\n\nlogs -[#3b82f6]-> metrics : 聚合计算\nmetrics -[#3b82f6]-> traces : 关联分析\n\nnote bottom of traces\n  诊断口诀\n  偶发错误 → 看 Logs → Context 问题\n  持续退化 → 看 Metrics/Traces → Harness 问题\nend note\n\n@enduml\n```\n"
+  },
+  {
+    "file": "2026-04-10-harness-engineering.md",
+    "id": "2026-04-10-harness-engineering-08",
+    "kind": "plantuml",
+    "src": "2026-04-10-harness-engineering-08.puml",
+    "raw": "```plantuml\n@startuml feedforward-components\nskinparam backgroundColor #ffffff\nskinparam defaultFontColor #1e293b\nskinparam defaultFontSize 12\nskinparam componentBorderColor #3b82f6\nskinparam componentBackgroundColor #eff6ff\nskinparam componentFontColor #1e293b\nskinparam arrowColor #3b82f6\nskinparam packageBorderColor #94a3b8\nskinparam packageBackgroundColor #f8fafc\nskinparam noteBorderColor #f59e0b\nskinparam noteBackgroundColor #fffbeb\nskinparam noteFontColor #92400e\n\ntitle 前馈机制：Context 注入组件视图\n\npackage \"Feedforward 前馈层（行动前注入）\" {\n    component \"AGENTS.md\\n项目规范 + 禁止事项\" as agents #dbeafe\n    component \"Skill Files\\n标准操作流程 SOP\" as skills #dbeafe\n    component \"Architecture Rules\\n架构约束 + 依赖方向\" as arch #dbeafe\n    component \"MCP Servers\\n工具接口 + API 描述\" as mcp #dbeafe\n    component \"Context Injector\\nHarness 核心组件\\n按需检索 + 组装 Prompt\" as injector #bfdbfe\n}\n\ncomponent \"LLM Agent\\n推理引擎\" as llm #e9d5ff\n\nagents -[#3b82f6]-> injector : 规范文档\nskills -[#3b82f6]-> injector : 操作流程\narch -[#3b82f6]-> injector : 约束规则\nmcp -[#3b82f6]-> injector : 工具描述\n\ninjector -[#16a34a]-> llm : 注入 Context（推理前）\n\nnote right of injector\n  注入策略\n  • 全量：任务启动时全量加载\n  • 按需：RAG 检索相关片段\n  • 优先级：高频规则 > 长尾文档\nend note\n\n@enduml\n```\n"
+  },
+  {
+    "file": "2026-04-10-harness-engineering.md",
+    "id": "2026-04-10-harness-engineering-09",
+    "kind": "plantuml",
+    "src": "2026-04-10-harness-engineering-09.puml",
+    "raw": "```plantuml\n@startuml feedback-sequence\nskinparam backgroundColor #ffffff\nskinparam defaultFontColor #1e293b\nskinparam defaultFontSize 12\nskinparam sequenceArrowThickness 2\nskinparam sequenceArrowColor #3b82f6\nskinparam sequenceParticipantBorderColor #3b82f6\nskinparam sequenceParticipantBackgroundColor #eff6ff\nskinparam sequenceParticipantFontColor #1e293b\nskinparam sequenceLifeLineBorderColor #cbd5e1\nskinparam sequenceGroupBorderColor #94a3b8\nskinparam sequenceGroupBodyBackgroundColor #f8fafc\nskinparam noteBorderColor #f59e0b\nskinparam noteBackgroundColor #fffbeb\nskinparam noteFontColor #92400e\n\ntitle 反馈机制：Agent 行动后的验证时序\n\nparticipant \"LLM Agent\" as llm #e9d5ff\nparticipant \"File System\" as fs #eff6ff\nparticipant \"Linter / TypeCheck\" as lint #dcfce7\nparticipant \"Unit Tests\" as test #dcfce7\nparticipant \"AI Code Review\" as aicr #e9d5ff\nparticipant \"Harness Runtime\" as harness #dbeafe\n\nllm -> fs : 写入代码文件\n\ngroup Computational 验证（并行，毫秒级）\n    fs -> lint : 触发静态检查\n    lint --> harness : Lint 结果（pass/fail + 行号）\n    fs -> test : 触发单元测试\n    test --> harness : 测试结果（pass/fail + 堆栈）\nend\n\ngroup Inferential 验证（异步，秒级）\n    fs -> aicr : 提交 AI Code Review\n    aicr --> harness : Review 结论（issue 列表）\nend\n\nharness -> harness : 汇总所有验证结果\n\nalt 全部通过\n    harness -> llm : 验证通过，可提交\nelse 存在失败\n    harness -> llm : 反馈错误上下文\n    note right of llm\n      错误信息即 Context\n      包含：具体行号 + 规则说明\n      + 修复建议 → 触发自修复循环\n    end note\n    llm -> fs : 重新写入修复后代码\nend\n\n@enduml\n```\n"
+  },
+  {
+    "file": "2026-04-10-harness-engineering.md",
+    "id": "2026-04-10-harness-engineering-10",
+    "kind": "plantuml",
+    "src": "2026-04-10-harness-engineering-10.puml",
+    "raw": "```plantuml\n@startuml steering-loop\nskinparam backgroundColor #ffffff\nskinparam defaultFontColor #1e293b\nskinparam activityBorderColor #3b82f6\nskinparam activityBackgroundColor #eff6ff\nskinparam activityFontColor #1e293b\nskinparam activityArrowColor #3b82f6\nskinparam noteBorderColor #f59e0b\nskinparam noteBackgroundColor #fffbeb\nskinparam noteFontColor #92400e\n\ntitle Harness Steering Loop（持续改进循环）\n\nstart\n\n:Agent 执行任务;\n\n:观察输出结果;\n\nif (Agent 犯了错?) then (是)\n    :分析失败模式;\n    note right\n      关键问题：\n      这是偶发错误 (Context 问题)?\n      还是系统性错误 (Harness 问题)?\n    end note\n    if (系统性 / 重复出现?) then (是)\n        :改进 Harness;\n        note right\n          • 更新 AGENTS.md 规范\n          • 添加 Linter 规则\n          • 增加测试用例\n          • 加强护栏约束\n          • 改进工具返回格式\n        end note\n    else (偶发)\n        :改进 Context;\n        note right\n          • 补充相关文档引用\n          • 提供更多示例\n          • 优化信息注入时机\n        end note\n    endif\nelse (否)\n    :记录成功模式;\n    :考虑提取为 Skill File;\nendif\n\n:下一轮 Agent 执行;\nnote right\n  核心原则：\n  每次 Agent 犯错\n  不要只期待下次改进\n  要工程化地阻止它再犯\n  同样的错误\nend note\n\nstop\n\n@enduml\n```\n"
+  },
+  {
+    "file": "2026-04-10-harness-engineering.md",
+    "id": "2026-04-10-harness-engineering-11",
+    "kind": "mermaid",
+    "src": "2026-04-10-harness-engineering-11.mmd",
+    "raw": "```mermaid\nmindmap\n  root((Harness 设计模式))\n    Reason-Act Loop\n      ReAct 推理-行动循环\n      思维链驱动工具调用\n      Scratchpad 中间推理\n    Retrieval\n      RAG 检索增强\n      向量检索\n      BM25 关键词检索\n    Reflection\n      自我批评\n      输出评分\n      迭代改进\n    Verification\n      测试门控\n      格式验证\n      逻辑一致性检查\n    Memory\n      短期对话记忆\n      长期向量记忆\n      情节记忆\n    Search\n      Tree-of-Thought\n      MCTS 蒙特卡洛树搜索\n      Beam Search\n    Orchestration\n      多 Agent 并行\n      主从架构\n      流水线编排\n```\n"
+  },
+  {
+    "file": "2026-04-10-harness-engineering.md",
+    "id": "2026-04-10-harness-engineering-12",
+    "kind": "plantuml",
+    "src": "2026-04-10-harness-engineering-12.puml",
+    "raw": "```plantuml\n@startuml react-loop\nskinparam backgroundColor #ffffff\nskinparam defaultFontColor #1e293b\nskinparam sequenceArrowThickness 2\nskinparam sequenceArrowColor #3b82f6\nskinparam sequenceParticipantBorderColor #3b82f6\nskinparam sequenceParticipantBackgroundColor #eff6ff\nskinparam sequenceParticipantFontColor #1e293b\nskinparam sequenceLifeLineBorderColor #cbd5e1\nskinparam sequenceGroupBorderColor #94a3b8\nskinparam noteBorderColor #f59e0b\nskinparam noteBackgroundColor #fffbeb\nskinparam noteFontColor #92400e\n\ntitle ReAct Loop：推理-行动循环\n\nparticipant \"LLM\" as llm\nparticipant \"Harness Runtime\" as runtime\nparticipant \"Tools\" as tools\n\nloop 直到任务完成或达到步骤上限\n    llm -> llm : Thought：分析当前状态\\n规划下一步行动\n    llm -> runtime : Action：tool_call(name, args)\n    runtime -> tools : 执行工具调用\n    tools -> runtime : 返回结果\n    runtime -> llm : Observation：工具结果注入上下文\nend\n\nllm -> runtime : Final Answer\n\nnote over runtime\n  Harness 负责：\n  • 格式化工具调用\n  • 捕获异常和超时\n  • 注入 Observation\n  • 检测循环/卡死\n  • 执行步骤上限\nend note\n\n@enduml\n```\n"
+  },
+  {
+    "file": "2026-04-10-harness-engineering.md",
+    "id": "2026-04-10-harness-engineering-13",
+    "kind": "mermaid",
+    "src": "2026-04-10-harness-engineering-13.mmd",
+    "raw": "```mermaid\nstateDiagram-v2\n    direction TB\n    [*] --> Draft : Agent 产出代码/方案\n\n    state \"Pre-commit Gate\" as PCG {\n        [*] --> LintCheck\n        LintCheck --> FormatCheck\n        FormatCheck --> [*]\n    }\n\n    state \"Test Gate\" as TG {\n        [*] --> UnitTest\n        UnitTest --> IntegrationTest\n        IntegrationTest --> [*]\n    }\n\n    state \"Architecture Gate\" as AG {\n        [*] --> DepDirection\n        DepDirection --> CircularCheck\n        CircularCheck --> [*]\n    }\n\n    state \"Security Gate\" as SG {\n        [*] --> VulnScan\n        VulnScan --> SecretCheck\n        SecretCheck --> [*]\n    }\n\n    Draft --> PCG\n    PCG --> Draft : 失败，回退修复\n    PCG --> TG : Lint + 格式通过\n\n    TG --> Draft : 失败，回退修复\n    TG --> AG : 测试全绿\n\n    AG --> Draft : 失败，回退修复\n    AG --> SG : 依赖方向正确\n\n    SG --> Draft : 失败，回退修复\n    SG --> [*] : 通过，合并到主分支\n```\n"
+  },
+  {
+    "file": "2026-04-10-harness-engineering.md",
+    "id": "2026-04-10-harness-engineering-14",
+    "kind": "plantuml",
+    "src": "2026-04-10-harness-engineering-14.puml",
+    "raw": "```plantuml\n@startuml multi-agent\nskinparam backgroundColor #ffffff\nskinparam defaultFontColor #1e293b\nskinparam defaultFontSize 12\nskinparam componentBorderColor #7c3aed\nskinparam componentBackgroundColor #f5f3ff\nskinparam componentFontColor #1e293b\nskinparam arrowColor #7c3aed\nskinparam packageBorderColor #94a3b8\nskinparam packageBackgroundColor #f8fafc\nskinparam noteBorderColor #f59e0b\nskinparam noteBackgroundColor #fffbeb\nskinparam noteFontColor #92400e\n\ntitle 多 Agent 编排模式\n\npackage \"Harness Orchestration Layer\" {\n    component \"Orchestrator Agent\\n规划 · 分解 · 分配\" as orch #ede9fe\n\n    package \"Execution Agents（并行执行）\" {\n        component \"Coding Agent\\n功能实现\" as coder #dbeafe\n        component \"Test Agent\\n测试编写\" as tester #dbeafe\n    }\n\n    component \"Review Agent\\n代码审查 · 汇总\" as reviewer #dcfce7\n}\n\npackage \"Background Agent（持续后台运行）\" {\n    component \"Cleanup Agent\\n熵减 · 扫描过期文档/死代码\" as cleaner #fef9c3\n}\n\norch -[#7c3aed]-> coder : 分配功能实现子任务\norch -[#7c3aed]-> tester : 分配测试编写子任务\ncoder -[#3b82f6]-> reviewer : 提交代码审查\ntester -[#3b82f6]-> reviewer : 提交测试审查\nreviewer -[#16a34a]-> orch : 审查结论 + 通过/驳回\n\nnote right of cleaner\n  后台 Agent 三项职责\n  • 扫描过期注释和死代码\n  • 修复废弃依赖引用\n  • 对齐文档与实现偏差\nend note\n\nnote bottom of reviewer\n  Review Agent 输出\n  通过 → orch 继续下一任务\n  驳回 → 携带原因返回 coder/tester 修复\nend note\n\n@enduml\n```\n"
+  },
+  {
+    "file": "2026-04-10-harness-engineering.md",
+    "id": "2026-04-10-harness-engineering-15",
+    "kind": "plantuml",
+    "src": "2026-04-10-harness-engineering-15.puml",
+    "raw": "```plantuml\n@startuml stripe-swimlane\nskinparam backgroundColor #ffffff\nskinparam defaultFontColor #1e293b\nskinparam defaultFontSize 12\nskinparam activityBorderColor #3b82f6\nskinparam activityBackgroundColor #eff6ff\nskinparam activityFontColor #1e293b\nskinparam activityArrowColor #3b82f6\nskinparam swimlaneBorderColor #94a3b8\nskinparam noteBorderColor #f59e0b\nskinparam noteBackgroundColor #fffbeb\nskinparam noteFontColor #92400e\n\ntitle Stripe Agent Harness：任务全生命周期\n\n|任务规范层|\nstart\n:构造结构化任务;\nnote right\n  JSON Task Spec\n  goal / scope / context\n  validation / constraints\nend note\n\n|沙盒执行层|\n:启动隔离容器;\nnote right\n  可读写文件\n  可执行测试/Linter\n  无法触达生产环境\nend note\n:Agent 开始执行任务;\n\n|反馈循环层|\n:运行测试套件;\nif (测试全部通过?) then (是)\n    :生成 Pull Request;\nelse (否)\n    :读取错误输出 + 错误信息;\n    note right\n      教学式错误信息\n      错误本身即下轮 Context\n      引导 Agent 自修复\n    end note\n    :迭代修复代码;\n    if (达到步骤上限?) then (是)\n        :标记为需要人工介入;\n    else (否)\n        :返回运行测试;\n        goto 运行测试套件\n    endif\nendif\n\n|人工审核层|\n:正常 Code Review 流程;\n:CI 必须全绿方可合并;\nstop\n\n@enduml\n```\n"
+  },
+  {
+    "file": "2026-04-10-harness-engineering.md",
+    "id": "2026-04-10-harness-engineering-16",
+    "kind": "mermaid",
+    "src": "2026-04-10-harness-engineering-16.mmd",
+    "raw": "```mermaid\nsequenceDiagram\n    participant H as Harness\n    participant A as Agent Session 1\n    participant B as Agent Session 2\n    participant C as Agent Session 3\n\n    H->>A: 开始任务（完整上下文）\n    A->>A: 实现功能 1~10\n    Note over A: Context Window 耗尽\n    A->>H: 保存进度（关键！）\n\n    H->>B: 新 Session（空白记忆）\n    Note over B: 不知道之前做了什么\n    B->>H: 读取进度文件 + Git 历史\n    B->>B: 快速重建工作状态\n    B->>B: 实现功能 11~20\n    B->>H: 保存进度\n\n    H->>C: 新 Session（空白记忆）\n    C->>H: 读取进度文件 + Git 历史\n    C->>C: 继续实现...\n```\n"
+  },
+  {
+    "file": "2026-04-10-harness-engineering.md",
+    "id": "2026-04-10-harness-engineering-17",
+    "kind": "plantuml",
+    "src": "2026-04-10-harness-engineering-17.puml",
+    "raw": "```plantuml\n@startuml long-running\nskinparam backgroundColor #ffffff\nskinparam defaultFontColor #1e293b\nskinparam defaultFontSize 12\nskinparam rectangleBorderColor #3b82f6\nskinparam rectangleBackgroundColor #f0f9ff\nskinparam rectangleFontColor #1e293b\nskinparam arrowColor #3b82f6\n\ntitle 长任务双层 Harness 架构\n\nrectangle \"第一层：Initializer Agent（仅首次运行）\" as init #dbeafe {\n    rectangle \"创建 init.sh\\n（开发环境启动脚本）\" as init_sh #eff6ff\n    rectangle \"创建 feature-list.json\\n（200+ 功能需求清单，全部标记 failing）\" as feature_list #eff6ff\n    rectangle \"初始 Git Commit\\n（记录初始文件结构）\" as init_commit #eff6ff\n    rectangle \"创建 claude-progress.txt\\n（进度日志）\" as progress #eff6ff\n}\n\nrectangle \"第二层：Coding Agent（每次 Session）\" as coding #dcfce7 {\n    rectangle \"1. 读取 Git 日志 + 进度文件\\n快速重建工作状态\" as step1 #f0fdf4\n    rectangle \"2. 读取 feature-list.json\\n选择下一个 failing 功能\" as step2 #f0fdf4\n    rectangle \"3. 运行 init.sh + 基础 E2E 测试\\n验证环境正常\" as step3 #f0fdf4\n    rectangle \"4. 实现单一功能\\n增量开发\" as step4 #f0fdf4\n    rectangle \"5. 自测验证\\n通过后更新 feature-list.json\" as step5 #f0fdf4\n    rectangle \"6. Git Commit + 更新进度文件\\n为下一 Session 留交接物\" as step6 #f0fdf4\n}\n\ninit -[#16a34a]-> coding : Initializer 完成后，所有后续 Session 使用 Coding Agent\nstep1 -[#3b82f6]-> step2\nstep2 -[#3b82f6]-> step3\nstep3 -[#3b82f6]-> step4\nstep4 -[#3b82f6]-> step5\nstep5 -[#3b82f6]-> step6\nstep6 -[#d97706]-> step1 : 下一 Session 从头开始\n\n@enduml\n```\n"
+  },
+  {
+    "file": "2026-04-10-harness-engineering.md",
+    "id": "2026-04-10-harness-engineering-18",
+    "kind": "mermaid",
+    "src": "2026-04-10-harness-engineering-18.mmd",
+    "raw": "```mermaid\nflowchart TD\n    A[Agent 出现错误] --> B{是否重复出现?}\n    B -->|偶发 首次出现| C{给 Agent 更多相关信息后\\n能解决吗?}\n    B -->|系统性 多次重现| D[Harness 问题]\n    C -->|能| E[Context 问题\\n改进信息注入]\n    C -->|不能| F{是否是约束/工具/验证缺失?}\n    F -->|是| D\n    F -->|否| G[可能是模型能力边界\\n拆解任务或换模型]\n    D --> H[改进 Harness\\n添加规则/测试/护栏]\n```\n"
+  },
+  {
+    "file": "2026-04-10-harness-engineering.md",
+    "id": "2026-04-10-harness-engineering-19",
+    "kind": "mermaid",
+    "src": "2026-04-10-harness-engineering-19.mmd",
+    "raw": "```mermaid\nmindmap\n  root((Harness工程师能力栈))\n    必须掌握\n      Harness 设计能力\n        工具接口设计\n        反馈机制设计\n      可观测性工程\n        日志 / 指标 / 追踪\n      测试设计思维\n        Computational 验证\n        Inferential 验证\n      Context Engineering\n        信息架构设计\n    增强能力\n      系统设计\n        架构约束设计\n      AI 评估工程\n        Eval 设计与度量\n      多 Agent 编排\n        工作流分解\n    杠杆能力\n      领域专业知识\n        转化为机械化约束\n      代码审查判断力\n        转化为 AI Review 标准\n```\n"
+  },
+  {
+    "file": "2026-04-10-harness-engineering.md",
+    "id": "2026-04-10-harness-engineering-20",
+    "kind": "mermaid",
+    "src": "2026-04-10-harness-engineering-20.mmd",
+    "raw": "```mermaid\ngantt\n    title Harness Engineering 团队成熟度路线图\n    dateFormat YYYY-MM\n    section Level 1 基础\n    建立 AGENTS.md 规范文件       :done, a1, 2025-01, 1M\n    接入 Linter 和类型检查         :done, a2, 2025-02, 1M\n    Agent 输出纳入 CI 流水线       :done, a3, 2025-03, 2M\n    section Level 2 反馈闭环\n    教学式 Linter 错误信息优化     :active, b1, 2025-05, 2M\n    建立 Agent 行为监控指标        :b2, 2025-07, 2M\n    引入 AI Code Review 门控      :b3, 2025-09, 2M\n    section Level 3 高级工程化\n    多 Agent 编排流水线            :c1, 2025-11, 3M\n    长任务双层 Harness 架构        :c2, 2026-02, 2M\n    背景清理 Agent 上线            :c3, 2026-04, 2M\n    section Level 4 自我改进\n    Harness 自动评估与优化         :d1, 2026-06, 3M\n    AI 辅助 Harness 设计           :d2, 2026-09, 3M\n```\n"
+  },
+  {
+    "file": "2026-04-10-harness-engineering.md",
+    "id": "2026-04-10-harness-engineering-21",
+    "kind": "mermaid",
+    "src": "2026-04-10-harness-engineering-21.mmd",
+    "raw": "```mermaid\ntimeline\n    title Harness Engineering 演进路线\n    2026 当前阶段 : 手工设计 Harness，人类迭代改进\n                 : 单项目 Harness，难以跨项目迁移\n                 : Computational 验证为主\n    2026-2027 近期 : AI 辅助发现 Harness 改进点\n                  : 标准化 Harness 接口（NLAH 规范）\n                  : Inferential 验证成本大幅降低\n    2027+ 远期 : 自演化 Harness，失败自动触发规则更新\n              : 跨项目 Harness 市场，可复用组件生态\n              : 全自动 Steering Loop，无需人工干预\n```\n"
+  }
+]

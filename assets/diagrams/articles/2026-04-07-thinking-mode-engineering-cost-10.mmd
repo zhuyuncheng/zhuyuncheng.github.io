@@ -1,0 +1,26 @@
+flowchart TD
+    Start(["🎯 你的业务场景"]) --> Q1{"任务是否有\n可验证的正确答案？\n数学/代码/逻辑"}
+
+    Q1 -->|"否\n翻译/摘要/创作/闲聊"| No1["❌ 关闭 Thinking\n收益极小，成本浪费"]
+    Q1 -->|"是"| Q2{"延迟要求？"}
+
+    Q2 -->|"实时交互\nTTFT < 3秒"| No2["❌ 关闭 Thinking\n首Token延迟不可接受"]
+    Q2 -->|"允许等待\n> 10秒 或异步"| Q3{"并发规模？"}
+
+    Q3 -->|"高并发\n> 100 QPS"| Q4{"预算是否充裕？"}
+    Q3 -->|"低频/异步任务"| Yes["✅ 开启 Thinking\n准确率最优"]
+
+    Q4 -->|"预算有限"| Lite["⚡ 使用蒸馏版\nDeepSeek-R1-Distill-14B\n或 Qwen3-14B-Thinking"]
+    Q4 -->|"预算充裕"| Full["✅ 开启全量 Thinking\nDeepSeek-R1 / Qwen3-235B"]
+
+    No1 --> T1["💡 推荐模型\nQwen3-7B enable_thinking=False\n或 GPT-4o Mini"]
+    No2 --> T2["💡 推荐模型\nQwen3-Fast 模式\n或 Claude 3.5 Haiku"]
+    Lite --> T3["💡 推荐模型\nDeepSeek-R1-Distill-Qwen-14B\n7B 蒸馏版成本最优"]
+    Full --> T4["💡 推荐模型\nDeepSeek-R1 / Qwen3-235B\n或 o3 如质量要求极高"]
+    Yes --> T4
+
+    style Start fill:#1a3a5c,color:#e2e8f0
+    style Yes fill:#1a4a2e,color:#e6f0ea
+    style Full fill:#1a4a2e,color:#e6f0ea
+    style No1 fill:#4a1a1a,color:#f0e6e6
+    style No2 fill:#4a1a1a,color:#f0e6e6

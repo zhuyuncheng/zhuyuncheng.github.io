@@ -1,0 +1,19 @@
+gantt
+    title Harness 渐进式迁移路线图
+    dateFormat YYYY-MM
+    section 第一阶段 CD 先行
+    评估现有部署流程          :done, a1, 2025-01, 1M
+    核心服务迁移 Harness CD   :done, a2, 2025-02, 2M
+    建立 Canary + CV 基线     :done, a3, 2025-04, 1M
+    section 第二阶段 CI 整合
+    CI 流水线迁移             :active, b1, 2025-05, 2M
+    接入 Test Intelligence    :b2, 2025-07, 1M
+    建立 Cache Intelligence   :b3, 2025-08, 1M
+    section 第三阶段 平台扩展
+    接入 STO 安全扫描         :c1, 2025-09, 1M
+    启用 Feature Flags        :c2, 2025-10, 1M
+    CCM 成本可见性            :c3, 2025-11, 1M
+    section 第四阶段 高阶能力
+    混沌工程试点              :d1, 2026-01, 2M
+    IDP 开发者门户            :d2, 2026-02, 2M
+    AI Agents 全面启用        :d3, 2026-04, 2M

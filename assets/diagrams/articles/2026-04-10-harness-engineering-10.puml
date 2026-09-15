@@ -1,0 +1,60 @@
+@startuml steering-loop
+skinparam backgroundColor #ffffff
+skinparam defaultFontColor #1e293b
+skinparam activityBorderColor #3b82f6
+skinparam activityBackgroundColor #eff6ff
+skinparam activityFontColor #1e293b
+skinparam activityArrowColor #3b82f6
+skinparam noteBorderColor #f59e0b
+skinparam noteBackgroundColor #fffbeb
+skinparam noteFontColor #92400e
+
+title Harness Steering Loop（持续改进循环）
+
+start
+
+:Agent 执行任务;
+
+:观察输出结果;
+
+if (Agent 犯了错?) then (是)
+    :分析失败模式;
+    note right
+      关键问题：
+      这是偶发错误 (Context 问题)?
+      还是系统性错误 (Harness 问题)?
+    end note
+    if (系统性 / 重复出现?) then (是)
+        :改进 Harness;
+        note right
+          • 更新 AGENTS.md 规范
+          • 添加 Linter 规则
+          • 增加测试用例
+          • 加强护栏约束
+          • 改进工具返回格式
+        end note
+    else (偶发)
+        :改进 Context;
+        note right
+          • 补充相关文档引用
+          • 提供更多示例
+          • 优化信息注入时机
+        end note
+    endif
+else (否)
+    :记录成功模式;
+    :考虑提取为 Skill File;
+endif
+
+:下一轮 Agent 执行;
+note right
+  核心原则：
+  每次 Agent 犯错
+  不要只期待下次改进
+  要工程化地阻止它再犯
+  同样的错误
+end note
+
+stop
+
+@enduml

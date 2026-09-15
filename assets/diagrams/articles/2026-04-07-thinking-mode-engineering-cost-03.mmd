@@ -1,0 +1,12 @@
+flowchart TD
+    Input["📥 用户输入\nQ: 证明 √2 是无理数"]
+    Input --> BBEngine{{"🔲 Black Box\n内部推理引擎\n对外完全不可见"}}
+    BBEngine -->|"输出约 6000 tokens / 延迟 15~60 秒"| Output["📤 最终答案\nA: 假设 √2 = p/q …"]
+
+    Dev["👨‍💻 开发者视角"]
+    Dev -. "❌ 无法观测思考过程\n❌ 无法调节计算量\n❌ 无法蒸馏复用" .-> BBEngine
+
+    style BBEngine fill:#1a1a2e,color:#9090bb,stroke:#555,stroke-width:2px,stroke-dasharray:6 3
+    style Dev fill:#2d1b1b,color:#c09090,stroke:#553333
+    style Input fill:#1e2a3a,color:#c0d8f0
+    style Output fill:#1e2a3a,color:#c0d8f0

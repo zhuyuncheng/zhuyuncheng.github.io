@@ -1,0 +1,47 @@
+@startuml idp-architecture
+skinparam backgroundColor #ffffff
+skinparam rectangleBorderColor #94a3b8
+skinparam componentBorderColor #3b82f6
+
+title Harness IDP 架构图（基于 Backstage）
+
+rectangle "开发者门户层 (Backstage-based)" as portal {
+    component "软件目录 (Service Catalog)" as catalog
+    component "自助服务工作流 (Self-service Workflows)" as workflows
+    component "评分卡 (Scorecards)" as scorecards
+    component "插件市场 (Plugin Ecosystem)" as plugins
+}
+
+rectangle "数据集成层" as integration {
+    component "GitHub/GitLab 集成" as scm_int
+    component "Jira/ServiceNow 集成" as ticket_int
+    component "CI/CD 数据集成" as cicd_int
+    component "SonarQube/监控集成" as monitor_int
+}
+
+rectangle "AI 增强层" as ai {
+    component "AI Knowledge Agent (智能问答)" as ai_agent
+    component "自动文档生成" as auto_doc
+    component "服务依赖推断" as dep_inference
+}
+
+rectangle "治理层" as governance {
+    component "RBAC (基于角色访问控制)" as rbac
+    component "Audit Trail (操作审计)" as audit
+    component "OPA 策略 (合规检查)" as opa
+}
+
+portal --> integration : 数据聚合
+ai --> catalog : 增强搜索与问答
+governance --> portal : 访问控制
+
+note right of scorecards
+  评分维度示例：
+  • 服务是否有 README
+  • 代码覆盖率 > 80%
+  • 是否配置告警
+  • DORA 指标达标
+  • 安全漏洞数 < N
+end note
+
+@enduml

@@ -1,0 +1,40 @@
+@startuml react-loop
+skinparam backgroundColor #ffffff
+skinparam defaultFontColor #1e293b
+skinparam sequenceArrowThickness 2
+skinparam sequenceArrowColor #3b82f6
+skinparam sequenceParticipantBorderColor #3b82f6
+skinparam sequenceParticipantBackgroundColor #eff6ff
+skinparam sequenceParticipantFontColor #1e293b
+skinparam sequenceLifeLineBorderColor #cbd5e1
+skinparam sequenceGroupBorderColor #94a3b8
+skinparam noteBorderColor #f59e0b
+skinparam noteBackgroundColor #fffbeb
+skinparam noteFontColor #92400e
+
+title ReAct Loop：推理-行动循环
+
+participant "LLM" as llm
+participant "Harness Runtime" as runtime
+participant "Tools" as tools
+
+loop 直到任务完成或达到步骤上限
+    llm -> llm : Thought：分析当前状态\n规划下一步行动
+    llm -> runtime : Action：tool_call(name, args)
+    runtime -> tools : 执行工具调用
+    tools -> runtime : 返回结果
+    runtime -> llm : Observation：工具结果注入上下文
+end
+
+llm -> runtime : Final Answer
+
+note over runtime
+  Harness 负责：
+  • 格式化工具调用
+  • 捕获异常和超时
+  • 注入 Observation
+  • 检测循环/卡死
+  • 执行步骤上限
+end note
+
+@enduml

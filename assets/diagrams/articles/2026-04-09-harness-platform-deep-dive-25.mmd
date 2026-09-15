@@ -1,0 +1,23 @@
+flowchart LR
+    subgraph dora [DORA 指标体系]
+        A[部署频率\nDeployment Frequency\n精英目标: 按需多次/天]
+        B[变更前置时间\nLead Time for Changes\n精英目标: 小于 1 小时]
+        C[变更失败率\nChange Failure Rate\n精英目标: 0~5%]
+        D[服务恢复时间\nMTTR\n精英目标: 小于 1 小时]
+    end
+
+    subgraph sources [数据来源]
+        E[Harness CD 部署记录]
+        F[Git 提交时间戳]
+        G[Jira 工单状态]
+        H[PagerDuty 告警]
+        I[Incident 记录]
+    end
+
+    E --> A
+    E --> C
+    F --> B
+    G --> B
+    H --> D
+    I --> D
+    I --> C

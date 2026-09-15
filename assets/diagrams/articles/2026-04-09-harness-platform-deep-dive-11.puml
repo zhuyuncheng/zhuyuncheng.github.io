@@ -1,0 +1,36 @@
+@startuml gitops-flow
+skinparam backgroundColor #ffffff
+skinparam rectangleBorderColor #3b82f6
+skinparam componentBorderColor #3b82f6
+
+title Harness GitOps 多集群管理架构
+
+rectangle "Git 仓库\n(Source of Truth)" as git {
+    file "app-manifests/\n  prod/deployment.yaml\n  staging/deployment.yaml" as manifests
+}
+
+rectangle "Harness 控制平面" as control {
+    component "GitOps Service" as gitops_svc
+    component "RBAC Engine" as rbac
+    component "PR Pipeline Trigger" as pr_pipeline
+    component "Drift Detection Dashboard" as drift
+}
+
+rectangle "目标集群 - Prod" as prod_cluster {
+    component "GitOps Agent (Argo CD)" as agent_prod
+}
+
+rectangle "目标集群 - Staging" as staging_cluster {
+    component "GitOps Agent (Argo CD)" as agent_staging
+}
+
+git --> agent_prod : 监听变更并拉取 (30s)
+git --> agent_staging : 监听变更并拉取 (30s)
+agent_prod --> control : 上报同步状态
+agent_staging --> control : 上报同步状态
+control --> agent_prod : 下发 App 定义
+control --> agent_staging : 下发 App 定义
+pr_pipeline --> git : 自动合并 PR\n(多环境渐进推进)
+drift --> control : 展示漂移告警
+
+@enduml

@@ -1,0 +1,33 @@
+@startuml aida-architecture
+skinparam backgroundColor #ffffff
+skinparam componentBorderColor #7c3aed
+skinparam rectangleBorderColor #94a3b8
+
+title Harness AI Agent 架构（2025）
+
+component "Chat / MCP Client\n(Web / Claude / Cursor)" as input
+component "AI Gateway\n路由 & 鉴权" as gateway
+
+rectangle "Agent 层" as agents {
+    component "Code Agent" as code_agent
+    component "DevOps Agent" as devops_agent
+    component "Release Agent" as release_agent
+    component "Support Agent" as support_agent
+}
+
+rectangle "核心能力" as core {
+    component "MCP Server\n10 tools / 137 resources" as mcp_server
+    component "Skill Library\n自然语言 → API 调用" as skills
+    component "Memory Service\n跨会话持久化" as memory
+}
+
+component "Harness 平台数据\nPipeline / Cost / Security / Test" as platform_data
+
+input --> gateway
+gateway --> agents
+devops_agent --> skills
+devops_agent --> memory
+mcp_server --> skills
+skills --> platform_data
+
+@enduml

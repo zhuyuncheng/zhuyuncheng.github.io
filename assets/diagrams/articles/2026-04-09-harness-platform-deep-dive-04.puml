@@ -1,0 +1,41 @@
+@startuml delegate-communication
+skinparam sequenceArrowThickness 2
+skinparam roundcorner 5
+skinparam sequenceParticipantBorderColor #0f3460
+skinparam sequenceParticipantBackgroundColor #dbeafe
+skinparam noteBorderColor #0f3460
+skinparam noteBackgroundColor #fef9c3
+
+title Harness Delegate 通信时序图
+
+participant "Harness Manager\n(SaaS 控制平面)" as Manager
+participant "Delegate\n(用户网络)" as Delegate
+participant "目标基础设施\n(K8s/Cloud)" as Target
+participant "外部系统\n(SCM/Registry)" as External
+
+== 初始化阶段 ==
+Delegate -> Manager : 出站 HTTPS/WSS 连接 (TLS，永久长连接)
+Manager --> Delegate : 心跳确认 + 任务订阅
+note right of Manager
+  只需出站 443/HTTPS
+  无需入站端口开放
+end note
+
+== 任务执行阶段 ==
+Manager -> Delegate : 推送任务 (via WebSocket)
+note over Delegate
+  任务类型：部署/构建/扫描/成本采集/混沌注入
+end note
+Delegate -> External : 拉取代码/镜像
+External --> Delegate : 代码/制品
+Delegate -> Target : 执行部署/操作
+Target --> Delegate : 执行结果
+Delegate -> Manager : 回传日志与状态
+
+== 高可用与负载均衡 ==
+group 多副本场景
+    Manager -> Delegate : 任务分配 (基于 Selector 路由)
+    note left : 同一 Selector 的多个\nDelegate 自动负载均衡
+end
+
+@enduml

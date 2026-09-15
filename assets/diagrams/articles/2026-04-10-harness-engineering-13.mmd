@@ -1,0 +1,40 @@
+stateDiagram-v2
+    direction TB
+    [*] --> Draft : Agent 产出代码/方案
+
+    state "Pre-commit Gate" as PCG {
+        [*] --> LintCheck
+        LintCheck --> FormatCheck
+        FormatCheck --> [*]
+    }
+
+    state "Test Gate" as TG {
+        [*] --> UnitTest
+        UnitTest --> IntegrationTest
+        IntegrationTest --> [*]
+    }
+
+    state "Architecture Gate" as AG {
+        [*] --> DepDirection
+        DepDirection --> CircularCheck
+        CircularCheck --> [*]
+    }
+
+    state "Security Gate" as SG {
+        [*] --> VulnScan
+        VulnScan --> SecretCheck
+        SecretCheck --> [*]
+    }
+
+    Draft --> PCG
+    PCG --> Draft : 失败，回退修复
+    PCG --> TG : Lint + 格式通过
+
+    TG --> Draft : 失败，回退修复
+    TG --> AG : 测试全绿
+
+    AG --> Draft : 失败，回退修复
+    AG --> SG : 依赖方向正确
+
+    SG --> Draft : 失败，回退修复
+    SG --> [*] : 通过，合并到主分支

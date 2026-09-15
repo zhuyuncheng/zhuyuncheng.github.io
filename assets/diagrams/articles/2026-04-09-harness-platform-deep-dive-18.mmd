@@ -1,0 +1,23 @@
+sequenceDiagram
+    participant Traffic as 流量请求
+    participant Proxy as AutoStopping Proxy
+    participant Monitor as 流量监控器
+    participant Resource as 云资源 EC2/RDS
+    participant Cloud as 云平台 API
+
+    Traffic->>Proxy: HTTP 请求
+    Proxy->>Resource: 转发请求（资源运行中）
+
+    Note over Monitor: 检测到 30 分钟无流量
+    Monitor->>Cloud: 停止实例
+    Cloud-->>Monitor: 实例已停止（成本降为零）
+
+    Traffic->>Proxy: 新 HTTP 请求到来
+    Proxy->>Cloud: 唤醒实例
+    Proxy->>Proxy: 持有请求等待启动
+    Cloud-->>Resource: 实例已就绪
+    Resource-->>Proxy: 就绪信号
+    Proxy->>Resource: 转发之前持有的请求
+
+    Note over Proxy,Resource: 冷启动约 2~5 分钟
+    Note over Monitor: 官方数据：节省 70%+ 非生产成本

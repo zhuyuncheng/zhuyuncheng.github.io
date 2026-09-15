@@ -1,0 +1,41 @@
+@startuml feedforward-components
+skinparam backgroundColor #ffffff
+skinparam defaultFontColor #1e293b
+skinparam defaultFontSize 12
+skinparam componentBorderColor #3b82f6
+skinparam componentBackgroundColor #eff6ff
+skinparam componentFontColor #1e293b
+skinparam arrowColor #3b82f6
+skinparam packageBorderColor #94a3b8
+skinparam packageBackgroundColor #f8fafc
+skinparam noteBorderColor #f59e0b
+skinparam noteBackgroundColor #fffbeb
+skinparam noteFontColor #92400e
+
+title 前馈机制：Context 注入组件视图
+
+package "Feedforward 前馈层（行动前注入）" {
+    component "AGENTS.md\n项目规范 + 禁止事项" as agents #dbeafe
+    component "Skill Files\n标准操作流程 SOP" as skills #dbeafe
+    component "Architecture Rules\n架构约束 + 依赖方向" as arch #dbeafe
+    component "MCP Servers\n工具接口 + API 描述" as mcp #dbeafe
+    component "Context Injector\nHarness 核心组件\n按需检索 + 组装 Prompt" as injector #bfdbfe
+}
+
+component "LLM Agent\n推理引擎" as llm #e9d5ff
+
+agents -[#3b82f6]-> injector : 规范文档
+skills -[#3b82f6]-> injector : 操作流程
+arch -[#3b82f6]-> injector : 约束规则
+mcp -[#3b82f6]-> injector : 工具描述
+
+injector -[#16a34a]-> llm : 注入 Context（推理前）
+
+note right of injector
+  注入策略
+  • 全量：任务启动时全量加载
+  • 按需：RAG 检索相关片段
+  • 优先级：高频规则 > 长尾文档
+end note
+
+@enduml

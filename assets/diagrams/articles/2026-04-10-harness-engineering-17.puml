@@ -1,0 +1,36 @@
+@startuml long-running
+skinparam backgroundColor #ffffff
+skinparam defaultFontColor #1e293b
+skinparam defaultFontSize 12
+skinparam rectangleBorderColor #3b82f6
+skinparam rectangleBackgroundColor #f0f9ff
+skinparam rectangleFontColor #1e293b
+skinparam arrowColor #3b82f6
+
+title 长任务双层 Harness 架构
+
+rectangle "第一层：Initializer Agent（仅首次运行）" as init #dbeafe {
+    rectangle "创建 init.sh\n（开发环境启动脚本）" as init_sh #eff6ff
+    rectangle "创建 feature-list.json\n（200+ 功能需求清单，全部标记 failing）" as feature_list #eff6ff
+    rectangle "初始 Git Commit\n（记录初始文件结构）" as init_commit #eff6ff
+    rectangle "创建 claude-progress.txt\n（进度日志）" as progress #eff6ff
+}
+
+rectangle "第二层：Coding Agent（每次 Session）" as coding #dcfce7 {
+    rectangle "1. 读取 Git 日志 + 进度文件\n快速重建工作状态" as step1 #f0fdf4
+    rectangle "2. 读取 feature-list.json\n选择下一个 failing 功能" as step2 #f0fdf4
+    rectangle "3. 运行 init.sh + 基础 E2E 测试\n验证环境正常" as step3 #f0fdf4
+    rectangle "4. 实现单一功能\n增量开发" as step4 #f0fdf4
+    rectangle "5. 自测验证\n通过后更新 feature-list.json" as step5 #f0fdf4
+    rectangle "6. Git Commit + 更新进度文件\n为下一 Session 留交接物" as step6 #f0fdf4
+}
+
+init -[#16a34a]-> coding : Initializer 完成后，所有后续 Session 使用 Coding Agent
+step1 -[#3b82f6]-> step2
+step2 -[#3b82f6]-> step3
+step3 -[#3b82f6]-> step4
+step4 -[#3b82f6]-> step5
+step5 -[#3b82f6]-> step6
+step6 -[#d97706]-> step1 : 下一 Session 从头开始
+
+@enduml

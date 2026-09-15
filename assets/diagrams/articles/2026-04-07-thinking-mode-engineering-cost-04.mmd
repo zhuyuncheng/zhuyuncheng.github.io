@@ -1,0 +1,16 @@
+flowchart TD
+    Input["📥 用户输入\nQ: 证明 √2 是无理数"]
+    Input --> Think["&lt;think&gt;\n① 假设 √2 = p/q 为最简分数\n② 则 2q² = p²，推出 p 为偶数\n③ 令 p=2k，代入得 q 也为偶数\n④ 与最简分数矛盾 → 假设不成立\n&lt;/think&gt;"]
+    Think --> Output["📤 最终答案\n√2 是无理数（反证法）"]
+
+    GRPO["🎓 GRPO 训练机制\nGroup Relative Policy Optimization\n• 并行采样 G 个候选答案\n• 组内相对奖励替代 Critic Model\n• 训练成本比 PPO 降低约 50%"]
+    GRPO -. "赋予显式推理能力" .-> Think
+
+    Distill["🔬 蒸馏链路\nR1-671B → 32B → 14B → 7B\n继承完整推理链，成本降低 10~100x"]
+    Distill -. "知识传递" .-> Output
+
+    style Think fill:#0f2a45,color:#b0d0f0,stroke:#2a5a8a,stroke-width:2px
+    style GRPO fill:#1a3a1a,color:#90c090,stroke:#2a6a2a
+    style Distill fill:#1a2a3a,color:#90a0d0,stroke:#2a4a7a
+    style Input fill:#1e2a3a,color:#c0d8f0
+    style Output fill:#1e2a3a,color:#c0d8f0

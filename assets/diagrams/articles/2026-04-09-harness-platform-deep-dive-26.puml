@@ -1,0 +1,44 @@
+@startuml sei-metrics
+skinparam backgroundColor #ffffff
+skinparam rectangleBorderColor #94a3b8
+skinparam artifactBorderColor #3b82f6
+skinparam databaseBorderColor #10b981
+
+title SEI 工程效能度量体系
+
+rectangle "交付效率层 (DORA)" as delivery {
+    artifact "部署频率" as df
+    artifact "变更前置时间" as ltc
+    artifact "变更失败率" as cfr
+    artifact "MTTR 服务恢复时间" as mttr
+}
+
+rectangle "开发者生产力层" as dev_prod {
+    artifact "PR Cycle Time" as pr_time
+    artifact "Coding Time" as coding
+    artifact "Review Lag 等待 Review 时间" as review_lag
+    artifact "Rework Rate 返工率" as rework
+}
+
+rectangle "流程健康度层" as process {
+    artifact "Sprint 速度趋势" as sprint_velocity
+    artifact "Tech Debt 趋势" as tech_debt
+    artifact "测试覆盖率" as test_cov
+    artifact "安全漏洞趋势" as sec_trend
+}
+
+rectangle "数据源整合层" as datasource {
+    database "GitHub/GitLab (代码活动)" as git_src
+    database "Jira/Linear (工单数据)" as jira_src
+    database "Harness CI/CD (构建部署)" as harness_src
+    database "PagerDuty (Incident)" as pager_src
+    database "SonarQube (代码质量)" as sonar_src
+}
+
+git_src --> dev_prod
+jira_src --> dev_prod
+harness_src --> delivery
+pager_src --> delivery
+sonar_src --> process
+
+@enduml

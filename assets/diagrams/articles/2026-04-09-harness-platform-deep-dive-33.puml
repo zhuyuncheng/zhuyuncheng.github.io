@@ -1,0 +1,41 @@
+@startuml delegate-best-practice
+skinparam backgroundColor #ffffff
+skinparam rectangleBorderColor #94a3b8
+skinparam componentBorderColor #3b82f6
+
+title Delegate 多环境部署最佳实践
+
+rectangle "生产环境 VPC" as prod {
+    component "Delegate-Prod-1 (Replica 1)" as d_prod_1
+    component "Delegate-Prod-2 (Replica 2)" as d_prod_2
+    note bottom: Selector: prod\n高可用双副本
+}
+
+rectangle "预发布环境 VPC" as staging {
+    component "Delegate-Staging (Replica 1)" as d_staging
+    note bottom: Selector: staging\n单副本即可
+}
+
+rectangle "开发测试环境 VPC" as dev {
+    component "Delegate-Dev (Replica 1)" as d_dev
+    note bottom: Selector: dev\n共享使用
+}
+
+rectangle "Harness SaaS" as harness {
+    component "Pipeline Engine + 任务调度器" as scheduler
+}
+
+scheduler --> d_prod_1 : Selector=prod 任务
+scheduler --> d_prod_2 : Selector=prod 任务（负载均衡）
+scheduler --> d_staging : Selector=staging 任务
+scheduler --> d_dev : Selector=dev 任务
+
+note right of prod
+  最佳实践：
+  • 生产环境独立 Delegate
+  • 不与其他环境共享
+  • minimal 镜像 + 自定义工具
+  • 定期轮换 Delegate Token
+end note
+
+@enduml

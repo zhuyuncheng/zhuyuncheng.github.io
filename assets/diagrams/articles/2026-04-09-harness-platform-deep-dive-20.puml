@@ -1,0 +1,35 @@
+@startuml chaos-control
+skinparam backgroundColor #ffffff
+skinparam rectangleBorderColor #94a3b8
+skinparam componentBorderColor #7c3aed
+
+title Harness 混沌工程控制平面架构
+
+rectangle "控制平面 (Harness SaaS)" as control {
+    component "实验设计器 (可视化)" as designer
+    component "混沌中心 (Chaos Hub)" as hub
+    component "韧性评分引擎" as scoring
+    component "RBAC + Chaos Guard\n爆炸半径控制" as guard
+}
+
+rectangle "可观测性集成" as observability {
+    component "Resilience Probes (健康检查探针)" as probes
+    component "Prometheus/Datadog/New Relic 集成" as monitoring
+    component "应用映射 (服务依赖图)" as app_map
+}
+
+designer --> hub : 选择实验模板
+guard --> designer : 策略约束
+probes --> scoring : 上报健康状态
+monitoring --> scoring : 上报指标
+scoring --> designer : 韧性分数反馈
+
+note right of guard
+  Chaos Guard 功能：
+  • 禁止在生产高峰期执行
+  • 限制特定命名空间
+  • 限制最大故障范围
+  • 只读环境保护
+end note
+
+@enduml

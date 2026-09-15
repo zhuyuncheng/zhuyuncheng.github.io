@@ -1,0 +1,43 @@
+@startuml ff-evaluation
+skinparam backgroundColor #ffffff
+skinparam activityBorderColor #3b82f6
+skinparam noteBorderColor #f59e0b
+skinparam noteBackgroundColor #fef9c3
+
+title Feature Flag 本地评估引擎流程
+
+start
+
+:SDK 接收评估请求\n(用户 ID + Flag Key);
+
+:查询本地缓存\n(内存中的规则快照);
+
+note right
+  SDK 初始化时同步全量规则
+  通过 SSE/轮询保持实时更新
+  本地评估无需网络请求，极低延迟
+end note
+
+:匹配目标规则 (Targeting Rules);
+
+fork
+    :检查用户 ID 白名单;
+fork again
+    :检查用户属性条件\n(country=CN AND plan=premium);
+fork again
+    :检查流量百分比规则\n(基于 MurmurHash3 分桶);
+end fork
+
+if (命中某条规则?) then (是)
+    :返回规则对应的 Variation;
+else (否)
+    :返回默认 Variation;
+endif
+
+:异步批量上报评估事件\n(不阻塞主流程);
+
+:返回 Variation 给业务代码;
+
+stop
+
+@enduml

@@ -1,0 +1,29 @@
+@startuml test-intelligence
+skinparam backgroundColor #ffffff
+skinparam componentBorderColor #3b82f6
+skinparam databaseBorderColor #10b981
+skinparam noteBorderColor #f59e0b
+
+title Test Intelligence 核心工作原理
+
+component "Git Diff 解析器" as diff
+component "AST 变更分析" as ast
+database "Call Graph\n代码↔测试调用关系图" as callgraph
+component "TI Service" as ti_service
+component "Test Runner Agent" as runner
+
+diff --> ast : 解析变更文件
+ast --> ti_service : 查询影响范围
+ti_service --> callgraph : 检索关联测试
+callgraph --> runner : 仅执行受影响测试
+
+note right of callgraph
+  新增/修改的测试
+  始终强制执行
+end note
+
+note bottom of runner
+  官方数据：节省 70~90% 测试时间
+end note
+
+@enduml

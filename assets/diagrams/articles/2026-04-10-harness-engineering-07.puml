@@ -1,0 +1,41 @@
+@startuml observability
+skinparam backgroundColor #ffffff
+skinparam defaultFontColor #1e293b
+skinparam defaultFontSize 12
+skinparam rectangleBorderColor #94a3b8
+skinparam rectangleBackgroundColor #f8fafc
+skinparam rectangleFontColor #1e293b
+skinparam arrowColor #3b82f6
+skinparam noteBorderColor #f59e0b
+skinparam noteBackgroundColor #fffbeb
+skinparam noteFontColor #92400e
+
+rectangle "Logs  结构化日志" as logs #fef2f2 {
+    rectangle "tool_call 入参/出参\nJSON 结构化" as tl #fff1f2
+    rectangle "Token 消耗\nprompt + completion" as tk #fff1f2
+    rectangle "Session 生命周期\nstart / end / error" as sl #fff1f2
+}
+
+rectangle "Metrics  可量化指标" as metrics #f0fdf4 {
+    rectangle "任务成功率\nSuccess Rate %" as sr #f0fdf4
+    rectangle "Retry 次数分布\nP50 / P95 / P99" as rd #f0fdf4
+    rectangle "Guardrail 触发频率\nBlock Rate" as gf #f0fdf4
+    rectangle "平均 Token / 任务\nCost per Task" as tc #f0fdf4
+}
+
+rectangle "Traces  调用链追踪" as traces #eff6ff {
+    rectangle "跨 Tool 调用链\nSpan → Parent Span" as tc2 #eff6ff
+    rectangle "多 Agent 协作链路\nOrchestrator → Sub-agent" as ma #eff6ff
+    rectangle "Context 注入时序\n何时 / 注入了什么" as ci #eff6ff
+}
+
+logs -[#3b82f6]-> metrics : 聚合计算
+metrics -[#3b82f6]-> traces : 关联分析
+
+note bottom of traces
+  诊断口诀
+  偶发错误 → 看 Logs → Context 问题
+  持续退化 → 看 Metrics/Traces → Harness 问题
+end note
+
+@enduml

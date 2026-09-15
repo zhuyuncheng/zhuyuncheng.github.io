@@ -1,0 +1,12 @@
+flowchart TD
+    Start[选择 CI/CD 工具] --> Q1{团队规模}
+    Q1 -->|小于 20 人 创业团队| R1[GitHub Actions\n生态丰富 成本低 快速上手]
+    Q1 -->|20-200 人 成长型| Q2{已使用 GitLab?}
+    Q1 -->|大于 200 人 大型企业| Q3{核心痛点}
+    Q2 -->|是| R2[GitLab CI\n一体化 减少工具切换]
+    Q2 -->|否| Q3
+    Q3 -->|工具碎片化需统一平台| R3[Harness\n全平台整合 减少集成成本]
+    Q3 -->|历史 Jenkins 大量存在| R4[Jenkins 增强\n或渐进式迁移 Harness]
+    Q3 -->|纯 K8s 只需 GitOps| R5[ArgoCD / Flux\n轻量专注]
+    Q3 -->|复杂多云 自建能力强| R6[Spinnaker\n功能强但运维复杂]
+    R3 --> Note1[Harness 适合:\n需要 Feature Flags\n需要成本管理\n需要混沌工程\n需要统一安全扫描\n需要 AI 辅助]

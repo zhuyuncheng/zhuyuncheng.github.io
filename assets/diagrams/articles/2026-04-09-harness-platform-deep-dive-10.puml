@@ -1,0 +1,42 @@
+@startuml canary-cv
+skinparam backgroundColor #ffffff
+skinparam swimlaneBorderColor #94a3b8
+skinparam activityBorderColor #3b82f6
+skinparam noteBorderColor #f59e0b
+skinparam noteBackgroundColor #fef9c3
+
+title 金丝雀部署 + 持续验证（CV）完整流程
+
+|Harness CD|
+start
+:创建 Canary 部署;
+:部署 5% 流量到 Canary 版本;
+
+|监控系统|
+:采集 Canary vs Baseline 指标;
+note right
+  对比维度：
+  • 错误率
+  • 响应时间 P99
+  • 吞吐量
+  • JVM/系统指标
+end note
+
+|Harness CV 引擎|
+:机器学习基线对比分析;
+:计算 Canary Score (0-100);
+
+|Harness CD|
+if (Score >= 阈值 如80?) then (是)
+    :扩大流量至 20%;
+    :继续验证直到 100%;
+    :清理 Baseline 版本;
+    stop
+else (否)
+    :自动回滚到 Baseline;
+    :发送 Slack/PagerDuty 告警;
+    :记录失败原因到 Audit Trail;
+    stop
+endif
+
+@enduml

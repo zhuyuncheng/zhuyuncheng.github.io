@@ -1,0 +1,54 @@
+@startuml feedback-sequence
+skinparam backgroundColor #ffffff
+skinparam defaultFontColor #1e293b
+skinparam defaultFontSize 12
+skinparam sequenceArrowThickness 2
+skinparam sequenceArrowColor #3b82f6
+skinparam sequenceParticipantBorderColor #3b82f6
+skinparam sequenceParticipantBackgroundColor #eff6ff
+skinparam sequenceParticipantFontColor #1e293b
+skinparam sequenceLifeLineBorderColor #cbd5e1
+skinparam sequenceGroupBorderColor #94a3b8
+skinparam sequenceGroupBodyBackgroundColor #f8fafc
+skinparam noteBorderColor #f59e0b
+skinparam noteBackgroundColor #fffbeb
+skinparam noteFontColor #92400e
+
+title 反馈机制：Agent 行动后的验证时序
+
+participant "LLM Agent" as llm #e9d5ff
+participant "File System" as fs #eff6ff
+participant "Linter / TypeCheck" as lint #dcfce7
+participant "Unit Tests" as test #dcfce7
+participant "AI Code Review" as aicr #e9d5ff
+participant "Harness Runtime" as harness #dbeafe
+
+llm -> fs : 写入代码文件
+
+group Computational 验证（并行，毫秒级）
+    fs -> lint : 触发静态检查
+    lint --> harness : Lint 结果（pass/fail + 行号）
+    fs -> test : 触发单元测试
+    test --> harness : 测试结果（pass/fail + 堆栈）
+end
+
+group Inferential 验证（异步，秒级）
+    fs -> aicr : 提交 AI Code Review
+    aicr --> harness : Review 结论（issue 列表）
+end
+
+harness -> harness : 汇总所有验证结果
+
+alt 全部通过
+    harness -> llm : 验证通过，可提交
+else 存在失败
+    harness -> llm : 反馈错误上下文
+    note right of llm
+      错误信息即 Context
+      包含：具体行号 + 规则说明
+      + 修复建议 → 触发自修复循环
+    end note
+    llm -> fs : 重新写入修复后代码
+end
+
+@enduml

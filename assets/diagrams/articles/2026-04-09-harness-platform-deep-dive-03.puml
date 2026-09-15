@@ -1,0 +1,31 @@
+@startuml harness-c4-container
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+
+title Harness 平台 - 容器架构图 (C4 Level 2)
+
+Person(user, "用户", "研发/运维/管理人员")
+
+System_Boundary(harness_saas, "Harness SaaS (控制平面)") {
+    Container(web_ui, "Web Console", "React SPA", "统一操作界面")
+    Container(api_gateway, "API Gateway", "gRPC/REST", "认证鉴权 & 路由")
+    Container(pipeline_service, "Pipeline Service", "Java/Go", "流水线编排引擎")
+    Container(module_services, "模块服务群", "Go/Java/Python", "CI/CD/FF/CCM/Chaos/STO/AI")
+    ContainerDb(primary_db, "Database", "MongoDB/PostgreSQL", "状态与配置数据")
+    Container(event_bus, "Event Bus", "Kafka", "异步事件流")
+}
+
+System_Boundary(execution_plane, "执行平面 (用户基础设施)") {
+    Container(delegate, "Harness Delegate", "Java/Docker", "任务代理，出站连接控制平面")
+    Container(runner, "CI Runner / Chaos Agent", "Docker/K8s", "构建执行 & 混沌注入")
+}
+
+Rel(user, web_ui, "操作", "HTTPS")
+Rel(web_ui, api_gateway, "调用", "HTTPS")
+Rel(api_gateway, pipeline_service, "路由", "gRPC")
+Rel(pipeline_service, module_services, "调度", "gRPC/Kafka")
+Rel(pipeline_service, event_bus, "发布事件")
+Rel(module_services, primary_db, "读写")
+Rel(delegate, api_gateway, "出站轮询任务", "HTTPS/WSS")
+Rel(delegate, runner, "启动执行单元", "Docker API")
+
+@enduml

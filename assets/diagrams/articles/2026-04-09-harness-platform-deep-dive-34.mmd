@@ -1,0 +1,20 @@
+flowchart TD
+    subgraph template [Pipeline 模板化体系]
+        T1[基础模板 Base Template] --> T2[语言特化模板\nJava / Go / Python]
+        T2 --> T3[服务类型模板\nMicroservice / Monolith]
+        T3 --> T4[具体业务 Pipeline\n继承并覆盖]
+    end
+
+    subgraph opa [OPA 策略治理]
+        P1[部署窗口限制\n禁止周五生产部署]
+        P2[强制 Code Review\n至少 2 人 Approve]
+        P3[安全扫描门控\nCritical 漏洞必须修复]
+        P4[成本预算检查\n基础设施变更成本评估]
+    end
+
+    subgraph rbac [RBAC 权限矩阵]
+        R1[研发工程师\n可触发 Dev/Staging 部署]
+        R2[Tech Lead\n可触发 Production 部署]
+        R3[SRE\n可执行紧急回滚]
+        R4[只读角色\n查看流水线状态]
+    end

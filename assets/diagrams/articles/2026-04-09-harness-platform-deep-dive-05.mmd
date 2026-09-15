@@ -1,0 +1,10 @@
+flowchart TD
+    A[流水线触发部署任务] --> B{Delegate 选择器匹配}
+    B --> C[美东 K8s Delegate\nSelector: prod-k8s-us-east]
+    B --> D[国内云 Delegate\nSelector: prod-cloud-cn]
+    B --> E[数据中心 Delegate\nSelector: onprem-dc1]
+    B --> F[任意可用 Delegate\n无特定 Selector]
+    C --> G[美东 K8s 集群]
+    D --> H[阿里云/腾讯云]
+    E --> I[私有数据中心]
+    F --> J[默认执行]

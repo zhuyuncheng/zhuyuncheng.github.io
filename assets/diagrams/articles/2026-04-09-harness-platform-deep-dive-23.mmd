@@ -1,0 +1,32 @@
+flowchart LR
+    subgraph editors [AI 编辑器/助手]
+        A[Claude Code]
+        B[Cursor]
+        C[GitHub Copilot]
+    end
+
+    subgraph mcp [Harness MCP Server]
+        D[10 个核心工具\n137 种资源类型]
+        E[Pipeline Tools]
+        F[Deployment Tools]
+        G[Feature Flag Tools]
+        H[Cost Analysis Tools]
+    end
+
+    subgraph platform [Harness Platform]
+        I[API Layer]
+        J[所有平台资源]
+    end
+
+    A -->|MCP Protocol| D
+    B -->|MCP Protocol| D
+    C -->|MCP Protocol| D
+    D --> E
+    D --> F
+    D --> G
+    D --> H
+    E --> I
+    F --> I
+    G --> I
+    H --> I
+    I --> J

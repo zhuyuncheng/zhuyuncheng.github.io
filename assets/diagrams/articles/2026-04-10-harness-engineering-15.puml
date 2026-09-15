@@ -1,0 +1,59 @@
+@startuml stripe-swimlane
+skinparam backgroundColor #ffffff
+skinparam defaultFontColor #1e293b
+skinparam defaultFontSize 12
+skinparam activityBorderColor #3b82f6
+skinparam activityBackgroundColor #eff6ff
+skinparam activityFontColor #1e293b
+skinparam activityArrowColor #3b82f6
+skinparam swimlaneBorderColor #94a3b8
+skinparam noteBorderColor #f59e0b
+skinparam noteBackgroundColor #fffbeb
+skinparam noteFontColor #92400e
+
+title Stripe Agent Harness：任务全生命周期
+
+|任务规范层|
+start
+:构造结构化任务;
+note right
+  JSON Task Spec
+  goal / scope / context
+  validation / constraints
+end note
+
+|沙盒执行层|
+:启动隔离容器;
+note right
+  可读写文件
+  可执行测试/Linter
+  无法触达生产环境
+end note
+:Agent 开始执行任务;
+
+|反馈循环层|
+:运行测试套件;
+if (测试全部通过?) then (是)
+    :生成 Pull Request;
+else (否)
+    :读取错误输出 + 错误信息;
+    note right
+      教学式错误信息
+      错误本身即下轮 Context
+      引导 Agent 自修复
+    end note
+    :迭代修复代码;
+    if (达到步骤上限?) then (是)
+        :标记为需要人工介入;
+    else (否)
+        :返回运行测试;
+        goto 运行测试套件
+    endif
+endif
+
+|人工审核层|
+:正常 Code Review 流程;
+:CI 必须全绿方可合并;
+stop
+
+@enduml

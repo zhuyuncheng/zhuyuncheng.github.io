@@ -1,0 +1,13 @@
+flowchart LR
+    subgraph traditional [传统构建模式]
+        A1[全量重新构建] --> B1[100% 任务执行] --> C1[构建时间 T]
+    end
+
+    subgraph smart [Build Intelligence 模式]
+        A2[代码变更] --> B2[任务 Fingerprint 计算]
+        B2 --> C2{远程缓存命中?}
+        C2 -->|命中 约80%| D2[直接复用结果]
+        C2 -->|未命中 约20%| E2[仅执行变更任务]
+        D2 --> F2[构建时间 约0.2T]
+        E2 --> F2
+    end

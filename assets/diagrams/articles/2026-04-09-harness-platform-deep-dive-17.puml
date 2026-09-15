@@ -1,0 +1,24 @@
+@startuml ccm-architecture
+skinparam backgroundColor #ffffff
+skinparam componentBorderColor #3b82f6
+skinparam databaseBorderColor #10b981
+
+title CCM 云成本管理数据流（核心）
+
+component "AWS / Azure / GCP\n成本数据采集" as ingestion
+database "Cost Data Warehouse" as dwh
+component "成本分配引擎\n(Tag/Label 映射)" as allocator
+component "ML 异常检测" as anomaly
+component "推荐引擎\n(RI / Spot 建议)" as recommender
+component "AutoStopping\n非生产自动休眠" as autostop
+component "成本仪表盘 & 预算告警" as dashboard
+
+ingestion --> dwh
+dwh --> allocator
+dwh --> anomaly
+dwh --> recommender
+allocator --> dashboard
+anomaly --> dashboard
+recommender --> autostop
+
+@enduml

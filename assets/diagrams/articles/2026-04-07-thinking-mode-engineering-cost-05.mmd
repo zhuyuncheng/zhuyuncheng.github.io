@@ -1,0 +1,19 @@
+flowchart TD
+    Input["📥 用户输入"] --> Switch{"enable_thinking = ?"}
+
+    Switch -->|"True  慢思模式"| SlowPath["🐢 深度推理路径\n生成完整 CoT 思维链\n─────────────────\nToken 消耗: 2,000 ~ 10,000\nTTFT 延迟: 8 ~ 30 秒\n适合: 数学 / 代码 / 逻辑推理"]
+
+    Switch -->|"False  快思模式"| FastPath["⚡ 直接输出路径\n跳过推理链，直接回答\n─────────────────\nToken 消耗: ~500\nTTFT 延迟: < 1 秒\n适合: 对话 / 翻译 / 摘要"]
+
+    SlowPath --> Output["📤 答案输出"]
+    FastPath --> Output
+
+    Train["混合训练策略\nThinking 数据 + Non-Thinking 数据\n同一组权重同时习得两种能力\n→ 运行时按参数动态切换，无需换模型"]
+    Train -. "训练支撑" .-> Switch
+
+    style SlowPath fill:#1a2a4a,color:#b0c8f0,stroke:#2a4a8a,stroke-width:2px
+    style FastPath fill:#1a3a22,color:#90d0a0,stroke:#2a6a3a,stroke-width:2px
+    style Train fill:#3a2a10,color:#f0c880,stroke:#6a4a20
+    style Switch fill:#2a2a2a,color:#ffffff,stroke:#888,stroke-width:2px
+    style Input fill:#1e2a3a,color:#c0d8f0
+    style Output fill:#1e2a3a,color:#c0d8f0

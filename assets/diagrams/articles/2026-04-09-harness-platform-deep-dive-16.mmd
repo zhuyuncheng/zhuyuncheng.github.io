@@ -1,0 +1,15 @@
+flowchart LR
+    subgraph sbom [SBOM 管理]
+        A[SBOM 生成\nCycloneDX/SPDX] --> B[SBOM 存储与制品签名]
+        B --> C[组件血缘图追踪]
+    end
+
+    subgraph policy [供应链策略]
+        D[SLSA 合规等级\nLevel 1-4] --> E[构建来源证明\nProvenance]
+        E --> F[部署门控合规检查]
+    end
+
+    subgraph vuln [漏洞管理]
+        G[CVE 实时订阅] --> H[受影响制品识别]
+        H --> I[自动 PR 修复建议]
+    end

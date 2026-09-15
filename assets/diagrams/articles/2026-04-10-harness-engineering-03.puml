@@ -1,0 +1,63 @@
+@startuml tool-layer
+skinparam backgroundColor #ffffff
+skinparam defaultFontColor #1e293b
+skinparam defaultFontSize 12
+skinparam componentBorderColor #3b82f6
+skinparam componentBackgroundColor #eff6ff
+skinparam componentFontColor #1e293b
+skinparam arrowColor #3b82f6
+skinparam packageBorderColor #94a3b8
+skinparam packageBackgroundColor #f8fafc
+skinparam noteBorderColor #f59e0b
+skinparam noteBackgroundColor #fffbeb
+skinparam noteFontColor #92400e
+
+title 工具层架构：LLM → Tool Router → 分类执行
+
+component "LLM 推理引擎\n生成 tool_call(name, args)" as llm #e0e7ff
+
+component "Tool Router\nHarness 核心分发器" as router #dbeafe
+
+package "读操作工具（安全 · 无副作用）" {
+    component "文件系统读取\nRead / Search / List" as fs_r #dcfce7
+    component "数据库查询\nSELECT only" as db_r #dcfce7
+    component "外部搜索\nGitHub / Search API" as search #dcfce7
+}
+
+package "写操作工具（有副作用 · 沙盒执行）" {
+    component "文件系统写入\nWrite / Edit / Delete" as fs_w #fef9c3
+    component "代码执行\nBash / Python" as exec #fef9c3
+    component "外部 API 写入\nJira / GitHub PR" as api_w #fef9c3
+    component "浏览器自动化\nPuppeteer / Playwright" as browser #fef9c3
+}
+
+component "Observation 结果\n返回给 LLM 上下文" as obs #eff6ff
+
+llm -[#6366f1]-> router : tool_call(name, args)
+router -[#16a34a]-> fs_r
+router -[#16a34a]-> db_r
+router -[#16a34a]-> search
+router -[#d97706]-> fs_w
+router -[#d97706]-> exec
+router -[#d97706]-> api_w
+router -[#d97706]-> browser
+
+fs_r -[#3b82f6]-> obs
+db_r -[#3b82f6]-> obs
+search -[#3b82f6]-> obs
+fs_w -[#3b82f6]-> obs
+exec -[#3b82f6]-> obs
+api_w -[#3b82f6]-> obs
+browser -[#3b82f6]-> obs
+
+obs -[#6366f1]-> llm : 注入 Observation
+
+note right of router
+  Router 职责
+  • 权限校验（Guardrail 前置）
+  • 参数格式化与校验
+  • 超时与重试控制
+  • 调用日志记录（可观测性）
+end note
+
+@enduml

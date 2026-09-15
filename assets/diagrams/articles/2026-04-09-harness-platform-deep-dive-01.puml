@@ -1,0 +1,30 @@
+@startuml harness-c4-context
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+
+title Harness 平台 - 系统上下文图 (C4 Level 1)
+
+Person(dev, "研发工程师", "开发、测试和部署应用")
+Person(sre, "SRE/运维工程师", "管理基础设施和系统稳定性")
+Person(em, "工程管理者", "度量工程效能和成本")
+
+System(harness, "Harness Platform", "统一软件交付平台\n提供 CI/CD、安全、成本、混沌、AI 等能力")
+
+System_Ext(scm, "代码托管 (GitHub/GitLab/Bitbucket)", "源代码版本管理")
+System_Ext(registry, "制品仓库 (Docker Hub/ECR/GCR)", "镜像和包管理")
+System_Ext(cloud, "云平台 (AWS/GCP/Azure)", "基础设施资源")
+System_Ext(k8s, "Kubernetes 集群", "容器编排")
+System_Ext(monitoring, "监控系统 (Datadog/New Relic/Prometheus)", "可观测性数据")
+System_Ext(security_tools, "安全扫描工具 (Snyk/SonarQube)", "漏洞扫描")
+
+Rel(dev, harness, "触发构建/部署/特性开关", "HTTPS/WebUI/API")
+Rel(sre, harness, "管理基础设施/运行混沌实验", "HTTPS/WebUI/API")
+Rel(em, harness, "查看效能指标/成本报告", "HTTPS/WebUI")
+
+Rel(harness, scm, "拉取代码/触发 PR 检查", "HTTPS/Webhook")
+Rel(harness, registry, "推送/拉取制品", "HTTPS")
+Rel(harness, cloud, "管理云资源/拉取成本数据", "Cloud APIs")
+Rel(harness, k8s, "部署工作负载/运行混沌实验", "Kubernetes API")
+Rel(harness, monitoring, "采集指标/持续验证", "HTTPS/APIs")
+Rel(harness, security_tools, "触发扫描/摄入结果", "HTTPS/SARIF")
+
+@enduml

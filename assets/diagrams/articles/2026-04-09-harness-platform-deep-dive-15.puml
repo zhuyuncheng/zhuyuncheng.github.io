@@ -1,0 +1,46 @@
+@startuml sto-architecture
+skinparam backgroundColor #ffffff
+skinparam rectangleBorderColor #94a3b8
+skinparam componentBorderColor #3b82f6
+
+title STO DevSecOps 安全扫描编排架构
+
+rectangle "代码阶段 (Commit/PR)" as code_stage {
+    component "SAST 静态代码分析\n(SonarQube, Semgrep)" as sast
+    component "Secret Scanning 密钥扫描\n(Gitleaks, Trufflehog)" as secret
+}
+
+rectangle "构建阶段 (Build)" as build_stage {
+    component "SCA 软件成分分析\n(Snyk, OWASP Dep-Check)" as sca
+    component "Container Scanning 镜像扫描\n(Trivy, Prisma Cloud)" as container
+}
+
+rectangle "部署阶段 (Deploy)" as deploy_stage {
+    component "DAST 动态应用安全\n(OWASP ZAP, Burp Suite)" as dast
+    component "IaC Scanning\n(Checkov, Terrascan)" as iac
+}
+
+rectangle "STO 核心处理层" as sto_core {
+    component "结果规范化 (SARIF 格式统一)" as normalize
+    component "智能去重 (跨工具漏洞合并)" as dedup
+    component "优先级计算 (CVSS + 业务权重)" as priority
+    component "豁免管理 (误报/已知风险标记)" as exemption
+}
+
+rectangle "治理与策略层" as governance {
+    component "OPA 策略引擎" as opa
+    component "Pipeline Break 阻断流水线" as break_gate
+    component "安全仪表盘" as dashboard
+}
+
+code_stage --> sto_core : 扫描结果
+build_stage --> sto_core : 扫描结果
+deploy_stage --> sto_core : 扫描结果
+normalize --> dedup
+dedup --> priority
+priority --> exemption
+exemption --> opa
+opa --> break_gate : Critical 漏洞触发阻断
+opa --> dashboard : 可视化报告
+
+@enduml

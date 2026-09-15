@@ -1,0 +1,19 @@
+sequenceDiagram
+    participant Dev as 开发者 Push
+    participant CI as CI Manager
+    participant Cache as Cache Service
+    participant Build as 构建容器
+
+    Dev->>CI: 触发构建
+    CI->>Cache: 查询缓存 key（基于依赖文件 hash）
+
+    alt 缓存命中
+        Cache-->>Build: 恢复缓存（node_modules / .m2 / go/pkg 等）
+        Build->>Build: 跳过依赖下载
+        Note over Build: 构建时间减少 60~80%
+    else 缓存未命中
+        Build->>Build: 正常下载依赖
+        Build->>Cache: 保存依赖缓存
+    end
+
+    Build->>CI: 构建结果上报

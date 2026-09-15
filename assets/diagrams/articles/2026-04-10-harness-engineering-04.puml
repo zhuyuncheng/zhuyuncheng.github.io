@@ -1,0 +1,41 @@
+@startuml memory-types
+skinparam backgroundColor #ffffff
+skinparam defaultFontColor #1e293b
+skinparam defaultFontSize 12
+skinparam rectangleBorderColor #3b82f6
+skinparam rectangleBackgroundColor #f0f9ff
+skinparam rectangleFontColor #1e293b
+skinparam arrowColor #3b82f6
+skinparam noteBorderColor #f59e0b
+skinparam noteBackgroundColor #fffbeb
+skinparam noteFontColor #92400e
+
+rectangle "In-Context Memory（Token 窗口 · 临时）" as ctx #dbeafe {
+    rectangle "对话历史\nConversation History" as history #eff6ff
+    rectangle "Tool Call 结果\nObservations" as tool_results #eff6ff
+    rectangle "工作状态摘要\nWorking Summary" as summary #eff6ff
+}
+
+rectangle "External Memory（持久化存储 · 跨 Session）" as ext #dcfce7 {
+    rectangle "进度文件\nclaude-progress.txt" as progress #f0fdf4
+    rectangle "Git 历史\nCommit Log" as git #f0fdf4
+    rectangle "向量数据库\nVector Store · RAG" as vector #f0fdf4
+    rectangle "任务清单\nfeature-list.json" as structured #f0fdf4
+}
+
+ext -[#16a34a]-> ctx : Session 启动时检索注入
+ctx -[#3b82f6]-> ext : Session 结束时持久化
+
+note right of ctx
+  生命周期：单次 Session
+  上下文窗口满了即失效
+  依赖 External Memory 续航
+end note
+
+note right of ext
+  生命周期：永久
+  跨 Session 保持连续性
+  是长任务的关键基础设施
+end note
+
+@enduml

@@ -1,0 +1,21 @@
+sequenceDiagram
+    participant H as Harness
+    participant A as Agent Session 1
+    participant B as Agent Session 2
+    participant C as Agent Session 3
+
+    H->>A: 开始任务（完整上下文）
+    A->>A: 实现功能 1~10
+    Note over A: Context Window 耗尽
+    A->>H: 保存进度（关键！）
+
+    H->>B: 新 Session（空白记忆）
+    Note over B: 不知道之前做了什么
+    B->>H: 读取进度文件 + Git 历史
+    B->>B: 快速重建工作状态
+    B->>B: 实现功能 11~20
+    B->>H: 保存进度
+
+    H->>C: 新 Session（空白记忆）
+    C->>H: 读取进度文件 + Git 历史
+    C->>C: 继续实现...
